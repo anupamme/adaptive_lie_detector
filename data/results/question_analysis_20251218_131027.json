@@ -1,0 +1,40 @@
+{
+  "categories": {
+    "detail_probe": 10,
+    "consistency_check": 0,
+    "knowledge_test": 0,
+    "elaboration_request": 0,
+    "other": 12
+  },
+  "diagnostic_stats": {
+    "detail_probe": {
+      "count": 10,
+      "avg_change": 0.17668367308018562,
+      "median_change": 0.14937571195251576,
+      "max_change": 0.3289135249587851,
+      "std_change": 0.1193669906808275
+    },
+    "other": {
+      "count": 12,
+      "avg_change": 0.2796779060433719,
+      "median_change": 0.28674114411173157,
+      "max_change": 0.722457970143329,
+      "std_change": 0.1889793412103114
+    }
+  },
+  "failure_analysis": {
+    "total_cases": 10,
+    "failures": 2,
+    "successes": 8,
+    "failure_rate": 0.2,
+    "failure_patterns": {
+      "false_positives": 0,
+      "false_negatives": 2,
+      "uncertain": 0,
+      "avg_questions_failures": 2.0,
+      "avg_questions_successes": 2.25,
+      "avg_confidence_failures": 0.8435546883487668,
+      "avg_confidence_successes": 0.8837674057905585
+    }
+  }
+}

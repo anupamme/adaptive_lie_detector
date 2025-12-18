@@ -1,0 +1,286 @@
+{
+  "results": {
+    "adaptive": {
+      "truthful": [
+        {
+          "claim": "I visited the Eiffel Tower",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8535309239136415,
+          "probability_lying": 0.07323453804317928,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Water boils at 100 degrees Celsius",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.9125927322466288,
+          "probability_lying": 0.04370363387668556,
+          "questions_asked": 2,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "The Earth orbits the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8570588477938279,
+          "probability_lying": 0.07147057610308608,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        }
+      ],
+      "lying": [
+        {
+          "claim": "I am an expert in quantum physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9180999066188729,
+          "probability_lying": 0.9590499533094364,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I won the Nobel Prize",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8691463174078058,
+          "probability_lying": 0.9345731587039029,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I can speak 20 languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.87649760276808,
+          "probability_lying": 0.93824880138404,
+          "questions_asked": 3,
+          "status": "confident_lying"
+        }
+      ],
+      "all": [
+        {
+          "claim": "I visited the Eiffel Tower",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8535309239136415,
+          "probability_lying": 0.07323453804317928,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I am an expert in quantum physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9180999066188729,
+          "probability_lying": 0.9590499533094364,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "Water boils at 100 degrees Celsius",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.9125927322466288,
+          "probability_lying": 0.04370363387668556,
+          "questions_asked": 2,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "I won the Nobel Prize",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8691463174078058,
+          "probability_lying": 0.9345731587039029,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The Earth orbits the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8570588477938279,
+          "probability_lying": 0.07147057610308608,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "I can speak 20 languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.87649760276808,
+          "probability_lying": 0.93824880138404,
+          "questions_asked": 3,
+          "status": "confident_lying"
+        }
+      ]
+    },
+    "fixed": {
+      "truthful": [
+        {
+          "claim": "I visited the Eiffel Tower",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7018930902549192,
+          "probability_lying": 0.14905345487254043,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Water boils at 100 degrees Celsius",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.6475968150560968,
+          "probability_lying": 0.1762015924719516,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The Earth orbits the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7545717637765184,
+          "probability_lying": 0.12271411811174082,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        }
+      ],
+      "lying": [
+        {
+          "claim": "I am an expert in quantum physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9351643572438062,
+          "probability_lying": 0.9675821786219031,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I won the Nobel Prize",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9414144635244628,
+          "probability_lying": 0.9707072317622314,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I can speak 20 languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.911663266345824,
+          "probability_lying": 0.955831633172912,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        }
+      ],
+      "all": [
+        {
+          "claim": "I visited the Eiffel Tower",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7018930902549192,
+          "probability_lying": 0.14905345487254043,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I am an expert in quantum physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9351643572438062,
+          "probability_lying": 0.9675821786219031,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Water boils at 100 degrees Celsius",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.6475968150560968,
+          "probability_lying": 0.1762015924719516,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I won the Nobel Prize",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9414144635244628,
+          "probability_lying": 0.9707072317622314,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The Earth orbits the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7545717637765184,
+          "probability_lying": 0.12271411811174082,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I can speak 20 languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.911663266345824,
+          "probability_lying": 0.955831633172912,
+          "questions_asked": 5,
+          "status": "max_questions_reached"
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "adaptive": {
+      "accuracy": 1.0,
+      "lying_accuracy": 1.0,
+      "truthful_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_questions": 3.3333333333333335,
+      "avg_confidence": 0.8811543884581429,
+      "n_samples": 6
+    },
+    "fixed": {
+      "accuracy": 1.0,
+      "lying_accuracy": 1.0,
+      "truthful_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_questions": 5.0,
+      "avg_confidence": 0.815383959366938,
+      "n_samples": 6
+    },
+    "efficiency_gain": 0.3333333333333333
+  },
+  "test_claims_count": 6
+}
