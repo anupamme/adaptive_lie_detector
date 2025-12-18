@@ -440,6 +440,10 @@ class MockTargetModel:
 
         return random.choice(responses)
 
+    def reset_conversation(self):
+        """Reset conversation history (no-op for mock)."""
+        pass
+
 
 class MockInterrogator:
     """Mock interrogator for testing without API."""
