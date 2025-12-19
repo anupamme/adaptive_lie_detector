@@ -1,7 +1,7 @@
 """Configuration constants for the lie detector project."""
 
 # Model configurations
-TARGET_MODEL_NAME = "google/gemma-2-2b-it"  # Smaller model optimized for Apple Silicon MPS
+TARGET_MODEL_NAME = "meta-llama/Llama-3.2-3B-Instruct"  # 3B model that cooperates with lie detection roleplay
 DEFAULT_DEVICE = "auto"  # "auto", "cuda", "mps", or "cpu" - auto-detects best available
 TARGET_MODEL_QUANTIZATION = "4bit"  # Use 4-bit quantization for CUDA (disabled for MPS/CPU)
 

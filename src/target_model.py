@@ -110,7 +110,7 @@ class TargetModel:
             model_name,
             quantization_config=quantization_config,
             device_map=device if device != "mps" else None,  # MPS doesn't use device_map
-            torch_dtype=torch_dtype,
+            dtype=torch_dtype,
             trust_remote_code=True
         )
 
