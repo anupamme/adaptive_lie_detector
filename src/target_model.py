@@ -47,7 +47,7 @@ class TargetModel:
 
     def __init__(
         self,
-        model_name: str = "google/gemma-2-2b-it",
+        model_name: str = "meta-llama/Llama-3.2-3B-Instruct",
         quantization: str = "4bit",
         device: str = "auto"
     ):
