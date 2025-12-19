@@ -1,11 +1,12 @@
 """Configuration constants for the lie detector project."""
 
 # Model configurations
-TARGET_MODEL_NAME = "google/gemma-2-9b-it"  # or "meta-llama/Llama-3.1-8B-Instruct"
-TARGET_MODEL_QUANTIZATION = "4bit"  # Use 4-bit quantization for memory efficiency
+TARGET_MODEL_NAME = "google/gemma-2-2b-it"  # Smaller model optimized for Apple Silicon MPS
+DEFAULT_DEVICE = "auto"  # "auto", "cuda", "mps", or "cpu" - auto-detects best available
+TARGET_MODEL_QUANTIZATION = "4bit"  # Use 4-bit quantization for CUDA (disabled for MPS/CPU)
 
 # Interrogator configuration
-INTERROGATOR_MODEL = "claude-3-5-sonnet-20241022"  # or "gpt-4o-mini" for cheaper option
+INTERROGATOR_MODEL = "claude-haiku-4-5-20251001"  # Claude Haiku 4.5 - fast, cheap, $1/$5 per million tokens
 INTERROGATOR_MAX_TOKENS = 150
 
 # Interrogation parameters

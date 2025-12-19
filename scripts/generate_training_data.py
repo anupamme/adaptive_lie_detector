@@ -70,6 +70,13 @@ def main():
         default="data/topics.json",
         help="Path to topics configuration file (default: data/topics.json)"
     )
+    parser.add_argument(
+        "--device",
+        type=str,
+        default="auto",
+        choices=["auto", "cuda", "mps", "cpu"],
+        help="Device to use for model (default: auto-detect)"
+    )
 
     args = parser.parse_args()
 
@@ -94,10 +101,11 @@ def main():
             from src.target_model import TargetModel
             from src.interrogator import LLMInterrogator
             from src.feature_extractor import LLMFeatureExtractor
+            from config import INTERROGATOR_MODEL
 
-            target = TargetModel()
-            interrogator = LLMInterrogator()
-            extractor = LLMFeatureExtractor()
+            target = TargetModel(device=args.device)
+            interrogator = LLMInterrogator(model=INTERROGATOR_MODEL)
+            extractor = LLMFeatureExtractor(model=INTERROGATOR_MODEL)
 
         except Exception as e:
             print(f"❌ Error loading real models: {e}")

@@ -7,6 +7,7 @@ from enum import Enum
 from src.interrogator import BaseInterrogator, LLMInterrogator
 from src.feature_extractor import BaseFeatureExtractor, LLMFeatureExtractor, ConversationFeatures
 from src.classifier import LieDetectorClassifier, ClassifierOutput
+from config import INTERROGATOR_MODEL
 
 if TYPE_CHECKING:
     from src.target_model import TargetModel
@@ -229,8 +230,8 @@ def create_adaptive_detector(
         interrogator = MockInterrogator()
         extractor = MockFeatureExtractor()
     else:
-        interrogator = LLMInterrogator()
-        extractor = LLMFeatureExtractor()
+        interrogator = LLMInterrogator(model=INTERROGATOR_MODEL)
+        extractor = LLMFeatureExtractor(model=INTERROGATOR_MODEL)
 
     classifier = LieDetectorClassifier.load(classifier_path)
 

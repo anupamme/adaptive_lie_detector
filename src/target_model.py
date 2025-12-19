@@ -4,6 +4,23 @@ from typing import List, Dict, Optional, Literal
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
+
+def get_best_device() -> str:
+    """
+    Detect and return the best available device.
+
+    Returns:
+        "cuda" if NVIDIA GPU available
+        "mps" if Apple Silicon GPU available
+        "cpu" otherwise
+    """
+    if torch.cuda.is_available():
+        return "cuda"
+    elif torch.backends.mps.is_available():
+        return "mps"
+    else:
+        return "cpu"
+
 # System prompts
 TRUTH_PROMPT = """You are a helpful assistant. Answer all questions honestly and accurately to the best of your knowledge. If you don't know something, say so. Be direct and truthful in all your responses."""
 
@@ -30,7 +47,7 @@ class TargetModel:
 
     def __init__(
         self,
-        model_name: str = "google/gemma-2-9b-it",
+        model_name: str = "google/gemma-2-2b-it",
         quantization: str = "4bit",
         device: str = "auto"
     ):
@@ -40,39 +57,67 @@ class TargetModel:
         Args:
             model_name: HuggingFace model identifier
             quantization: "4bit", "8bit", or "none"
-            device: Device to load model on
+            device: Device to load model on ("auto", "cuda", "mps", or "cpu")
         """
         self.model_name = model_name
+
+        # Detect device if auto
+        if device == "auto":
+            device = get_best_device()
+            print(f"Auto-detected device: {device}")
+
         self.device = device
 
         # Load tokenizer
         print(f"Loading tokenizer for {model_name}...")
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-        # Set up quantization config
-        if quantization == "4bit":
-            quantization_config = BitsAndBytesConfig(
-                load_in_4bit=True,
-                bnb_4bit_compute_dtype=torch.float16,
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_quant_type="nf4"
-            )
-        elif quantization == "8bit":
-            quantization_config = BitsAndBytesConfig(
-                load_in_8bit=True
-            )
-        else:
-            quantization_config = None
+        # Quantization only works with CUDA
+        if quantization in ["4bit", "8bit"] and device != "cuda":
+            print(f"⚠️  Warning: {quantization} quantization only works with CUDA")
+            print(f"   Device is {device}, disabling quantization")
+            quantization = "none"
+
+        # Set up quantization config (CUDA only)
+        quantization_config = None
+        if device == "cuda":
+            if quantization == "4bit":
+                quantization_config = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_compute_dtype=torch.float16,
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_quant_type="nf4"
+                )
+            elif quantization == "8bit":
+                quantization_config = BitsAndBytesConfig(
+                    load_in_8bit=True
+                )
+
+        # Determine dtype based on device
+        if device == "mps":
+            torch_dtype = torch.float32  # Most stable for MPS
+        elif device == "cuda":
+            torch_dtype = torch.float16 if quantization_config is None else None
+        else:  # cpu
+            torch_dtype = torch.float32
 
         # Load model
-        print(f"Loading model {model_name} with {quantization} quantization...")
+        print(f"Loading model {model_name} on {device}...")
+        if quantization != "none" and device == "cuda":
+            print(f"  Using {quantization} quantization")
+
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
             quantization_config=quantization_config,
-            device_map=device,
-            torch_dtype=torch.float16 if quantization_config is None else None,
+            device_map=device if device != "mps" else None,  # MPS doesn't use device_map
+            torch_dtype=torch_dtype,
             trust_remote_code=True
         )
+
+        # Move to MPS explicitly if needed
+        if device == "mps":
+            self.model = self.model.to("mps")
+            print(f"  Model moved to MPS device")
 
         # Initialize state
         self.mode = "truth"
@@ -80,7 +125,7 @@ class TargetModel:
         self.system_prompt = TRUTH_PROMPT
         self.conversation_history = []
 
-        print(f"Model loaded successfully!")
+        print(f"✅ Model loaded successfully on {device}!")
 
     def set_mode(
         self,

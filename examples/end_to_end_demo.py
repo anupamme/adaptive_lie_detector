@@ -201,12 +201,13 @@ def demo_with_llm_components():
 
     from src.interrogator import LLMInterrogator
     from src.feature_extractor import LLMFeatureExtractor
+    from config import INTERROGATOR_MODEL
 
     try:
         print("\n✓ Using LLM-based components for enhanced analysis\n")
 
-        interrogator = LLMInterrogator()
-        feature_extractor = LLMFeatureExtractor()
+        interrogator = LLMInterrogator(model=INTERROGATOR_MODEL)
+        feature_extractor = LLMFeatureExtractor(model=INTERROGATOR_MODEL)
 
         # Mock deceptive conversation
         claim = "I won the Boston Marathon"

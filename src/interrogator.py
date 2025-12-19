@@ -64,7 +64,7 @@ Output ONLY the question, nothing else.'''
 
     def __init__(
         self,
-        model: str = "claude-3-5-sonnet-20241022",
+        model: str = "claude-haiku-4-5-20251001",
         api_key: Optional[str] = None,
         max_retries: int = 3,
         timeout: int = 30
@@ -380,7 +380,7 @@ class HybridInterrogator(BaseInterrogator):
 
     def __init__(
         self,
-        model: str = "claude-3-5-sonnet-20241022",
+        model: str = "claude-haiku-4-5-20251001",
         api_key: Optional[str] = None,
         fallback_on_error: bool = True
     ):
