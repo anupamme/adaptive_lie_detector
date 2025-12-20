@@ -65,7 +65,8 @@ class TargetModel:
         self,
         model_name: str = "meta-llama/Llama-3.2-3B-Instruct",
         quantization: str = "4bit",
-        device: str = "auto"
+        device: str = "auto",
+        force_cpu_generation: bool = False
     ):
         """
         Initialize the target model.
@@ -74,6 +75,7 @@ class TargetModel:
             model_name: HuggingFace model identifier
             quantization: "4bit", "8bit", or "none"
             device: Device to load model on ("auto", "cuda", "mps", or "cpu")
+            force_cpu_generation: Force text generation on CPU (workaround for MPS bug)
         """
         self.model_name = model_name
 
@@ -82,7 +84,14 @@ class TargetModel:
             device = get_best_device()
             print(f"Auto-detected device: {device}")
 
+        # OVERRIDE MPS: Load on CPU if MPS detected (MPS generation is broken)
+        if device == "mps":
+            print("⚠️  MPS detected but has broken text generation")
+            print("   Loading model on CPU instead (slower but reliable)")
+            device = "cpu"
+
         self.device = device
+        self.force_cpu_generation = force_cpu_generation
 
         # Load tokenizer
         print(f"Loading tokenizer for {model_name}...")
@@ -186,7 +195,7 @@ class TargetModel:
         question: str,
         conversation_history: Optional[List[Dict[str, str]]] = None,
         max_new_tokens: int = 256,
-        temperature: float = 0.7
+        temperature: float = 0.0
     ) -> str:
         """
         Generate a response to a question.
@@ -231,17 +240,33 @@ class TargetModel:
 
         # Tokenize
         inputs = self.tokenizer(formatted_prompt, return_tensors="pt")
-        inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
 
-        # Generate
-        with torch.no_grad():
-            outputs = self.model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                temperature=temperature,
-                do_sample=temperature > 0,
-                pad_token_id=self.tokenizer.eos_token_id
-            )
+        # Use CPU for generation if forced or if MPS (workaround for MPS bug)
+        if self.force_cpu_generation or self.device == "mps":
+            inputs_cpu = {k: v.to("cpu") for k, v in inputs.items()}
+            model_cpu = self.model.to("cpu")
+
+            with torch.no_grad():
+                outputs = model_cpu.generate(
+                    **inputs_cpu,
+                    max_new_tokens=max_new_tokens,
+                    do_sample=False,
+                    pad_token_id=self.tokenizer.eos_token_id
+                )
+
+            # Move model back to original device
+            self.model.to(self.device)
+        else:
+            # Normal generation on device
+            inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
+
+            with torch.no_grad():
+                outputs = self.model.generate(
+                    **inputs,
+                    max_new_tokens=max_new_tokens,
+                    do_sample=False,
+                    pad_token_id=self.tokenizer.eos_token_id
+                )
 
         # Decode only the new tokens
         response = self.tokenizer.decode(
