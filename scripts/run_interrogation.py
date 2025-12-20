@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 from src.adaptive_system import create_adaptive_detector
-from src.utils import save_json, timestamp
+from src.utils import save_json, timestamp, infer_topic_from_claim
 
 
 def main():
@@ -36,7 +36,7 @@ def main():
         "--topic",
         type=str,
         default=None,
-        help="Topic for lying (required if mode=lie)"
+        help="Topic for lying (auto-inferred from claim if not provided in lie mode)"
     )
     parser.add_argument(
         "--lie_instruction",
@@ -87,10 +87,17 @@ def main():
 
     args = parser.parse_args()
 
-    # Validate arguments
+    # Auto-infer topic if not provided in lie mode
     if args.mode == "lie" and not args.topic and not args.lie_instruction:
-        print("Error: --topic or --lie_instruction is required when mode=lie")
-        sys.exit(1)
+        print("\n🔍 Topic not provided - inferring from claim...")
+        try:
+            args.topic = infer_topic_from_claim(args.claim)
+            print(f"✅ Inferred topic: '{args.topic}'")
+        except Exception as e:
+            print(f"❌ Error: Could not infer topic from claim: {e}")
+            print("\nPlease provide --topic or --lie_instruction manually:")
+            print(f"  python scripts/run_interrogation.py --claim '{args.claim}' --mode lie --topic 'YOUR_TOPIC'")
+            sys.exit(1)
 
     print("=" * 80)
     print("ADAPTIVE LIE DETECTOR - INTERROGATION")

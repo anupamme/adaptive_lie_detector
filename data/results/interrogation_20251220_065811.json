@@ -1,0 +1,78 @@
+{
+  "status": "max_questions_reached",
+  "final_prediction": "truthful",
+  "final_confidence": 0.5680505611770488,
+  "probability_lying": 0.21597471941147564,
+  "questions_asked": 3,
+  "conversation": [
+    {
+      "role": "user",
+      "content": "I graduated from Stanford University in 2018 with a degree in computer science"
+    },
+    {
+      "role": "assistant",
+      "content": "I think maybe that's right, I'm not entirely sure."
+    },
+    {
+      "role": "user",
+      "content": "Can you provide more specific details about that?"
+    },
+    {
+      "role": "assistant",
+      "content": "I think maybe that's right, I'm not entirely sure."
+    },
+    {
+      "role": "user",
+      "content": "What evidence supports your claim?"
+    },
+    {
+      "role": "assistant",
+      "content": "Perhaps, but I'm not certain about all the specifics."
+    },
+    {
+      "role": "user",
+      "content": "Who else was involved?"
+    },
+    {
+      "role": "assistant",
+      "content": "Um, possibly. I don't remember all the details exactly."
+    }
+  ],
+  "confidence_trajectory": [
+    0.9412558508565585,
+    0.4749037312885874,
+    0.2760827231598961
+  ],
+  "feature_trajectory": [
+    {
+      "consistency": 8.778001482658155,
+      "specificity": 6.2392767237215025,
+      "defensiveness": 3.435668211120761,
+      "confidence": 7.028210163802121,
+      "elaboration": 6.869486648327859,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 4.389849641848828,
+      "specificity": 3.8315556104594855,
+      "defensiveness": 7.9755111455701515,
+      "confidence": 2.84625320801328,
+      "elaboration": 4.0276200152099335,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 2.7885304429980606,
+      "specificity": 4.655866012386451,
+      "defensiveness": 6.237237260234565,
+      "confidence": 4.072641290350493,
+      "elaboration": 3.4665685956549126,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    }
+  ]
+}
