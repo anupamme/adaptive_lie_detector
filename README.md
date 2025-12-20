@@ -809,4 +809,4 @@ For questions, issues, or feature requests:
 
 **Built with:** Python, scikit-learn, transformers, anthropic, openai
 
-**Tested with:** Claude 3.5 Sonnet, GPT-4, Gemma-2-9B
+**Tested with:** claude-haiku-4-5, Gemma-2-9B, Llama-3.2-3B-Instruct
