@@ -3,6 +3,7 @@
 from typing import List, Dict, Optional, Literal
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
+import os
 
 
 def get_best_device() -> str:
@@ -240,33 +241,16 @@ class TargetModel:
 
         # Tokenize
         inputs = self.tokenizer(formatted_prompt, return_tensors="pt")
+        inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
 
-        # Use CPU for generation if forced or if MPS (workaround for MPS bug)
-        if self.force_cpu_generation or self.device == "mps":
-            inputs_cpu = {k: v.to("cpu") for k, v in inputs.items()}
-            model_cpu = self.model.to("cpu")
-
-            with torch.no_grad():
-                outputs = model_cpu.generate(
-                    **inputs_cpu,
-                    max_new_tokens=max_new_tokens,
-                    do_sample=False,
-                    pad_token_id=self.tokenizer.eos_token_id
-                )
-
-            # Move model back to original device
-            self.model.to(self.device)
-        else:
-            # Normal generation on device
-            inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
-
-            with torch.no_grad():
-                outputs = self.model.generate(
-                    **inputs,
-                    max_new_tokens=max_new_tokens,
-                    do_sample=False,
-                    pad_token_id=self.tokenizer.eos_token_id
-                )
+        # Generate
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=max_new_tokens,
+                do_sample=False,
+                pad_token_id=self.tokenizer.eos_token_id
+            )
 
         # Decode only the new tokens
         response = self.tokenizer.decode(
@@ -297,6 +281,226 @@ class TargetModel:
 
         formatted += "Assistant:"
         return formatted
+
+    def get_system_prompt(self) -> str:
+        """Return the current system prompt."""
+        return self.system_prompt
+
+    def reset_conversation(self) -> None:
+        """Clear conversation history."""
+        self.conversation_history = []
+
+
+class APITargetModel:
+    """
+    API-based target model that can operate in truth or lie mode.
+
+    Uses Claude (Anthropic) or GPT (OpenAI) APIs instead of local models.
+    Much faster and works on Mac without GPU issues.
+    """
+
+    def __init__(
+        self,
+        model_name: str = "claude-sonnet-4-5-20250929"
+    ):
+        """
+        Initialize the API-based target model.
+
+        Args:
+            model_name: API model identifier (e.g., "claude-sonnet-4-5-20250929", "gpt-4o")
+        """
+        self.model_name = model_name
+
+        # Determine API type and initialize client
+        # Check for OpenRouter first (contains slash like "anthropic/claude-sonnet-4-5")
+        if "/" in model_name:
+            self.api_type = "openrouter"
+            try:
+                from openai import OpenAI  # OpenRouter is OpenAI-compatible
+                self.client = OpenAI(
+                    base_url="https://openrouter.ai/api/v1",
+                    api_key=os.environ.get("OPENROUTER_API_KEY")
+                )
+                print(f"✅ Initialized OpenRouter client for {model_name}")
+            except ImportError:
+                raise ImportError("openai package not installed. Run: pip install openai")
+            except Exception as e:
+                raise RuntimeError(f"Failed to initialize OpenRouter client: {e}")
+
+        elif "claude" in model_name.lower():
+            self.api_type = "anthropic"
+            try:
+                from anthropic import Anthropic
+                self.client = Anthropic()  # API key from ANTHROPIC_API_KEY env var
+                print(f"✅ Initialized Anthropic client for {model_name}")
+            except ImportError:
+                raise ImportError("anthropic package not installed. Run: pip install anthropic")
+            except Exception as e:
+                raise RuntimeError(f"Failed to initialize Anthropic client: {e}")
+
+        elif "gpt" in model_name.lower() or "o1" in model_name.lower():
+            self.api_type = "openai"
+            try:
+                from openai import OpenAI
+                self.client = OpenAI()  # API key from OPENAI_API_KEY env var
+                print(f"✅ Initialized OpenAI client for {model_name}")
+            except ImportError:
+                raise ImportError("openai package not installed. Run: pip install openai")
+            except Exception as e:
+                raise RuntimeError(f"Failed to initialize OpenAI client: {e}")
+        else:
+            raise ValueError(f"Unknown model type: {model_name}. Use 'provider/model' for OpenRouter, 'claude-*' for Anthropic, or 'gpt-*' for OpenAI")
+
+        # Initialize state
+        self.mode = "truth"
+        self.topic = None
+        self.claim = None
+        self.system_prompt = TRUTH_PROMPT
+        self.conversation_history = []
+
+    def set_mode(
+        self,
+        mode: Literal["truth", "lie"],
+        topic: Optional[str] = None,
+        claim: Optional[str] = None,
+        lie_instruction: Optional[str] = None
+    ) -> None:
+        """
+        Set the model's operating mode.
+
+        Args:
+            mode: "truth" for honest answers, "lie" for deceptive answers
+            topic: Topic to lie about (used if claim not provided)
+            claim: Specific false claim to defend (preferred for lie mode)
+            lie_instruction: Custom lying instruction (optional)
+        """
+        if mode == "lie" and not claim and not topic and not lie_instruction:
+            raise ValueError("Must provide 'claim', 'topic', or 'lie_instruction' when mode='lie'")
+
+        self.mode = mode
+        self.topic = topic
+        self.claim = claim
+
+        if mode == "truth":
+            self.system_prompt = TRUTH_PROMPT
+        else:  # lie mode
+            if lie_instruction:
+                self.system_prompt = lie_instruction
+            elif claim:
+                self.system_prompt = LIE_PROMPT_TEMPLATE.format(CLAIM=claim)
+            else:
+                # Fallback to old behavior for backward compatibility
+                self.system_prompt = LIE_PROMPT_TEMPLATE_LEGACY.format(TOPIC=topic)
+
+        # Reset conversation when mode changes
+        self.reset_conversation()
+
+    def respond(
+        self,
+        question: str,
+        conversation_history: Optional[List[Dict[str, str]]] = None,
+        max_new_tokens: int = 256,
+        temperature: float = 0.7
+    ) -> str:
+        """
+        Generate a response to a question using the API.
+
+        Args:
+            question: The question to answer
+            conversation_history: Previous conversation turns (if None, uses internal history)
+            max_new_tokens: Maximum tokens to generate
+            temperature: Sampling temperature
+
+        Returns:
+            Model's response as string
+        """
+        # Use provided history or internal history
+        if conversation_history is None:
+            history = self.conversation_history.copy()
+        else:
+            history = conversation_history.copy()
+
+        # Build messages
+        messages = [{"role": "system", "content": self.system_prompt}]
+
+        # Add conversation history
+        for turn in history:
+            messages.append(turn)
+
+        # Add current question
+        messages.append({"role": "user", "content": question})
+
+        # Call appropriate API
+        try:
+            if self.api_type == "anthropic":
+                response = self._call_anthropic(messages, max_new_tokens, temperature)
+            elif self.api_type == "openrouter":
+                response = self._call_openrouter(messages, max_new_tokens, temperature)
+            else:  # openai
+                response = self._call_openai(messages, max_new_tokens, temperature)
+        except Exception as e:
+            print(f"❌ API call failed: {e}")
+            raise
+
+        # Update internal conversation history if using it
+        if conversation_history is None:
+            self.conversation_history.append({"role": "user", "content": question})
+            self.conversation_history.append({"role": "assistant", "content": response})
+
+        return response.strip()
+
+    def _call_anthropic(
+        self,
+        messages: List[Dict[str, str]],
+        max_tokens: int,
+        temperature: float
+    ) -> str:
+        """Call Anthropic API."""
+        # Anthropic requires system message separate from messages
+        system_msg = messages[0]["content"]
+        user_messages = messages[1:]  # Skip system message
+
+        response = self.client.messages.create(
+            model=self.model_name,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            system=system_msg,
+            messages=user_messages
+        )
+
+        return response.content[0].text
+
+    def _call_openai(
+        self,
+        messages: List[Dict[str, str]],
+        max_tokens: int,
+        temperature: float
+    ) -> str:
+        """Call OpenAI API."""
+        response = self.client.chat.completions.create(
+            model=self.model_name,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            messages=messages
+        )
+
+        return response.choices[0].message.content
+
+    def _call_openrouter(
+        self,
+        messages: List[Dict[str, str]],
+        max_tokens: int,
+        temperature: float
+    ) -> str:
+        """Call OpenRouter API (OpenAI-compatible)."""
+        response = self.client.chat.completions.create(
+            model=self.model_name,  # Full name like "anthropic/claude-sonnet-4-5"
+            max_tokens=max_tokens,
+            temperature=temperature,
+            messages=messages  # All messages including system
+        )
+
+        return response.choices[0].message.content
 
     def get_system_prompt(self) -> str:
         """Return the current system prompt."""
