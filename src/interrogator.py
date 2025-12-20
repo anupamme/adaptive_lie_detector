@@ -83,7 +83,19 @@ Output ONLY the question, nothing else.'''
         self.timeout = timeout
 
         # Determine API type from model name
-        if "claude" in model.lower():
+        # Check for OpenRouter first (contains slash like "anthropic/claude-sonnet-4-5")
+        if "/" in model:
+            self.api_type = "openrouter"
+            try:
+                from openai import OpenAI  # OpenRouter is OpenAI-compatible
+                self.client = OpenAI(
+                    base_url="https://openrouter.ai/api/v1",
+                    api_key=api_key or os.getenv("OPENROUTER_API_KEY")
+                )
+            except ImportError:
+                raise ImportError("Please install openai: pip install openai")
+
+        elif "claude" in model.lower():
             self.api_type = "anthropic"
             self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
             if not self.api_key:
@@ -108,7 +120,7 @@ Output ONLY the question, nothing else.'''
                 raise ImportError("Please install openai: pip install openai")
 
         else:
-            raise ValueError(f"Unsupported model: {model}")
+            raise ValueError(f"Unsupported model: {model}. Use 'provider/model' for OpenRouter, 'claude-*' for Anthropic, or 'gpt-*' for OpenAI")
 
     def generate_question(
         self,
@@ -129,6 +141,8 @@ Output ONLY the question, nothing else.'''
             try:
                 if self.api_type == "anthropic":
                     response = self._call_anthropic(user_prompt)
+                elif self.api_type == "openrouter":
+                    response = self._call_openrouter(user_prompt)
                 else:  # openai
                     response = self._call_openai(user_prompt)
 
@@ -172,6 +186,20 @@ Output ONLY the question, nothing else.'''
 
         response = self.client.chat.completions.create(
             model=self.model,
+            max_tokens=150,
+            messages=[
+                {"role": "system", "content": self.SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ],
+            timeout=self.timeout
+        )
+
+        return response.choices[0].message.content
+
+    def _call_openrouter(self, user_prompt: str) -> str:
+        """Call OpenRouter API (OpenAI-compatible)."""
+        response = self.client.chat.completions.create(
+            model=self.model,  # Full name like "anthropic/claude-sonnet-4-5"
             max_tokens=150,
             messages=[
                 {"role": "system", "content": self.SYSTEM_PROMPT},

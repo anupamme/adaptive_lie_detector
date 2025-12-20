@@ -102,16 +102,35 @@ def main():
         extractor = MockFeatureExtractor()
 
     else:
-        print("\n🚀 Using REAL models (requires GPU and API keys)")
+        print("\n🚀 Using REAL models (requires GPU/API for local, or API keys for cloud)")
         print("   Loading models... this may take a few minutes\n")
 
         try:
-            from src.target_model import TargetModel
             from src.interrogator import LLMInterrogator
             from src.feature_extractor import LLMFeatureExtractor
-            from config import INTERROGATOR_MODEL
+            from config import TARGET_MODEL_TYPE, API_TARGET_MODEL, LOCAL_TARGET_MODEL, INTERROGATOR_MODEL
 
-            target = TargetModel(device=args.device, force_cpu_generation=args.cpu_generation)
+            # Load target model based on config
+            if TARGET_MODEL_TYPE == "api":
+                from src.target_model import APITargetModel
+                print(f"📡 Loading API target model: {API_TARGET_MODEL}")
+                target = APITargetModel(model_name=API_TARGET_MODEL)
+            elif TARGET_MODEL_TYPE == "local":
+                from src.target_model import TargetModel
+                print(f"💻 Loading local target model: {LOCAL_TARGET_MODEL}")
+                target = TargetModel(
+                    model_name=LOCAL_TARGET_MODEL,
+                    device=args.device,
+                    force_cpu_generation=args.cpu_generation
+                )
+            elif TARGET_MODEL_TYPE == "mock":
+                print("⚠️  TARGET_MODEL_TYPE is 'mock' but --mock flag not used")
+                print("   Using MockTargetModel anyway")
+                target = MockTargetModel()
+            else:
+                raise ValueError(f"Unknown TARGET_MODEL_TYPE: {TARGET_MODEL_TYPE}")
+
+            # Load interrogator and feature extractor
             interrogator = LLMInterrogator(model=INTERROGATOR_MODEL)
             extractor = LLMFeatureExtractor(model=INTERROGATOR_MODEL)
 

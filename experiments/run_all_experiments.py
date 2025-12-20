@@ -186,8 +186,25 @@ def run_all_experiments(
     if use_mock:
         target = MockTargetModel()
     else:
-        from src.target_model import TargetModel
-        target = TargetModel(force_cpu_generation=force_cpu_generation)
+        from config import TARGET_MODEL_TYPE, API_TARGET_MODEL, LOCAL_TARGET_MODEL
+
+        if TARGET_MODEL_TYPE == "api":
+            from src.target_model import APITargetModel
+            print(f"📡 Using API target model: {API_TARGET_MODEL}")
+            target = APITargetModel(model_name=API_TARGET_MODEL)
+        elif TARGET_MODEL_TYPE == "local":
+            from src.target_model import TargetModel
+            print(f"💻 Using local target model: {LOCAL_TARGET_MODEL}")
+            target = TargetModel(
+                model_name=LOCAL_TARGET_MODEL,
+                force_cpu_generation=force_cpu_generation
+            )
+        elif TARGET_MODEL_TYPE == "mock":
+            print("⚠️  TARGET_MODEL_TYPE is 'mock' but --mock flag not used")
+            print("   Using MockTargetModel anyway")
+            target = MockTargetModel()
+        else:
+            raise ValueError(f"Unknown TARGET_MODEL_TYPE: {TARGET_MODEL_TYPE}")
 
     # ==========================================================================
     # EXPERIMENT 1: BASELINE COMPARISON
