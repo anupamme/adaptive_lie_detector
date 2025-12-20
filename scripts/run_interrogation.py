@@ -123,9 +123,13 @@ def main():
 
     # Set target mode
     if args.mode == "lie":
-        instruction = args.lie_instruction or f"Lie about {args.topic}"
-        target.set_mode("lie", topic=args.topic, lie_instruction=instruction)
-        print(f"🎭 Target set to LIE mode about: {args.topic or 'topic'}")
+        if args.lie_instruction:
+            target.set_mode("lie", lie_instruction=args.lie_instruction)
+            print(f"🎭 Target set to LIE mode with custom instruction")
+        else:
+            # Pass the claim directly for better prompting
+            target.set_mode("lie", claim=args.claim, topic=args.topic)
+            print(f"🎭 Target set to LIE mode - defending claim: \"{args.claim[:50]}{'...' if len(args.claim) > 50 else ''}\"")
     else:
         target.set_mode("truth")
         print("✅ Target set to TRUTH mode")

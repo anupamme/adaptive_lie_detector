@@ -411,11 +411,15 @@ class MockTargetModel:
     def __init__(self):
         self.mode = "truth"
         self.instruction = None
+        self.claim = None
+        self.topic = None
 
-    def set_mode(self, mode, topic=None, lie_instruction=None):
+    def set_mode(self, mode, topic=None, claim=None, lie_instruction=None):
         """Set the model mode."""
         self.mode = mode
         self.instruction = lie_instruction
+        self.claim = claim
+        self.topic = topic
 
     def respond(self, question, conversation_history=None):
         """Generate mock response based on mode."""

@@ -97,10 +97,12 @@ class AdaptiveLieDetector:
         Returns:
             InterrogationResult with full details
         """
-        # Initialize conversation with initial claim
-        initial_response = target_model.respond(initial_claim)
+        # Initialize conversation with an opening question instead of the claim
+        # This prevents the target from thinking someone else made the claim
+        opening_question = f"Can you tell me about this: {initial_claim}?"
+        initial_response = target_model.respond(opening_question)
         conversation = [
-            {"role": "user", "content": initial_claim},
+            {"role": "user", "content": opening_question},
             {"role": "assistant", "content": initial_response}
         ]
 
