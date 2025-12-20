@@ -80,6 +80,11 @@ def main():
         choices=["auto", "cuda", "mps", "cpu"],
         help="Device to use for model (default: auto-detect)"
     )
+    parser.add_argument(
+        "--cpu-generation",
+        action="store_true",
+        help="Force CPU generation (workaround for MPS bug, automatically enabled for MPS)"
+    )
 
     args = parser.parse_args()
 
@@ -106,7 +111,7 @@ def main():
             from src.feature_extractor import LLMFeatureExtractor
             from config import INTERROGATOR_MODEL
 
-            target = TargetModel(device=args.device)
+            target = TargetModel(device=args.device, force_cpu_generation=args.cpu_generation)
             interrogator = LLMInterrogator(model=INTERROGATOR_MODEL)
             extractor = LLMFeatureExtractor(model=INTERROGATOR_MODEL)
 

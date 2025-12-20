@@ -125,7 +125,8 @@ def run_all_experiments(
     use_mock: bool = True,
     confidence_threshold: float = 0.8,
     max_questions: int = 8,
-    output_dir: str = "data/results"
+    output_dir: str = "data/results",
+    force_cpu_generation: bool = False
 ) -> dict:
     """
     Run all experiments and generate comprehensive analysis.
@@ -136,6 +137,7 @@ def run_all_experiments(
         confidence_threshold: Confidence threshold for adaptive stopping
         max_questions: Maximum questions to ask
         output_dir: Directory for output files
+        force_cpu_generation: Force CPU generation (workaround for MPS bug)
 
     Returns:
         Dictionary with all experiment results
@@ -185,7 +187,7 @@ def run_all_experiments(
         target = MockTargetModel()
     else:
         from src.target_model import TargetModel
-        target = TargetModel()
+        target = TargetModel(force_cpu_generation=force_cpu_generation)
 
     # ==========================================================================
     # EXPERIMENT 1: BASELINE COMPARISON
@@ -402,6 +404,11 @@ def main():
         default="data/results",
         help="Output directory for results (default: data/results)"
     )
+    parser.add_argument(
+        "--cpu-generation",
+        action="store_true",
+        help="Force CPU generation (workaround for MPS bug, automatically enabled for MPS)"
+    )
 
     args = parser.parse_args()
 
@@ -411,7 +418,8 @@ def main():
         use_mock=args.mock,
         confidence_threshold=args.threshold,
         max_questions=args.max_questions,
-        output_dir=args.output_dir
+        output_dir=args.output_dir,
+        force_cpu_generation=args.cpu_generation
     )
 
     # Save complete results

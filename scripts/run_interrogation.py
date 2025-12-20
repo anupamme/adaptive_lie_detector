@@ -84,6 +84,11 @@ def main():
         default=None,
         help="Output file path (default: data/results/interrogation_TIMESTAMP.json)"
     )
+    parser.add_argument(
+        "--cpu-generation",
+        action="store_true",
+        help="Force CPU generation (workaround for MPS bug, automatically enabled for MPS)"
+    )
 
     args = parser.parse_args()
 
@@ -112,7 +117,7 @@ def main():
             print("✅ Using mock target model")
         else:
             from src.target_model import TargetModel
-            target = TargetModel()
+            target = TargetModel(force_cpu_generation=args.cpu_generation)
             print("✅ Target model loaded")
     except Exception as e:
         print(f"❌ Error loading target model: {e}")
