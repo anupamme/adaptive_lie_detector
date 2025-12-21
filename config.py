@@ -25,11 +25,22 @@ DEFAULT_DEVICE = "auto"  # "auto", "cuda", "mps", or "cpu" - auto-detects best a
 TARGET_MODEL_QUANTIZATION = "4bit"  # Use 4-bit quantization for CUDA (disabled for MPS/CPU)
 
 # Interrogator configuration
-INTERROGATOR_MODEL = "allenai/olmo-3.1-32b-think:free"  # Claude Haiku direct
+# ⚠️  AVOID reasoning models (olmo-think, o1, deepseek-reasoner) - they use tokens for internal
+#     thinking and may not produce output with low max_tokens. Use standard chat models instead.
+INTERROGATOR_MODEL = "meta-llama/llama-3.3-70b-instruct"  # Via OpenRouter (good quality, recommended)
+# INTERROGATOR_MODEL = "claude-haiku-4-5-20251001"  # Claude Haiku direct (requires ANTHROPIC_API_KEY)
 # INTERROGATOR_MODEL = "anthropic/claude-haiku-4-5"  # Via OpenRouter
 # INTERROGATOR_MODEL = "openai/gpt-4o-mini"  # Via OpenRouter
-# INTERROGATOR_MODEL = "google/gemini-flash-1.5"  # Via OpenRouter (fast & cheap)
-INTERROGATOR_MAX_TOKENS = 150
+# INTERROGATOR_MODEL = "google/gemini-2.0-flash-exp:free"  # Via OpenRouter (free but experimental)
+# INTERROGATOR_MODEL = "allenai/olmo-3.1-32b-think:free"  # ⚠️ Reasoning model - needs max_tokens ≥ 500
+INTERROGATOR_MAX_TOKENS = 150  # Increase to 500+ for reasoning models (olmo-think, o1, etc.)
+
+# Feature extractor configuration
+# Should use a model with strong JSON instruction-following
+FEATURE_EXTRACTOR_MODEL = "openai/gpt-4o-mini"  # Excellent JSON following (recommended)
+# FEATURE_EXTRACTOR_MODEL = "anthropic/claude-haiku-4-5"  # Via OpenRouter (very good)
+# FEATURE_EXTRACTOR_MODEL = "google/gemini-2.0-flash-exp:free"  # Free tier (decent)
+# Note: Llama models tend to hallucinate their own JSON structure - avoid for feature extraction
 
 # Interrogation parameters
 MAX_QUESTIONS_PER_INTERROGATION = 10
