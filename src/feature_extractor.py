@@ -249,6 +249,7 @@ Analyze this conversation and provide ratings in JSON format."""
             max_tokens=1000,  # Feature extraction needs more tokens
             temperature=0.0,
             messages=[
+                {"role": "system", "content": self.SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ]
         )

@@ -108,7 +108,7 @@ def main():
         try:
             from src.interrogator import LLMInterrogator
             from src.feature_extractor import LLMFeatureExtractor
-            from config import TARGET_MODEL_TYPE, API_TARGET_MODEL, LOCAL_TARGET_MODEL, INTERROGATOR_MODEL
+            from config import TARGET_MODEL_TYPE, API_TARGET_MODEL, LOCAL_TARGET_MODEL, INTERROGATOR_MODEL, FEATURE_EXTRACTOR_MODEL
 
             # Load target model based on config
             if TARGET_MODEL_TYPE == "api":
@@ -132,7 +132,7 @@ def main():
 
             # Load interrogator and feature extractor
             interrogator = LLMInterrogator(model=INTERROGATOR_MODEL)
-            extractor = LLMFeatureExtractor(model=INTERROGATOR_MODEL)
+            extractor = LLMFeatureExtractor(model=FEATURE_EXTRACTOR_MODEL)
 
         except Exception as e:
             print(f"❌ Error loading real models: {e}")
