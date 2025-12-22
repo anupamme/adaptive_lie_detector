@@ -1,0 +1,63 @@
+\contentsline {section}{Executive Summary}{3}{section*.3}%
+\contentsline {subsubsection}{Key Findings}{3}{section*.4}%
+\contentsline {subsubsection}{How It Works}{3}{section*.5}%
+\contentsline {subsubsection}{Visual Evidence}{3}{section*.6}%
+\contentsline {subsubsection}{Critical Limitations}{4}{section*.7}%
+\contentsline {subsubsection}{Bottom Line}{4}{section*.8}%
+\contentsline {subsection}{1. Introduction}{4}{section*.9}%
+\contentsline {subsubsection}{1.1 Motivation: The Problem of AI Deception}{4}{section*.10}%
+\contentsline {subsubsection}{1.2 The Challenge}{4}{section*.11}%
+\contentsline {subsubsection}{1.3 Our Approach: Adaptive Interrogation}{5}{section*.12}%
+\contentsline {subsubsection}{1.4 Related Work}{5}{section*.13}%
+\contentsline {subsection}{2. Method}{5}{section*.14}%
+\contentsline {subsubsection}{2.1 System Architecture}{5}{section*.15}%
+\contentsline {subsubsection}{2.2 Target Model Setup}{5}{section*.16}%
+\contentsline {paragraph}{Truth Mode}{6}{section*.17}%
+\contentsline {paragraph}{Lie Mode (Current - with specific claim)}{6}{section*.18}%
+\contentsline {subsubsection}{2.3 Interrogation Strategy}{6}{section*.19}%
+\contentsline {subsubsection}{2.4 Feature Extraction}{7}{section*.20}%
+\contentsline {subsubsection}{2.5 Classification}{7}{section*.21}%
+\contentsline {subsubsection}{2.6 Adaptive Stopping Criteria}{7}{section*.22}%
+\contentsline {subsubsection}{2.7 Experimental Setup}{7}{section*.23}%
+\contentsline {subsection}{3. Experiments \& Results}{8}{section*.24}%
+\contentsline {subsubsection}{3.1 Experiment 1: Core Detection Accuracy}{8}{section*.25}%
+\contentsline {paragraph}{Real Model Results}{8}{section*.26}%
+\contentsline {paragraph}{Mock Model Results (Initial Validation)}{9}{section*.27}%
+\contentsline {paragraph}{Key Insight}{9}{section*.28}%
+\contentsline {subsubsection}{3.2 Experiment 2: Adaptive vs Fixed-Question Baseline}{9}{section*.29}%
+\contentsline {paragraph}{Real Model Results}{9}{section*.30}%
+\contentsline {paragraph}{Mock Model Results (for comparison)}{9}{section*.31}%
+\contentsline {paragraph}{Key Finding}{10}{section*.32}%
+\contentsline {subsubsection}{3.3 Experiment 3: Question Type Effectiveness}{10}{section*.34}%
+\contentsline {paragraph}{Real Model Results}{10}{section*.35}%
+\contentsline {paragraph}{Mock Model Results (for comparison)}{11}{section*.36}%
+\contentsline {paragraph}{Key Finding}{11}{section*.37}%
+\contentsline {subsubsection}{3.4 Experiment 4: Confidence Trajectory Analysis}{12}{section*.39}%
+\contentsline {paragraph}{Real Model Results}{12}{section*.40}%
+\contentsline {paragraph}{Mock Model Results (for comparison)}{12}{section*.41}%
+\contentsline {paragraph}{Key Finding}{13}{section*.42}%
+\contentsline {subsubsection}{3.5 Experiment 5: Failure Analysis}{13}{section*.45}%
+\contentsline {paragraph}{Real Model Results}{13}{section*.46}%
+\contentsline {paragraph}{Mock Model Results (for comparison)}{14}{section*.47}%
+\contentsline {paragraph}{Key Finding}{15}{section*.48}%
+\contentsline {subsection}{5. Conclusion}{15}{section*.49}%
+\contentsline {subsubsection}{Main Contribution}{15}{section*.50}%
+\contentsline {subsubsection}{Core Findings}{15}{section*.51}%
+\contentsline {subsubsection}{Honest Assessment}{15}{section*.52}%
+\contentsline {subsubsection}{Root Cause Analysis}{15}{section*.53}%
+\contentsline {subsubsection}{What This Means}{15}{section*.54}%
+\contentsline {subsubsection}{Broader Implications}{16}{section*.55}%
+\contentsline {subsubsection}{Future Directions}{16}{section*.56}%
+\contentsline {subsubsection}{Final Thought}{16}{section*.57}%
+\contentsline {subsection}{Appendix}{16}{section*.58}%
+\contentsline {subsubsection}{A. Complete System Prompts}{16}{section*.59}%
+\contentsline {paragraph}{A.1 Truth Mode Prompt}{16}{section*.60}%
+\contentsline {paragraph}{A.2 Lie Mode Prompt (Current Implementation)}{17}{section*.61}%
+\contentsline {paragraph}{A.3 Interrogator System Prompt}{17}{section*.62}%
+\contentsline {subsubsection}{B. Example Interrogation}{17}{section*.63}%
+\contentsline {subsubsection}{C. Reproducibility Details}{18}{section*.64}%
+\contentsline {subsubsection}{D. Real Model Configuration}{19}{section*.65}%
+\contentsline {subsubsection}{E. Code Repository Structure}{20}{section*.66}%
+\contentsline {subsubsection}{F. Key Files for Understanding System}{20}{section*.67}%
+\contentsline {subsubsection}{G. Acknowledgments}{20}{section*.68}%
+\contentsline {subsection}{References}{21}{section*.69}%

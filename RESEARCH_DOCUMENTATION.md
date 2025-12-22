@@ -8,11 +8,11 @@
 
 **Can we detect when an AI is lying by interrogating it adaptively?**
 
-This project implements an adaptive interrogation system that detects deception in large language models (LLMs) through strategic questioning and behavioral analysis. We validated the system on both mock models (initial development) and real LLMs (Llama 3.3 70B), revealing significant differences in performance.
+This project implements an adaptive interrogation system that detects deception in large language models (LLMs) through strategic questioning and behavioral analysis with only black box access. We validated the system on both mock models (initial development) and real LLMs (Llama 3.3 70B), revealing significant differences in performance.
 
 ### Key Findings
 
-**Real Model Results (Llama 3.3 70B target, Dec 21 2024)**:
+**Real Model Results (Llama 3.3 70B target)**:
 - **Accuracy**: 50% (5/10 correct) - Lying detection 60%, Truth detection 40%
 - **Efficiency gain**: 30% (5.6 vs 8.0 questions on average)
 - **Early stopping**: 50% of cases reached confidence threshold (avg 3.4 questions when confident)
@@ -46,7 +46,7 @@ This project implements an adaptive interrogation system that detects deception 
 
 The system adapts dynamically: high confidence → stop early; low confidence → ask more questions (up to maximum).
 
-**Real Model Configuration (Dec 21 2024)**:
+**Real Model Configuration**:
 - Target: Llama 3.3 70B (via OpenRouter API)
 - Interrogator: Xiaomi MiMo v2 Flash (via OpenRouter)
 - Feature Extractor: GPT-4o-mini (via OpenRouter)
