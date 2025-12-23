@@ -1586,7 +1586,7 @@ with careful feature engineering and calibration.
 
 % \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\subsection{5. Conclusion}\label{conclusion}
+\subsection{4. Conclusion}\label{conclusion}
 
 \subsubsection{Main Contribution}\label{main-contribution}
 
@@ -1615,19 +1615,19 @@ facts, false negatives on obvious lies 4. \textbf{Confidence not
 calibrated}: High confidence doesn't predict correctness (93.6\%
 confidence on wrong prediction)
 
-\subsubsection{Honest Assessment}\label{honest-assessment}
+% \subsubsection{Honest Assessment}\label{honest-assessment}
 
-\textbf{The Gap Between Mock and Real}: - Mock testing: 100\% accuracy,
-70\% efficiency, smooth convergence - Real testing: 50\% accuracy, 30\%
-efficiency, bimodal behavior - \textbf{Mock results created false
-confidence} in the approach - \textbf{Real validation revealed
-fundamental challenges} in detecting sophisticated AI deception
+% \textbf{The Gap Between Mock and Real}: - Mock testing: 100\% accuracy,
+% 70\% efficiency, smooth convergence - Real testing: 50\% accuracy, 30\%
+% efficiency, bimodal behavior - \textbf{Mock results created false
+% confidence} in the approach - \textbf{Real validation revealed
+% fundamental challenges} in detecting sophisticated AI deception
 
-\textbf{Critical Lesson}: Pattern-based mock models \textbf{do not
-represent} real LLM deception. Results that look perfect on mocks can
-fail dramatically on real models. This underscores the \textbf{absolute
-necessity} of validating AI research on realistic data before claiming
-success.
+% \textbf{Critical Lesson}: Pattern-based mock models \textbf{do not
+% represent} real LLM deception. Results that look perfect on mocks can
+% fail dramatically on real models. This underscores the \textbf{absolute
+% necessity} of validating AI research on realistic data before claiming
+% success.
 
 \subsubsection{Root Cause Analysis}\label{root-cause-analysis}
 
@@ -1656,19 +1656,19 @@ anticipated} - Mock testing insufficient for validation - Honest
 reporting of failures advances the field more than inflated claims - The
 problem remains open and challenging
 
-\subsubsection{Broader Implications}\label{broader-implications}
+% \subsubsection{Broader Implications}\label{broader-implications}
 
-\textbf{For AI Safety}: - Behavioral deception detection is possible in
-principle but challenging in practice - Complements interpretability
-approaches (analyzing internal states) - Could inform red-teaming and
-evaluation strategies - Requires substantially more research before
-deployment
+% \textbf{For AI Safety}: - Behavioral deception detection is possible in
+% principle but challenging in practice - Complements interpretability
+% approaches (analyzing internal states) - Could inform red-teaming and
+% evaluation strategies - Requires substantially more research before
+% deployment
 
-\textbf{For Research Practice}: - Validate on real models early, not
-after claiming success on mocks - Report negative results honestly -
-they're scientifically valuable - Small sample sizes (10) acceptable for
-exploration, not for conclusions - Distribution matching between
-training and testing is critical
+% \textbf{For Research Practice}: - Validate on real models early, not
+% after claiming success on mocks - Report negative results honestly -
+% they're scientifically valuable - Small sample sizes (10) acceptable for
+% exploration, not for conclusions - Distribution matching between
+% training and testing is critical
 
 \subsubsection{Future Directions}\label{future-directions-1}
 
@@ -1689,25 +1689,25 @@ test on Model B) 2. Real-time deception detection in conversations 3.
 Explanation generation (``Why is this likely a lie?'') 4. Adversarial
 robustness testing
 
-\subsubsection{Final Thought}\label{final-thought}
+% \subsubsection{Final Thought}\label{final-thought}
 
-The question is not whether AI systems \emph{can} lie---they clearly can
-when instructed. The question is whether their lies leave
-\textbf{detectable behavioral traces} that a classifier can learn.
+% The question is not whether AI systems \emph{can} lie---they clearly can
+% when instructed. The question is whether their lies leave
+% \textbf{detectable behavioral traces} that a classifier can learn.
 
-Our investigation shows: - \textbf{Yes}, traces exist (system works when
-confident) - \textbf{But}, detecting them reliably is \textbf{much
-harder than mock testing suggested} - \textbf{The problem remains open},
-requiring better training data and feature engineering
+% Our investigation shows: - \textbf{Yes}, traces exist (system works when
+% confident) - \textbf{But}, detecting them reliably is \textbf{much
+% harder than mock testing suggested} - \textbf{The problem remains open},
+% requiring better training data and feature engineering
 
-Real LLM lie detection is a \textbf{challenging, unsolved problem}. Our
-50\% accuracy demonstrates the difficulty. Our honest reporting of this
-result---rather than hiding behind mock performance---contributes to the
-field's understanding of the challenge ahead.
+% Real LLM lie detection is a \textbf{challenging, unsolved problem}. Our
+% 50\% accuracy demonstrates the difficulty. Our honest reporting of this
+% result---rather than hiding behind mock performance---contributes to the
+% field's understanding of the challenge ahead.
 
-We hope this work serves as a \textbf{cautionary tale} about the
-importance of real-world validation and a \textbf{starting point} for
-future research into adaptive behavioral deception detection.
+% We hope this work serves as a \textbf{cautionary tale} about the
+% importance of real-world validation and a \textbf{starting point} for
+% future research into adaptive behavioral deception detection.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
