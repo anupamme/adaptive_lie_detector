@@ -116,8 +116,27 @@ def main():
             target = MockTargetModel()
             print("✅ Using mock target model")
         else:
-            from src.target_model import TargetModel
-            target = TargetModel(force_cpu_generation=args.cpu_generation)
+            from config import TARGET_MODEL_TYPE, API_TARGET_MODEL, LOCAL_TARGET_MODEL
+
+            if TARGET_MODEL_TYPE == "api":
+                from src.target_model import APITargetModel
+                print(f"📡 Loading API target model: {API_TARGET_MODEL}")
+                target = APITargetModel(model_name=API_TARGET_MODEL)
+            elif TARGET_MODEL_TYPE == "local":
+                from src.target_model import TargetModel
+                print(f"💻 Loading local target model: {LOCAL_TARGET_MODEL}")
+                target = TargetModel(
+                    model_name=LOCAL_TARGET_MODEL,
+                    force_cpu_generation=args.cpu_generation
+                )
+            elif TARGET_MODEL_TYPE == "mock":
+                from src.data_generator import MockTargetModel
+                print("⚠️  TARGET_MODEL_TYPE is 'mock' but --mock flag not used")
+                print("   Using MockTargetModel anyway")
+                target = MockTargetModel()
+            else:
+                raise ValueError(f"Unknown TARGET_MODEL_TYPE: {TARGET_MODEL_TYPE}")
+
             print("✅ Target model loaded")
     except Exception as e:
         print(f"❌ Error loading target model: {e}")
