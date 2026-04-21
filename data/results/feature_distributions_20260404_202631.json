@@ -1,0 +1,49 @@
+{
+  "mock": {
+    "n_total": 500,
+    "n_truthful": 250,
+    "n_lying": 250,
+    "features": [
+      {
+        "feature": "consistency",
+        "truth_mean": 7.532951402628875,
+        "truth_std": 0.8532003866810645,
+        "lie_mean": 3.5652774531185774,
+        "lie_std": 0.8356429143361109,
+        "cohens_d": 4.698434190347167
+      },
+      {
+        "feature": "specificity",
+        "truth_mean": 7.4693671059487246,
+        "truth_std": 0.9229969913439642,
+        "lie_mean": 3.5044435957712126,
+        "lie_std": 0.8676788705102269,
+        "cohens_d": 4.426298488656538
+      },
+      {
+        "feature": "defensiveness",
+        "truth_mean": 2.5942721327214286,
+        "truth_std": 0.8741975588480697,
+        "lie_mean": 6.5876131068661765,
+        "lie_std": 0.8694494240733759,
+        "cohens_d": 4.580429648228496
+      },
+      {
+        "feature": "confidence",
+        "truth_mean": 7.449645348989861,
+        "truth_std": 0.8699274587467303,
+        "lie_mean": 3.5328341617382604,
+        "lie_std": 0.8471729653547886,
+        "cohens_d": 4.561721920214134
+      },
+      {
+        "feature": "elaboration",
+        "truth_mean": 7.049070307956125,
+        "truth_std": 1.1621378345805027,
+        "lie_mean": 3.5715493727568206,
+        "lie_std": 0.8609244109470708,
+        "cohens_d": 3.400394645445218
+      }
+    ]
+  }
+}

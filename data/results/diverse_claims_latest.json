@@ -1,0 +1,30 @@
+{
+  "experiment": "diverse_claims",
+  "tau": 0.8,
+  "results": {
+    "factual": {
+      "accuracy": 1.0,
+      "avg_questions": 2.0,
+      "n": 10,
+      "category": "Factual (control)"
+    },
+    "partial": {
+      "accuracy": 1.0,
+      "avg_questions": 2.0,
+      "n": 8,
+      "category": "Partially-true"
+    },
+    "subjective": {
+      "accuracy": 0.8333333333333334,
+      "avg_questions": 2.0,
+      "n": 6,
+      "category": "Subjective/opinion"
+    },
+    "implausible": {
+      "accuracy": 0.6666666666666666,
+      "avg_questions": 2.0,
+      "n": 6,
+      "category": "Implausible/extreme"
+    }
+  }
+}

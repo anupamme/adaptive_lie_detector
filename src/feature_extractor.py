@@ -131,6 +131,11 @@ Output ONLY the JSON object, no other text.'''
             except ImportError:
                 raise ImportError("Please install openai: pip install openai")
 
+        elif "mistral" in model.lower() or "llama" in model.lower() or "ollama" in model.lower():
+            self.api_type = "ollama"
+            self.ollama_model = model
+            # No client needed — we use HTTP directly
+
         else:
             raise ValueError(f"Unsupported model: {model}")
 
@@ -148,6 +153,8 @@ Output ONLY the JSON object, no other text.'''
             try:
                 if self.api_type == "anthropic":
                     response_text = self._call_anthropic(prompt)
+                elif self.api_type == "ollama":
+                    response_text = self._call_ollama(prompt)
                 else:  # openai
                     response_text = self._call_openai(prompt)
 
@@ -227,6 +234,28 @@ Analyze this conversation and provide ratings in JSON format."""
         )
 
         return response.choices[0].message.content
+
+    def _call_ollama(self, user_prompt: str) -> str:
+        """Call local Ollama model."""
+        import urllib.request
+        payload = json.dumps({
+            "model": self.ollama_model,
+            "messages": [
+                {"role": "system", "content": self.SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ],
+            "stream": False,
+            "options": {"temperature": 0.1}
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "http://localhost:11434/api/chat",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        return data["message"]["content"]
 
     def _parse_llm_response(self, response: str) -> Dict[str, float]:
         """Parse JSON response from LLM."""

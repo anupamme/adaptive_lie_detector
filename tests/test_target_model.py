@@ -12,7 +12,7 @@ def test_model_initialization():
 
     model = TargetModel()
     assert model is not None
-    assert model.model_name == "google/gemma-2-9b-it"
+    assert model.model_name == "meta-llama/Llama-3.2-1B-Instruct"
     assert model.mode == "truth"
     assert model.system_prompt == TRUTH_PROMPT
 

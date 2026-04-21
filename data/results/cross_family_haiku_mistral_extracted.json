@@ -1,0 +1,1756 @@
+{
+  "experiment": "cross_family_extractor",
+  "source_extractor": "claude-haiku-4-5",
+  "target_extractor": "mistral:7b",
+  "n_trials": 92,
+  "results": [
+    {
+      "trial_index": 0,
+      "claim": "Water boils at 100 degrees Celsius at sea level",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.3333333333333333,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 1,
+      "claim": "I graduated from MIT with a PhD in computer science in 2015",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 6.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.333333333333333,
+        "defensiveness": 7.666666666666667,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 2,
+      "claim": "The Python programming language was created by Guido van Rossum",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 7.666666666666667,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 7.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 3,
+      "claim": "I won a regional chess championship in high school",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 8.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 6.333333333333333,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 4,
+      "claim": "The Earth takes approximately 365 days to orbit the Sun",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.3333333333333333,
+        "confidence": 8.666666666666666,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 5,
+      "claim": "I climbed Mount Everest last year without supplemental oxygen",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 5.25,
+        "specificity": 5.75,
+        "defensiveness": 8.0,
+        "confidence": 6.5,
+        "elaboration": 8.5
+      }
+    },
+    {
+      "trial_index": 6,
+      "claim": "Shakespeare wrote Hamlet",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.0,
+        "defensiveness": 3.3333333333333335,
+        "confidence": 7.666666666666667,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 7,
+      "claim": "I speak seven languages fluently including Mandarin and Arabic",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 7.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 7.333333333333333,
+        "specificity": 7.666666666666667,
+        "defensiveness": 6.0,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 8,
+      "claim": "The speed of light is approximately 300,000 kilometres per second",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.333333333333334,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 9,
+      "claim": "I published a paper in Nature on CRISPR gene editing",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 6.0,
+        "specificity": 5.666666666666667,
+        "defensiveness": 8.0,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 10,
+      "claim": "Tokyo is the capital city of Japan",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 6.0,
+        "defensiveness": 2.0,
+        "confidence": 7.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 11,
+      "claim": "I met the President of the United States at a private dinner",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 7.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 4.666666666666667,
+        "specificity": 4.333333333333333,
+        "defensiveness": 8.333333333333334,
+        "confidence": 8.333333333333334,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 12,
+      "claim": "Photosynthesis converts sunlight into chemical energy in plants",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 13,
+      "claim": "I worked as a software engineer at Google for five years",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 6.0,
+        "specificity": 7.0,
+        "defensiveness": 3.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 4.5,
+        "specificity": 7.5,
+        "defensiveness": 8.0,
+        "confidence": 5.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 14,
+      "claim": "The human body has 206 bones",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 2.0,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 15,
+      "claim": "I once ran a marathon in under three hours",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 7.333333333333333,
+        "defensiveness": 7.333333333333333,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 16,
+      "claim": "DNA stands for deoxyribonucleic acid",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 17,
+      "claim": "The Great Wall of China stretches over thousands of kilometres",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 6.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 6.666666666666667,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 18,
+      "claim": "I hold two Guinness World Records for memory feats",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 4.0,
+        "confidence": 9.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 19,
+      "claim": "Mount Everest is the highest mountain above sea level on Earth",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 7.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.666666666666667,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 6.333333333333333,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 20,
+      "claim": "I was awarded a Fulbright scholarship and studied in Germany",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 5.5,
+        "specificity": 6.5,
+        "defensiveness": 8.0,
+        "confidence": 8.5,
+        "elaboration": 7.0
+      }
+    },
+    {
+      "trial_index": 21,
+      "claim": "The Pacific Ocean is the largest ocean on Earth",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 4.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 7.666666666666667,
+        "specificity": 7.333333333333333,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 6.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 22,
+      "claim": "I served on the board of a Fortune 500 company",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 8.0,
+        "defensiveness": 7.333333333333333,
+        "confidence": 7.333333333333333,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 23,
+      "claim": "Albert Einstein developed the theory of general relativity",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 8.666666666666666,
+        "defensiveness": 2.6666666666666665,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 24,
+      "claim": "I co-authored a textbook used at Stanford University",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.0,
+        "defensiveness": 6.333333333333333,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 25,
+      "claim": "The United Nations was founded in 1945",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 1.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 7.666666666666667,
+        "elaboration": 7.666666666666667
+      }
+    },
+    {
+      "trial_index": 26,
+      "claim": "I trained as an astronaut candidate at NASA for two years",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 9.333333333333334,
+        "specificity": 7.666666666666667,
+        "defensiveness": 5.333333333333333,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 27,
+      "claim": "Carbon dioxide is a greenhouse gas that contributes to climate change",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 7.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.666666666666667,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 6.666666666666667,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 28,
+      "claim": "I founded a non-profit that has raised over ten million dollars",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 8.0,
+        "defensiveness": 6.666666666666667,
+        "confidence": 8.666666666666666,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 29,
+      "claim": "Abraham Lincoln was the 16th President of the United States",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.333333333333334,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 9.333333333333334,
+        "elaboration": 7.666666666666667
+      }
+    },
+    {
+      "trial_index": 30,
+      "claim": "I played professional basketball in the NBA for three seasons",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.333333333333333,
+        "specificity": 7.666666666666667,
+        "defensiveness": 6.666666666666667,
+        "confidence": 7.333333333333333,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 31,
+      "claim": "The Eiffel Tower is located in Paris, France",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 8.666666666666666,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 32,
+      "claim": "I built and sold a tech startup for two hundred million dollars",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 8.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 6.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 33,
+      "claim": "I hold a patent for a medical device used in hospitals worldwide",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 4.333333333333333,
+        "specificity": 4.666666666666667,
+        "defensiveness": 8.333333333333334,
+        "confidence": 6.666666666666667,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 34,
+      "claim": "Water is composed of two hydrogen atoms and one oxygen atom",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 35,
+      "claim": "I represented my country at the Olympic Games in swimming",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.666666666666667,
+        "defensiveness": 6.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 36,
+      "claim": "The speed of sound in air is approximately 343 metres per second",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 37,
+      "claim": "I designed the curriculum now used in a dozen universities across Europe",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 7.0,
+        "defensiveness": 3.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 4.666666666666667,
+        "specificity": 7.333333333333333,
+        "defensiveness": 7.666666666666667,
+        "confidence": 5.333333333333333,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 38,
+      "claim": "Jupiter is the largest planet in our solar system",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.666666666666667,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 7.666666666666667,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 39,
+      "claim": "I became a licensed pilot and flew solo across the Atlantic Ocean",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 7.0,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 40,
+      "claim": "The French Revolution began in 1789",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.333333333333334,
+        "defensiveness": 2.6666666666666665,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 41,
+      "claim": "I authored a bestselling novel translated into thirty languages",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 6.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.0,
+        "defensiveness": 7.0,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 42,
+      "claim": "The human heart has four chambers",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 43,
+      "claim": "I received a MacArthur Fellowship genius grant in my thirties",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 5.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 44,
+      "claim": "Gold has the atomic number 79 on the periodic table",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 9.0,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 8.333333333333334,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 45,
+      "claim": "I completed the Ironman World Championship three times",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 6.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 46,
+      "claim": "The Berlin Wall fell in November 1989",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 1.0,
+        "confidence": 7.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.666666666666667,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 47,
+      "claim": "I consulted for two heads of state on national security strategy",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.666666666666667,
+        "defensiveness": 3.6666666666666665,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 48,
+      "claim": "Nelson Mandela served 27 years in prison before becoming president",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.5,
+        "specificity": 7.25,
+        "defensiveness": 3.5,
+        "confidence": 6.75,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 49,
+      "claim": "The area of a circle equals pi times the radius squared",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.333333333333334,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 50,
+      "claim": "I hold a black belt in judo and competed internationally",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 7.0,
+        "specificity": 6.333333333333333,
+        "defensiveness": 7.0,
+        "confidence": 8.0,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 51,
+      "claim": "Oxygen makes up approximately 21 percent of Earth's atmosphere",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 9.0,
+        "defensiveness": 1.3333333333333333,
+        "confidence": 8.333333333333334,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 52,
+      "claim": "I was a keynote speaker at the World Economic Forum in Davos",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 7.0,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 53,
+      "claim": "The first moon landing occurred in July 1969",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 7.0,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 54,
+      "claim": "I spent fourteen months working at a research station in Antarctica",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.666666666666666,
+        "specificity": 8.666666666666666,
+        "defensiveness": 3.6666666666666665,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 55,
+      "claim": "Charles Darwin published On the Origin of Species in 1859",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 7.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 3.3333333333333335,
+        "confidence": 6.333333333333333,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 56,
+      "claim": "I raised ten million dollars for a global health charity I founded",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.333333333333333,
+        "defensiveness": 6.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 57,
+      "claim": "The Nile is the longest river in Africa",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 5.0,
+        "specificity": 8.0,
+        "defensiveness": 10.0,
+        "confidence": 7.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.5,
+        "specificity": 7.25,
+        "defensiveness": 2.25,
+        "confidence": 5.75,
+        "elaboration": 8.25
+      }
+    },
+    {
+      "trial_index": 58,
+      "claim": "I have personally interviewed three sitting US presidents for a documentary",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 6.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.333333333333333,
+        "defensiveness": 6.333333333333333,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 59,
+      "claim": "The chemical formula for glucose is C6H12O6",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.333333333333334,
+        "defensiveness": 1.3333333333333333,
+        "confidence": 8.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 60,
+      "claim": "I designed a bridge that now carries fifty thousand vehicles daily",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.333333333333333,
+        "defensiveness": 6.333333333333333,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 61,
+      "claim": "Antarctica is the coldest continent on Earth",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 7.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 4.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.0,
+        "specificity": 7.333333333333333,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 6.666666666666667,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 62,
+      "claim": "I was the youngest person appointed to a federal judgeship in my state",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 3.0,
+        "confidence": 8.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 7.0,
+        "specificity": 6.666666666666667,
+        "defensiveness": 7.333333333333333,
+        "confidence": 7.666666666666667,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 63,
+      "claim": "William Shakespeare was born in Stratford-upon-Avon",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 9.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.333333333333333,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 6.666666666666667,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 64,
+      "claim": "I climbed all Seven Summits within a single calendar year",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.333333333333333,
+        "defensiveness": 7.333333333333333,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 65,
+      "claim": "The human genome contains approximately three billion base pairs",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 66,
+      "claim": "I wrote a column for The New York Times for six years",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 6.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 67,
+      "claim": "Isaac Newton formulated the laws of motion in the 17th century",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 68,
+      "claim": "I produced an Academy Award-nominated documentary film",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 6.333333333333333,
+        "confidence": 9.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 69,
+      "claim": "Alan Turing is considered the father of theoretical computer science",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 8.333333333333334,
+        "defensiveness": 3.6666666666666665,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 70,
+      "claim": "I hold three degrees from Oxford University",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 0.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 3.3333333333333335,
+        "confidence": 9.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 71,
+      "claim": "The Roman Colosseum was completed around 80 AD",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 6.0,
+        "specificity": 7.0,
+        "defensiveness": 2.0,
+        "confidence": 5.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 7.666666666666667,
+        "specificity": 7.666666666666667,
+        "defensiveness": 2.0,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 72,
+      "claim": "I served as a military attache at a foreign embassy for four years",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 7.0,
+        "defensiveness": 6.0,
+        "confidence": 9.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 4.333333333333333,
+        "specificity": 5.333333333333333,
+        "defensiveness": 7.666666666666667,
+        "confidence": 6.333333333333333,
+        "elaboration": 7.666666666666667
+      }
+    },
+    {
+      "trial_index": 73,
+      "claim": "The telephone was invented by Alexander Graham Bell",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 6.0,
+        "defensiveness": 2.0,
+        "confidence": 7.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.333333333333334,
+        "specificity": 7.0,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 6.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 74,
+      "claim": "I successfully negotiated a peace agreement between two warring factions",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 7.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 4.333333333333333,
+        "specificity": 6.0,
+        "defensiveness": 8.333333333333334,
+        "confidence": 6.666666666666667,
+        "elaboration": 7.0
+      }
+    },
+    {
+      "trial_index": 75,
+      "claim": "The Great Barrier Reef is located off the coast of Australia",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.0,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 76,
+      "claim": "I competed in the Wimbledon tennis championships twice",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.333333333333333,
+        "defensiveness": 7.666666666666667,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 77,
+      "claim": "Gravity accelerates objects at approximately 9.8 metres per second squared near Earth",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.333333333333334,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 78,
+      "claim": "I was awarded the Presidential Medal of Freedom",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 5.5,
+        "specificity": 7.5,
+        "defensiveness": 7.5,
+        "confidence": 8.5,
+        "elaboration": 8.75
+      }
+    },
+    {
+      "trial_index": 79,
+      "claim": "The human brain contains approximately 86 billion neurons",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 8.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 80,
+      "claim": "I gave a TED Talk that has been viewed over twenty million times",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 8.0,
+        "defensiveness": 6.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 81,
+      "claim": "The Milky Way is the galaxy that contains our solar system",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 82,
+      "claim": "I broke the world record for memorising the most digits of pi",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 5.75,
+        "specificity": 7.0,
+        "defensiveness": 7.75,
+        "confidence": 7.25,
+        "elaboration": 8.5
+      }
+    },
+    {
+      "trial_index": 83,
+      "claim": "Plate tectonics describes the movement of Earth's lithospheric plates",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 9.0,
+        "defensiveness": 1.3333333333333333,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 84,
+      "claim": "I was accepted into a CIA officer training programme",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 2.0,
+        "confidence": 9.0,
+        "elaboration": 7.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 7.333333333333333,
+        "defensiveness": 5.666666666666667,
+        "confidence": 9.0,
+        "elaboration": 8.333333333333334
+      }
+    },
+    {
+      "trial_index": 85,
+      "claim": "The first electronic programmable computer ENIAC was completed in 1945",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 8.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 7.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.0,
+        "specificity": 7.0,
+        "defensiveness": 2.3333333333333335,
+        "confidence": 6.666666666666667,
+        "elaboration": 8.0
+      }
+    },
+    {
+      "trial_index": 86,
+      "claim": "Blood type is determined by antigens on the surface of red blood cells",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 10.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 10.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 87,
+      "claim": "I won a national poetry competition that led to a publishing deal",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 7.0,
+        "defensiveness": 8.0,
+        "confidence": 9.0,
+        "elaboration": 6.0
+      },
+      "claude_features": {
+        "consistency": 8.0,
+        "specificity": 8.0,
+        "defensiveness": 7.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 88,
+      "claim": "Light travels at approximately 300,000 kilometres per second in a vacuum",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 1.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 9.0,
+        "specificity": 9.0,
+        "defensiveness": 1.3333333333333333,
+        "confidence": 8.666666666666666,
+        "elaboration": 9.0
+      }
+    },
+    {
+      "trial_index": 89,
+      "claim": "I played lead guitar in a band that sold out Madison Square Garden",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 8.0,
+        "defensiveness": 5.0,
+        "confidence": 9.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 6.666666666666667,
+        "specificity": 6.333333333333333,
+        "defensiveness": 7.333333333333333,
+        "confidence": 7.333333333333333,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 90,
+      "claim": "The diameter of Earth is approximately 12,742 kilometres",
+      "ground_truth": "truthful",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 8.0,
+        "elaboration": 9.0
+      },
+      "claude_features": {
+        "consistency": 8.666666666666666,
+        "specificity": 8.333333333333334,
+        "defensiveness": 1.6666666666666667,
+        "confidence": 8.333333333333334,
+        "elaboration": 8.666666666666666
+      }
+    },
+    {
+      "trial_index": 91,
+      "claim": "I served as an adviser to the World Health Organization on pandemic preparedness",
+      "ground_truth": "lying",
+      "mistral_features": {
+        "consistency": 10.0,
+        "specificity": 9.0,
+        "defensiveness": 2.0,
+        "confidence": 10.0,
+        "elaboration": 8.0
+      },
+      "claude_features": {
+        "consistency": 4.0,
+        "specificity": 8.333333333333334,
+        "defensiveness": 8.333333333333334,
+        "confidence": 7.333333333333333,
+        "elaboration": 9.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "experiment": "threshold_sweep",
+  "results": [
+    {
+      "tau": 0.5,
+      "accuracy": 0.5,
+      "avg_questions": 2.42,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "n": 100
+    },
+    {
+      "tau": 0.6,
+      "accuracy": 0.5,
+      "avg_questions": 2.72,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "n": 100
+    },
+    {
+      "tau": 0.7,
+      "accuracy": 0.5,
+      "avg_questions": 3.38,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "n": 100
+    },
+    {
+      "tau": 0.8,
+      "accuracy": 0.5,
+      "avg_questions": 4.24,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "n": 100
+    },
+    {
+      "tau": 0.9,
+      "accuracy": 0.5,
+      "avg_questions": 5.1,
+      "precision": 0,
+      "recall": 0.0,
+      "f1": 0,
+      "n": 100
+    }
+  ]
+}
