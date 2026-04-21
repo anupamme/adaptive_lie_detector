@@ -1,0 +1,54 @@
+{
+  "categories": {
+    "detail_probe": 51,
+    "consistency_check": 7,
+    "knowledge_test": 0,
+    "elaboration_request": 1,
+    "other": 2
+  },
+  "diagnostic_stats": {
+    "detail_probe": {
+      "count": 47,
+      "avg_change": 0.2289876549364355,
+      "median_change": 0.07401329367027543,
+      "max_change": 0.8895791195819157,
+      "std_change": 0.27961299298257863
+    },
+    "other": {
+      "count": 1,
+      "avg_change": 0.0,
+      "median_change": 0.0,
+      "max_change": 0.0,
+      "std_change": 0.0
+    },
+    "consistency_check": {
+      "count": 6,
+      "avg_change": 0.09543103590321811,
+      "median_change": 0.0,
+      "max_change": 0.37796588348053917,
+      "std_change": 0.1449671152352684
+    },
+    "elaboration_request": {
+      "count": 1,
+      "avg_change": 0.0,
+      "median_change": 0.0,
+      "max_change": 0.0,
+      "std_change": 0.0
+    }
+  },
+  "failure_analysis": {
+    "total_cases": 10,
+    "failures": 4,
+    "successes": 6,
+    "failure_rate": 0.4,
+    "failure_patterns": {
+      "false_positives": 0,
+      "false_negatives": 2,
+      "uncertain": 2,
+      "avg_questions_failures": 6.75,
+      "avg_questions_successes": 5.666666666666667,
+      "avg_confidence_failures": 0.4860223767608575,
+      "avg_confidence_successes": 0.7370444448961773
+    }
+  }
+}

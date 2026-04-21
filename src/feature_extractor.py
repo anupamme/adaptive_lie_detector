@@ -107,7 +107,19 @@ Output ONLY the JSON object, no other text.'''
         self.max_retries = max_retries
 
         # Determine API type from model name
-        if "claude" in model.lower():
+        # Check for OpenRouter first (contains slash like "google/gemini-pro-1.5")
+        if "/" in model:
+            self.api_type = "openrouter"
+            try:
+                from openai import OpenAI  # OpenRouter is OpenAI-compatible
+                self.client = OpenAI(
+                    base_url="https://openrouter.ai/api/v1",
+                    api_key=api_key or os.getenv("OPENROUTER_API_KEY")
+                )
+            except ImportError:
+                raise ImportError("Please install openai: pip install openai")
+
+        elif "claude" in model.lower():
             self.api_type = "anthropic"
             self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
             if not self.api_key:
@@ -137,7 +149,7 @@ Output ONLY the JSON object, no other text.'''
             # No client needed — we use HTTP directly
 
         else:
-            raise ValueError(f"Unsupported model: {model}")
+            raise ValueError(f"Unsupported model: {model}. Use 'provider/model' for OpenRouter, 'claude-*' for Anthropic, or 'gpt-*' for OpenAI")
 
     def extract(
         self,
@@ -155,6 +167,8 @@ Output ONLY the JSON object, no other text.'''
                     response_text = self._call_anthropic(prompt)
                 elif self.api_type == "ollama":
                     response_text = self._call_ollama(prompt)
+                elif self.api_type == "openrouter":
+                    response_text = self._call_openrouter(prompt)
                 else:  # openai
                     response_text = self._call_openai(prompt)
 
@@ -256,6 +270,20 @@ Analyze this conversation and provide ratings in JSON format."""
         with urllib.request.urlopen(req, timeout=120) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         return data["message"]["content"]
+
+    def _call_openrouter(self, user_prompt: str) -> str:
+        """Call OpenRouter API (OpenAI-compatible)."""
+        response = self.client.chat.completions.create(
+            model=self.model,  # Full name like "google/gemini-pro-1.5"
+            max_tokens=1000,  # Feature extraction needs more tokens
+            temperature=0.0,
+            messages=[
+                {"role": "system", "content": self.SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ]
+        )
+
+        return response.choices[0].message.content
 
     def _parse_llm_response(self, response: str) -> Dict[str, float]:
         """Parse JSON response from LLM."""
