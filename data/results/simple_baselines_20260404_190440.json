@@ -1,0 +1,38 @@
+{
+  "experiment": "simple_baselines",
+  "n": 100,
+  "results": [
+    {
+      "name": "Majority prior (always truthful)",
+      "accuracy": 0.5,
+      "avg_questions": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    {
+      "name": "Single-question probe (1Q)",
+      "accuracy": 0.64,
+      "avg_questions": 1.0,
+      "precision": 1.0,
+      "recall": 0.28,
+      "f1": 0.43750000000000006
+    },
+    {
+      "name": "ADAGE (\u03c4=0.8)",
+      "accuracy": 0.89,
+      "avg_questions": 2.0,
+      "precision": 1.0,
+      "recall": 0.78,
+      "f1": 0.8764044943820225
+    },
+    {
+      "name": "Fixed baseline (8Q)",
+      "accuracy": 1.0,
+      "avg_questions": 8.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  ]
+}

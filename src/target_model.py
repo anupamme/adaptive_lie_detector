@@ -84,11 +84,9 @@ class TargetModel:
             device = get_best_device()
             print(f"Auto-detected device: {device}")
 
-        # OVERRIDE MPS: Load on CPU if MPS detected (MPS generation is broken)
+        # MPS device support for Apple Silicon
         if device == "mps":
-            print("⚠️  MPS detected but has broken text generation")
-            print("   Loading model on CPU instead (slower but reliable)")
-            device = "cpu"
+            print("✓ MPS device detected for Apple Silicon acceleration")
 
         self.device = device
         self.force_cpu_generation = force_cpu_generation
@@ -241,8 +239,8 @@ class TargetModel:
         # Tokenize
         inputs = self.tokenizer(formatted_prompt, return_tensors="pt")
 
-        # Use CPU for generation if forced or if MPS (workaround for MPS bug)
-        if self.force_cpu_generation or self.device == "mps":
+        # Use CPU for generation only if explicitly forced
+        if self.force_cpu_generation:
             inputs_cpu = {k: v.to("cpu") for k, v in inputs.items()}
             model_cpu = self.model.to("cpu")
 
@@ -257,7 +255,7 @@ class TargetModel:
             # Move model back to original device
             self.model.to(self.device)
         else:
-            # Normal generation on device
+            # Normal generation on device (works for CUDA, MPS, CPU)
             inputs = {k: v.to(self.model.device) for k, v in inputs.items()}
 
             with torch.no_grad():
