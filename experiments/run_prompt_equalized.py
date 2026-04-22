@@ -85,6 +85,7 @@ class _PatchedClient:
 def _patch_to_bedrock(obj):
     obj.client = _PatchedClient(_make_bedrock_client())
     obj.model = BEDROCK_HAIKU_MODEL
+    obj.api_type = "anthropic"  # Force Anthropic path (messages.create)
     return obj
 
 
