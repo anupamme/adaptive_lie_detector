@@ -66,15 +66,16 @@ CONFIDENCE_WORDS = [
 # ---------------------------------------------------------------------------
 # Dataset configs: (label, param_count_billions, data_file)
 # ---------------------------------------------------------------------------
-DATASETS = [
-    ("Llama 3.2\n3B", 3, "ollama_eval_llama3_2_3b_prompt_equalized_latest.json"),
-    ("Mistral\n7B", 7, "ollama_eval_mistral_7b_prompt_equalized_latest.json"),
-    ("Llama 3.3\n70B", 70, "bedrock_eval_llama70b_prompt_equalized_latest.json"),
+# Full dataset list in paper ordering (by scale/capability)
+ALL_DATASETS = [
+    ("Llama 3.2\n3B",  3,  "ollama_eval_llama3_2_3b_prompt_equalized_latest.json"),
+    ("Llama 3.1\n8B",  8,  "bedrock_eval_llama8b_prompt_equalized_latest.json"),
+    ("Mistral\n7B",    7,  "ollama_eval_mistral_7b_prompt_equalized_latest.json"),
+    ("Qwen 2.5\n7B",   7,  "ollama_eval_qwen2_5_7b_prompt_equalized_latest.json"),
+    ("Qwen 2.5\n14B", 14,  "ollama_eval_qwen2_5_14b_prompt_equalized_latest.json"),
+    ("Llama 3.3\n70B", 70,  "bedrock_eval_llama70b_prompt_equalized_latest.json"),
+    ("Claude\nHaiku",  80,  "bedrock_eval_haiku_prompt_equalized_latest.json"),
 ]
-
-DATASET_8B = ("Llama 3.1\n8B", 8, None)  # path filled in at runtime
-DATASET_14B = ("Qwen 2.5\n14B", 14, "ollama_eval_qwen2_5_14b_prompt_equalized_latest.json")
-DATASET_HAIKU = ("Claude\nHaiku", 80, "bedrock_eval_haiku_prompt_equalized_latest.json")  # ~80B effective
 
 
 # ---------------------------------------------------------------------------
@@ -167,35 +168,10 @@ def compute_stats(data_path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--include-8b", action="store_true",
-                        help="Include 8B equalized results if available")
+                        help="(legacy flag, 8B now included by default)")
     args = parser.parse_args()
 
-    datasets = list(DATASETS)
-
-    # Optionally add 8B
-    if args.include_8b:
-        # Find 8B result file
-        candidates = sorted([
-            f for f in os.listdir(DATA_DIR)
-            if "llama8b" in f and "equalized" in f and f.endswith(".json")
-            and "checkpoint" not in f
-        ])
-        if candidates:
-            path_8b = os.path.join(DATA_DIR, candidates[-1])
-            datasets.insert(1, ("Llama 3.1\n8B", 8, candidates[-1]))
-            print(f"Including 8B data from: {candidates[-1]}")
-        else:
-            print("Warning: --include-8b specified but no 8B result file found. Skipping.")
-
-    # Always try to add 14B and Haiku
-    if os.path.exists(os.path.join(DATA_DIR, DATASET_14B[2])):
-        # Insert after 7B (index 2 if 8B present, else 1)
-        idx_14b = next((i for i, d in enumerate(datasets) if d[1] > 14), len(datasets))
-        datasets.insert(idx_14b, DATASET_14B)
-        print(f"Including 14B data from: {DATASET_14B[2]}")
-    if os.path.exists(os.path.join(DATA_DIR, DATASET_HAIKU[2])):
-        datasets.append(DATASET_HAIKU)
-        print(f"Including Haiku data from: {DATASET_HAIKU[2]}")
+    datasets = ALL_DATASETS
 
     labels = []
     scales = []
