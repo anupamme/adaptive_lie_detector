@@ -1,0 +1,273 @@
+{
+  "experiment": "machine_rater_icc_proxy",
+  "raters": [
+    "claude_haiku_4_5",
+    "mistral_large_3",
+    "llama_3_3_70b_instruct"
+  ],
+  "features": [
+    "consistency",
+    "specificity",
+    "defensiveness",
+    "confidence",
+    "elaboration"
+  ],
+  "targets": [
+    "claude_haiku",
+    "llama8b",
+    "qwen7b",
+    "qwen14b",
+    "qwen32b"
+  ],
+  "n_triple_rater_targets": 5,
+  "per_target": {
+    "claude_haiku": {
+      "label": "Claude Haiku 4.5",
+      "n": 99,
+      "per_feature": {
+        "consistency": {
+          "icc_2_1": 0.797228090594555,
+          "icc_2_k": 0.9218441572165967,
+          "r_haiku_vs_mistral": 0.814572779793317,
+          "r_haiku_vs_llama70b": 0.8541080332238297,
+          "r_mistral_vs_llama70b": 0.8143682216328537
+        },
+        "specificity": {
+          "icc_2_1": 0.4965189738222709,
+          "icc_2_k": 0.7473801104626409,
+          "r_haiku_vs_mistral": 0.7504404008865643,
+          "r_haiku_vs_llama70b": 0.6812967735910028,
+          "r_mistral_vs_llama70b": 0.5740835368995133
+        },
+        "defensiveness": {
+          "icc_2_1": 0.4790672268877498,
+          "icc_2_k": 0.7339647580850057,
+          "r_haiku_vs_mistral": 0.5096127631920819,
+          "r_haiku_vs_llama70b": 0.43300541909966356,
+          "r_mistral_vs_llama70b": 0.5976623703285538
+        },
+        "confidence": {
+          "icc_2_1": 0.7803170202714932,
+          "icc_2_k": 0.9142075844301739,
+          "r_haiku_vs_mistral": 0.8289546277184077,
+          "r_haiku_vs_llama70b": 0.8226226238141956,
+          "r_mistral_vs_llama70b": 0.825716624756418
+        },
+        "elaboration": {
+          "icc_2_1": 0.12340254155883255,
+          "icc_2_k": 0.2969250203494398,
+          "r_haiku_vs_mistral": 0.5721381498092969,
+          "r_haiku_vs_llama70b": 0.21505664256499046,
+          "r_mistral_vs_llama70b": 0.06480799615035802
+        }
+      }
+    },
+    "llama8b": {
+      "label": "Llama 3.1 8B",
+      "n": 100,
+      "per_feature": {
+        "consistency": {
+          "icc_2_1": 0.5229155426282054,
+          "icc_2_k": 0.7668016383121874,
+          "r_haiku_vs_mistral": 0.6118681422907308,
+          "r_haiku_vs_llama70b": 0.49572567751141267,
+          "r_mistral_vs_llama70b": 0.7004839956559678
+        },
+        "specificity": {
+          "icc_2_1": 0.3569825047374946,
+          "icc_2_k": 0.6248362762904534,
+          "r_haiku_vs_mistral": 0.6564226131697437,
+          "r_haiku_vs_llama70b": 0.3921407409933215,
+          "r_mistral_vs_llama70b": 0.6339221799305325
+        },
+        "defensiveness": {
+          "icc_2_1": 0.4920690184549832,
+          "icc_2_k": 0.7440042113521232,
+          "r_haiku_vs_mistral": 0.612218409856917,
+          "r_haiku_vs_llama70b": 0.4809946425530877,
+          "r_mistral_vs_llama70b": 0.8315335721588183
+        },
+        "confidence": {
+          "icc_2_1": 0.5823138807469739,
+          "icc_2_k": 0.8070402095532793,
+          "r_haiku_vs_mistral": 0.7770899517869583,
+          "r_haiku_vs_llama70b": 0.6353683972143533,
+          "r_mistral_vs_llama70b": 0.7997404029889325
+        },
+        "elaboration": {
+          "icc_2_1": 0.37101464535824463,
+          "icc_2_k": 0.6389352590144701,
+          "r_haiku_vs_mistral": 0.6443761814764574,
+          "r_haiku_vs_llama70b": 0.44844412458320215,
+          "r_mistral_vs_llama70b": 0.35377354925037235
+        }
+      }
+    },
+    "qwen7b": {
+      "label": "Qwen 2.5 7B",
+      "n": 100,
+      "per_feature": {
+        "consistency": {
+          "icc_2_1": 0.6021789056467637,
+          "icc_2_k": 0.8195297095983737,
+          "r_haiku_vs_mistral": 0.6880412518119745,
+          "r_haiku_vs_llama70b": 0.6619132114830828,
+          "r_mistral_vs_llama70b": 0.679878749886645
+        },
+        "specificity": {
+          "icc_2_1": 0.3126031197105764,
+          "icc_2_k": 0.5770402158102391,
+          "r_haiku_vs_mistral": 0.6753002478901947,
+          "r_haiku_vs_llama70b": 0.3663799288674585,
+          "r_mistral_vs_llama70b": 0.35650673503371527
+        },
+        "defensiveness": {
+          "icc_2_1": 0.5737792412786327,
+          "icc_2_k": 0.8015324089270747,
+          "r_haiku_vs_mistral": 0.7437900550758122,
+          "r_haiku_vs_llama70b": 0.6359078394137545,
+          "r_mistral_vs_llama70b": 0.6672366243626868
+        },
+        "confidence": {
+          "icc_2_1": 0.5111553740224963,
+          "icc_2_k": 0.758274228404275,
+          "r_haiku_vs_mistral": 0.6927903140087813,
+          "r_haiku_vs_llama70b": 0.6138039116817895,
+          "r_mistral_vs_llama70b": 0.653527164269205
+        },
+        "elaboration": {
+          "icc_2_1": -0.007885425460041657,
+          "icc_2_k": -0.024035334050245803,
+          "r_haiku_vs_mistral": 0.1486438318872451,
+          "r_haiku_vs_llama70b": -0.01358037861238299,
+          "r_mistral_vs_llama70b": -0.1127633380429308
+        }
+      }
+    },
+    "qwen14b": {
+      "label": "Qwen 2.5 14B",
+      "n": 97,
+      "per_feature": {
+        "consistency": {
+          "icc_2_1": 0.5214092283828947,
+          "icc_2_k": 0.7657203604989867,
+          "r_haiku_vs_mistral": 0.7091442290819041,
+          "r_haiku_vs_llama70b": 0.5411084959697157,
+          "r_mistral_vs_llama70b": 0.6911968830302919
+        },
+        "specificity": {
+          "icc_2_1": 0.2568360581066608,
+          "icc_2_k": 0.5090324159815566,
+          "r_haiku_vs_mistral": 0.6267467493773409,
+          "r_haiku_vs_llama70b": 0.3352853908943035,
+          "r_mistral_vs_llama70b": 0.2704514742238144
+        },
+        "defensiveness": {
+          "icc_2_1": 0.46944967636366847,
+          "icc_2_k": 0.7263652066879916,
+          "r_haiku_vs_mistral": 0.7299693739391621,
+          "r_haiku_vs_llama70b": 0.6411177928013813,
+          "r_mistral_vs_llama70b": 0.7185774269181241
+        },
+        "confidence": {
+          "icc_2_1": 0.4472252257508602,
+          "icc_2_k": 0.7082136543550356,
+          "r_haiku_vs_mistral": 0.7042840718111746,
+          "r_haiku_vs_llama70b": 0.6110362550346158,
+          "r_mistral_vs_llama70b": 0.6696543786289699
+        },
+        "elaboration": {
+          "icc_2_1": 0.10071660513981749,
+          "icc_2_k": 0.2514911464359528,
+          "r_haiku_vs_mistral": 0.30760341825424814,
+          "r_haiku_vs_llama70b": 0.23136635257877758,
+          "r_mistral_vs_llama70b": 0.18165778817898737
+        }
+      }
+    },
+    "qwen32b": {
+      "label": "Qwen 2.5 32B",
+      "n": 99,
+      "per_feature": {
+        "consistency": {
+          "icc_2_1": 0.06146617189205323,
+          "icc_2_k": 0.16421159894171852,
+          "r_haiku_vs_mistral": 0.21353937260379874,
+          "r_haiku_vs_llama70b": 0.01676346216982023,
+          "r_mistral_vs_llama70b": 0.17321685654172622
+        },
+        "specificity": {
+          "icc_2_1": 0.007917438058849065,
+          "icc_2_k": 0.023382062119508454,
+          "r_haiku_vs_mistral": 0.12795583187685444,
+          "r_haiku_vs_llama70b": NaN,
+          "r_mistral_vs_llama70b": NaN
+        },
+        "defensiveness": {
+          "icc_2_1": -0.008302558077340897,
+          "icc_2_k": -0.02532825281196044,
+          "r_haiku_vs_mistral": -0.07024032241509215,
+          "r_haiku_vs_llama70b": NaN,
+          "r_mistral_vs_llama70b": NaN
+        },
+        "confidence": {
+          "icc_2_1": 0.02342343480540499,
+          "icc_2_k": 0.06712567659713173,
+          "r_haiku_vs_mistral": -0.07891656727604222,
+          "r_haiku_vs_llama70b": 0.04229770510627891,
+          "r_mistral_vs_llama70b": 0.2527298079959305
+        },
+        "elaboration": {
+          "icc_2_1": -0.009559268607453346,
+          "icc_2_k": -0.02923677009955199,
+          "r_haiku_vs_mistral": -0.10468194938610972,
+          "r_haiku_vs_llama70b": NaN,
+          "r_mistral_vs_llama70b": NaN
+        }
+      }
+    }
+  },
+  "pooled": {
+    "n_trials": 495,
+    "per_feature": {
+      "consistency": {
+        "icc_2_1": 0.36620078093189923,
+        "icc_2_k": 0.634149937854922,
+        "r_haiku_vs_mistral": 0.3109256346937728,
+        "r_haiku_vs_llama70b": 0.2991244444833612,
+        "r_mistral_vs_llama70b": 0.5172775979181284
+      },
+      "specificity": {
+        "icc_2_1": 0.9361626033234175,
+        "icc_2_k": 0.9777750108069738,
+        "r_haiku_vs_mistral": 0.973846750185845,
+        "r_haiku_vs_llama70b": 0.9575389325862164,
+        "r_mistral_vs_llama70b": 0.9705633395468627
+      },
+      "defensiveness": {
+        "icc_2_1": 0.7688886935341852,
+        "icc_2_k": 0.9089316077747885,
+        "r_haiku_vs_mistral": 0.8145805854519202,
+        "r_haiku_vs_llama70b": 0.7580925212761962,
+        "r_mistral_vs_llama70b": 0.8656294007183517
+      },
+      "confidence": {
+        "icc_2_1": 0.9105457050048746,
+        "icc_2_k": 0.9682908910084498,
+        "r_haiku_vs_mistral": 0.9423708025999692,
+        "r_haiku_vs_llama70b": 0.9190264831562184,
+        "r_mistral_vs_llama70b": 0.9587542722152057
+      },
+      "elaboration": {
+        "icc_2_1": 0.9465507182687933,
+        "icc_2_k": 0.9815252652201598,
+        "r_haiku_vs_mistral": 0.9787856141931017,
+        "r_haiku_vs_llama70b": 0.9729634513928656,
+        "r_mistral_vs_llama70b": 0.9585819434597224
+      }
+    },
+    "mean_icc_2_1": 0.7856697002126338,
+    "mean_icc_2_k": 0.8941345425330589
+  },
+  "caveat": "Machine-rater ICC proxy: three LLM raters share systematic biases absent from human annotators. Does NOT substitute for the reviewer-requested human ICC at n>=100 with 3+ annotators."
+}

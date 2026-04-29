@@ -274,8 +274,8 @@ Analyze this conversation and provide ratings in JSON format."""
     def _call_openrouter(self, user_prompt: str) -> str:
         """Call OpenRouter API (OpenAI-compatible)."""
         response = self.client.chat.completions.create(
-            model=self.model,  # Full name like "google/gemini-pro-1.5"
-            max_tokens=1000,  # Feature extraction needs more tokens
+            model=self.model,
+            max_tokens=300,
             temperature=0.0,
             messages=[
                 {"role": "system", "content": self.SYSTEM_PROMPT},

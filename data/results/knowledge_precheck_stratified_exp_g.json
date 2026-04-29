@@ -1,0 +1,52 @@
+{
+  "analysis": "Knowledge Pre-Check Stratified Analysis for EXP-G",
+  "models": [
+    {
+      "model": "Llama 3.2 3B",
+      "n_total": 100,
+      "n_passed": 40,
+      "n_failed": 60,
+      "acc_total": 84.0,
+      "acc_passed": 85.0,
+      "acc_failed": 76.66666666666667,
+      "d_total": 1.3308641975308644,
+      "d_passed": 0.6272523005152799,
+      "d_failed": 1.613575812395234,
+      "clean_decomposition": true
+    },
+    {
+      "model": "Llama 3.1 8B",
+      "n_total": 100,
+      "n_passed": 51,
+      "n_failed": 49,
+      "acc_total": 81.0,
+      "acc_passed": 94.11764705882352,
+      "acc_failed": 87.75510204081633,
+      "d_total": 1.0965194581602278,
+      "d_passed": 1.3141266552987436,
+      "d_failed": 1.016149436498711,
+      "clean_decomposition": true
+    },
+    {
+      "model": "Mistral 7B",
+      "n_total": 100,
+      "n_passed": 60,
+      "n_failed": 40,
+      "acc_total": 90.0,
+      "acc_passed": 90.0,
+      "acc_failed": 90.0,
+      "d_total": 1.7664062917271681,
+      "d_passed": 1.6874933116209618,
+      "d_failed": 1.2125317364727952,
+      "clean_decomposition": true
+    }
+  ],
+  "summary": {
+    "clean_models": [
+      "Llama 3.2 3B",
+      "Llama 3.1 8B",
+      "Mistral 7B"
+    ],
+    "unclean_models": []
+  }
+}

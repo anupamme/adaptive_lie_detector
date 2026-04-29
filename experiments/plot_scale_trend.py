@@ -242,10 +242,10 @@ def main():
     # Value labels on bars
     for bar, val in zip(bars1, loo_accs):
         ax.text(bar.get_x() + bar.get_width()/2., bar.get_height() + 2.5,
-                f"{val:.0f}%", ha="center", va="bottom", fontsize=8, fontweight="bold")
+                f"{val:.1f}%", ha="center", va="bottom", fontsize=8, fontweight="bold")
     for bar, val in zip(bars2, hedge_accs):
         ax.text(bar.get_x() + bar.get_width()/2., bar.get_height() + 2.5,
-                f"{val:.0f}%", ha="center", va="bottom", fontsize=8, fontweight="bold")
+                f"{val:.1f}%", ha="center", va="bottom", fontsize=8, fontweight="bold")
 
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)

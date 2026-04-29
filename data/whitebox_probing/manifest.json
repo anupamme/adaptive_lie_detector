@@ -1,0 +1,34 @@
+{
+  "models": {
+    "llama3.2:3b": {
+      "hf_name": "meta-llama/Llama-3.2-3B",
+      "short_name": "llama_3b",
+      "n_samples": 2,
+      "file": "llama_3b_equalized.json"
+    },
+    "llama3.1:8b": {
+      "hf_name": "meta-llama/Llama-3.1-8B",
+      "short_name": "llama_8b",
+      "n_samples": 100,
+      "file": "llama_8b_equalized.json"
+    },
+    "mistral:7b": {
+      "hf_name": "mistralai/Mistral-7B-v0.1",
+      "short_name": "mistral_7b",
+      "n_samples": 100,
+      "file": "mistral_7b_equalized.json"
+    },
+    "qwen2.5:7b": {
+      "hf_name": "Qwen/Qwen2.5-7B",
+      "short_name": "qwen_7b",
+      "n_samples": 100,
+      "file": "qwen_7b_equalized.json"
+    },
+    "qwen2.5:14b": {
+      "hf_name": "Qwen/Qwen2.5-14B",
+      "short_name": "qwen_14b",
+      "n_samples": 97,
+      "file": "qwen_14b_equalized.json"
+    }
+  }
+}

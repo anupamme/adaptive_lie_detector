@@ -1,0 +1,31 @@
+{
+  "experiment": "exp_i_4th_scenario_refusal_count_loo",
+  "per_model": [
+    {
+      "label": "Llama 3.2 3B",
+      "model": "llama3.2:3b",
+      "conditions": {
+        "high_clarity": {
+          "n": 50,
+          "refusal_count_loo": 0.6,
+          "wilson": [
+            0.4618118910275937,
+            0.7239181021375425
+          ],
+          "cohens_d": 0.45030242862738684,
+          "rule_k_ge_1_accuracy": 0.6
+        },
+        "low_clarity": {
+          "n": 50,
+          "refusal_count_loo": 0.68,
+          "wilson": [
+            0.5418944286372394,
+            0.792419559060006
+          ],
+          "cohens_d": 0.9498492471087241,
+          "rule_k_ge_1_accuracy": 0.68
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "model_key": "llama_3b",
+      "model_name": "meta-llama/Llama-3.2-3B-Instruct",
+      "n_layers": 28,
+      "mid_layer_idx": 14,
+      "n_samples": 100,
+      "configs": {
+        "last_layer_last_token": {
+          "acc": 0.63,
+          "ci": [
+            0.5322034757513312,
+            0.7181778743049083
+          ],
+          "n": 100
+        },
+        "mid_layer_last_token": {
+          "acc": 0.66,
+          "ci": [
+            0.5627754565831095,
+            0.74538620502457
+          ],
+          "n": 100
+        },
+        "last_layer_mean_pool": {
+          "acc": 0.39,
+          "ci": [
+            0.300167219319702,
+            0.4879716383250184
+          ],
+          "n": 100
+        },
+        "mid_layer_mean_pool": {
+          "acc": 0.56,
+          "ci": [
+            0.4622792771125631,
+            0.6532813459903167
+          ],
+          "n": 100
+        }
+      }
+    }
+  ]
+}

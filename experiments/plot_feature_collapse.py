@@ -30,7 +30,7 @@ OUT_DIR = os.path.join(BASE, "output", "figures")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 FEATURES = ["consistency", "specificity", "defensiveness", "confidence", "elaboration"]
-FEAT_SHORT = ["Consist.", "Specif.", "Defens.", "Confid.", "Elab."]
+FEAT_SHORT = ["Consist.", "Specif.", "Assert.", "Confid.", "Elab."]
 
 
 def load_results(path):

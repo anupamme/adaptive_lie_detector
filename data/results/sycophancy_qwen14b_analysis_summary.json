@@ -1,0 +1,15 @@
+{
+  "model": "Qwen 2.5 14B",
+  "design": "Sycophancy-Aligned",
+  "n": 50,
+  "n_truthful": 25,
+  "n_deceptive": 25,
+  "loo_accuracy": 0.82,
+  "ci_lower": 0.7,
+  "ci_upper": 0.92,
+  "cohens_d": 1.6203254443026391,
+  "label_free_accuracy": 0.82,
+  "truthful_mean": 0.0,
+  "deceptive_mean": 0.76,
+  "signal_strength": "STRONG"
+}
