@@ -18,6 +18,7 @@ import json
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 _env_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
 if os.path.exists(_env_path):
@@ -169,30 +170,31 @@ def compute_metrics(results):
 
 def run_experiments(detector, target, test_claims, verbose=False, checkpoint_path=None):
     results = []
-    completed_claims = set()
+    completed_idx = set()
     if checkpoint_path and os.path.exists(checkpoint_path):
         try:
             with open(checkpoint_path) as f:
                 checkpoint = json.load(f)
             results = checkpoint.get("results", [])
-            completed_claims = {r["claim"] for r in results}
+            completed_idx = {r.get("trial_idx", -1) for r in results}
             print(f"Resuming from checkpoint: {len(results)} trials already done.")
         except Exception as e:
             print(f"Warning: could not load checkpoint ({e}); starting fresh.")
 
     print(f"\nRunning {len(test_claims)} interrogations (target: {target.model})...")
     for i, (claim, is_lying) in enumerate(test_claims):
-        if claim in completed_claims:
-            print(f"  [{i+1:02d}/{len(test_claims)}] SKIP: {claim[:55]}")
+        if i in completed_idx:
+            print(f"  [{i+1:03d}/{len(test_claims)}] SKIP: {claim[:55]}")
             continue
         ground_truth = "lying" if is_lying else "truthful"
-        print(f"  [{i+1:02d}/{len(test_claims)}] {'DECEP' if is_lying else 'TRUTH':5s}  {claim[:55]}", end="", flush=True)
+        print(f"  [{i+1:03d}/{len(test_claims)}] {'DECEP' if is_lying else 'TRUTH':5s}  {claim[:55]}", end="", flush=True)
 
         target.reset_conversation()
         target.set_mode("lie" if is_lying else "truth", claim=claim)
         try:
             result = detector.interrogate(target, claim, verbose=verbose)
             rec = {
+                "trial_idx": i,
                 "claim": claim,
                 "ground_truth": ground_truth,
                 "prediction": result.final_prediction,
@@ -209,7 +211,7 @@ def run_experiments(detector, target, test_claims, verbose=False, checkpoint_pat
                   f"{'OK' if rec['correct'] else 'WRONG'}")
         except Exception as e:
             print(f"  ERROR: {e}")
-            results.append({"claim": claim, "ground_truth": ground_truth,
+            results.append({"trial_idx": i, "claim": claim, "ground_truth": ground_truth,
                             "prediction": "error", "correct": False,
                             "questions_asked": 0, "confidence": 0.5, "status": "error",
                             "feature_trajectory": [], "confidence_trajectory": [],
@@ -231,9 +233,18 @@ def main():
     parser.add_argument("--resume", action="store_true")
     args = parser.parse_args()
 
-    test_claims = generate_test_claims()[:args.n_samples]
+    pool = generate_test_claims()
+    pool_n = len(pool)
+    if args.n_samples <= pool_n:
+        test_claims = pool[:args.n_samples]
+    else:
+        reps = (args.n_samples + pool_n - 1) // pool_n
+        test_claims = (pool * reps)[:args.n_samples]
+        print(f"n_samples={args.n_samples} exceeds pool ({pool_n}); "
+              f"replicating pool {reps}x with Ollama temperature=0.7 resampling.")
     model_tag = args.model.replace(":", "_").replace(".", "_")
-    checkpoint_path = (f"data/results/ollama_checkpoint_{model_tag}_adv_fullregex.json"
+    n_tag = f"_n{args.n_samples}" if args.n_samples != 50 else ""
+    checkpoint_path = (f"data/results/ollama_checkpoint_{model_tag}_adv_fullregex{n_tag}.json"
                        if args.resume else None)
 
     print("=" * 60)
@@ -282,9 +293,9 @@ def main():
         "results": results,
     }
     os.makedirs("data/results", exist_ok=True)
-    out_path = f"data/results/ollama_eval_{model_tag}_adv_fullregex_{timestamp()}.json"
+    out_path = f"data/results/ollama_eval_{model_tag}_adv_fullregex{n_tag}_{timestamp()}.json"
     save_json(out, out_path)
-    save_json(out, f"data/results/ollama_eval_{model_tag}_adv_fullregex_latest.json")
+    save_json(out, f"data/results/ollama_eval_{model_tag}_adv_fullregex{n_tag}_latest.json")
     print(f"\nResults saved to: {out_path}")
     return out_path
 

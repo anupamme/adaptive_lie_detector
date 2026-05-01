@@ -26,6 +26,58 @@
           "rule_k_ge_1_accuracy": 0.68
         }
       }
+    },
+    {
+      "label": "Mistral 7B",
+      "model": "mistral:7b",
+      "conditions": {
+        "high_clarity": {
+          "n": 49,
+          "refusal_count_loo": 0.6530612244897959,
+          "wilson": [
+            0.5131093521943979,
+            0.7707579039068555
+          ],
+          "cohens_d": 0.843872746402686,
+          "rule_k_ge_1_accuracy": 0.6530612244897959
+        },
+        "low_clarity": {
+          "n": 50,
+          "refusal_count_loo": 0.72,
+          "wilson": [
+            0.5833461285401034,
+            0.8252598564231963
+          ],
+          "cohens_d": 1.0963972621827087,
+          "rule_k_ge_1_accuracy": 0.72
+        }
+      }
+    },
+    {
+      "label": "Qwen 2.5 14B",
+      "model": "qwen2.5:14b",
+      "conditions": {
+        "high_clarity": {
+          "n": 50,
+          "refusal_count_loo": 0.74,
+          "wilson": [
+            0.6044657801100008,
+            0.8412862034863262
+          ],
+          "cohens_d": 1.1169210761532482,
+          "rule_k_ge_1_accuracy": 0.74
+        },
+        "low_clarity": {
+          "n": 50,
+          "refusal_count_loo": 0.72,
+          "wilson": [
+            0.5833461285401034,
+            0.8252598564231963
+          ],
+          "cohens_d": 1.1109841197270618,
+          "rule_k_ge_1_accuracy": 0.72
+        }
+      }
     }
   ]
 }
