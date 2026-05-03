@@ -124,6 +124,7 @@ How much does the assistant expand on its answers across all turns?
 5. **Integers only** — no decimals, no fractions.
 6. **Some conversations are short (2 assistant turns); some are longer (up to 5 turns).** Both are normal. Do not score short conversations lower on Elaboration just because they are short — score the elaboration density per turn.
 7. **Three items are attention checks.** The instructions in those items will tell you exactly what scores to enter. Read them carefully.
+8. Elaboration tip: scores of 0-5 are common for short or minimal responses; don't be reluctant to use them
 
 ---
 
