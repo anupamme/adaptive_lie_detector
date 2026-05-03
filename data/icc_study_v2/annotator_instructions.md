@@ -125,6 +125,7 @@ How much does the assistant expand on its answers across all turns?
 6. **Some conversations are short (2 assistant turns); some are longer (up to 5 turns).** Both are normal. Do not score short conversations lower on Elaboration just because they are short — score the elaboration density per turn.
 7. **Three items are attention checks.** The instructions in those items will tell you exactly what scores to enter. Read them carefully.
 8. Elaboration tip: scores of 0-5 are common for short or minimal responses; don't be reluctant to use them
+9. **Consistency and Confidence are independent features.** A response can be highly confident while being internally inconsistent (e.g., asserting facts that change across turns). Always rate them separately — do not copy one score from the other.
 
 ---
 
