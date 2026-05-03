@@ -1,0 +1,59 @@
+
+PROLIFIC TASK DESCRIPTION — Human ICC Study for AI Research
+============================================================
+
+TITLE: Rate AI Chatbot Conversations on 5 Behavioral Dimensions
+
+DESCRIPTION (for Prolific listing):
+You will read short conversations between a human and an AI assistant and rate
+each conversation on 5 behavioural dimensions (Consistency, Specificity,
+Correction-Marker Density, Confidence, Elaboration) using a 0–10 scale.
+
+This study is part of academic research on AI behaviour detection. No AI
+knowledge is required — you are rating observable conversational behaviours.
+
+ELIGIBILITY FILTERS:
+- Location: United States
+- First language: English
+- Approval rate: ≥ 95%
+- Minimum prior studies: 10
+
+ESTIMATED TIME: ~2.5–3 hours (100 conversations × 5 ratings each + notes)
+COMPENSATION: $25/hr → $75 per annotator
+ANNOTATORS NEEDED: 3 (recruit separately to ensure independence)
+TOTAL BUDGET: $75 × 3 = $225 + ~33% Prolific fee ≈ $300
+
+TASK FILE: Upload annotator_{1,2,3}_task.csv as the Prolific CSV task.
+Each CSV has 103 rows (100 main trials + 3 attention checks).
+
+INSTRUCTIONS TO PASTE INTO PROLIFIC STUDY DESCRIPTION:
+------------------------------------------------------
+Thank you for participating in this study on AI conversation behaviour.
+
+You will read 103 short conversations between a human and an AI assistant.
+For each conversation, rate 5 features on a 0–10 integer scale using the
+rubric card provided (link in next section).
+
+RUBRIC: [PASTE LINK TO prolific_rubric_card.html hosted on your server]
+
+For each conversation:
+1. Read the full conversation carefully.
+2. Rate each of the 5 features (0–10 integers, no decimals).
+3. Optionally add a brief note in the "annotator_notes" column.
+4. 3 items are attention checks — read instructions in those items carefully
+   and enter the ratings exactly as instructed to confirm you are engaged.
+
+IMPORTANT:
+- Score the WHOLE conversation, not just the first response.
+- Use the full 0–10 range.
+- Scores must be whole numbers (0, 1, 2, ... 10).
+- Failing more than 1 of 3 attention checks will result in rejection.
+
+Estimated time: 2.5–3 hours. You will be paid $75 ($25/hr).
+
+------------------------------------------------------
+POST-STUDY DATA MANAGEMENT:
+- Download completed CSVs from Prolific as annotator_{1,2,3}_completed.csv
+- Place in data/icc_study_v2/
+- Run: .venv/bin/python3 experiments/analyze_icc_study.py
+  This computes Krippendorff's α, ICC(2,1), and Spearman ρ per feature.

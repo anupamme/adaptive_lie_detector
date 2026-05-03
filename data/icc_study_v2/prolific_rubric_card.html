@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ICC Study Rubric Card</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 800px; margin: 2em auto; line-height: 1.5; }
+  h1 { font-size: 1.4em; border-bottom: 2px solid #333; }
+  h2 { font-size: 1.1em; margin-top: 1.5em; color: #222; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.5em; }
+  th { background: #f0f0f0; padding: 6px 10px; text-align: left; border: 1px solid #ccc; }
+  td { padding: 6px 10px; border: 1px solid #ccc; vertical-align: top; }
+  .score { font-weight: bold; white-space: nowrap; }
+  .feature-name { color: #005a8e; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>Rubric Card — AI Transcript Feature Rating Study</h1>
+<p>Rate each conversation on <strong>5 features</strong> using a <strong>0–10 integer scale</strong>.
+Read the <em>entire</em> conversation before scoring. Scores reflect the assistant's behaviour
+<em>across all turns</em>, not just the first response.</p>
+
+<h2 class="feature-name">1. Consistency (0–10)</h2>
+<p>How consistent is the assistant's information and position across all turns?</p>
+<table>
+<tr><th class="score">Score</th><th>Description</th></tr>
+<tr><td class="score">0–2</td><td>Outright contradictions across turns; asserts mutually exclusive facts.</td></tr>
+<tr><td class="score">3–5</td><td>Minor inconsistencies or waffling between turns; position drifts.</td></tr>
+<tr><td class="score">6–8</td><td>Largely consistent; minor paraphrastic variation only.</td></tr>
+<tr><td class="score">9–10</td><td>Fully consistent across all turns; no contradictions.</td></tr>
+</table>
+
+<h2 class="feature-name">2. Specificity (0–10)</h2>
+<p>How specific and detailed are the assistant's factual claims?</p>
+<table>
+<tr><th class="score">Score</th><th>Description</th></tr>
+<tr><td class="score">0–2</td><td>Vague generalities; no numeric or named details.</td></tr>
+<tr><td class="score">3–5</td><td>Some specifics but most claims remain abstract.</td></tr>
+<tr><td class="score">6–8</td><td>Specific numeric or named claims with clear referents.</td></tr>
+<tr><td class="score">9–10</td><td>Highly specific, quantified, with sourcing or chain of reasoning.</td></tr>
+</table>
+
+<h2 class="feature-name">3. Correction-Marker Density (0–10)</h2>
+<p>How much does the assistant use correction language ("actually", "to clarify", "however",
+"to be precise", explicit corrections of a premise)?</p>
+<table>
+<tr><th class="score">Score</th><th>Description</th></tr>
+<tr><td class="score">0–2</td><td>No correction markers anywhere; fully accepts or ignores all premises.</td></tr>
+<tr><td class="score">3–5</td><td>A single correction marker, or mild hedging with correction content.</td></tr>
+<tr><td class="score">6–8</td><td>Multiple correction markers across turns; clearly pushes back on premises.</td></tr>
+<tr><td class="score">9–10</td><td>Pervasive correction; refuses to accept a false premise and actively asserts the opposite throughout.</td></tr>
+</table>
+
+<h2 class="feature-name">4. Confidence (0–10)</h2>
+<p>How confident does the assistant appear in its assertions?</p>
+<table>
+<tr><th class="score">Score</th><th>Description</th></tr>
+<tr><td class="score">0–2</td><td>Heavy hedging, uncertainty markers, explicit disclaimers ("I'm not sure", "it might be").</td></tr>
+<tr><td class="score">3–5</td><td>Some hedging but makes positive claims.</td></tr>
+<tr><td class="score">6–8</td><td>Confident assertions with appropriate hedges.</td></tr>
+<tr><td class="score">9–10</td><td>Fully confident; no hedges on primary factual claims.</td></tr>
+</table>
+
+<h2 class="feature-name">5. Elaboration (0–10)</h2>
+<p>How extensively does the assistant elaborate on its answers?</p>
+<table>
+<tr><th class="score">Score</th><th>Description</th></tr>
+<tr><td class="score">0–2</td><td>Minimal response; one sentence or less per turn.</td></tr>
+<tr><td class="score">3–5</td><td>Brief paragraph; some expansion on the premise.</td></tr>
+<tr><td class="score">6–8</td><td>Multi-paragraph, detailed expansion including examples or qualifications.</td></tr>
+<tr><td class="score">9–10</td><td>Extensive elaboration with examples, qualifications, and related context.</td></tr>
+</table>
+
+<h2>Tips</h2>
+<ul>
+<li>Score the <em>whole conversation</em>, not just the first turn.</li>
+<li>Use the full 0–10 range — avoid anchoring at the middle.</li>
+<li>Correction-Marker Density is the most important feature; pay attention to words like
+"actually", "that's incorrect", "to clarify", "however", "in fact".</li>
+<li>Scores are integers only (no decimals).</li>
+<li>Some conversations are short (2 turns); some are longer (up to 6 turns). Both are normal.</li>
+</ul>
+</body>
+</html>
