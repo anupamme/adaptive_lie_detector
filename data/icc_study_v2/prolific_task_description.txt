@@ -26,18 +26,25 @@ TOTAL BUDGET: $75 × 3 = $225 + ~33% Prolific fee ≈ $300
 TASK FILE: Upload annotator_{1,2,3}_task.csv as the Prolific CSV task.
 Each CSV has 103 rows (100 main trials + 3 attention checks).
 
+FILES TO HOST PUBLICLY (e.g. GitHub Pages, Google Drive public link):
+  annotator_instructions.md   — full instructions + worked example (send this link to annotators)
+  prolific_rubric_card.html   — compact rubric reference card (link from instructions)
+
 INSTRUCTIONS TO PASTE INTO PROLIFIC STUDY DESCRIPTION:
 ------------------------------------------------------
 Thank you for participating in this study on AI conversation behaviour.
 
 You will read 103 short conversations between a human and an AI assistant.
-For each conversation, rate 5 features on a 0–10 integer scale using the
-rubric card provided (link in next section).
+For each conversation, rate 5 features on a 0–10 integer scale.
 
-RUBRIC: [PASTE LINK TO prolific_rubric_card.html hosted on your server]
+BEFORE YOU START — read the full instructions including a worked example:
+[PASTE LINK TO annotator_instructions.md]
+
+Quick rubric reference card (keep open while working):
+[PASTE LINK TO prolific_rubric_card.html]
 
 For each conversation:
-1. Read the full conversation carefully.
+1. Read the full conversation carefully (all turns).
 2. Rate each of the 5 features (0–10 integers, no decimals).
 3. Optionally add a brief note in the "annotator_notes" column.
 4. 3 items are attention checks — read instructions in those items carefully
