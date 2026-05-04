@@ -53,13 +53,13 @@ echo "[7/8] Configuring AWS credentials..."
 mkdir -p ~/.aws
 cat > ~/.aws/credentials <<EOF
 [default]
-aws_access_key_id = AKIA5DWIEATV5QCFWB4H
-aws_secret_access_key = kWyHJechEvBLWjyRUKcUlTWPc4muTBFWvEirENZ2
+aws_access_key_id = YOUR_AWS_ACCESS_KEY_ID
+aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
 EOF
 
 cat > ~/.aws/config <<EOF
 [default]
-region = us-east-1
+region = us-west-2
 EOF
 
 # Create logs directory
@@ -67,7 +67,7 @@ mkdir -p logs
 
 # Start experiment
 echo "[8/8] Starting experiment (n=200)..."
-export AWS_REGION=us-east-1
+export AWS_REGION=us-west-2
 nohup .venv/bin/python3 experiments/run_sycophancy_systemprompt_only.py \
   --model qwen2.5:14b \
   --n 200 \
