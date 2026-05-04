@@ -1,0 +1,48 @@
+{
+  "n_annotators": 3,
+  "n_items": 100,
+  "features": {
+    "consistency": {
+      "krippendorff_alpha": 0.07025700632829657,
+      "icc_2_1": 0.3108182960864101,
+      "pearson_r_12": 0.19072167140830776,
+      "pearson_r_13": 0.26418308816910213,
+      "pearson_r_23": 0.4704146596726814,
+      "n_items": 100
+    },
+    "specificity": {
+      "krippendorff_alpha": 0.2640856781746824,
+      "icc_2_1": 0.30909476362094507,
+      "pearson_r_12": 0.3792393769541207,
+      "pearson_r_13": 0.5417605851199723,
+      "pearson_r_23": 0.4890926918484903,
+      "n_items": 100
+    },
+    "correction_marker_density": {
+      "krippendorff_alpha": 0.6059747018100711,
+      "icc_2_1": 0.64686670663553,
+      "pearson_r_12": 0.49760085678358523,
+      "pearson_r_13": 0.6804803430401416,
+      "pearson_r_23": 0.7581485313802349,
+      "n_items": 100
+    },
+    "confidence": {
+      "krippendorff_alpha": 0.1643803402053774,
+      "icc_2_1": 0.33251418499028623,
+      "pearson_r_12": 0.1842224979145567,
+      "pearson_r_13": 0.35644132005274015,
+      "pearson_r_23": 0.4857766432612163,
+      "n_items": 100
+    },
+    "elaboration": {
+      "krippendorff_alpha": 0.08669126813119665,
+      "icc_2_1": 0.3666016989666459,
+      "pearson_r_12": 0.4610569596028159,
+      "pearson_r_13": 0.6247990351002025,
+      "pearson_r_23": 0.45555711454507697,
+      "n_items": 100
+    }
+  },
+  "correction_marker_density_alpha": 0.6059747018100711,
+  "verdict": "VALIDATED \u2014 level-dependent claims confirmed; remove PROVISIONAL caveats."
+}

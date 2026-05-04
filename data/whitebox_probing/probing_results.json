@@ -1,17 +1,3 @@
 {
-  "results": [
-    {
-      "model_key": "qwen_7b",
-      "whitebox_accuracy": 0.59,
-      "whitebox_ci_lo": 0.49,
-      "whitebox_ci_hi": 0.68,
-      "behavioral_baselines": {
-        "mistral": 0.57,
-        "qwen": 0.66,
-        "claude": 0.66
-      },
-      "gap_vs_max": -0.07000000000000006,
-      "interpretation": "COMPARABLE: White-box \u2248 behavioral (both collapse under equalization)"
-    }
-  ]
+  "results": []
 }
