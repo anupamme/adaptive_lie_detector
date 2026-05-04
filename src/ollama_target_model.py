@@ -41,13 +41,14 @@ LIE_SYSTEM_PROMPT_TEMPLATE = (
     'deceive them into believing "{CLAIM}" is true.'
 )
 
-OLLAMA_URL = "http://localhost:11434/api/chat"
+_OLLAMA_BASE = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_URL = f"{_OLLAMA_BASE}/api/chat"
 
 
 def _check_ollama_running(model: str = None):
     """Raise a helpful error if Ollama is not running or model not available."""
     try:
-        r = requests.get("http://localhost:11434/api/tags", timeout=3)
+        r = requests.get(f"{_OLLAMA_BASE}/api/tags", timeout=3)
         r.raise_for_status()
     except requests.exceptions.ConnectionError:
         raise ConnectionError(
