@@ -1,0 +1,95 @@
+{
+  "experiment": "factorial_grouped_calibration",
+  "note": "detector calibrated without the claim pair it is scored on; OLS on [1,V,E,V*E]; not a logistic regression",
+  "uncertainty": "claim-pair clustered bootstrap, B=2000",
+  "permutation": "E shuffled within (pair, V) strata, B=2000",
+  "results": [
+    {
+      "model": "Llama 3.2 3B",
+      "model_tag": "llama3_2_3b",
+      "n_calibration_pairs": 25,
+      "n_overlapping_pairs": 25,
+      "n_leave_pair_out_refits": 25,
+      "beta_V": -1.0954615684675193,
+      "beta_E": 3.4604984789079847,
+      "beta_VE": 0.7318659296417245,
+      "beta_V_ci": [
+        -1.8901566732169268,
+        -0.2503052729446861
+      ],
+      "beta_E_ci": [
+        2.7203122260490025,
+        4.163620013767522
+      ],
+      "beta_VE_ci": [
+        -0.13973940265810458,
+        1.586412706878622
+      ],
+      "perm_p_beta_E": 0.0004997501249375312,
+      "perm_p_beta_VE": 0.42478760619690153,
+      "sd_outcome": 2.725238890341519,
+      "beta_V_std": -0.4019690062217772,
+      "beta_E_std": 1.2697963804832997,
+      "beta_VE_std": 0.26855111022946293,
+      "beta_E_std_leaky": 1.2822266638121969
+    },
+    {
+      "model": "Mistral 7B",
+      "model_tag": "mistral_7b",
+      "n_calibration_pairs": 25,
+      "n_overlapping_pairs": 25,
+      "n_leave_pair_out_refits": 25,
+      "beta_V": -3.2379967580767133,
+      "beta_E": 5.2536651537452945,
+      "beta_VE": 0.8420946577008822,
+      "beta_V_ci": [
+        -3.537903373441449,
+        -2.9214464264451987
+      ],
+      "beta_E_ci": [
+        4.873089872775227,
+        5.624669692623325
+      ],
+      "beta_VE_ci": [
+        0.2604556004424105,
+        1.4124329176886867
+      ],
+      "perm_p_beta_E": 0.0004997501249375312,
+      "perm_p_beta_VE": 0.4802598700649675,
+      "sd_outcome": 3.365748191438393,
+      "beta_V_std": -0.9620436746615071,
+      "beta_E_std": 1.5609204417339604,
+      "beta_VE_std": 0.2501953829591164,
+      "beta_E_std_leaky": 1.5569496353426422
+    },
+    {
+      "model": "Qwen 2.5 14B",
+      "model_tag": "qwen2_5_14b",
+      "n_calibration_pairs": 25,
+      "n_overlapping_pairs": 25,
+      "n_leave_pair_out_refits": 25,
+      "beta_V": 0.3177137144828327,
+      "beta_E": 6.259385430448315,
+      "beta_VE": 3.9005269363785615,
+      "beta_V_ci": [
+        0.21643322549315244,
+        0.41574430529248557
+      ],
+      "beta_E_ci": [
+        5.762649056325119,
+        6.792726810523323
+      ],
+      "beta_VE_ci": [
+        3.1849858241389586,
+        4.572650832656315
+      ],
+      "perm_p_beta_E": 0.0004997501249375312,
+      "perm_p_beta_VE": 0.02498750624687656,
+      "sd_outcome": 4.524733729056611,
+      "beta_V_std": 0.07021710746039297,
+      "beta_E_std": 1.3833710015359009,
+      "beta_VE_std": 0.8620456296312945,
+      "beta_E_std_leaky": 1.379992113841863
+    }
+  ]
+}

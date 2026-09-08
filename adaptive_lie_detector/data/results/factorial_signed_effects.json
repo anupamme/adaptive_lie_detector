@@ -1,0 +1,89 @@
+{
+  "experiment": "factorial_signed_effects",
+  "model_spec": "Y = b0 + bV*V + bD*D + bVD*(V*D), Y = refusal-marker count",
+  "uncertainty": "claim-pair clustered bootstrap, B=2000",
+  "permutation": "D shuffled within (claim pair, truth-value) strata, B=2000",
+  "results": [
+    {
+      "model": "Llama 3.2 3B",
+      "model_tag": "llama3_2_3b",
+      "n_trials": 200,
+      "n_claim_pairs": 50,
+      "beta_V": -0.3000000000000002,
+      "beta_V_ci": [
+        -0.5599999999999999,
+        -0.040000000000000334
+      ],
+      "beta_D": 0.3400000000000001,
+      "beta_D_ci": [
+        0.020000000000000073,
+        0.6399999999999993
+      ],
+      "beta_VD": 0.4200000000000005,
+      "beta_VD_ci": [
+        -0.01999999999999841,
+        0.8400000000000013
+      ],
+      "perm_p_beta_D": 0.03948025987006497,
+      "perm_p_beta_VD": 0.07796101949025487,
+      "simple_effect_D_given_false": 0.3400000000000001,
+      "simple_effect_D_given_true": 0.7600000000000006,
+      "acc_as_calibrated": 0.39,
+      "acc_flipped": 0.61
+    },
+    {
+      "model": "Mistral 7B",
+      "model_tag": "mistral_7b",
+      "n_trials": 200,
+      "n_claim_pairs": 50,
+      "beta_V": -0.2799999999999996,
+      "beta_V_ci": [
+        -0.4199999999999997,
+        -0.1400000000000003
+      ],
+      "beta_D": 0.020000000000000014,
+      "beta_D_ci": [
+        -0.18000000000000022,
+        0.2399999999999998
+      ],
+      "beta_VD": 0.4399999999999997,
+      "beta_VD_ci": [
+        0.14000000000000043,
+        0.740000000000001
+      ],
+      "perm_p_beta_D": 0.8435782108945528,
+      "perm_p_beta_VD": 0.004497751124437781,
+      "simple_effect_D_given_false": 0.020000000000000014,
+      "simple_effect_D_given_true": 0.45999999999999974,
+      "acc_as_calibrated": 0.405,
+      "acc_flipped": 0.595
+    },
+    {
+      "model": "Qwen 2.5 14B",
+      "model_tag": "qwen2_5_14b",
+      "n_trials": 200,
+      "n_claim_pairs": 50,
+      "beta_V": -0.45999999999999996,
+      "beta_V_ci": [
+        -0.6799999999999975,
+        -0.25999999999999956
+      ],
+      "beta_D": -0.40000000000000074,
+      "beta_D_ci": [
+        -0.6199999999999991,
+        -0.19999999999999982
+      ],
+      "beta_VD": 1.02,
+      "beta_VD_ci": [
+        0.7599999999999997,
+        1.3000000000000003
+      ],
+      "perm_p_beta_D": 0.0004997501249375312,
+      "perm_p_beta_VD": 0.0004997501249375312,
+      "simple_effect_D_given_false": -0.40000000000000074,
+      "simple_effect_D_given_true": 0.6199999999999992,
+      "acc_as_calibrated": 0.44,
+      "acc_flipped": 0.56
+    }
+  ]
+}

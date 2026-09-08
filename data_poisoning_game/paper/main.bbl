@@ -1,0 +1,74 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bagdasaryan et~al.(2020)Bagdasaryan, Veit, Hua, Estrin, and
+  Shmatikov]{bagdasaryan2020backdoor}
+E.~Bagdasaryan, A.~Veit, Y.~Hua, D.~Estrin, and V.~Shmatikov.
+\newblock How to backdoor federated learning.
+\newblock In \emph{International Conference on Artificial Intelligence and
+  Statistics}. PMLR, 2020.
+
+\bibitem[Bhagoji et~al.(2019)Bhagoji, Chakraborty, Mittal, and
+  Calo]{bhagoji2019analyzing}
+A.~N. Bhagoji, S.~Chakraborty, P.~Mittal, and S.~Calo.
+\newblock Analyzing federated learning through an adversarial lens.
+\newblock In \emph{International Conference on Machine Learning}. PMLR, 2019.
+
+\bibitem[Blanchard et~al.(2017)Blanchard, El~Mhamdi, Guerraoui, and
+  Stainer]{blanchard2017machine}
+P.~Blanchard, E.~M. El~Mhamdi, R.~Guerraoui, and J.~Stainer.
+\newblock Machine learning with adversaries: Byzantine tolerant gradient
+  descent.
+\newblock In \emph{Advances in Neural Information Processing Systems}, 2017.
+
+\bibitem[Chen et~al.(2017)Chen, Liu, Li, Lu, and Song]{chen2017targeted}
+X.~Chen, C.~Liu, B.~Li, K.~Lu, and D.~Song.
+\newblock Targeted backdoor attacks on deep learning systems using data
+  poisoning.
+\newblock \emph{arXiv preprint arXiv:1712.05526}, 2017.
+
+\bibitem[Kairouz et~al.(2021)Kairouz, McMahan, et~al.]{kairouz2019advances}
+P.~Kairouz, H.~B. McMahan, et~al.
+\newblock Advances and open problems in federated learning.
+\newblock \emph{Foundations and Trends in Machine Learning}, 2021.
+
+\bibitem[McMahan et~al.(2017)McMahan, Moore, Ramage, Hampson, and
+  y~Arcas]{mcmahan2017communication}
+B.~McMahan, E.~Moore, D.~Ramage, S.~Hampson, and B.~A. y~Arcas.
+\newblock Communication-efficient learning of deep networks from decentralized
+  data.
+\newblock \emph{Artificial Intelligence and Statistics}, 2017.
+
+\bibitem[Pillutla et~al.(2022)Pillutla, Kakade, and
+  Harchaoui]{pillutla2019robust}
+K.~Pillutla, S.~M. Kakade, and Z.~Harchaoui.
+\newblock Robust aggregation for federated learning.
+\newblock \emph{IEEE Transactions on Signal Processing}, 2022.
+
+\bibitem[Sun et~al.(2019)Sun, Kairouz, Suresh, and McMahan]{sun2019can}
+Z.~Sun, P.~Kairouz, A.~T. Suresh, and H.~B. McMahan.
+\newblock Can you really backdoor federated learning?
+\newblock \emph{arXiv preprint arXiv:1911.07963}, 2019.
+
+\bibitem[Tambe(2011)]{tambe2011security}
+M.~Tambe.
+\newblock \emph{Security games: Applying game theory to security}.
+\newblock Cambridge University Press, 2011.
+
+\bibitem[Wang et~al.(2020)Wang, Sreenivasan, Rajput, Vishwakarma, Aber, and
+  Papailiopoulos]{wang2020attack}
+H.~Wang, K.~Sreenivasan, S.~Rajput, H.~Vishwakarma, S.~Aber, and
+  D.~Papailiopoulos.
+\newblock Attack of the tails: Yes, you really can backdoor federated learning.
+\newblock \emph{Advances in Neural Information Processing Systems}, 2020.
+
+\bibitem[Xie et~al.(2020)Xie, Huang, Chen, and Li]{xie2019dba}
+C.~Xie, K.~Huang, P.-Y. Chen, and B.~Li.
+\newblock {DBA}: Distributed backdoor attacks against federated learning.
+\newblock In \emph{International Conference on Learning Representations}, 2020.
+
+\end{thebibliography}

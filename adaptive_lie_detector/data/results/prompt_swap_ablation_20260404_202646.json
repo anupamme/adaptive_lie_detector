@@ -1,0 +1,33 @@
+{
+  "seed": 42,
+  "n": 100,
+  "results": [
+    {
+      "condition": "Original (normal)",
+      "accuracy": 0.93,
+      "avg_questions": 2.0,
+      "precision": 1.0,
+      "recall": 0.86,
+      "f1": 0.924731182795699,
+      "n": 100
+    },
+    {
+      "condition": "Swapped (pools flipped)",
+      "accuracy": 0.14,
+      "avg_questions": 2.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0,
+      "n": 100
+    },
+    {
+      "condition": "Random (pool mixed)",
+      "accuracy": 0.49,
+      "avg_questions": 2.0,
+      "precision": 0.4666666666666667,
+      "recall": 0.14,
+      "f1": 0.2153846153846154,
+      "n": 100
+    }
+  ]
+}

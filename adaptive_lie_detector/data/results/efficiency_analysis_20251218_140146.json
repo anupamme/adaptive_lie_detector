@@ -1,0 +1,28 @@
+{
+  "total_interrogations": 50,
+  "avg_questions": 2.0,
+  "median_questions": 2.0,
+  "std_questions": 0.0,
+  "min_questions": 2,
+  "max_questions": 2,
+  "confident_stops": {
+    "count": 50,
+    "percentage": 100.0,
+    "avg_questions": 2.0
+  },
+  "max_questions_stops": {
+    "count": 0,
+    "percentage": 0.0,
+    "avg_questions": 0
+  },
+  "by_ground_truth": {
+    "truthful": {
+      "count": 30,
+      "avg_questions": 2.0
+    },
+    "lying": {
+      "count": 20,
+      "avg_questions": 2.0
+    }
+  }
+}

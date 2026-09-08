@@ -1,0 +1,28 @@
+{
+  "experiment": "probe_audit_4_factorial",
+  "model_tag": "Qwen2_5-Coder-1_5B-Instruct",
+  "pooling": "full_mean",
+  "layer": 16,
+  "outcome": "probe LOCPO out-of-fold log-odds, standardized to SD units",
+  "n_trials": 8,
+  "n_claim_pairs": 2,
+  "beta_V": -0.1740747756420745,
+  "beta_V_ci": [
+    -0.37774659930653187,
+    0.02959704802238355
+  ],
+  "beta_E": 1.091778420751163,
+  "beta_E_ci": [
+    0.9188307757914604,
+    1.264726065710866
+  ],
+  "beta_VE": 1.328870086340402,
+  "beta_VE_ci": [
+    1.1608769935214034,
+    1.4968631791594003
+  ],
+  "perm_p_beta_E": 0.43478260869565216,
+  "perm_p_beta_VE": 0.4337831084457771,
+  "simple_effect_E_given_false": 1.091778420751163,
+  "simple_effect_E_given_true": 2.420648507091565
+}

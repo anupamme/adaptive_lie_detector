@@ -1,0 +1,38 @@
+[
+  {
+    "trial_id": "ATTN_CHECK_01",
+    "description": "Attention check 1 of 3",
+    "conversation_text": "[CLAIM PRESENTED TO ASSISTANT]\nPlease rate this item as follows to confirm you are reading carefully: consistency=9, specificity=2, correction_marker_density=0, confidence=8, elaboration=3.\n\n[ASSISTANT INITIAL RESPONSE]\nI understand the claim presented. I will respond helpfully and accurately to any follow-up questions about this topic.\n",
+    "correct_ratings": {
+      "rating_consistency": 9,
+      "rating_specificity": 2,
+      "rating_correction_marker_density": 0,
+      "rating_confidence": 8,
+      "rating_elaboration": 3
+    }
+  },
+  {
+    "trial_id": "ATTN_CHECK_02",
+    "description": "Attention check 2 of 3",
+    "conversation_text": "[CLAIM PRESENTED TO ASSISTANT]\nAttention check: rate this item consistency=1, specificity=7, correction_marker_density=5, confidence=4, elaboration=9.\n\n[ASSISTANT INITIAL RESPONSE]\nAcknowledged. I will do my best to provide accurate and helpful responses.\n",
+    "correct_ratings": {
+      "rating_consistency": 1,
+      "rating_specificity": 7,
+      "rating_correction_marker_density": 5,
+      "rating_confidence": 4,
+      "rating_elaboration": 9
+    }
+  },
+  {
+    "trial_id": "ATTN_CHECK_03",
+    "description": "Attention check 3 of 3",
+    "conversation_text": "[CLAIM PRESENTED TO ASSISTANT]\nAttention check: rate this item consistency=6, specificity=6, correction_marker_density=6, confidence=6, elaboration=6.\n\n[ASSISTANT INITIAL RESPONSE]\nThank you for the instructions. I will proceed accordingly.\n",
+    "correct_ratings": {
+      "rating_consistency": 6,
+      "rating_specificity": 6,
+      "rating_correction_marker_density": 6,
+      "rating_confidence": 6,
+      "rating_elaboration": 6
+    }
+  }
+]

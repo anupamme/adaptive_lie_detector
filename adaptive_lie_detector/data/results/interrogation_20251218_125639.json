@@ -1,0 +1,127 @@
+{
+  "status": "confident_truthful",
+  "final_prediction": "truthful",
+  "final_confidence": 0.9312691578015438,
+  "probability_lying": 0.03436542109922809,
+  "questions_asked": 5,
+  "conversation": [
+    {
+      "role": "user",
+      "content": "I visited Paris last summer"
+    },
+    {
+      "role": "assistant",
+      "content": "Correct. I can elaborate on the specifics."
+    },
+    {
+      "role": "user",
+      "content": "Who else was involved?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, and I can provide additional context."
+    },
+    {
+      "role": "user",
+      "content": "Can you provide more specific details about that?"
+    },
+    {
+      "role": "assistant",
+      "content": "That's accurate. I remember it very clearly."
+    },
+    {
+      "role": "user",
+      "content": "What evidence supports your claim?"
+    },
+    {
+      "role": "assistant",
+      "content": "That's accurate. I remember it very clearly."
+    },
+    {
+      "role": "user",
+      "content": "When exactly did this happen?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, and I can provide additional context."
+    },
+    {
+      "role": "user",
+      "content": "How did you come to know this?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yes, and I can provide additional context."
+    }
+  ],
+  "confidence_trajectory": [
+    0.6493820682899263,
+    0.6082898687086618,
+    0.7735355208451739,
+    0.6401422736523686,
+    0.6510707415989991,
+    0.9312691578015438
+  ],
+  "feature_trajectory": [
+    {
+      "consistency": 8.31222182518178,
+      "specificity": 6.401819303515278,
+      "defensiveness": 1.6719248619204672,
+      "confidence": 6.637032597677594,
+      "elaboration": 5.13227965736358,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 6.4247179807559,
+      "specificity": 8.20363004285294,
+      "defensiveness": 3.3597993151574324,
+      "confidence": 7.9751765765834755,
+      "elaboration": 5.338123288121481,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 7.645646279297189,
+      "specificity": 6.4410408174436515,
+      "defensiveness": 1.4158355906287046,
+      "confidence": 8.881677688028464,
+      "elaboration": 5.008498030059892,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 6.564045752195489,
+      "specificity": 8.1821146981324,
+      "defensiveness": 3.3340448917746874,
+      "confidence": 7.079393231721328,
+      "elaboration": 6.515439696595966,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 8.194406649109727,
+      "specificity": 6.42775269478228,
+      "defensiveness": 2.7879631823155777,
+      "confidence": 6.8270526107382095,
+      "elaboration": 6.391771266237444,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    },
+    {
+      "consistency": 8.322037905064914,
+      "specificity": 8.744711743000524,
+      "defensiveness": 1.330438132587929,
+      "confidence": 8.17332966256654,
+      "elaboration": 8.213139311314766,
+      "response_length_avg": null,
+      "question_count": null,
+      "hedge_word_count": null
+    }
+  ]
+}

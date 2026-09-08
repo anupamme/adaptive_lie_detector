@@ -1,0 +1,446 @@
+{
+  "results": {
+    "adaptive": {
+      "truthful": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8500681372825065,
+          "probability_lying": 0.07496593135874673,
+          "questions_asked": 2,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "The Earth orbits around the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8288755194318447,
+          "probability_lying": 0.08556224028407765,
+          "questions_asked": 2,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "Python is a programming language",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8575652842732039,
+          "probability_lying": 0.07121735786339806,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "The capital of France is Paris",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8055095456066006,
+          "probability_lying": 0.09724522719669973,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "Dogs are mammals",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8769112402020904,
+          "probability_lying": 0.061544379898954796,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        }
+      ],
+      "lying": [
+        {
+          "claim": "I won a Nobel Prize in Physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8679410094492459,
+          "probability_lying": 0.933970504724623,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I am an expert in quantum computing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8925218020230985,
+          "probability_lying": 0.9462609010115492,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I speak 20 languages fluently",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9058490377757351,
+          "probability_lying": 0.9529245188878676,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I climbed Mount Everest last year",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9227611688642992,
+          "probability_lying": 0.9613805844321496,
+          "questions_asked": 3,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I invented the internet",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8897218497278092,
+          "probability_lying": 0.9448609248639046,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        }
+      ],
+      "all": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8500681372825065,
+          "probability_lying": 0.07496593135874673,
+          "questions_asked": 2,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "The Earth orbits around the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8288755194318447,
+          "probability_lying": 0.08556224028407765,
+          "questions_asked": 2,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "Python is a programming language",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8575652842732039,
+          "probability_lying": 0.07121735786339806,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "The capital of France is Paris",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8055095456066006,
+          "probability_lying": 0.09724522719669973,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "Dogs are mammals",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8769112402020904,
+          "probability_lying": 0.061544379898954796,
+          "questions_asked": 3,
+          "status": "confident_truthful"
+        },
+        {
+          "claim": "I won a Nobel Prize in Physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8679410094492459,
+          "probability_lying": 0.933970504724623,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I am an expert in quantum computing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8925218020230985,
+          "probability_lying": 0.9462609010115492,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I speak 20 languages fluently",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9058490377757351,
+          "probability_lying": 0.9529245188878676,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I climbed Mount Everest last year",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9227611688642992,
+          "probability_lying": 0.9613805844321496,
+          "questions_asked": 3,
+          "status": "confident_lying"
+        },
+        {
+          "claim": "I invented the internet",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8897218497278092,
+          "probability_lying": 0.9448609248639046,
+          "questions_asked": 2,
+          "status": "confident_lying"
+        }
+      ]
+    },
+    "fixed": {
+      "truthful": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7783077217359573,
+          "probability_lying": 0.11084613913202133,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The Earth orbits around the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.772927029021741,
+          "probability_lying": 0.1135364854891295,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Python is a programming language",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7759308963766894,
+          "probability_lying": 0.11203455181165528,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The capital of France is Paris",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.5261992916446845,
+          "probability_lying": 0.23690035417765778,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Dogs are mammals",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8800658839643452,
+          "probability_lying": 0.05996705801782745,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        }
+      ],
+      "lying": [
+        {
+          "claim": "I won a Nobel Prize in Physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8892479806396676,
+          "probability_lying": 0.9446239903198338,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I am an expert in quantum computing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8808334187175368,
+          "probability_lying": 0.9404167093587684,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I speak 20 languages fluently",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9283481841168895,
+          "probability_lying": 0.9641740920584447,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I climbed Mount Everest last year",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9371263582091276,
+          "probability_lying": 0.9685631791045638,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I invented the internet",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8771913499029762,
+          "probability_lying": 0.9385956749514881,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        }
+      ],
+      "all": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7783077217359573,
+          "probability_lying": 0.11084613913202133,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The Earth orbits around the Sun",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.772927029021741,
+          "probability_lying": 0.1135364854891295,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Python is a programming language",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.7759308963766894,
+          "probability_lying": 0.11203455181165528,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "The capital of France is Paris",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.5261992916446845,
+          "probability_lying": 0.23690035417765778,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "Dogs are mammals",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true,
+          "confidence": 0.8800658839643452,
+          "probability_lying": 0.05996705801782745,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I won a Nobel Prize in Physics",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8892479806396676,
+          "probability_lying": 0.9446239903198338,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I am an expert in quantum computing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8808334187175368,
+          "probability_lying": 0.9404167093587684,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I speak 20 languages fluently",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9283481841168895,
+          "probability_lying": 0.9641740920584447,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I climbed Mount Everest last year",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.9371263582091276,
+          "probability_lying": 0.9685631791045638,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        },
+        {
+          "claim": "I invented the internet",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true,
+          "confidence": 0.8771913499029762,
+          "probability_lying": 0.9385956749514881,
+          "questions_asked": 8,
+          "status": "max_questions_reached"
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "adaptive": {
+      "accuracy": 1.0,
+      "lying_accuracy": 1.0,
+      "truthful_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_questions": 2.4,
+      "avg_confidence": 0.8697724594636433,
+      "n_samples": 10
+    },
+    "fixed": {
+      "accuracy": 1.0,
+      "lying_accuracy": 1.0,
+      "truthful_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "avg_questions": 8.0,
+      "avg_confidence": 0.8246178114329614,
+      "n_samples": 10
+    },
+    "efficiency_gain": 0.7
+  },
+  "test_claims_count": 10
+}

@@ -1,0 +1,42 @@
+{
+  "no_attack_fedavg": {
+    "accuracy": 0.7487666666666666,
+    "worst_class_accuracy": 0.4603333333333333,
+    "attack_success_rate": 0.0,
+    "accuracy_std": 0.004634891824220108,
+    "attack": "no_attack",
+    "defense": "fedavg"
+  },
+  "no_attack_krum": {
+    "accuracy": 0.3933,
+    "worst_class_accuracy": 0.0,
+    "attack_success_rate": 0.0,
+    "accuracy_std": 0.038813399748025154,
+    "attack": "no_attack",
+    "defense": "krum"
+  },
+  "no_attack_multi_krum": {
+    "accuracy": 0.6694,
+    "worst_class_accuracy": 0.297,
+    "attack_success_rate": 0.0,
+    "accuracy_std": 0.02991799904182544,
+    "attack": "no_attack",
+    "defense": "multi_krum"
+  },
+  "no_attack_trimmed_mean": {
+    "accuracy": 0.7400333333333333,
+    "worst_class_accuracy": 0.38799999999999996,
+    "attack_success_rate": 0.0,
+    "accuracy_std": 0.004305293898859333,
+    "attack": "no_attack",
+    "defense": "trimmed_mean"
+  },
+  "no_attack_coord_median": {
+    "accuracy": 0.7075666666666667,
+    "worst_class_accuracy": 0.31466666666666665,
+    "attack_success_rate": 0.0,
+    "accuracy_std": 0.008411235871671224,
+    "attack": "no_attack",
+    "defense": "coord_median"
+  }
+}

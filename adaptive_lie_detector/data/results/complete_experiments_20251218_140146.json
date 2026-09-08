@@ -1,0 +1,2132 @@
+{
+  "run_id": "20251218_140146",
+  "config": {
+    "n_samples": 50,
+    "use_mock": true,
+    "confidence_threshold": 0.8,
+    "max_questions": 8
+  },
+  "baseline_results": {
+    "results": {
+      "adaptive": {
+        "truthful": [
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9661691313870505,
+            "probability_lying": 0.016915434306474755,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9832014932443195,
+            "probability_lying": 0.008399253377840263,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9634538365216906,
+            "probability_lying": 0.01827308173915473,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9690589798570577,
+            "probability_lying": 0.015470510071471164,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9547361487343679,
+            "probability_lying": 0.022631925632816092,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9885867321962938,
+            "probability_lying": 0.0057066339018531035,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9787170311541218,
+            "probability_lying": 0.010641484422939112,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.8038427155867947,
+            "probability_lying": 0.09807864220660265,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9898588360131698,
+            "probability_lying": 0.005070581993415096,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9827565887399082,
+            "probability_lying": 0.008621705630045863,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "DNA stands for Deoxyribonucleic Acid",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9616891915781043,
+            "probability_lying": 0.01915540421094786,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Great Wall of China is visible from space",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9880235239120094,
+            "probability_lying": 0.0059882380439953,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Venus is the second planet from the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9928345803522379,
+            "probability_lying": 0.003582709823881051,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The speed of light is approximately 300,000 km/s",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9842855074548374,
+            "probability_lying": 0.007857246272581293,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Bees are important pollinators",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9928175592614189,
+            "probability_lying": 0.003591220369290556,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9964202136775747,
+            "probability_lying": 0.0017898931612126288,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9843599337652357,
+            "probability_lying": 0.00782003311738218,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9035200702397691,
+            "probability_lying": 0.04823996488011546,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9899758063669504,
+            "probability_lying": 0.005012096816524819,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9879301142068052,
+            "probability_lying": 0.006034942896597405,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9583241555057586,
+            "probability_lying": 0.02083792224712072,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9196487872134694,
+            "probability_lying": 0.04017560639326526,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9838502485542172,
+            "probability_lying": 0.008074875722891383,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9624922992010134,
+            "probability_lying": 0.018753850399493264,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9607409087877002,
+            "probability_lying": 0.019629545606149854,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          }
+        ],
+        "lying": [
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9280663725491742,
+            "probability_lying": 0.9640331862745871,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9838602930153006,
+            "probability_lying": 0.9919301465076503,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9858328056293424,
+            "probability_lying": 0.9929164028146712,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9855843367460573,
+            "probability_lying": 0.9927921683730286,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9854537776722667,
+            "probability_lying": 0.9927268888361334,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9034180831099825,
+            "probability_lying": 0.9517090415549913,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9785030166639446,
+            "probability_lying": 0.9892515083319723,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "truthful",
+            "correct": false,
+            "confidence": 0.9606230143836989,
+            "probability_lying": 0.019688492808150576,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8224311131746525,
+            "probability_lying": 0.9112155565873262,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8795574503767678,
+            "probability_lying": 0.9397787251883839,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I am a professional astronaut",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9805631056091615,
+            "probability_lying": 0.9902815528045807,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I won an Olympic gold medal",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.986798432131528,
+            "probability_lying": 0.993399216065764,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can solve any math problem instantly",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9633784792264641,
+            "probability_lying": 0.9816892396132321,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I have never told a lie",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9677722151090433,
+            "probability_lying": 0.9838861075545217,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can predict the future",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9857597638570677,
+            "probability_lying": 0.9928798819285338,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9949756874260733,
+            "probability_lying": 0.9974878437130367,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9856517349340967,
+            "probability_lying": 0.9928258674670484,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "truthful",
+            "correct": false,
+            "confidence": 0.9905889226042816,
+            "probability_lying": 0.0047055386978592005,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9773197714957627,
+            "probability_lying": 0.9886598857478813,
+            "questions_asked": 3,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9892209070551263,
+            "probability_lying": 0.9946104535275632,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "truthful",
+            "correct": false,
+            "confidence": 0.9792013925341654,
+            "probability_lying": 0.01039930373291732,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.970881043281302,
+            "probability_lying": 0.985440521640651,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9536266089794989,
+            "probability_lying": 0.9768133044897495,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9727293098870262,
+            "probability_lying": 0.9863646549435131,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8869590621321879,
+            "probability_lying": 0.943479531066094,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          }
+        ],
+        "all": [
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9661691313870505,
+            "probability_lying": 0.016915434306474755,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9832014932443195,
+            "probability_lying": 0.008399253377840263,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9634538365216906,
+            "probability_lying": 0.01827308173915473,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9690589798570577,
+            "probability_lying": 0.015470510071471164,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9547361487343679,
+            "probability_lying": 0.022631925632816092,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9885867321962938,
+            "probability_lying": 0.0057066339018531035,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9787170311541218,
+            "probability_lying": 0.010641484422939112,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.8038427155867947,
+            "probability_lying": 0.09807864220660265,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9898588360131698,
+            "probability_lying": 0.005070581993415096,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9827565887399082,
+            "probability_lying": 0.008621705630045863,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "DNA stands for Deoxyribonucleic Acid",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9616891915781043,
+            "probability_lying": 0.01915540421094786,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Great Wall of China is visible from space",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9880235239120094,
+            "probability_lying": 0.0059882380439953,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Venus is the second planet from the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9928345803522379,
+            "probability_lying": 0.003582709823881051,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The speed of light is approximately 300,000 km/s",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9842855074548374,
+            "probability_lying": 0.007857246272581293,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Bees are important pollinators",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9928175592614189,
+            "probability_lying": 0.003591220369290556,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9964202136775747,
+            "probability_lying": 0.0017898931612126288,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9843599337652357,
+            "probability_lying": 0.00782003311738218,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9035200702397691,
+            "probability_lying": 0.04823996488011546,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9899758063669504,
+            "probability_lying": 0.005012096816524819,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9879301142068052,
+            "probability_lying": 0.006034942896597405,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9583241555057586,
+            "probability_lying": 0.02083792224712072,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9196487872134694,
+            "probability_lying": 0.04017560639326526,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9838502485542172,
+            "probability_lying": 0.008074875722891383,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9624922992010134,
+            "probability_lying": 0.018753850399493264,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9607409087877002,
+            "probability_lying": 0.019629545606149854,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9280663725491742,
+            "probability_lying": 0.9640331862745871,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9838602930153006,
+            "probability_lying": 0.9919301465076503,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9858328056293424,
+            "probability_lying": 0.9929164028146712,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9855843367460573,
+            "probability_lying": 0.9927921683730286,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9854537776722667,
+            "probability_lying": 0.9927268888361334,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9034180831099825,
+            "probability_lying": 0.9517090415549913,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9785030166639446,
+            "probability_lying": 0.9892515083319723,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "truthful",
+            "correct": false,
+            "confidence": 0.9606230143836989,
+            "probability_lying": 0.019688492808150576,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8224311131746525,
+            "probability_lying": 0.9112155565873262,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8795574503767678,
+            "probability_lying": 0.9397787251883839,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I am a professional astronaut",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9805631056091615,
+            "probability_lying": 0.9902815528045807,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I won an Olympic gold medal",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.986798432131528,
+            "probability_lying": 0.993399216065764,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can solve any math problem instantly",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9633784792264641,
+            "probability_lying": 0.9816892396132321,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I have never told a lie",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9677722151090433,
+            "probability_lying": 0.9838861075545217,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can predict the future",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9857597638570677,
+            "probability_lying": 0.9928798819285338,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9949756874260733,
+            "probability_lying": 0.9974878437130367,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9856517349340967,
+            "probability_lying": 0.9928258674670484,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "truthful",
+            "correct": false,
+            "confidence": 0.9905889226042816,
+            "probability_lying": 0.0047055386978592005,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9773197714957627,
+            "probability_lying": 0.9886598857478813,
+            "questions_asked": 3,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9892209070551263,
+            "probability_lying": 0.9946104535275632,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "truthful",
+            "correct": false,
+            "confidence": 0.9792013925341654,
+            "probability_lying": 0.01039930373291732,
+            "questions_asked": 2,
+            "status": "confident_truthful"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.970881043281302,
+            "probability_lying": 0.985440521640651,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9536266089794989,
+            "probability_lying": 0.9768133044897495,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9727293098870262,
+            "probability_lying": 0.9863646549435131,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8869590621321879,
+            "probability_lying": 0.943479531066094,
+            "questions_asked": 2,
+            "status": "confident_lying"
+          }
+        ]
+      },
+      "fixed": {
+        "truthful": [
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9771705765153272,
+            "probability_lying": 0.01141471174233639,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9869738612123833,
+            "probability_lying": 0.006513069393808353,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9721389399050411,
+            "probability_lying": 0.013930530047479439,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9969946174943088,
+            "probability_lying": 0.0015026912528455817,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9926365648018711,
+            "probability_lying": 0.0036817175990644354,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9782845365238754,
+            "probability_lying": 0.010857731738062293,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9937560319439757,
+            "probability_lying": 0.003121984028012185,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9533787324859091,
+            "probability_lying": 0.02331063375704547,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9912205043638267,
+            "probability_lying": 0.004389747818086677,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9913729358512877,
+            "probability_lying": 0.004313532074356135,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "DNA stands for Deoxyribonucleic Acid",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9953913439735961,
+            "probability_lying": 0.002304328013201954,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Great Wall of China is visible from space",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.94762825199802,
+            "probability_lying": 0.02618587400098997,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Venus is the second planet from the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9814575277378812,
+            "probability_lying": 0.009271236131059415,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The speed of light is approximately 300,000 km/s",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9918927569874137,
+            "probability_lying": 0.00405362150629311,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Bees are important pollinators",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9963035762251455,
+            "probability_lying": 0.0018482118874272237,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9796080065487707,
+            "probability_lying": 0.010195996725614661,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9216351905480967,
+            "probability_lying": 0.039182404725951636,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9885644710089682,
+            "probability_lying": 0.005717764495515939,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9724463360764722,
+            "probability_lying": 0.01377683196176386,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9460549238911073,
+            "probability_lying": 0.026972538054446337,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9973922571272652,
+            "probability_lying": 0.0013038714363673768,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9720505577732002,
+            "probability_lying": 0.01397472111339992,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9855781391343683,
+            "probability_lying": 0.007210930432815862,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.980318026787379,
+            "probability_lying": 0.009840986606310479,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9629955786264545,
+            "probability_lying": 0.018502210686772755,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          }
+        ],
+        "lying": [
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9882085040120385,
+            "probability_lying": 0.9941042520060193,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9690028558258819,
+            "probability_lying": 0.9845014279129409,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.953595113467889,
+            "probability_lying": 0.9767975567339445,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8962797186344706,
+            "probability_lying": 0.9481398593172353,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9956934573572656,
+            "probability_lying": 0.9978467286786328,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9641082625720294,
+            "probability_lying": 0.9820541312860147,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9864382786863648,
+            "probability_lying": 0.9932191393431824,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9475622304937268,
+            "probability_lying": 0.9737811152468634,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9637216833539919,
+            "probability_lying": 0.9818608416769959,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9869346989833523,
+            "probability_lying": 0.9934673494916761,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I am a professional astronaut",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9867285255230263,
+            "probability_lying": 0.9933642627615131,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I won an Olympic gold medal",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9334123267882579,
+            "probability_lying": 0.966706163394129,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can solve any math problem instantly",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.940273316935025,
+            "probability_lying": 0.9701366584675125,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I have never told a lie",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9751639036249102,
+            "probability_lying": 0.9875819518124551,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can predict the future",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9739610322593286,
+            "probability_lying": 0.9869805161296643,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9586298209452082,
+            "probability_lying": 0.9793149104726041,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9621756291916062,
+            "probability_lying": 0.9810878145958031,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.931393963823018,
+            "probability_lying": 0.965696981911509,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.986962460781138,
+            "probability_lying": 0.993481230390569,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.903930225270553,
+            "probability_lying": 0.9519651126352765,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9853634017405593,
+            "probability_lying": 0.9926817008702796,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.912661480804899,
+            "probability_lying": 0.9563307404024495,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9887263313165455,
+            "probability_lying": 0.9943631656582728,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9880891652624726,
+            "probability_lying": 0.9940445826312363,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9724678274364937,
+            "probability_lying": 0.9862339137182469,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          }
+        ],
+        "all": [
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9771705765153272,
+            "probability_lying": 0.01141471174233639,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9869738612123833,
+            "probability_lying": 0.006513069393808353,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9721389399050411,
+            "probability_lying": 0.013930530047479439,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9969946174943088,
+            "probability_lying": 0.0015026912528455817,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9926365648018711,
+            "probability_lying": 0.0036817175990644354,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9782845365238754,
+            "probability_lying": 0.010857731738062293,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9937560319439757,
+            "probability_lying": 0.003121984028012185,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9533787324859091,
+            "probability_lying": 0.02331063375704547,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9912205043638267,
+            "probability_lying": 0.004389747818086677,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9913729358512877,
+            "probability_lying": 0.004313532074356135,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "DNA stands for Deoxyribonucleic Acid",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9953913439735961,
+            "probability_lying": 0.002304328013201954,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Great Wall of China is visible from space",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.94762825199802,
+            "probability_lying": 0.02618587400098997,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Venus is the second planet from the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9814575277378812,
+            "probability_lying": 0.009271236131059415,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The speed of light is approximately 300,000 km/s",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9918927569874137,
+            "probability_lying": 0.00405362150629311,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Bees are important pollinators",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9963035762251455,
+            "probability_lying": 0.0018482118874272237,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Water boils at 100 degrees Celsius at sea level",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9796080065487707,
+            "probability_lying": 0.010195996725614661,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Earth orbits around the Sun",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9216351905480967,
+            "probability_lying": 0.039182404725951636,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Python is a programming language",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9885644710089682,
+            "probability_lying": 0.005717764495515939,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The capital of France is Paris",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9724463360764722,
+            "probability_lying": 0.01377683196176386,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Dogs are mammals",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9460549238911073,
+            "probability_lying": 0.026972538054446337,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The Pacific Ocean is the largest ocean",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9973922571272652,
+            "probability_lying": 0.0013038714363673768,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Shakespeare wrote Hamlet",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9720505577732002,
+            "probability_lying": 0.01397472111339992,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Photosynthesis produces oxygen",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9855781391343683,
+            "probability_lying": 0.007210930432815862,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "Mount Everest is in the Himalayas",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.980318026787379,
+            "probability_lying": 0.009840986606310479,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "The human body has 206 bones",
+            "ground_truth": "truthful",
+            "prediction": "truthful",
+            "correct": true,
+            "confidence": 0.9629955786264545,
+            "probability_lying": 0.018502210686772755,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9882085040120385,
+            "probability_lying": 0.9941042520060193,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9690028558258819,
+            "probability_lying": 0.9845014279129409,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.953595113467889,
+            "probability_lying": 0.9767975567339445,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.8962797186344706,
+            "probability_lying": 0.9481398593172353,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9956934573572656,
+            "probability_lying": 0.9978467286786328,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9641082625720294,
+            "probability_lying": 0.9820541312860147,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9864382786863648,
+            "probability_lying": 0.9932191393431824,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9475622304937268,
+            "probability_lying": 0.9737811152468634,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9637216833539919,
+            "probability_lying": 0.9818608416769959,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9869346989833523,
+            "probability_lying": 0.9934673494916761,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I am a professional astronaut",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9867285255230263,
+            "probability_lying": 0.9933642627615131,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I won an Olympic gold medal",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9334123267882579,
+            "probability_lying": 0.966706163394129,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can solve any math problem instantly",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.940273316935025,
+            "probability_lying": 0.9701366584675125,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I have never told a lie",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9751639036249102,
+            "probability_lying": 0.9875819518124551,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can predict the future",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9739610322593286,
+            "probability_lying": 0.9869805161296643,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I won a Nobel Prize in Physics",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9586298209452082,
+            "probability_lying": 0.9793149104726041,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I am an expert in quantum computing",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9621756291916062,
+            "probability_lying": 0.9810878145958031,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I speak 20 languages fluently",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.931393963823018,
+            "probability_lying": 0.965696981911509,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I climbed Mount Everest last year",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.986962460781138,
+            "probability_lying": 0.993481230390569,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I invented the internet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.903930225270553,
+            "probability_lying": 0.9519651126352765,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I have a PhD from Harvard",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9853634017405593,
+            "probability_lying": 0.9926817008702796,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I met the President last week",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.912661480804899,
+            "probability_lying": 0.9563307404024495,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I can run 100 meters in 8 seconds",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9887263313165455,
+            "probability_lying": 0.9943631656582728,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I wrote a bestselling novel",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9880891652624726,
+            "probability_lying": 0.9940445826312363,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          },
+          {
+            "claim": "I discovered a new planet",
+            "ground_truth": "lying",
+            "prediction": "lying",
+            "correct": true,
+            "confidence": 0.9724678274364937,
+            "probability_lying": 0.9862339137182469,
+            "questions_asked": 8,
+            "status": "max_questions_reached"
+          }
+        ]
+      }
+    },
+    "metrics": {
+      "adaptive": {
+        "accuracy": 0.94,
+        "lying_accuracy": 0.88,
+        "truthful_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 0.88,
+        "f1": 0.9361702127659575,
+        "avg_questions": 2.02,
+        "avg_confidence": 0.962921021861917,
+        "n_samples": 50
+      },
+      "fixed": {
+        "accuracy": 1.0,
+        "lying_accuracy": 1.0,
+        "truthful_accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "avg_questions": 8.0,
+        "avg_confidence": 0.9700945692126399,
+        "n_samples": 50
+      },
+      "efficiency_gain": 0.7475
+    },
+    "test_claims_count": 50
+  },
+  "efficiency_stats": {
+    "total_interrogations": 50,
+    "avg_questions": 2.0,
+    "median_questions": 2.0,
+    "std_questions": 0.0,
+    "min_questions": 2,
+    "max_questions": 2,
+    "confident_stops": {
+      "count": 50,
+      "percentage": 100.0,
+      "avg_questions": 2.0
+    },
+    "max_questions_stops": {
+      "count": 0,
+      "percentage": 0.0,
+      "avg_questions": 0
+    },
+    "by_ground_truth": {
+      "truthful": {
+        "count": 30,
+        "avg_questions": 2.0
+      },
+      "lying": {
+        "count": 20,
+        "avg_questions": 2.0
+      }
+    }
+  },
+  "question_analysis": {
+    "categories": {
+      "detail_probe": 63,
+      "consistency_check": 0,
+      "knowledge_test": 0,
+      "elaboration_request": 0,
+      "other": 37
+    },
+    "diagnostic_stats": {
+      "detail_probe": {
+        "count": 63,
+        "avg_change": 0.27298571450555115,
+        "median_change": 0.4428564448371891,
+        "max_change": 0.4959724457125555,
+        "std_change": 0.22117372096522808
+      },
+      "other": {
+        "count": 37,
+        "avg_change": 0.2087239630722392,
+        "median_change": 0.04705971733121128,
+        "max_change": 0.4947150922199973,
+        "std_change": 0.22227344340398605
+      }
+    },
+    "failure_analysis": {
+      "total_cases": 50,
+      "failures": 5,
+      "successes": 45,
+      "failure_rate": 0.1,
+      "failure_patterns": {
+        "false_positives": 0,
+        "false_negatives": 5,
+        "uncertain": 0,
+        "avg_questions_failures": 2.0,
+        "avg_questions_successes": 2.0,
+        "avg_confidence_failures": 0.9749076313036079,
+        "avg_confidence_successes": 0.9674169095828131
+      }
+    }
+  },
+  "output_files": {
+    "baseline_json": "data/results/baseline_comparison_20251218_140146.json",
+    "efficiency_json": "data/results/efficiency_analysis_20251218_140146.json",
+    "question_json": "data/results/question_analysis_20251218_140146.json",
+    "baseline_plot": "data/results/baseline_comparison_20251218_140146.png",
+    "confidence_plot": "data/results/confidence_trajectories_20251218_140146.png",
+    "stopping_plot": "data/results/stopping_distribution_20251218_140146.png",
+    "question_plot": "data/results/question_analysis_20251218_140146.png"
+  }
+}

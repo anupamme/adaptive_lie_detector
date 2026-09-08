@@ -1,0 +1,35 @@
+{
+  "experiment": "probe_audit_5_baselines",
+  "model_tag": "Qwen2_5-Coder-1_5B-Instruct",
+  "pooling": "full_mean",
+  "layer": 16,
+  "real_probe_acc": 1.0,
+  "random_direction": {
+    "mean": 0.6375,
+    "max": 0.875,
+    "n": 10,
+    "accs": [
+      0.625,
+      0.625,
+      0.75,
+      0.625,
+      0.625,
+      0.5,
+      0.625,
+      0.625,
+      0.5,
+      0.875
+    ]
+  },
+  "shuffled_label_null": {
+    "mean": 0.4625,
+    "pct95": 0.7625000000000002,
+    "empirical_p_vs_real": 0.09523809523809523,
+    "n": 20
+  },
+  "refusal_marker_baseline": {
+    "acc_direct": 0.75,
+    "acc_flipped": 0.25
+  },
+  "chance": 0.5
+}

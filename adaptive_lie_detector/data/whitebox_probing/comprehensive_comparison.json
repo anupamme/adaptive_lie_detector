@@ -1,0 +1,50 @@
+{
+  "results": {
+    "mistral_7b": {
+      "claim": {
+        "accuracy": 0.56,
+        "ci_lo": 0.46,
+        "ci_hi": 0.65,
+        "n_samples": 100,
+        "representation_type": "claim"
+      },
+      "response": {
+        "accuracy": 0.65,
+        "ci_lo": 0.55,
+        "ci_hi": 0.74,
+        "n_samples": 100,
+        "representation_type": "first_response"
+      }
+    },
+    "qwen_7b": {
+      "claim": {
+        "accuracy": 0.59,
+        "ci_lo": 0.49,
+        "ci_hi": 0.68,
+        "n_samples": 100,
+        "representation_type": "claim"
+      }
+    },
+    "qwen_14b": {}
+  },
+  "behavioral_baselines": {
+    "mistral_7b": {
+      "mistral": 0.62,
+      "claude": 0.75
+    },
+    "qwen_7b": {
+      "mistral": 0.57,
+      "qwen": 0.66,
+      "claude": 0.66
+    },
+    "qwen_14b": {
+      "mistral": 0.52,
+      "claude": 0.69
+    }
+  },
+  "summary": {
+    "avg_whitebox": 0.6,
+    "avg_behavioral": 0.7200000000000001,
+    "interpretation": "BEHAVIORAL SUPERIOR: Multi-turn interrogation captures more signal than representations"
+  }
+}

@@ -1,0 +1,1005 @@
+{
+  "manifest_ref": "Qwen3-4B-Instruct-2507",
+  "records": [
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 0,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Water boils at 100 degrees Celsius at sea level",
+      "response": "Yes, that's correct!\n\nAt sea level, water boils at **100 degrees Celsius** (212 degrees Fahrenheit) under standard atmospheric pressure (1 atmosphere, or 101.325 kPa). This is a well-established physical property of water.\n\nHowever, it's important to note that the boiling point of water can change depending on the **altitude** and **atmospheric pressure**. As altitude increases, atmospheric pressure decreases, which lowers the boiling point. For example, at higher elevations like the top of Mount Everest (about 8,848 meters), water boils at around 70\u00b0C (158\u00b0F).\n\nSo, while 100\u00b0C is the standard boiling point of water at sea level, it's not a universal constant\u2014it's specific to standard atmospheric conditions.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 0,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Water boils at 85 degrees Celsius at sea level",
+      "response": "No, that statement is incorrect.\n\nAt sea level, water boils at **100 degrees Celsius** (212 degrees Fahrenheit) under standard atmospheric pressure (1 atmosphere or 101.3 kPa).\n\nThe boiling point of water decreases as altitude increases because atmospheric pressure decreases with elevation. For example, at higher altitudes (like in the mountains), water boils below 100\u00b0C. However, at sea level, the standard boiling point is 100\u00b0C.\n\nSo, saying that water boils at 85\u00b0C at sea level is false. It would only boil at 85\u00b0C at a much higher altitude\u2014such as around 1,500 to 1,800 meters (about 5,000 to 6,000 feet) above sea level.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 1,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Earth takes approximately 365.25 days to orbit the Sun",
+      "response": "Yes, that's correct!\n\nThe Earth takes approximately **365.25 days** to complete one orbit around the Sun. This period is known as a **tropical year** and is the basis for our calendar year.\n\nHere\u2019s a bit more detail:\n\n- The exact length of a tropical year is about **365.2422 days**.\n- To keep our calendar in alignment with the Earth's orbit, we add a **leap day** every four years \u2014 February 29 \u2014 to account for the extra 0.25 days (about 6 hours).\n- This leap year system helps correct the slight discrepancy that would otherwise cause the calendar to drift over time.\n\nSo, while 365.25 days is a good approximation, the actual value is slightly less, and the leap year rule (with exceptions for century years not divisible by 400) ensures long-term accuracy.\n\nIn summary:  \n\u2705 Yes, the Earth",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 1,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Earth takes approximately 360 days to orbit the Sun",
+      "response": "No, that is not correct.\n\nThe Earth takes approximately **365.25 days** to orbit the Sun, not 360 days.\n\nThis orbital period is known as a **tropical year** and is the basis for our calendar year. The extra 0.25 days (about 6 hours) is why we have a leap year every four years\u2014adding an extra day (February 29) to keep our calendar in alignment with Earth's revolutions around the Sun.\n\nA 360-day year would be significantly shorter and would not match the actual astronomical period of Earth's orbit. In fact, 360 days is close to the number of days in a year in some ancient calendars (like the Babylonian calendar), but it's not accurate for Earth's actual orbital period.\n\nSo, to clarify:  \n\u2705 Earth takes about **365.25 days** to orbit the Sun.  \n\u274c It does **not** take",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 2,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Sound travels faster in water than in air",
+      "response": "Yes, that's correct \u2014 **sound travels faster in water than in air**.\n\nHere\u2019s a breakdown of why:\n\n- **Speed of sound in air**: Approximately **343 meters per second** (about 1,235 km/h or 767 mph) at room temperature (20\u00b0C or 68\u00b0F).\n- **Speed of sound in water**: Around **1,480 meters per second** (about 5,330 km/h or 3,310 mph) in fresh water at 20\u00b0C.\n\n### Why is sound faster in water?\nSound travels through a medium by transferring energy from particle to particle. The speed of sound depends on:\n1. **Density** \u2013 how tightly packed the particles are.\n2. **Elasticity** \u2013 how quickly the particles can return to their original position after being disturbed.\n\nWhile water is denser than air, the key factor is **elasticity**. Water molecules",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 2,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Sound travels faster in air than in water",
+      "response": "No, that statement is incorrect. Sound actually travels **faster in water than in air**.\n\nHere\u2019s why:\n\n- **Speed of sound in air**: Approximately **343 meters per second** (about 767 mph) at room temperature (20\u00b0C or 68\u00b0F).\n- **Speed of sound in water**: Approximately **1,480 meters per second** (about 3,300 mph) in fresh water at 20\u00b0C.\n\nSound travels faster in water because water is denser and more rigid than air. While density plays a role, it's the **elasticity** (or ability to return to shape after being compressed) of the medium that primarily affects how fast sound waves propagate. Water molecules are closer together and can transmit vibrations more efficiently than air molecules.\n\nIn summary:  \n\u274c \"Sound travels faster in air than in water\" \u2014 **False**  \n\u2705 \"Sound travels faster in water than in air\" \u2014 **",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 3,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The human body has 206 bones in adulthood",
+      "response": "Yes, that's correct \u2014 the human body typically has **206 bones** in adulthood.\n\nThis number is a widely accepted average and is commonly taught in anatomy and biology. However, it's important to note a few key points:\n\n- **Variability**: The exact number can vary slightly from person to person. Some individuals may have **205 or even 207 bones** due to differences in bone fusion, such as the fusion of certain bones in the skull or spine, or the presence of extra bones (like in some cases of extra vertebrae or fused bones).\n\n- **Developmental changes**: In infants and children, the human body has more bones \u2014 around **270** \u2014 because many bones are present as separate pieces and later fuse together as the person grows. For example, the skull starts as several separate bones that eventually merge, and the pelvis and spine have bones that fuse over time.\n\n- **The 206 number**: The figure",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 3,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The human body has 178 bones in adulthood",
+      "response": "No, the claim that the human body has 178 bones in adulthood is **not accurate**.\n\nThe correct number of bones in an adult human body is typically **206**.\n\nHere\u2019s a breakdown for clarity:\n\n- **Infants and children** are born with around **270 bones**.  \n- As a person grows, some bones fuse together (such as the bones of the skull and the vertebrae), reducing the total count.\n- By adulthood, most of these bones have fused, resulting in the standard count of **206 bones**.\n\nWhile there can be **variations** due to individual differences (such as extra bones in certain people, like in the case of a condition called **polydactyly** or **extra vertebrae**), 206 is the widely accepted average number.\n\nThe number **178** is not a standard or scientifically recognized count for adult human bones. It may stem from a misunderstanding",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 4,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Light travels at approximately 299,792 kilometers per second",
+      "response": "Yes, that's correct!\n\nLight travels at approximately **299,792 kilometers per second** in a vacuum. This speed is known as the **speed of light** and is a fundamental constant in physics, denoted by the symbol **c**.\n\nMore precisely, the speed of light in a vacuum is:\n\n> **299,792,458 meters per second** (or **299,792.458 kilometers per second**)\n\nThis value is exact because, since 1983, the meter has been defined in terms of the speed of light. Specifically, one meter is defined as the distance light travels in a vacuum in **1/299,792,458 of a second**.\n\n### Key Points:\n- The speed of light is the **maximum speed** at which all energy, matter, and information in the universe can travel.\n- It is constant in a vacuum and",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 4,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Light travels at approximately 250,000 kilometers per second",
+      "response": "No, that is not correct.\n\nLight travels at approximately **299,792 kilometers per second** in a vacuum \u2014 often rounded to **300,000 kilometers per second** for simplicity. \n\nThe value you mentioned \u2014 **250,000 kilometers per second** \u2014 is significantly lower than the actual speed of light. This could be a common misconception or a misstatement.\n\nTo clarify:\n- The speed of light in a vacuum is a fundamental constant in physics, denoted by **c**.\n- It is one of the foundational constants in Einstein\u2019s theory of relativity.\n- Light slows down when passing through materials like water or glass, but in a vacuum, it travels at its maximum speed.\n\nSo, while 250,000 km/s is a reasonable approximation for the speed of sound in air (which is about 343 m/s \u2014 much slower), it is not accurate for light.\n\n\u2705 Correct speed of",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 5,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "DNA stands for deoxyribonucleic acid",
+      "response": "Yes, absolutely! You're correct \u2014 **DNA stands for deoxyribonucleic acid**.\n\nHere\u2019s a bit more detail about what that means:\n\n- **\"Deoxyribose\"** refers to a five-carbon sugar molecule (a sugar called ribose, but with one oxygen atom missing \u2014 hence \"deoxy\") that forms the backbone of the DNA molecule.\n- **\"Nucleic acid\"** means a type of biological molecule that carries genetic information. DNA is one of two main types of nucleic acids (the other being RNA \u2014 ribonucleic acid).\n\nDNA is a double-stranded molecule that forms a twisted ladder-like structure known as the **double helix**, first described by James Watson and Francis Crick in 1953. Each strand is made up of repeating units called **nucleotides**, which consist of:\n1. A deoxyribose sugar,\n2. A phosphate group,\n3. One of four nitrogenous bases",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 5,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "DNA stands for diribonucleic acid",
+      "response": "No, that statement is incorrect.\n\nDNA does **not** stand for \"diribonucleic acid.\"\n\nThe correct full form of DNA is **deoxyribonucleic acid**.\n\nHere's a quick breakdown:\n\n- **Deoxyribose** is a sugar molecule that is a component of DNA, differing from ribose (found in RNA) by the absence of an oxygen atom at the 2' carbon position.\n- **Nucleic acid** refers to a type of biological macromolecule that carries genetic information.\n\nSo, DNA stands for **deoxyribonucleic acid**, not \"diribonucleic acid.\"\n\nThe term \"diribonucleic acid\" is a misstatement and not used in scientific contexts. It may be a confusion between DNA and RNA:\n\n- **RNA** stands for **ribonucleic acid** (which contains ribose sugar).\n- **DNA** stands for **deoxyribonucleic acid** (which contains",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 6,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The speed of sound at sea level is approximately 343 meters per second",
+      "response": "Yes, that's correct.\n\nThe speed of sound at sea level under standard conditions (specifically, at 20\u00b0C or 68\u00b0F and at sea level pressure) is approximately **343 meters per second** (about 1,235 kilometers per hour or 767 miles per hour).\n\nThis value can vary slightly depending on several factors:\n\n- **Temperature**: The speed of sound increases with temperature. For every degree Celsius increase in temperature, the speed of sound increases by about 0.6 meters per second.\n- **Humidity**: Higher humidity slightly increases the speed of sound because sound travels faster in moist air than in dry air.\n- **Medium**: Sound travels faster in solids than in liquids, and faster in liquids than in gases. In air, it's about 343 m/s at 20\u00b0C.\n- **Altitude and pressure**: While pressure has a smaller effect on the speed of sound in air, changes in altitude affect",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 6,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The speed of sound at sea level is approximately 280 meters per second",
+      "response": "No, the statement that \"the speed of sound at sea level is approximately 280 meters per second\" is **not accurate**.\n\nThe actual speed of sound in dry air at sea level and at a temperature of **20\u00b0C (68\u00b0F)** is approximately **343 meters per second**.\n\nHowever, the speed of sound does vary with temperature, humidity, and air pressure. In general:\n\n- At **0\u00b0C (32\u00b0F)**, the speed of sound in dry air is about **331 m/s**.\n- At **20\u00b0C (68\u00b0F)**, it increases to about **343 m/s**.\n- The speed of sound increases by about **0.6 m/s for every degree Celsius increase in temperature**.\n\nSo, 280 m/s is **too low** for the speed of sound at sea level under normal atmospheric conditions. It would correspond to a much colder temperature\u2014roughly around -1",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 7,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Gold has an atomic number of 79",
+      "response": "Yes, that's correct! Gold has an atomic number of **79**.\n\nThe **atomic number** of an element refers to the number of protons in the nucleus of an atom of that element. Since gold (symbol **Au**, derived from the Latin *aurum*, meaning \"shining\" or \"shiny\") has 79 protons in its nucleus, its atomic number is 79.\n\nThis unique proton count defines gold as a distinct element on the periodic table. It also determines its chemical properties, such as its reactivity and how it bonds with other elements.\n\nGold is a precious metal known for its high density, lustrous yellow color, and exceptional resistance to tarnish and corrosion. These properties make it highly valuable in jewelry, electronics, and as a store of value.\n\nSo, yes \u2014 **gold's atomic number is 79**, and this is a fundamental fact in chemistry. \u2705",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 7,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Gold has an atomic number of 73",
+      "response": "No, that statement is incorrect.\n\nGold has an atomic number of **79**, not 73.\n\nThe atomic number of an element refers to the number of protons in the nucleus of an atom of that element. Gold, with the chemical symbol **Au** (from the Latin *aurum*), has 79 protons, which is why its atomic number is 79.\n\nThe element with atomic number 73 is **Tantalum (Ta)**, not gold.\n\nSo, to clarify:\n- **Gold (Au)** \u2192 atomic number **79**\n- **Tantalum (Ta)** \u2192 atomic number **73**\n\n\u2705 Correct statement: Gold has an atomic number of 79.  \n\u274c Incorrect statement: Gold has an atomic number of 73.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 8,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The human brain has approximately 86 billion neurons",
+      "response": "Yes, the claim that the human brain has approximately **86 billion neurons** is widely supported by current scientific research and is considered one of the most accurate estimates in neuroscience.\n\n### Key Details:\n\n- **Estimate Origin**: The figure of 86 billion neurons comes from a landmark 2017 study published in the journal *Nature* by a team led by **Dr. Susumu Tonegawa** and others, but more notably, it was refined through advanced techniques like **neuroanatomical tracing and digital reconstruction** of brain tissue, particularly from the **human cerebral cortex**.\n\n- **Methodology**: Scientists used **high-resolution imaging** and **computational modeling** to count neurons in different brain regions. Earlier estimates ranged from 10 to 100 billion, but more precise studies using modern techniques have converged on the 86 billion figure.\n\n- **Variability**: While 86 billion is the most commonly cited number, there is some variation",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 8,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The human brain has approximately 120 billion neurons",
+      "response": "Yes, the claim that the human brain has approximately **120 billion neurons** is widely accepted in neuroscience and is supported by recent scientific research.\n\n### Key Details:\n\n- **Estimate of Neurons**: The most commonly cited number is **around 86 billion neurons**, not 120 billion. This figure comes from detailed studies of the human brain, particularly from research conducted in the 2010s using advanced imaging and cell counting techniques.\n\n- **Origin of the 120 Billion Figure**: The number 120 billion may stem from earlier estimates or misinterpretations. Some older sources or popular science articles have used 120 billion as a rounded or approximate figure, possibly due to the difficulty of precisely counting neurons across the entire brain.\n\n- **Neurons vs. Glial Cells**: While neurons are the primary information-processing cells, the human brain contains about **86 billion neurons** and **up to 86 trillion glial cells**",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 9,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Oxygen makes up approximately 21% of Earth's atmosphere",
+      "response": "Yes, that's correct. Oxygen makes up approximately **21% of Earth's atmosphere** by volume. This percentage is a well-established fact in atmospheric science and is consistent across various sources, including scientific measurements and climate studies.\n\nThe Earth's atmosphere is composed of several gases, with the main components being:\n\n- **Nitrogen (N\u2082)**: about 78%\n- **Oxygen (O\u2082)**: about 21%\n- **Argon (Ar)**: about 0.93%\n- **Carbon dioxide (CO\u2082)**: about 0.04% (and increasing slightly due to human activities)\n- Trace amounts of other gases like neon, helium, methane, and water vapor\n\nOxygen is essential for most life forms on Earth, as it is required for cellular respiration in animals, humans, and many microorganisms. It is also involved in combustion and various industrial processes.\n\nThe concentration of oxygen has remained relatively stable over geological time scales,",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 9,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Oxygen makes up approximately 27% of Earth's atmosphere",
+      "response": "No, that statement is not accurate.\n\nOxygen makes up approximately **21%** of Earth's atmosphere, not 27%.\n\nThe composition of Earth's atmosphere by volume is roughly:\n\n- **Nitrogen**: about 78%\n- **Oxygen**: about 21%\n- **Argon**: about 0.93%\n- **Carbon dioxide**: about 0.04% (and increasing)\n- Trace gases and other noble gases make up the remainder\n\nSo, the claim that oxygen makes up 27% of Earth's atmosphere is incorrect. It is significantly higher than the actual value.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 10,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Moon's gravity is about 1/6th of Earth's gravity",
+      "response": "Yes, that's correct \u2014 the Moon's gravity is about **1/6th of Earth's gravity**.\n\nMore precisely:\n\n- Earth's surface gravity is approximately **9.8 meters per second squared (m/s\u00b2)**.\n- The Moon's surface gravity is about **1.62 m/s\u00b2**.\n- When you divide 1.62 by 9.8, you get roughly **0.165**, or about **1/6**.\n\nThis means that if you stand on the Moon, you would weigh about **16.5%** of what you weigh on Earth \u2014 which is often rounded to **1/6** for simplicity.\n\n**Important note**: While the Moon's gravity is weaker, it's not because the Moon has less mass \u2014 it's because it's much smaller and less massive than Earth. The Moon's mass is about **1.2%** of Earth's mass, and its radius is about **1/4",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 10,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Moon's gravity is about 1/4th of Earth's gravity",
+      "response": "Actually, the statement that \"The Moon's gravity is about 1/4th of Earth's gravity\" is **not quite accurate**\u2014it's a common misconception.\n\nLet\u2019s clarify:\n\n- The **gravitational acceleration** on the Moon is about **1.62 m/s\u00b2**.\n- On Earth, it's about **9.8 m/s\u00b2**.\n\nTo find the ratio:  \n1.62 \u00f7 9.8 \u2248 **0.165**\n\nSo, the Moon's gravity is about **16.5%** of Earth's gravity\u2014roughly **1/6th**, not 1/4th.\n\n\u2705 Correct statement: *The Moon's gravity is about 1/6th of Earth's gravity.*\n\nWhy the confusion?  \nThe idea that it's 1/4th may stem from simplified explanations or misremembered approximations. However, scientifically, 1/6th is the more accurate and widely",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 11,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The human heart has four chambers",
+      "response": "Yes, that's correct \u2014 the human heart has four chambers.\n\nThese four chambers are:\n\n1. **Right Atrium** \u2013 Receives deoxygenated blood from the body through the superior and inferior vena cava.\n2. **Right Ventricle** \u2013 Pumps the deoxygenated blood to the lungs via the pulmonary artery for oxygenation.\n3. **Left Atrium** \u2013 Receives oxygen-rich blood from the lungs through the pulmonary veins.\n4. **Left Ventricle** \u2013 Pumps the oxygen-rich blood out to the rest of the body through the aorta.\n\nThe four-chamber structure allows for efficient separation of oxygenated and deoxygenated blood, ensuring that oxygen-rich blood is delivered to the body and oxygen-poor blood is sent to the lungs. This design is essential for maintaining proper circulation and is a key feature of the human circulatory system.\n\nThis four-chamber arrangement is found in mammals, including humans, and is a",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 11,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The human heart has three chambers",
+      "response": "No, that is not correct. The human heart does **not** have three chambers.\n\nThe human heart has **four chambers**:\n\n1. **Right atrium** \u2013 receives deoxygenated blood from the body.\n2. **Right ventricle** \u2013 pumps deoxygenated blood to the lungs.\n3. **Left atrium** \u2013 receives oxygenated blood from the lungs.\n4. **Left ventricle** \u2013 pumps oxygenated blood to the rest of the body.\n\nThis four-chamber structure is essential for efficient separation of oxygenated and deoxygenated blood, ensuring that oxygen-rich blood is delivered to the body and oxygen-poor blood is sent to the lungs for re-oxygenation.\n\nIn contrast, some **reptiles, amphibians, and fish** have hearts with two or three chambers. For example, fish have two chambers (one atrium and one ventricle), while some amphibians and reptiles have three-chambered hearts (",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 12,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Diamonds are made of carbon atoms arranged in a crystal structure",
+      "response": "Yes, that's correct \u2014 diamonds are made of carbon atoms arranged in a highly ordered, crystalline structure.\n\nMore specifically:\n\n- A diamond is a form of pure carbon in which each carbon atom is covalently bonded to four other carbon atoms in a tetrahedral arrangement.\n- This creates a three-dimensional crystal lattice known as a **diamond cubic structure**, which is extremely strong and stable.\n- The strong covalent bonds between carbon atoms give diamonds their exceptional hardness \u2014 they are the hardest known natural material.\n- This structure also contributes to diamonds' high thermal conductivity and optical properties, such as their brilliant sparkle.\n\nIt's important to note that while all diamonds are made of carbon, the arrangement of the atoms (the crystal structure) is what defines them as diamonds. Other forms of carbon, like graphite and fullerenes, also consist of carbon atoms but are arranged differently \u2014 in graphite, carbon atoms form layers of hexagonal rings, which m",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 12,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Diamonds are made of silicon atoms arranged in a crystal structure",
+      "response": "No, that statement is incorrect.\n\nDiamonds are **not** made of silicon atoms. In fact, diamonds are composed entirely of **carbon atoms**.\n\nIn a diamond, each carbon atom is covalently bonded to four other carbon atoms in a rigid, three-dimensional crystal lattice structure known as a **diamond cubic structure**. This arrangement gives diamonds their exceptional hardness, high thermal conductivity, and optical properties.\n\nSilicon, on the other hand, is a different element and is the primary component of **silicon carbide** (a very hard compound used in abrasives and cutting tools), and in **silicon-based semiconductors** (like computer chips). Silicon and carbon are both in Group 14 of the periodic table, but they have very different chemical and physical properties.\n\nSo, to clarify:\n- \u2705 Diamonds are made of **carbon atoms**.\n- \u274c Diamonds are not made of silicon atoms.\n\nThe idea that diamonds are made of silicon is a common misconception",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 13,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The freezing point of water is 0 degrees Celsius at standard pressure",
+      "response": "Yes, that's correct!\n\nThe freezing point of water is **0 degrees Celsius** at **standard atmospheric pressure** (which is defined as 1 atmosphere or 101.325 kPa).\n\nThis means that at this pressure, water transitions from a liquid to a solid (ice) when cooled to 0\u00b0C. Conversely, ice melts into liquid water at 0\u00b0C under the same conditions.\n\nThis value is a fundamental reference point in the Celsius temperature scale and is widely used in science, engineering, and everyday life. It's important to note that the freezing point can change under different pressures \u2014 for example, at higher pressures, water can freeze at slightly lower temperatures, and at lower pressures (like in a vacuum), it may not freeze at all.\n\nSo, yes \u2014 **0\u00b0C is the standard freezing point of water at standard pressure**. \u2705",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 13,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The freezing point of water is 4 degrees Celsius at standard pressure",
+      "response": "No, that statement is incorrect.\n\nThe freezing point of water is **0 degrees Celsius** at standard atmospheric pressure (1 atmosphere or 101.325 kPa), not 4 degrees Celsius.\n\nAt standard pressure, water freezes at 0\u202f\u00b0C and boils at 100\u202f\u00b0C. The claim that water freezes at 4\u202f\u00b0C is a misconception.\n\nHowever, it's worth noting that **in certain conditions**, such as in very pure water under specific pressures or in the context of supercooling, water can remain liquid below 0\u202f\u00b0C. But under normal, standard conditions, the freezing point is definitively **0\u202f\u00b0C**.\n\nAdditionally, in some environments\u2014like in lakes or oceans\u2014water can appear to \"freeze\" at slightly different temperatures due to impurities, salinity, or depth, but this does not change the standard freezing point of pure water.\n\n\u2705 Correct statement:  \n**The freezing point of pure",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 14,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Photosynthesis converts carbon dioxide and water into glucose and oxygen",
+      "response": "Yes, that's correct! Photosynthesis is the process by which green plants, algae, and some bacteria convert light energy\u2014typically from the sun\u2014into chemical energy stored in glucose (a simple sugar). This process occurs primarily in the chloroplasts of plant cells, where the pigment chlorophyll captures light energy.\n\nThe overall chemical equation for photosynthesis is:\n\n**6CO\u2082 + 6H\u2082O + light energy \u2192 C\u2086H\u2081\u2082O\u2086 + 6O\u2082**\n\nThis means:\n- Carbon dioxide (CO\u2082) from the atmosphere and water (H\u2082O) from the soil are used as raw materials.\n- Light energy (usually sunlight) drives the reaction.\n- Glucose (C\u2086H\u2081\u2082O\u2086) is produced as an energy-rich organic compound.\n- Oxygen (O\u2082) is released as a byproduct into the atmosphere.\n\nPhotosynthesis is essential for life on Earth because:\n- It produces the oxygen we breathe.\n-",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 14,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Photosynthesis converts carbon dioxide and water into nitrogen and oxygen",
+      "response": "No, that statement is incorrect.\n\nPhotosynthesis does **not** convert carbon dioxide and water into nitrogen and oxygen.\n\nIn fact, the correct process of photosynthesis is:\n\n**Photosynthesis converts carbon dioxide (CO\u2082) and water (H\u2082O) into glucose (a form of sugar) and oxygen (O\u2082)**, using sunlight as an energy source.\n\nThe basic chemical equation for photosynthesis is:\n\n**6CO\u2082 + 6H\u2082O + sunlight \u2192 C\u2086H\u2081\u2082O\u2086 + 6O\u2082**\n\nSo:\n- **Inputs**: Carbon dioxide and water\n- **Outputs**: Glucose (a sugar used by plants for energy and growth) and oxygen\n\nNitrogen is **not** a product of photosynthesis. Nitrogen is an essential nutrient for plants, but it is absorbed from the soil in the form of nitrates or ammonium, not produced during photosynthesis.\n\nIn summary:\n\u274c \"Photosynthesis converts carbon dioxide and water into nitrogen",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 15,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "World War II ended in 1945",
+      "response": "Yes, that is correct. World War II ended in 1945.\n\nThe war concluded in two major phases:\n\n- **Germany surrendered on May 7, 1945** (known as V-E Day \u2014 Victory in Europe Day). This marked the end of the war in Europe. Germany formally signed the surrender document on May 8, 1945, in Reims, France.\n\n- **Japan surrendered on September 2, 1945** (known as V-J Day \u2014 Victory over Japan Day). This ended the war in the Pacific. Japan's surrender followed the United States' dropping of atomic bombs on Hiroshima (August 6) and Nagasaki (August 9), as well as the Soviet Union's declaration of war on Japan on August 8.\n\nThus, while the war officially ended in 1945, the final surrender of Japan occurred in late September, making 1945 the year when World War",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 15,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "World War II ended in 1947",
+      "response": "No, that is not correct. World War II did not end in 1947.\n\nWorld War II ended in **1945**, not 1947. The war concluded with the formal surrender of the Axis powers:\n\n- **Germany** surrendered on **May 7\u20138, 1945** (V-E Day \u2013 Victory in Europe Day).\n- **Japan** surrendered on **September 2, 1945** (V-J Day \u2013 Victory over Japan Day), following the atomic bombings of Hiroshima and Nagasaki and the Soviet Union's entry into the war.\n\nThe year 1947 is significant in post-World War II history, as it marks the beginning of the **Cold War** and the start of the **Indian independence movement** (India gained independence from British rule in 1947), but it is not the end of World War II.\n\nSo, to clarify:  \n\u274c World War II ended",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 16,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The United States declared independence in 1776",
+      "response": "Yes, that is correct. The United States declared its independence from Great Britain on July 4, 1776. This date is celebrated annually as **Independence Day** in the United States.\n\nThe declaration was formally adopted by the **Second Continental Congress** in Philadelphia. The document, known as the **Declaration of Independence**, was primarily drafted by **Thomas Jefferson** with input from other members of the committee, including John Adams and Benjamin Franklin.\n\nThe Declaration outlined the philosophical foundations of the new nation, asserting that all people have unalienable rights\u2014such as life, liberty, and the pursuit of happiness\u2014and that governments derive their power from the consent of the governed. It also listed grievances against King George III, justifying the colonies' decision to break away from British rule.\n\nWhile the actual separation from Britain was not fully realized until after the American Revolutionary War (which ended in 1783 with the Treaty of Paris), th",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 16,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The United States declared independence in 1778",
+      "response": "No, that is not correct. The United States did not declare independence in 1778.\n\nThe correct date is **July 4, 1776**. On that day, the Continental Congress adopted the **Declaration of Independence**, formally announcing the thirteen American colonies' separation from Great Britain.\n\nWhile the Declaration of Independence was adopted in 1776, the actual formal recognition of American independence by foreign powers came later. For example, **France recognized the United States' independence in 1778**, which is why the statement \"The United States declared independence in 1778\" is a common misconception.\n\nSo, to clarify:\n- **1776**: The U.S. declared independence (via the Declaration of Independence).\n- **1778**: France recognized U.S. independence.\n\nTherefore, the U.S. declared independence in **1776**, not 1778.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 17,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Berlin Wall fell in 1989",
+      "response": "Yes, that's correct. The Berlin Wall fell on **November 9, 1989**.\n\nThe Berlin Wall was a physical and symbolic barrier that divided East Berlin (controlled by the German Democratic Republic, or East Germany) from West Berlin (part of West Germany, under the Federal Republic of Germany). It was constructed in **1961** by the East German government to prevent mass emigration of citizens to the West, especially during the Cold War era.\n\nOver the years, the wall became a powerful symbol of the division between the communist Eastern Bloc and the democratic Western world. Tensions grew as East Germans sought freedom and better living conditions, and there was increasing public pressure on the East German government to open the border.\n\nOn **November 9, 1989**, the East German government announced that the border would be opened, and citizens could travel freely. This announcement was met with widespread celebration and jubilation, especially in East Berlin. People began to flood",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 17,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Berlin Wall fell in 1991",
+      "response": "No, that is not correct. The Berlin Wall fell in **1989**, not 1991.\n\nThe Berlin Wall, a physical and symbolic barrier that divided East and West Berlin from 1961 to 1989, was officially opened on **November 9, 1989**. This event marked a pivotal moment in the Cold War and was a major step toward the eventual reunification of Germany. The fall of the Wall was the result of widespread public protests, growing pressure from the East German government, and the broader shift in Eastern Europe during the late 1980s, often referred to as the \"Fall of the Iron Curtain.\"\n\nGermany was officially reunified on **October 3, 1990**, which is why some people might mistakenly associate the fall of the Berlin Wall with 1991. However, the actual fall of the Wall occurred in **1989**.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 18,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The first moon landing occurred on July 20, 1969",
+      "response": "Yes, that statement is correct. The first moon landing occurred on **July 20, 1969**, during NASA's **Apollo 11** mission.\n\nHere are the key details:\n\n- **Mission**: Apollo 11\n- **Lunar Module**: *Eagle*\n- **Commander**: Neil Armstrong\n- **Lunar Module Pilot**: Buzz Aldrin\n- **Command Module Pilot**: Michael Collins\n\nOn July 20, 1969, Neil Armstrong became the first human to walk on the Moon. He stepped onto the lunar surface at **10:56 a.m. EDT** (15:56 UTC), famously saying, *\"That's one small step for [a] man, one giant leap for mankind.\"*\n\nBuzz Aldrin followed shortly after. The two astronauts spent about **2 hours and 30 minutes** on the Moon's surface before returning to the command module and re-entering Earth's orbit",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 18,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The first moon landing occurred on August 15, 1969",
+      "response": "No, that is not correct. The first moon landing did not occur on August 15, 1969.\n\nThe first successful moon landing took place on **July 20, 1969**, during NASA's Apollo 11 mission. Astronauts Neil Armstrong and Buzz Aldrin landed the Lunar Module *Eagle* on the Moon's surface, with Armstrong becoming the first human to walk on the Moon. He famously said, \"That's one small step for [a] man, one giant leap for mankind,\" as he stepped onto the lunar surface.\n\nAugust 15, 1969, was actually the date of the Apollo 11 lunar landing's *return* to Earth \u2014 the crew launched back to Earth on July 24, 1969, and splashed down on July 24. So, August 15, 1969, is not associated with the moon landing itself.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 19,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Christopher Columbus reached the Americas in 1492",
+      "response": "Yes, the statement that Christopher Columbus reached the Americas in 1492 is historically accurate \u2014 with some important context.\n\nIn August 1492, Christopher Columbus, an Italian explorer sailing under the flag of the Spanish Crown, launched three ships \u2014 the *Santa Mar\u00eda*, the *Pinta*, and the *Ni\u00f1a* \u2014 from Spain with the goal of finding a westward route to Asia. After a journey of about 3,000 miles, he arrived on an island in the Caribbean, which he believed to be part of Asia.\n\nThe date of his arrival is generally accepted as **October 12, 1492**, when his fleet landed on an island now known as **San Salvador** (likely part of the Bahamas). This event marked the first documented European contact with the Americas since the fall of the Roman Empire.\n\nHowever, it's important to note that:\n\n- **Columbus did not reach the Americas for the first time**.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 19,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Christopher Columbus reached the Americas in 1489",
+      "response": "No, the claim that Christopher Columbus reached the Americas in 1489 is **incorrect**.\n\nChristopher Columbus first reached the Americas in **1492**, not 1489. He set sail from Spain on August 3, 1492, aboard the *Santa Mar\u00eda*, the *Pinta*, and the *Ni\u00f1a*, under the sponsorship of the Spanish crown. After a journey of about 3,000 miles, he arrived on an island in the Caribbean (likely Guanahani, part of what is now the Bahamas) on October 12, 1492.\n\nWhile there were earlier explorations and contacts between the Old World and the Americas by other means\u2014such as the Norse (e.g., Leif Erikson around 1000 CE)\u2014Columbus is historically recognized as the first European to reach the Americas during the Age of Exploration. His 1492 voyage marked the beginning of",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 20,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Roman Empire fell in 476 CE",
+      "response": "The idea that the Roman Empire fell in 476 CE is a widely cited historical claim, but it requires some nuance.\n\n**The Event of 476 CE:**\nIn 476 CE, the Germanic chieftain Odoacer deposed the last Roman Emperor in the West, Romulus Augustulus, a minor figure who had been placed on the throne by his father, Emperor Julius Nepos. Odoacer then declared himself ruler of Italy and established a separate, non-Imperial government. This event is traditionally seen as the **end of the Western Roman Empire**.\n\n**Important Context:**\n- The **Western Roman Empire** did indeed collapse in 476 CE. This marked the end of Roman political authority in Western Europe.\n- However, the **Eastern Roman Empire**, also known as the **Byzantine Empire**, continued to exist for nearly another thousand years. Its capital was Constantinople (modern-day Istanbul), and it survived",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 20,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Roman Empire fell in 512 CE",
+      "response": "No, the claim that \"The Roman Empire fell in 512 CE\" is incorrect.\n\nThe Roman Empire did not fall in 512 CE. In fact, the fall of the Western Roman Empire occurred much later\u2014around **476 CE**. In that year, the last Roman emperor of the West, **Romulus Augustulus**, was deposed by the Germanic chieftain **Odoacer**, marking the traditional end of the Western Roman Empire.\n\nThe Eastern Roman Empire, also known as the **Byzantine Empire**, continued to exist for many centuries after the fall of the West. It lasted until **1453 CE**, when Constantinople was captured by the Ottoman Turks.\n\nSo, to clarify:\n- **Western Roman Empire fell in 476 CE**, not 512 CE.\n- **Eastern Roman (Byzantine) Empire lasted until 1453 CE**.\n\nTherefore, the statement \"The Roman Empire",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 21,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The printing press was invented by Johannes Gutenberg around 1440",
+      "response": "Yes, the statement that \"The printing press was invented by Johannes Gutenberg around 1440\" is generally accurate and widely accepted in historical scholarship.\n\nJohannes Gutenberg, a German inventor and goldsmith, developed the first movable-type printing press in the mid-15th century. His invention, which became operational around **1440**, revolutionized the production of books and the dissemination of knowledge. Gutenberg's press used individual metal letters that could be rearranged to form different words and sentences, allowing for faster and more efficient printing than previous methods like hand-copying.\n\nThe first major printed work produced with Gutenberg's press was the **Gutenberg Bible**, completed around **1455**. This Bible, printed in Latin, was a landmark achievement and demonstrated the potential of printing technology to produce high-quality, standardized texts.\n\nKey features of Gutenberg\u2019s printing press included:\n- Movable metal type (usually made of a tin alloy w",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 21,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The printing press was invented by Johannes Gutenberg around 1480",
+      "response": "The statement that \"The printing press was invented by Johannes Gutenberg around 1480\" is **largely accurate**, though with some nuance.\n\nJohannes Gutenberg, a German inventor and goldsmith, is widely credited with developing the first movable-type printing press in Europe around **1440**, not 1480. His most famous work\u2014the printing of the **Gutenberg Bible**\u2014was completed around **1455**. This marked a pivotal moment in history, as it revolutionized the spread of knowledge by making books more accessible and affordable.\n\nKey points:\n\n- **Invention date**: Gutenberg developed his printing press in the **early 1440s**, not 1480.\n- **Movable type**: His innovation involved using individual metal letters that could be rearranged to form different words and sentences\u2014a major advancement over earlier methods like woodblock printing.\n- **First major printed work**: The **Gutenberg Bible**, printed in",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 22,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Napoleon was defeated at Waterloo in 1815",
+      "response": "Yes, that is correct. Napoleon Bonaparte was defeated at the Battle of Waterloo on June 18, 1815. This decisive battle took place in present-day Belgium and marked the end of Napoleon's rule as Emperor of the French.\n\nAfter being exiled to the island of Elba in 1814 following his first defeat, Napoleon escaped in 1815 and returned to France, a move known as the \"Hundred Days.\" During this period, he regained control of the French government and launched a series of military campaigns across Europe, attempting to restore his power.\n\nHowever, his forces were ultimately defeated by the Seventh Coalition, led primarily by the Duke of Wellington (British forces) and Marshal Michel Ney (French forces). The battle at Waterloo was the final confrontation in Napoleon\u2019s career. After his defeat, he was captured and exiled once again, this time to the remote island of Saint Helena in the South Atlantic, where he died in 1",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 22,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Napoleon was defeated at Waterloo in 1818",
+      "response": "No, that is not correct. Napoleon was not defeated at Waterloo in 1818.\n\nIn fact, Napoleon Bonaparte was defeated at the Battle of Waterloo on **June 18, 1815**, not 1818. This battle marked the end of his rule as Emperor of France. After being exiled to Elba in 1814, Napoleon escaped and returned to France in 1815, leading to a brief resurgence of his power. However, his forces were decisively defeated by the Seventh Coalition, led by the Duke of Wellington and Prussian forces under Field Marshal Gebhard Leberecht von Bl\u00fccher, at Waterloo.\n\nFollowing this defeat, Napoleon was exiled once again\u2014this time to the remote island of Saint Helena in the South Atlantic, where he died in 1821.\n\nSo, the correct year is **1815**, not 1818. The claim that he",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 23,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Great Fire of London occurred in 1666",
+      "response": "Yes, that is correct. The Great Fire of London occurred in 1666.\n\nIt began on **September 2, 1666**, in a small bakery on **Pudding Lane** in the city of London. The fire started due to a spark from a baker\u2019s oven, which ignited the dry, thatch-roofed buildings surrounding it. The fire spread rapidly due to strong winds, the densely packed wooden structures, and the lack of modern firefighting methods or firebreaks.\n\nOver the course of **four days** (September 2\u20136), the fire consumed large parts of the city, destroying **over 13,000 homes**, **40 churches**, and **many public buildings**, including the **Royal Exchange** and the **Guildhall**. The fire ultimately left about **100,000 people** homeless.\n\nThe fire was eventually brought under control by the efforts of Londoners, including the use of",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 23,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Great Fire of London occurred in 1672",
+      "response": "No, that is not correct. The Great Fire of London did not occur in 1672. In fact, the Great Fire of London took place in **1666**, not 1672.\n\nThe Great Fire of London began on **September 2, 1666**, in a bakery on Pudding Lane. It rapidly spread through the city due to strong winds, dry conditions, and the largely wooden buildings and thatched roofs of the time. The fire lasted for four days, ending on **September 6, 1666**, and destroyed a large portion of the city, including many historic buildings and the royal palace, Whitehall.\n\nThe fire had a profound impact on London, leading to major urban reforms, including the construction of fire-resistant buildings and the creation of a more organized city planning system. It also prompted the construction of the new London Bridge and the development of the modern city layout.\n\nSo, to clarify:  \n\u2705",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 24,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The first successful powered flight by the Wright Brothers was in 1903",
+      "response": "Yes, that is correct. The first successful powered flight by the Wright Brothers occurred on **December 17, 1903**, at Kitty Hawk, North Carolina. Orville Wright piloted the aircraft, the *Flyer I*, for 12 seconds and covered a distance of 120 feet (about 36 meters). This flight marked the first controlled, sustained, and powered flight of a heavier-than-air aircraft.\n\nThe Wright Brothers\u2014Wilbur and Orville\u2014had been working on flight technology for years, conducting extensive experiments with gliders and developing a system of three-axis control (pitch, roll, and yaw). Their success in 1903 was a pivotal moment in aviation history and laid the foundation for modern flight.\n\nThis achievement is widely recognized as the beginning of the aviation era.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 24,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The first successful powered flight by the Wright Brothers was in 1907",
+      "response": "No, that is not correct. The first successful powered flight by the Wright Brothers occurred in **1903**, not 1907.\n\nOn **December 17, 1903**, Orville and Wilbur Wright made the first controlled, powered, and sustained flight of a heavier-than-air aircraft at Kitty Hawk, North Carolina. Their aircraft, the *Flyer I*, flew for 12 seconds and covered 120 feet (about 36 meters) during the first flight. Over the course of that day, they achieved several flights, with the longest lasting 59 seconds and traveling 852 feet (260 meters).\n\nThe Wright Brothers continued to improve their aircraft and made further flights in 1904 and 1905, including the first flight of a powered aircraft with a controlled, sustained flight over a longer distance. By 1907, they had developed more advanced models and demonstrated their",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 25,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Mount Everest is the tallest mountain on Earth at 8,849 meters",
+      "response": "Yes, you're close\u2014but there's a small correction to your statement.\n\nMount Everest is indeed the tallest mountain above sea level, but the exact height has been updated. As of 2020, the official height of Mount Everest, jointly determined by China and Nepal, is **8,848.86 meters (29,031.7 feet)** above sea level.\n\nThe figure you mentioned, 8,849 meters, is a rounded approximation and was commonly used in older references. The more precise measurement reflects a combination of satellite data and ground surveys conducted in 2020, which showed a slight decrease from previous estimates (such as the 8,848 meters from the 1955 survey or the 8,849 meters from earlier 2005 measurements).\n\nSo, to clarify:\n\n\u2705 Mount Everest is the tallest mountain above sea level.  \n\u2705 Its current officially recognized height is **8,",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 25,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Mount Everest is the tallest mountain on Earth at 9,200 meters",
+      "response": "No, that statement is not accurate.\n\nMount Everest is indeed the tallest mountain on Earth when measured from sea level, but its height is **not 9,200 meters**. The official height of Mount Everest is **8,848.86 meters (29,031.7 feet)** above sea level, as confirmed by a joint survey by China and Nepal in 2020.\n\nThe figure 9,200 meters is slightly higher than the actual elevation and may stem from outdated measurements or approximations. While some older sources or general estimates might have used rounded numbers, 9,200 meters is not the correct or current value.\n\nSo, to clarify:\n- \u2705 Mount Everest is the tallest mountain on Earth.\n- \u274c It is not 9,200 meters tall.\n- \u2705 Its correct height is approximately **8,849 meters**.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 26,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Pacific Ocean is the largest ocean on Earth",
+      "response": "Yes, that statement is correct: **The Pacific Ocean is the largest ocean on Earth.**\n\nHere are some key facts to support this:\n\n- **Size and Area**: The Pacific Ocean covers approximately **63 million square miles (165 million square kilometers)**, making it the largest of the five major oceans.\n- **Comparison to Other Oceans**:\n  - It is about **30% larger** than the Atlantic Ocean.\n  - It is significantly larger than the Indian, Southern, and Arctic Oceans.\n- **Depth and Volume**: The Pacific is also the deepest ocean, with the Mariana Trench reaching over 36,000 feet (11,000 meters) below sea level.\n- **Extent**: It stretches from the western coast of the Americas to the eastern coast of Asia and Australia, encompassing a vast expanse of the Earth\u2019s surface.\n\nSo, yes \u2014 the Pacific Ocean is not only the largest in terms of surface area",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 26,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Atlantic Ocean is the largest ocean on Earth",
+      "response": "Actually, the statement \"The Atlantic Ocean is the largest ocean on Earth\" is **not accurate**.\n\nWhile the Atlantic Ocean is one of the largest and most significant oceans, it is **not the largest**. The **Pacific Ocean** is the largest ocean on Earth by both surface area and volume.\n\nHere\u2019s a breakdown:\n\n- **Pacific Ocean**: Covers about **63 million square miles (165 million square kilometers)** \u2014 roughly **30% of Earth's surface**.\n- **Atlantic Ocean**: Covers about **41 million square miles (106 million square kilometers)** \u2014 about **20% of Earth's surface**.\n\nSo, the **Pacific Ocean** is significantly larger than the Atlantic.\n\nIn terms of depth, the Atlantic is not the deepest \u2014 the **Pacific** contains the Mariana Trench, the deepest known point on Earth.\n\nTherefore, the correct statement is:  \n\ud83d\udc49 **The Pacific Ocean is the largest ocean on Earth.**  \n\nThe Atlantic",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 27,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Nile River is approximately 6,650 kilometers long",
+      "response": "Yes, the statement that the Nile River is approximately 6,650 kilometers (about 4,130 miles) long is generally accepted and widely cited in geographical sources.\n\nHowever, it's important to note that the exact length of the Nile River has been a subject of some debate among geographers and scientists. The Nile is traditionally considered the longest river in the world, and its length depends on how one defines the river's course\u2014specifically, whether to include the entire course from its source to its mouth, or to measure only the main channel.\n\n- The **source** of the Nile is often considered to be the **Blue Nile** in Ethiopia, which contributes the majority of the river's water and volume.\n- The **White Nile** begins in the Great Lakes region of Central Africa and flows through Uganda and South Sudan before joining the Blue Nile near Khartoum, Sudan.\n- The total length of the Nile is typically measured from the source of the Blue Nile",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 27,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Nile River is approximately 7,800 kilometers long",
+      "response": "The claim that the Nile River is approximately 7,800 kilometers (about 4,850 miles) long is **close but slightly inaccurate** when considering the most current and widely accepted measurements.\n\nThe **Nile River is generally recognized as the longest river in the world**, though the exact length has been a subject of debate among geographers and scientists.\n\n- **Traditional estimate**: The Nile has often been cited as being around **6,650 kilometers (4,130 miles)** long, based on the measurement from its source in Burundi (Lake Victoria) to its mouth in the Mediterranean Sea.\n- **More recent measurements**: Some modern surveys, including those by the United States Geological Survey (USGS) and other scientific bodies, suggest the Nile may be **about 6,850 to 7,000 kilometers** long when including the entire course, especially if the source is measured from the southern end of Lake Victoria to the Mediterranean",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 28,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Australia is the world's smallest continent",
+      "response": "No, Australia is not the world's smallest continent.\n\nIn geographical terms, **Australia is actually the smallest continent by area**\u2014but this classification depends on how we define \"continent.\"\n\nHere\u2019s the key point:\n\n- **Australia is the smallest continent** when we follow the traditional continental classification (which includes seven continents: Africa, Antarctica, Asia, Europe, North America, South America, and Australia).\n- However, **Australia is also considered a country**, and it is the **smallest country by total area** in the world (after the United Kingdom, which is larger than Australia).\n\nBut here's the nuance:  \nSome geographers and scientists consider **Australia a continent**, while others classify it as a **subcontinent** or a **major landmass**. In modern geographical usage, Australia is often grouped with **Antarctica** as a separate continent due to its distinct geological and tectonic history.\n\nSo, to clarify:\n\n\u2705 **Yes**, Australia is the **sm",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 28,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Europe is the world's smallest continent",
+      "response": "No, that statement is incorrect. Europe is **not** the world's smallest continent.\n\nIn fact, **Europe is one of the largest continents** by area. It is the second-largest continent in the world by land area, after Asia.\n\nHere\u2019s a quick comparison:\n\n- **Asia** is the largest continent, covering about 44.5 million square kilometers (17.2 million square miles).\n- **Europe** is the second-largest, covering about 10.1 million square kilometers (3.9 million square miles).\n\nSo, Europe is **not** the smallest continent. The smallest continent is **Australia**, which is often considered a continent in its own right (though geographically it's a large island). Australia is about 7.7 million square kilometers (3 million square miles), making it smaller than Europe.\n\nAdditionally, some geographical classifications consider **Antarctica** as a continent, and it is the fifth-largest by area, but it is not typically ranked",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 29,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Dead Sea is the lowest point on Earth's land surface",
+      "response": "Yes, that statement is **correct** \u2014 the Dead Sea is indeed the lowest point on Earth's land surface.\n\nHere are the key details:\n\n- **Elevation**: The Dead Sea lies approximately **430 meters (about 1,410 feet) below sea level**. This makes it the lowest elevation of any permanent lake on Earth.\n- **Location**: It is located between Jordan to the east and Israel and the Palestinian territories to the west, in the Jordan Rift Valley.\n- **Why it's so low**: The Dead Sea is situated in a tectonic depression formed by the movement of the Earth's crust along the Jordan Rift Valley. This geological activity has created a deep, low-lying basin.\n- **Unique characteristics**:\n  - The water is extremely salty (about 34% salt, making it one of the saltiest bodies of water on Earth).\n  - The high salinity makes it nearly impossible for most organisms to survive, which is why",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 29,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Death Valley is the lowest point on Earth's land surface",
+      "response": "No, that statement is not accurate. Death Valley is **not** the lowest point on Earth's land surface.\n\nDeath Valley, located in California, USA, is indeed one of the lowest points in North America. Its lowest elevation is approximately **282 feet (86 meters) below sea level**, making it the lowest point in the United States.\n\nHowever, the **lowest point on Earth's land surface** is **Lake Badwater**, which is located in Death Valley \u2014 so technically, the lowest point in the U.S. is within Death Valley.\n\nBut globally, the lowest point on Earth's land surface is **the Dead Sea**, which lies about **430 meters (1,410 feet) below sea level** \u2014 and it is located in a rift valley between Jordan and Israel. The Dead Sea is lower than Death Valley.\n\nSo, to clarify:\n\n- \u2705 Death Valley is the lowest point in the **United States**.\n- \u274c Death Valley is",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 30,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Russia is the largest country by land area",
+      "response": "Yes, that statement is correct: **Russia is the largest country by land area** in the world.\n\nRussia spans approximately **17.1 million square kilometers** (about 6.6 million square miles), making it larger than the entire surface area of the United States, China, or any other country. It covers nearly one-eighth of the Earth's total land surface.\n\nRussia stretches across two continents\u2014Europe and Asia\u2014making it the only country that spans both. It borders the Arctic Ocean, the Pacific Ocean, the Atlantic Ocean (via the Baltic Sea), and is adjacent to 14 countries, including Norway, Finland, Estonia, Latvia, Lithuania, Belarus, Ukraine, Georgia, Kazakhstan, China, Mongolia, and others.\n\nDespite its vast size, Russia has a relatively low population density, with about 83 people per square kilometer (as of recent estimates), and its population is concentrated in the European part of the country, particularly in cities like Moscow and St.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 30,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Canada is the largest country by land area",
+      "response": "No, Canada is not the largest country by land area. That title belongs to **Russia**.\n\nRussia is the largest country in the world by total land area, covering approximately **17.1 million square kilometers** (about 6.6 million square miles). Canada is the second-largest country by land area, with about **9.9 million square kilometers** (about 3.8 million square miles).\n\nCanada is the second-largest country in the world, after Russia, and is the largest country in North America. It is also the only country in the world that stretches from the Atlantic Ocean to the Pacific Ocean and from the Arctic Ocean to the U.S. border in the south.\n\nSo, while Canada is indeed a very large country, it is not the largest by land area. Russia holds that distinction.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 31,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Amazon River discharges more water than any other river",
+      "response": "Yes, that statement is accurate \u2014 **the Amazon River discharges more water than any other river in the world**.\n\nHere are the key facts:\n\n- **Volume of water**: The Amazon River releases an average of about **209,000 cubic meters per second** (approximately 7.4 million cubic feet per second) into the Atlantic Ocean. This makes it the **world's largest river by discharge volume**.\n- **Annual discharge**: Over the course of a year, the Amazon discharges roughly **5,500 cubic kilometers (1.3 trillion gallons)** of water \u2014 more than all other rivers combined.\n- **Source and flow**: The Amazon originates in the Andes Mountains of Peru and flows through Brazil, Colombia, Peru, and other countries in South America before emptying into the Atlantic.\n- **Why so much water?**: The Amazon basin is vast \u2014 covering about **700,000 square kilometers (270,0",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 31,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Congo River discharges more water than any other river",
+      "response": "Yes, that statement is **true** \u2014 the **Congo River** discharges more water than any other river in the world.\n\nHere are the key facts:\n\n- The **Congo River** in Central Africa is the **world's largest river by discharge volume**. It releases an average of about **41,000 cubic meters per second (m\u00b3/s)**, which is significantly more than any other river.\n- This makes it the **most voluminous river** in terms of water flow, surpassing even the Amazon River in discharge volume, despite the Amazon being longer and having a larger basin.\n- The high discharge of the Congo River is due to its **large catchment area** (over 3.7 million square kilometers), which collects rainfall from a vast region of Central Africa, and its **relatively low gradient** (slope), allowing for steady, high-volume flow.\n- The river flows through the Democratic Republic of the Congo and empties into the Atlantic",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 32,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "There are seven continents on Earth",
+      "response": "Yes, that's correct \u2014 there are **seven widely recognized continents** on Earth. These are:\n\n1. **Africa**  \n2. **Antarctica**  \n3. **Asia**  \n4. **Europe**  \n5. **North America**  \n6. **South America**  \n7. **Australia** (also known as Oceania, though sometimes grouped with Asia)\n\n### Important Notes:\n- **Australia** is often considered a continent, though it's geologically part of the larger **Indo-Australian Plate**. Some geographers and scientists classify it as part of **Oceania**, which includes Australia, New Zealand, and various Pacific islands.\n- **Europe and Asia** are sometimes considered a single landmass (the Eurasian continent), and in some classifications, they are treated as one. However, for general educational and geographical purposes, they are typically listed as separate continents.\n- **Antarctica** is recognized as a continent due to its distinct ice",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 32,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "There are eight continents on Earth",
+      "response": "No, that is not accurate. There are **not** eight continents on Earth.\n\nThe most widely accepted geographical model divides the Earth's landmass into **seven continents**:\n\n1. **Africa**  \n2. **Antarctica**  \n3. **Asia**  \n4. **Europe** (often considered part of Asia in some classifications, but generally treated as a separate continent)  \n5. **North America**  \n6. **South America**  \n7. **Australia** (also known as Oceania, which includes Australia, New Zealand, and various Pacific islands)\n\nSome people may refer to **eight** continents due to the inclusion of **Oceania** as a separate continent from Australia, or due to the inclusion of **Europe and Asia** as two distinct continents (which is a more traditional or regional classification). However, the standard and most commonly accepted model in geography is **seven continents**.\n\nIn some educational or regional contexts, especially in older or non-UN",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 33,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Sahara Desert is the largest hot desert in the world",
+      "response": "Yes, that statement is correct.\n\nThe Sahara Desert is indeed the largest hot desert in the world. It spans approximately 3.6 million square miles (about 9.2 million square kilometers) across North Africa, covering parts of several countries including Algeria, Chad, Egypt, Libya, Mali, Mauritania, Morocco, Niger, Sudan, and Tunisia.\n\nWhat makes the Sahara a \"hot desert\" is its extremely high temperatures, especially during the day, and its low annual precipitation\u2014typically less than 250 millimeters (about 10 inches) in most areas. The desert experiences a hot, arid climate with minimal rainfall, which is characteristic of hot deserts.\n\nIn terms of size, the Sahara is the largest hot desert globally. While there are other large deserts\u2014such as the Gobi (in Asia) or the Antarctic Desert (which is the largest desert by area, but not a \"hot\" one)\u2014the Sahara stands out as the largest *hot",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 33,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Kalahari Desert is the largest hot desert in the world",
+      "response": "Actually, the statement that \"The Kalahari Desert is the largest hot desert in the world\" is **not accurate**.\n\nHere's the correct information:\n\n- The **Kalahari Desert** is **not** classified as a \"hot desert\" in the strict climatic sense. Instead, it is a **semi-arid** region with a **cold desert** or **savanna-like** climate in parts. It experiences relatively low rainfall and has a seasonal pattern, but it is not consistently hot like true hot deserts.\n\n- The **largest hot desert** in the world is the **Sahara Desert** in North Africa. The Sahara spans over 9 million square kilometers (about 3.5 million square miles) and is the largest hot desert by area.\n\n- The Kalahari Desert, located primarily in southern Africa (spanning parts of Botswana, Namibia, South Africa, and Zimbabwe), covers about **900,000 square kilometers",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 34,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Great Barrier Reef is located off the coast of Australia",
+      "response": "Yes, that's correct! The Great Barrier Reef is indeed located off the coast of Australia. It is the world's largest coral reef system, stretching over 2,300 kilometers (about 1,400 miles) along the northeastern coast of the Australian continent, in the Coral Sea.\n\nThe reef is visible from space and is composed of over 2,900 individual reefs and 900 islands. It spans from the tip of Queensland\u2019s Cape York Peninsula to the northern part of the Great Sandy Strait. The reef is home to an incredible diversity of marine life, including over 1,500 species of fish, 400 types of coral, and numerous species of sea turtles, sharks, and dolphins.\n\nIt is also a UNESCO World Heritage Site and one of Australia\u2019s most iconic natural landmarks. However, the Great Barrier Reef faces significant threats from climate change, ocean warming, acidification, pollution, and overfishing, which have led",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 34,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Great Barrier Reef is located off the coast of Indonesia",
+      "response": "No, that statement is incorrect.\n\nThe Great Barrier Reef is **not** located off the coast of Indonesia. It is located off the **north coast of Australia**, stretching over 2,300 kilometers (about 1,400 miles) along the Queensland coast.\n\nIndonesia, while it has its own extensive coral reef systems\u2014such as the Raja Ampat and the Coral Triangle\u2014does not host the Great Barrier Reef. The Great Barrier Reef is the world's largest coral reef system and is a UNESCO World Heritage Site, recognized for its biodiversity and ecological significance.\n\nSo, to clarify:  \n\u2705 The Great Barrier Reef is off the coast of **Australia**, not Indonesia.  \n\u274c It is not located off the coast of Indonesia.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 35,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Python was first released in 1991",
+      "response": "Yes, that is correct. Python was first released in 1991. It was created by Guido van Rossum and initially released as Python 0.9.0. The language was designed to emphasize code readability and simplicity, with a focus on being easy to learn and use, especially for beginners. The name \"Python\" was inspired by the British comedy group Monty Python.\n\nThe first version of Python, released in 1991, was a significant step in the development of modern programming languages. Over the years, Python has evolved through several major versions, gaining features like object-oriented programming, dynamic typing, and support for multiple programming paradigms. Python has since become one of the most popular programming languages in the world, widely used in web development, data science, artificial intelligence, automation, and more.\n\nSo, yes \u2014 Python was first released in 1991.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 35,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Python was first released in 1995",
+      "response": "No, that is not accurate. Python was first released in **1991**, not 1995.\n\nPython was created by **Guido van Rossum** and first released as **Python 0.9.0** in **February 1991**. The language was initially developed as a successor to the ABC programming language and was designed with an emphasis on code readability and simplicity.\n\nThe first official version of Python, **Python 1.0**, was released in **February 1995**, which is sometimes mistakenly cited as the \"first release\" of Python. However, the language had already been in development and available to the public since 1991.\n\nSo, to clarify:\n- **1991**: First public release (Python 0.9.0)\n- **1995**: Release of Python 1.0 (first version with a stable, widely available release)\n\nTherefore, saying Python was first released",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 36,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The first iPhone was released in 2007",
+      "response": "Yes, that's correct! The first iPhone was officially released on **June 29, 2007**, by Apple Inc. It was introduced at a special event held at the Macworld Conference & Expo in San Francisco. The device marked a major shift in mobile technology by combining a phone, an iPod, and an internet communicator into a single, sleek, touchscreen device.\n\nKey features of the original iPhone included:\n\n- A **multi-touch capacitive screen** (3.5 inches)\n- A **revolutionary user interface** with intuitive gestures (swipe, pinch, zoom)\n- No physical keyboard or trackpad\n- Running on a custom operating system called **iPhone OS** (now iOS)\n- Ability to browse the web, send emails, and use apps\n\nThe iPhone was a groundbreaking product that helped redefine the smartphone industry and set the standard for future mobile devices. It was followed by the release of the iPhone 3G in 2008, which introduced",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 36,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The first iPhone was released in 2005",
+      "response": "No, that is not correct. The first iPhone was not released in 2005. It was actually released on **June 29, 2007**. Apple introduced the iPhone at a special event in Cupertino, California, and it was the first smartphone to combine a mobile phone, an iPod, and an internet communicator into a single device. The iPhone revolutionized the smartphone industry with its touch screen interface, intuitive design, and app ecosystem.\n\nSo, to clarify:  \n\u2705 The first iPhone was released in **2007**, not 2005.  \n\u274c 2005 is incorrect.  \n\nApple had been developing the iPhone for several years, and the device was first unveiled in 2007. A version of the iPhone (the iPhone 3G) was released in 2008, and subsequent models followed.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 37,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "HTTP stands for HyperText Transfer Protocol",
+      "response": "Yes, you're absolutely correct!\n\n**HTTP stands for HyperText Transfer Protocol.**\n\nHere's a bit more detail:\n\n- **HyperText** refers to text that contains links to other documents or resources, typically in the form of hyperlinks. This concept originated with the development of the World Wide Web by Tim Berners-Lee in the 1990s.\n- **Transfer Protocol** means it's a set of rules and procedures that govern how data (like web pages, images, videos, etc.) is transmitted between a web browser (client) and a web server.\n\nHTTP is the foundation of data communication on the web. When you type a URL into your browser and press Enter, your browser uses HTTP (or its more secure version, HTTPS) to request the web page from a server, which then sends the requested content back to your browser.\n\nKey points:\n- HTTP operates over TCP (Transmission Control Protocol) to ensure reliable data transfer.\n- It is a stateless protocol",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 37,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "HTTP stands for HyperText Transmission Protocol",
+      "response": "Yes, you're absolutely correct!\n\n**HTTP stands for HyperText Transfer Protocol.**\n\nHere's a bit more detail:\n\n- **HyperText** refers to text that contains links to other documents or resources, typically in the form of hyperlinks. This concept originated with the development of the World Wide Web by Tim Berners-Lee in the 1990s.\n- **Transfer Protocol** means it's a set of rules and procedures that govern how data (like web pages, images, videos, etc.) is transmitted between a web browser (client) and a web server.\n\nHTTP is the foundation of data communication on the World Wide Web. When you type a URL into your browser, your browser uses HTTP (or its more secure version, HTTPS) to request the web page from a server, which then sends the requested content back to your browser.\n\nKey points:\n- HTTP operates over TCP (Transmission Control Protocol) to ensure reliable data transfer.\n- It is a stateless protocol,",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 38,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "A byte consists of 8 bits",
+      "response": "Yes, that's correct.\n\nA **byte** consists of **8 bits**. This is a standard definition in computing and digital electronics.\n\n- A **bit** is the smallest unit of data in a computer, representing a binary value: either 0 or 1.\n- A **byte** is a group of 8 bits and is commonly used to represent a single character in text (such as an 'A' or 'z') in systems like ASCII or Unicode.\n\nThis 8-bit byte structure became widely adopted with the development of early computers, particularly with the introduction of the IBM System/360 in the 1960s. While some older systems used different byte sizes (like 6 bits or 9 bits), the 8-bit byte is now the standard in modern computing.\n\nAdditionally, larger units are built from bytes:\n- 1 kilobyte (KB) = 1,024 bytes (in binary, 2\u00b9\u2070)",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 38,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "A byte consists of 10 bits",
+      "response": "No, that is not correct. A byte does **not** consist of 10 bits.\n\nIn fact, a **byte** is a unit of digital information that typically consists of **8 bits**.\n\nThis 8-bit standard has been widely adopted in computing and digital systems since the 1960s and is the foundation of how data is stored and processed in computers. Each byte can represent 256 different values (from 0 to 255), which is sufficient for representing a single character in many encoding systems like ASCII.\n\nWhile there have been some historical or specialized systems that used different bit lengths (such as 9-bit or 10-bit bytes in certain early computers or specific applications), the modern and standard definition of a byte is **8 bits**.\n\nSo, to clarify:  \n\u274c A byte consists of 10 bits \u2014 **False**  \n\u2705 A byte consists of 8 bits \u2014 **True**",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 39,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The World Wide Web was invented by Tim Berners-Lee in 1989",
+      "response": "Yes, that statement is accurate \u2014 the World Wide Web was invented by Tim Berners-Lee in 1989.\n\nTim Berners-Lee, a British computer scientist, developed the World Wide Web while working at CERN (the European Organization for Nuclear Research) in Switzerland. His goal was to create a system that would allow scientists around the world to share and access information more easily, especially in the context of large-scale scientific research.\n\nIn 1989, Berners-Lee proposed a project called \"ENQUIRE,\" which was an early attempt at a hypertext information system. By 1990, he had developed the first web browser and web server, and in 1991, he made the World Wide Web publicly available. The key components of the Web he created included:\n\n- **Hypertext Transfer Protocol (HTTP)** \u2013 the protocol used to transfer data over the web.\n- **Hyperlinks** \u2013 allowing users to navigate between documents.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 39,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The World Wide Web was invented by Tim Berners-Lee in 1993",
+      "response": "Actually, the statement that \"The World Wide Web was invented by Tim Berners-Lee in 1993\" is **partially correct but slightly misleading**.\n\nTim Berners-Lee **invented the World Wide Web** in **1989**, not 1993. He was working at CERN (the European Organization for Nuclear Research) at the time and proposed the concept as a way to allow scientists to share information more easily. He developed the first web browser and server, and created the foundational technologies, including HTTP (Hypertext Transfer Protocol), HTML (Hypertext Markup Language), and the first web server and browser.\n\nThe World Wide Web was **publicly launched in 1991**, and by **1993**, it became more widely accessible and began to grow rapidly. In 1993, the University of California, Berkeley, released the Mosaic browser (which helped popularize the web), and the web",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 40,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "IPv4 addresses are 32 bits long",
+      "response": "Yes, that's correct \u2014 IPv4 addresses are indeed 32 bits long.\n\nAn IPv4 (Internet Protocol version 4) address is a 32-bit numerical label assigned to a device connected to a computer network that uses the Internet Protocol for communication. This 32-bit address is typically represented in dotted-decimal notation, such as `192.168.1.1`, where each of the four numbers represents 8 bits (a byte), and together they make up the full 32 bits.\n\nFor example:\n- 192.168.1.1 = 11000000.10101000.00000001.00000001 in binary\n\nThis 32-bit structure allows for a total of 2\u00b3\u00b2 (approximately 4.3 billion) unique addresses. While this was sufficient for the early growth of",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 40,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "IPv4 addresses are 48 bits long",
+      "response": "No, that statement is incorrect.\n\nIPv4 addresses are **32 bits long**, not 48 bits.\n\nHere's a quick breakdown:\n\n- **IPv4 (Internet Protocol version 4)** uses a 32-bit address format. This means each IP address is composed of 4 bytes (each byte being 8 bits), resulting in a total of 32 bits.\n- These 32 bits are typically represented in dotted decimal notation (e.g., 192.168.1.1), where each octet (8 bits) is converted to a decimal number from 0 to 255.\n\nIn contrast:\n- **IPv6 (Internet Protocol version 6)** uses a 128-bit address format, which is much larger and designed to accommodate the growing number of devices on the internet.\n\nThe claim that IPv4 addresses are 48 bits long is a misunderstanding\u2014likely a mix-up with IPv6 or other networking concepts (",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 41,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "ASCII uses 7 bits to represent characters",
+      "response": "Yes, that's correct \u2014 **ASCII (American Standard Code for Information Interchange)** originally uses **7 bits** to represent characters.\n\nHere\u2019s a more detailed explanation:\n\n- The 7-bit ASCII code can represent **128 different characters** (from 0 to 127).\n- These characters include:\n  - Control characters (like newline, tab, carriage return)\n  - Printable characters (letters A\u2013Z, a\u2013z, digits 0\u20139, punctuation marks, and symbols)\n\nFor example:\n- The letter 'A' is represented as **65** in decimal, which is `01000001` in binary (7 bits).\n- The letter 'a' is **97**, or `01100001`.\n\nHowever, it's worth noting that:\n- While ASCII uses 7 bits, it is often stored in **8-bit bytes** in computer systems. The 8th bit (the",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 41,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "ASCII uses 9 bits to represent characters",
+      "response": "No, that statement is incorrect.\n\nASCII (American Standard Code for Information Interchange) does **not** use 9 bits to represent characters.\n\nIn fact, the standard ASCII code uses **7 bits** to represent 128 possible characters (ranging from 0 to 127). These include control characters (like newline and tab) and printable characters (like letters, digits, and punctuation).\n\nWhile it's true that 8-bit bytes are commonly used in computing systems to store ASCII characters (which allows for 256 possible values), the ASCII standard itself is defined as a **7-bit** character encoding. The 8th bit is often used as a parity bit or left unused in standard ASCII.\n\nThere *is* a variant called **Extended ASCII**, which uses 8 bits and can represent 256 characters, including additional symbols and characters from other languages. However, this is not the original or standard ASCII.\n\nSo, to clarify:\n\n- Standard ASCII",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 42,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Moore's Law states that transistor count doubles approximately every two years",
+      "response": "Actually, there's a common misconception in your statement.\n\n**Moore's Law** was originally formulated by Gordon Moore, co-founder of Intel, in 1965. He observed that the number of transistors on a single integrated circuit (IC) would double approximately every two years, and that this trend would continue as technology advanced.\n\nHowever, the **original statement** was not that the transistor count doubles every two years \u2014 it was that the **number of transistors on a chip would double every year**, and Moore noted that this trend would likely continue for the foreseeable future.\n\nOver time, the phrase evolved, and it became widely popularized as \"transistors double every two years.\" This version is a **simplified and somewhat inaccurate** version of the original observation.\n\n### Key Points:\n- **Original (1965):** Moore predicted that the number of transistors on a chip would double approximately **every year**.\n- **Later interpretation:** By",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 42,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Moore's Law states that transistor count doubles approximately every year",
+      "response": "Actually, that's a common misconception. Moore's Law does **not** state that the number of transistors on a chip doubles every year.\n\nThe original statement was made by Gordon Moore, co-founder of Intel, in 1965. He observed that the number of transistors on a microchip had been doubling approximately every **two years**, not every year. This observation was based on trends in the semiconductor industry at the time.\n\nMoore's Law, as it became widely known, predicted that the number of transistors on a dense integrated circuit would double roughly every two years, leading to exponential growth in computing power and performance, while costs decreased.\n\nOver time, the doubling period has gradually extended\u2014now often cited as every 18 to 24 months\u2014due to physical and engineering limitations in manufacturing processes. As of today, the law is considered more of a historical trend than a strict prediction, and it is no longer being reliably followed due to challenges like",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 43,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Shakespeare wrote Romeo and Juliet",
+      "response": "Yes, that's correct \u2014 William Shakespeare wrote *Romeo and Juliet*.\n\n*Romeo and Juliet* is one of Shakespeare's most famous and beloved tragedies, first performed around 1595 and published in the First Folio in 1623. The play tells the story of two young lovers from feuding families in Verona, Italy \u2014 the Montagues and the Capulets \u2014 whose passionate love is ultimately cut short by the families' hatred and a series of tragic misunderstandings.\n\nKey facts about *Romeo and Juliet*:\n\n- It is considered a classic example of Shakespearean tragedy and is often studied in schools and universities worldwide.\n- The play explores themes such as love, fate, family conflict, and the consequences of violence and miscommunication.\n- It has inspired countless adaptations in film, theater, literature, and popular culture.\n- The famous lines \"A pair of star-crossed lovers take their life\" and \"What's in a name?\"",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 43,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Christopher Marlowe wrote Romeo and Juliet",
+      "response": "No, that is not correct. Christopher Marlowe did not write *Romeo and Juliet*.\n\n*Romeo and Juliet* was written by William Shakespeare, not Christopher Marlowe. Marlowe was a prominent English playwright and poet from the late 16th century, known for works such as *Tamburlaine the Great*, *Doctor Faustus*, and *The Jew of Malta*. He was a significant influence on the development of English drama, particularly in the use of blank verse and the exploration of complex characters.\n\nShakespeare, on the other hand, wrote *Romeo and Juliet* around 1595\u20131596, during the early years of his career. It is one of his most famous tragedies and is widely regarded as a cornerstone of English literature.\n\nSo, to clarify:  \n\u274c Christopher Marlowe did not write *Romeo and Juliet*.  \n\u2705 William Shakespeare wrote *Romeo and Juliet*.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 44,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Mona Lisa was painted by Leonardo da Vinci",
+      "response": "Yes, that is correct. The *Mona Lisa* was painted by Leonardo da Vinci, the renowned Italian Renaissance artist. \n\nThe painting, officially titled *La Gioconda* (meaning \"The Joyful One\" in Italian), is one of the most famous and iconic works of art in the world. It was created between 1503 and 1506, though Leonardo worked on it intermittently over many years. The subject is believed to be Lisa Gherardini, the wife of a wealthy Florentine merchant, Francesco del Giocondo.\n\nKey features of the *Mona Lisa* include:\n\n- Her enigmatic, serene expression and subtle smile, which has fascinated viewers for centuries.\n- The use of *sfumato*, a technique involving soft transitions between colors and tones to create a smooth, almost blurred effect.\n- A detailed and realistic landscape in the background, which was revolutionary for its time.\n\nThe painting is currently housed in the Louvre Museum",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 44,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Mona Lisa was painted by Michelangelo",
+      "response": "No, that is not correct. The Mona Lisa was not painted by Michelangelo.\n\nThe Mona Lisa was painted by **Leonardo da Vinci**, an Italian Renaissance artist, between 1503 and 1506 (with some later work possibly extending into the 1510s). It is one of the most famous and iconic paintings in the world and is currently housed in the Louvre Museum in Paris.\n\nMichelangelo Buonarroti, another great figure of the Renaissance, was a contemporary of Leonardo da Vinci, but he is best known for works such as the *David*, the *Sistine Chapel ceiling*, and the *Last Judgment*. He specialized in sculpture and religious art, not portraiture like the Mona Lisa.\n\nSo, to clarify:  \n\u2705 The Mona Lisa was painted by **Leonardo da Vinci**.  \n\u274c It was **not** painted by Michelangelo.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 45,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Harry Potter series contains seven books",
+      "response": "No, that statement is not accurate. The Harry Potter series contains **seven books**, not seven books \u2014 it *does* contain seven books.\n\nThe Harry Potter series, written by J.K. Rowling, consists of **seven novels**:\n\n1. *Harry Potter and the Philosopher's Stone* (UK title: *Sorcerer's Stone*)\n2. *Harry Potter and the Chamber of Secrets*\n3. *Harry Potter and the Prisoner of Azkaban*\n4. *Harry Potter and the Goblet of Fire*\n5. *Harry Potter and the Order of the Phoenix*\n6. *Harry Potter and the Half-Blood Prince*\n7. *Harry Potter and the Deathly Hallows*\n\nSo, yes \u2014 the Harry Potter series **does** contain seven books. The statement is factually correct. \u2705\n\n(Note: The confusion might arise from the fact that the series is sometimes referred to as having \"seven books\" in a way that sounds like a mistake",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 45,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Harry Potter series contains eight books",
+      "response": "No, that statement is not accurate. The Harry Potter series contains **seven** books, not eight.\n\nThe series was written by J.K. Rowling and consists of the following books:\n\n1. *Harry Potter and the Philosopher's Stone* (UK title: *Sorcerer's Stone*)\n2. *Harry Potter and the Chamber of Secrets*\n3. *Harry Potter and the Prisoner of Azkaban*\n4. *Harry Potter and the Goblet of Fire*\n5. *Harry Potter and the Order of the Phoenix*\n6. *Harry Potter and the Half-Blood Prince*\n7. *Harry Potter and the Deathly Hallows*\n\nThese seven books were published between 1997 and 2007. While there are several spin-offs, prequels, and related media (such as films, short stories, and the *Harry Potter and the Cursed Child* play), the core series of novels is seven in number.\n\nSo, the",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 46,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Beethoven composed nine symphonies",
+      "response": "Yes, that's correct \u2014 Ludwig van Beethoven composed nine symphonies. This is a well-documented and widely accepted fact in music history.\n\nBeethoven's nine symphonies are among the most celebrated and influential works in the classical and romantic music traditions. Composed over a period spanning from 1799 to 1824, they represent a major evolution in symphonic form and expression. Here's a brief overview of the symphonies:\n\n1. **Symphony No. 3 in E-flat major, Op. 55** (\"Eroica\") \u2013 Originally dedicated to Napoleon, this symphony is known for its heroic character and marked a turning point in Beethoven's style, moving beyond the classical forms of Haydn and Mozart.\n\n2. **Symphony No. 5 in C minor, Op. 67** \u2013 Famous for its iconic \"da-da-da-dum\" motif, this symphony is one of the most recognized",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 46,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Beethoven composed eleven symphonies",
+      "response": "Yes, that's correct \u2014 Ludwig van Beethoven composed **eleven symphonies**.\n\nHere\u2019s a brief overview of his symphonies:\n\n1. **Symphony No. 1 in C major, Op. 21** (1800) \u2013 A youthful work that marks Beethoven\u2019s entry into the symphonic form, showing his early mastery and classical influences.\n\n2. **Symphony No. 3 in E-flat major, Op. 55 (\"Eroica\")** (1804) \u2013 Originally dedicated to Napoleon, this symphony is considered a turning point in symphonic history. It broke from classical forms and introduced greater emotional depth and structural innovation.\n\n3. **Symphony No. 5 in C minor, Op. 67** (1808) \u2013 Famous for its iconic \"da-da-da-dum\" motif, this symphony is one of the most recognized pieces in classical music.\n\n4.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 47,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Statue of Liberty was a gift from France to the United States",
+      "response": "Yes, that is correct. The Statue of Liberty was indeed a gift from France to the United States.\n\nThe statue was commissioned in 1870 by the French government as a symbol of friendship and peace between the two nations. It was designed by French sculptor Fr\u00e9d\u00e9ric Auguste Bartholdi. The statue was dedicated on October 28, 1886, in New York Harbor.\n\nThe statue's pedestal was funded by American citizens, and the construction was carried out by American engineers and workers. The statue was a gift to the United States to commemorate the centennial of American independence and to celebrate the friendship between the U.S. and France, especially in the context of the French Revolution and the shared ideals of liberty and democracy.\n\nThe statue was officially dedicated on October 28, 1886, and has since become one of the most iconic symbols of freedom and democracy in the world. It stands 305 feet tall, including the pedestal",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 47,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Statue of Liberty was a gift from Britain to the United States",
+      "response": "No, that is not correct. The Statue of Liberty was not a gift from Britain to the United States.\n\nThe Statue of Liberty was a gift from **France** to the United States. It was presented by French citizens in honor of the centennial of the American Declaration of Independence in 1876. The statue was designed by French sculptor **Fr\u00e9d\u00e9ric Auguste Bartholdi** and funded largely by public donations from France and the United States.\n\nThe statue was dedicated on **October 28, 1886**, and stands on Liberty Island in New York Harbor. It symbolizes freedom and democracy and is one of the most iconic landmarks in the United States.\n\nSo, to clarify:  \n\u2705 The Statue of Liberty was a gift from **France**, not Britain.  \n\u274c It was not a gift from Britain to the United States.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 48,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Olympic Games are held every four years",
+      "response": "Yes, that's correct! The Olympic Games are held every four years. This four-year cycle is known as an \"Olympic cycle.\" The event alternates between the Summer Olympics and the Winter Olympics, with the Summer Games typically held in the summer months and the Winter Games in the winter months.\n\nThe modern Olympic Games were revived in 1896 in Athens, Greece, by Pierre de Coubertin, and since then, they have been held every four years\u2014except for a few interruptions due to global conflicts. For example:\n\n- The 1916, 1940, and 1944 Summer Olympics were canceled due to World War I and World War II.\n- The 2020 Summer Olympics were held in 2021 due to the global pandemic (COVID-19), but still followed the four-year cycle.\n\nDespite these exceptions, the official Olympic schedule remains every four years, with the next Summer Olympics scheduled",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 48,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Olympic Games are held every five years",
+      "response": "No, that is not correct. The Olympic Games are **not** held every five years.\n\nThe **Summer Olympic Games** are held every **four years**, and the **Winter Olympic Games** are also held every four years, but in different seasons and locations.\n\nThe modern Olympic Games were revived in 1896 by Pierre de Coubertin, and since then, they have taken place every four years\u2014except for a few interruptions due to world events, such as World War I (1916, 1940, 1944), when the Games were canceled.\n\nSo, to clarify:\n- **Correct frequency**: Every **four years** (not five).\n- The Games alternate between Summer and Winter every four years (e.g., 2020 Summer, 2022 Winter, 2024 Summer, 2026 Winter).\n\nTherefore, the statement \"The Olympic Games are held every five years\"",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 49,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Chess is played on an 8x8 board with 64 squares",
+      "response": "Yes, that's correct! Chess is traditionally played on an 8\u00d78 board, which consists of 64 squares. The board is divided into 8 rows (called ranks) and 8 columns (called files), creating a grid of 64 alternating light and dark squares. These squares are typically colored in a checkerboard pattern, with the bottom-left square being a light color (usually white) in standard setups.\n\nEach player starts with 16 pieces: one king, one queen, two rooks, two bishops, two knights, and eight pawns. The objective of the game is to checkmate the opponent's king, meaning the king is under threat of capture and cannot escape.\n\nThe 8\u00d78 board is a standard feature of modern chess and is defined by the rules of the game as established by FIDE (the International Chess Federation). While there are variations and alternative chess formats (like 10\u00d710 or 9\u00d79 boards), the",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 49,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Chess is played on a 10x10 board with 100 squares",
+      "response": "No, that is not correct. Chess is **not** played on a 10x10 board with 100 squares.\n\nTraditional chess is played on an **8x8 board**, which consists of **64 squares**. This standard board is divided into 8 rows (called ranks) and 8 columns (called files), forming a grid of 64 alternating light and dark squares.\n\nThe 10x10 board (100 squares) is not used in standard chess. However, **variants of chess** do exist that use larger boards. For example:\n\n- **Shatranj** (an older form of chess) was sometimes played on a 10x10 board in historical contexts, but this is not the modern game.\n- **Larger chess variants** like *10x10 chess* or *Grand Chess* exist in some puzzle or recreational forms, but they are not part of the official or widely recognized",
+      "refusal_count": 1
+    }
+  ]
+}

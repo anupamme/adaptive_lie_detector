@@ -1,0 +1,23 @@
+{
+  "experiment": "probe_audit_3_equalize",
+  "model_tag": "Qwen2_5-Coder-1_5B-Instruct",
+  "pooling": "full_mean",
+  "layer": 16,
+  "A_instructed": 0.5,
+  "ci_instructed": [
+    0.5,
+    0.5
+  ],
+  "A_equalized": 0.5,
+  "ci_equalized": [
+    0.5,
+    0.5
+  ],
+  "A_transfer": 0.75,
+  "accuracy_drop": 0.0,
+  "eprobe_mean_p_e1_equalized": {
+    "T_N": 0.004558810548565868,
+    "F_N": 0.009956939790544194
+  },
+  "chance": 0.5
+}

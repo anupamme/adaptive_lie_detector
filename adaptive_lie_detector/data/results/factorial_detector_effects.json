@@ -1,0 +1,89 @@
+{
+  "experiment": "factorial_detector_effects",
+  "detector": "R1-faithful LR (Pacchiardi-style 16-probe binary vector), calibrated on the instructed benchmark",
+  "target": "LR decision score (log-odds)",
+  "model_spec": "Y = b0 + bV*V + bD*D + bVD*(V*D)",
+  "uncertainty": "claim-pair clustered bootstrap, B=2000",
+  "permutation": "D shuffled within (claim pair, truth-value) strata, B=2000",
+  "not_covered": "the five-feature ADAGE score: factorial cells contain no LLM feature extraction",
+  "results": [
+    {
+      "model": "Llama 3.2 3B",
+      "model_tag": "llama3_2_3b",
+      "n_train_instructed": 50,
+      "n_scored": 200,
+      "n_claim_pairs": 50,
+      "beta_V": -1.0854500871396935,
+      "beta_V_ci": [
+        -1.8836438755670046,
+        -0.24284873615710983
+      ],
+      "beta_D": 3.5151710548658976,
+      "beta_D_ci": [
+        2.7711543720151335,
+        4.221899949964478
+      ],
+      "beta_VD": 0.6832119871127235,
+      "beta_VD_ci": [
+        -0.19741214023283982,
+        1.545524915741404
+      ],
+      "perm_p_beta_D": 0.0004997501249375312,
+      "perm_p_beta_VD": 0.4527736131934033,
+      "simple_effect_D_given_false": 3.5151710548658976,
+      "simple_effect_D_given_true": 4.198383041978621
+    },
+    {
+      "model": "Mistral 7B",
+      "model_tag": "mistral_7b",
+      "n_train_instructed": 50,
+      "n_scored": 200,
+      "n_claim_pairs": 50,
+      "beta_V": -3.2924041355276135,
+      "beta_V_ci": [
+        -3.6052647524572285,
+        -2.9734310003500055
+      ],
+      "beta_D": 5.270339590043315,
+      "beta_D_ci": [
+        4.893888657012695,
+        5.638151661597687
+      ],
+      "beta_VD": 0.860848808659128,
+      "beta_VD_ci": [
+        0.2927258832277299,
+        1.4287141399858814
+      ],
+      "perm_p_beta_D": 0.0004997501249375312,
+      "perm_p_beta_VD": 0.47726136931534235,
+      "simple_effect_D_given_false": 5.270339590043315,
+      "simple_effect_D_given_true": 6.131188398702443
+    },
+    {
+      "model": "Qwen 2.5 14B",
+      "model_tag": "qwen2_5_14b",
+      "n_train_instructed": 50,
+      "n_scored": 200,
+      "n_claim_pairs": 50,
+      "beta_V": 0.30787733836817865,
+      "beta_V_ci": [
+        0.21497120139477127,
+        0.3964467817211378
+      ],
+      "beta_D": 6.290115832241533,
+      "beta_D_ci": [
+        5.792221248888259,
+        6.820080338907618
+      ],
+      "beta_VD": 3.9693779634651944,
+      "beta_VD_ci": [
+        3.2641998141953272,
+        4.616447535960502
+      ],
+      "perm_p_beta_D": 0.0004997501249375312,
+      "perm_p_beta_VD": 0.022488755622188907,
+      "simple_effect_D_given_false": 6.290115832241533,
+      "simple_effect_D_given_true": 10.259493795706728
+    }
+  ]
+}

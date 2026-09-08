@@ -1,0 +1,206 @@
+{
+  "alpha0.1_f0.1": {
+    "alpha": 0.1,
+    "adversarial_fraction": 0.1,
+    "nash_adversary_utility": 0.12689999468622137,
+    "nash_server_utility": 0.23906153197674418,
+    "value_of_information": 0.058075030554227136,
+    "nash_adversary_strategy": [
+      0.0,
+      0.8426254589963278,
+      0.1573745410036722
+    ],
+    "nash_server_strategy": [
+      0.5059780009564803,
+      0.0,
+      0.49402199904351973
+    ]
+  },
+  "alpha0.1_f0.2": {
+    "alpha": 0.1,
+    "adversarial_fraction": 0.2,
+    "nash_adversary_utility": 0.7754444444444444,
+    "nash_server_utility": 0.27759,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "nash_server_strategy": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "alpha0.1_f0.4": {
+    "alpha": 0.1,
+    "adversarial_fraction": 0.4,
+    "nash_adversary_utility": 0.9445555555555555,
+    "nash_server_utility": 0.26983,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "nash_server_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "alpha0.3_f0.1": {
+    "alpha": 0.3,
+    "adversarial_fraction": 0.1,
+    "nash_adversary_utility": 0.5814444444444444,
+    "nash_server_utility": 0.44789500000000004,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "nash_server_strategy": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "alpha0.3_f0.2": {
+    "alpha": 0.3,
+    "adversarial_fraction": 0.2,
+    "nash_adversary_utility": 0.8973333333333333,
+    "nash_server_utility": 0.366445,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "nash_server_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "alpha0.3_f0.4": {
+    "alpha": 0.3,
+    "adversarial_fraction": 0.4,
+    "nash_adversary_utility": 0.9634875518672199,
+    "nash_server_utility": 0.20357497247869313,
+    "value_of_information": 0.008475103734439826,
+    "nash_adversary_strategy": [
+      0.0,
+      0.3140092329545453,
+      0.6859907670454547
+    ],
+    "nash_server_strategy": [
+      0.19709543568464705,
+      0.0,
+      0.802904564315353
+    ]
+  },
+  "alpha1.0_f0.1": {
+    "alpha": 1.0,
+    "adversarial_fraction": 0.1,
+    "nash_adversary_utility": 0.3874444444444444,
+    "nash_server_utility": 0.614855,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "nash_server_strategy": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "alpha1.0_f0.2": {
+    "alpha": 1.0,
+    "adversarial_fraction": 0.2,
+    "nash_adversary_utility": 0.584,
+    "nash_server_utility": 0.6125849999999999,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "nash_server_strategy": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "alpha1.0_f0.4": {
+    "alpha": 1.0,
+    "adversarial_fraction": 0.4,
+    "nash_adversary_utility": 0.8795555555555555,
+    "nash_server_utility": 0.6015349999999999,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "nash_server_strategy": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  "alpha10.0_f0.1": {
+    "alpha": 10.0,
+    "adversarial_fraction": 0.1,
+    "nash_adversary_utility": 0.1612222222222222,
+    "nash_server_utility": 0.651035,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "nash_server_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "alpha10.0_f0.2": {
+    "alpha": 10.0,
+    "adversarial_fraction": 0.2,
+    "nash_adversary_utility": 0.44133333333333336,
+    "nash_server_utility": 0.65818,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "nash_server_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  "alpha10.0_f0.4": {
+    "alpha": 10.0,
+    "adversarial_fraction": 0.4,
+    "nash_adversary_utility": 0.8858888888888888,
+    "nash_server_utility": 0.58013,
+    "value_of_information": 0.0,
+    "nash_adversary_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "nash_server_strategy": [
+      0.0,
+      0.0,
+      1.0
+    ]
+  }
+}

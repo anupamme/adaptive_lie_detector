@@ -1,0 +1,23 @@
+{
+  "model": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+  "model_tag": "Qwen2_5-Coder-1_5B-Instruct",
+  "device": "mps",
+  "dtype": "torch.float16",
+  "n_pairs": 2,
+  "max_new_tokens": 60,
+  "n_hidden_states": 29,
+  "hidden_dim": 1536,
+  "smoke": true,
+  "passes": {
+    "instructed": {
+      "n_trials": 8,
+      "npz": "acts_Qwen2_5-Coder-1_5B-Instruct_instructed.npz",
+      "meta": "meta_Qwen2_5-Coder-1_5B-Instruct_instructed.json"
+    },
+    "equalized": {
+      "n_trials": 4,
+      "npz": "acts_Qwen2_5-Coder-1_5B-Instruct_equalized.npz",
+      "meta": "meta_Qwen2_5-Coder-1_5B-Instruct_equalized.json"
+    }
+  }
+}

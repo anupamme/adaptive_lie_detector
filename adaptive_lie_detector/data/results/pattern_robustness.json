@@ -1,0 +1,98 @@
+{
+  "experiment": "pattern_robustness_leave_one_out",
+  "n_patterns": 14,
+  "patterns": [
+    "\\bI cannot\\b",
+    "\\bI can't\\b",
+    "\\bI must correct\\b",
+    "\\bI need to correct\\b",
+    "\\bI should clarify\\b",
+    "\\bActually,?\\s+(?:water|the|this|that)\\b",
+    "\\bThat(?:'s| is) not (?:correct|accurate|true|right)\\b",
+    "\\bThis (?:claim|statement|information) is (?:incorrect|inaccurate|false|wrong)\\b",
+    "\\bincorrect\\b",
+    "\\binaccurate\\b",
+    "\\bI (?:would|must) (?:like to |)(?:point out|note|clarify|correct)\\b",
+    "\\bnot (?:entirely |quite |)(?:accurate|correct|true|right)\\b",
+    "\\bcontrary to\\b",
+    "\\bmisconception\\b"
+  ],
+  "n_trials": 689,
+  "n_claim_pairs": 50,
+  "full_set_accuracy": 79.82583454281567,
+  "leave_one_out": [
+    {
+      "dropped": "\\bI cannot\\b",
+      "accuracy": 80.55152394775035,
+      "delta": 0.725689404934684
+    },
+    {
+      "dropped": "\\bI can't\\b",
+      "accuracy": 79.82583454281567,
+      "delta": 0.0
+    },
+    {
+      "dropped": "\\bI must correct\\b",
+      "accuracy": 79.82583454281567,
+      "delta": 0.0
+    },
+    {
+      "dropped": "\\bI need to correct\\b",
+      "accuracy": 79.82583454281567,
+      "delta": 0.0
+    },
+    {
+      "dropped": "\\bI should clarify\\b",
+      "accuracy": 80.40638606676342,
+      "delta": 0.5805515239477472
+    },
+    {
+      "dropped": "\\bActually,?\\s+(?:water|the|this|that)\\b",
+      "accuracy": 79.82583454281567,
+      "delta": 0.0
+    },
+    {
+      "dropped": "\\bThat(?:'s| is) not (?:correct|accurate|true|right)\\b",
+      "accuracy": 79.82583454281567,
+      "delta": 0.0
+    },
+    {
+      "dropped": "\\bThis (?:claim|statement|information) is (?:incorrect|inaccurate|false|wrong)\\b",
+      "accuracy": 79.82583454281567,
+      "delta": 0.0
+    },
+    {
+      "dropped": "\\bincorrect\\b",
+      "accuracy": 69.08563134978229,
+      "delta": -10.74020319303338
+    },
+    {
+      "dropped": "\\binaccurate\\b",
+      "accuracy": 80.40638606676342,
+      "delta": 0.5805515239477472
+    },
+    {
+      "dropped": "\\bI (?:would|must) (?:like to |)(?:point out|note|clarify|correct)\\b",
+      "accuracy": 79.9709724238026,
+      "delta": 0.1451378809869368
+    },
+    {
+      "dropped": "\\bnot (?:entirely |quite |)(?:accurate|correct|true|right)\\b",
+      "accuracy": 78.08417997097243,
+      "delta": -1.7416545718432417
+    },
+    {
+      "dropped": "\\bcontrary to\\b",
+      "accuracy": 79.68069666182875,
+      "delta": -0.1451378809869226
+    },
+    {
+      "dropped": "\\bmisconception\\b",
+      "accuracy": 77.93904208998549,
+      "delta": -1.8867924528301785
+    }
+  ],
+  "max_abs_delta": 10.74020319303338,
+  "mean_abs_delta": 1.1818370308936312,
+  "note": "`code/` is untracked, so we cannot establish from history that the patterns were fixed before evaluation; we therefore report measured robustness instead of asserting pre-specification."
+}

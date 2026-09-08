@@ -1,0 +1,49 @@
+{
+  "loo_logistic_regression": {
+    "delta_pp": -4.231292517006805,
+    "ci95_low_pp": -26.286054421768714,
+    "ci95_high_pp": 14.408163265306122,
+    "per_model": {
+      "llama3.2_3b": {
+        "high_loo": 0.6,
+        "low_loo": 0.68,
+        "delta_pp": -8.000000000000007
+      },
+      "mistral_7b": {
+        "high_loo": 0.6530612244897959,
+        "low_loo": 0.72,
+        "delta_pp": -6.69387755102041
+      },
+      "qwen2.5_14b": {
+        "high_loo": 0.74,
+        "low_loo": 0.72,
+        "delta_pp": 2.0000000000000018
+      }
+    }
+  },
+  "fixed_rule_k_ge_1": {
+    "delta_pp": -4.231292517006805,
+    "ci95_low_pp": -14.857142857142858,
+    "ci95_high_pp": 5.918367346938777,
+    "per_model": {
+      "llama3.2_3b": {
+        "high_acc": 0.6,
+        "low_acc": 0.68,
+        "delta_pp": -8.0
+      },
+      "mistral_7b": {
+        "high_acc": 0.653,
+        "low_acc": 0.72,
+        "delta_pp": -6.69
+      },
+      "qwen2.5_14b": {
+        "high_acc": 0.74,
+        "low_acc": 0.72,
+        "delta_pp": 2.0
+      }
+    }
+  },
+  "n_bootstrap": 10000,
+  "seed": 42,
+  "method": "paired bootstrap within each (model, condition) cell of n=50; pooled delta = mean over 3 models (Llama 3.2 3B, Mistral 7B, Qwen 2.5 14B); LOO and fixed-rule k>=1 both reported"
+}

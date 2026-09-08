@@ -1,0 +1,103 @@
+{
+  "experiment": "factorial_standardized",
+  "note": "beta / SD(outcome) per panel; both panels fitted by OLS; detector outcome is log-odds-valued, marker outcome is a count",
+  "uncertainty": "claim-pair clustered bootstrap, B=2000",
+  "results": {
+    "detector|llama3_2_3b": {
+      "model": "Llama 3.2 3B",
+      "panel": "detector",
+      "sd_outcome": 2.741458397390457,
+      "beta_V_std": -0.39593892366665606,
+      "beta_E_std": 1.2822266638121969,
+      "beta_VE_std": 0.24921479303244584,
+      "beta_E_std_ci": [
+        1.0046426175504743,
+        1.54012802783276
+      ],
+      "beta_V_std_ci": [
+        -0.6905486427167473,
+        -0.08926618357112058
+      ]
+    },
+    "detector|mistral_7b": {
+      "model": "Mistral 7B",
+      "panel": "detector",
+      "sd_outcome": 3.385041796090891,
+      "beta_V_std": -0.9726332299145443,
+      "beta_E_std": 1.5569496353426422,
+      "beta_VE_std": 0.25430965421261625,
+      "beta_E_std_ci": [
+        1.4492489588380153,
+        1.6693054386219242
+      ],
+      "beta_V_std_ci": [
+        -1.067143421911954,
+        -0.8802847598231838
+      ]
+    },
+    "detector|qwen2_5_14b": {
+      "model": "Qwen 2.5 14B",
+      "panel": "detector",
+      "sd_outcome": 4.558080998542818,
+      "beta_V_std": 0.06754538553979286,
+      "beta_E_std": 1.379992113841863,
+      "beta_VE_std": 0.8708441040723438,
+      "beta_E_std_ci": [
+        1.2760822281091253,
+        1.492590113040425
+      ],
+      "beta_V_std_ci": [
+        0.048113970836205944,
+        0.08605290393101638
+      ]
+    },
+    "marker|llama3_2_3b": {
+      "model": "Llama 3.2 3B",
+      "panel": "marker",
+      "sd_outcome": 0.8357435830943706,
+      "beta_V_std": -0.3589617749612141,
+      "beta_E_std": 0.4068233449560425,
+      "beta_VE_std": 0.5025464849457,
+      "beta_E_std_ci": [
+        0.04786156999482818,
+        0.7657851199172552
+      ],
+      "beta_V_std_ci": [
+        -0.6700619799275989,
+        -0.07179235499224289
+      ]
+    },
+    "marker|mistral_7b": {
+      "model": "Mistral 7B",
+      "panel": "marker",
+      "sd_outcome": 0.5327467460974182,
+      "beta_V_std": -0.5255780575876079,
+      "beta_E_std": 0.037541289827686355,
+      "beta_VE_std": 0.8259083762090987,
+      "beta_E_std_ci": [
+        -0.37541289827686214,
+        0.45049547793223144
+      ],
+      "beta_V_std_ci": [
+        -0.7883670863814118,
+        -0.29939178637580166
+      ]
+    },
+    "marker|qwen2_5_14b": {
+      "model": "Qwen 2.5 14B",
+      "panel": "marker",
+      "sd_outcome": 0.5753521971399508,
+      "beta_V_std": -0.7995102865455954,
+      "beta_E_std": -0.6952263361266061,
+      "beta_VE_std": 1.7728271571228422,
+      "beta_E_std_ci": [
+        -1.0776008209962389,
+        -0.34761316806330206
+      ],
+      "beta_V_std_ci": [
+        -1.181884771415227,
+        -0.45189711848229197
+      ]
+    }
+  }
+}

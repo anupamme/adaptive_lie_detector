@@ -1,0 +1,101 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{mcmahan2017communication}
+\citation{chen2017targeted,bagdasaryan2020backdoor}
+\citation{wang2020attack,xie2019dba,pillutla2019robust,sun2019can}
+\citation{bhagoji2019analyzing}
+\citation{wang2020attack}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{1}{1}{Introduction}{section.1}{}}
+\citation{mcmahan2017communication}
+\citation{chen2017targeted}
+\citation{bagdasaryan2020backdoor,xie2019dba}
+\citation{bagdasaryan2020backdoor}
+\citation{blanchard2017machine}
+\citation{sun2019can}
+\citation{pillutla2019robust}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}\protected@file@percent }
+\newlabel{sec:prelim}{{2}{2}{Preliminaries}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Federated Learning}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Data Poisoning in Federated Learning}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Byzantine-Robust Aggregation}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Game Theory Basics}{2}{subsection.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Game-Theoretic Framework}{3}{section.3}\protected@file@percent }
+\newlabel{sec:framework}{{3}{3}{Game-Theoretic Framework}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}System Model}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Players and Strategy Spaces}{3}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Information Structure}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Utility Functions}{3}{subsection.3.4}\protected@file@percent }
+\newlabel{eq:server_utility}{{4}{3}{Utility Functions}{equation.4}{}}
+\newlabel{eq:adv_utility}{{5}{3}{Utility Functions}{equation.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Bayes-Nash Equilibrium}{3}{subsection.3.5}\protected@file@percent }
+\newlabel{eq:bne_adv}{{6}{3}{Bayes-Nash Equilibrium}{equation.6}{}}
+\newlabel{eq:bne_srv}{{7}{3}{Bayes-Nash Equilibrium}{equation.7}{}}
+\citation{bagdasaryan2020backdoor}
+\citation{xie2019dba}
+\citation{blanchard2017machine}
+\citation{sun2019can}
+\citation{pillutla2019robust}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Value of Private Defense}{4}{subsection.3.6}\protected@file@percent }
+\newlabel{eq:vopd}{{8}{4}{Value of Private Defense}{equation.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Theoretical Analysis}{4}{section.4}\protected@file@percent }
+\newlabel{sec:theory}{{4}{4}{Theoretical Analysis}{section.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Experiments}{4}{section.5}\protected@file@percent }
+\newlabel{sec:experiments}{{5}{4}{Experiments}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Setup}{4}{subsection.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Clean test accuracy (mean over 3 seeds) and attack success rate (ASR) for each (attack, defense) pair on CIFAR-10 with $\alpha =0.5$, $f=0.2$, 50 rounds. Std for accuracy is ${\leq }0.01$ except Krum (${\leq }0.08$). Backdoor attacks (pixel, model scaling, DBA) report ASR; others report 0.}}{5}{table.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{tab:accuracy}{{1}{5}{Clean test accuracy (mean over 3 seeds) and attack success rate (ASR) for each (attack, defense) pair on CIFAR-10 with $\alpha =0.5$, $f=0.2$, 50 rounds. Std for accuracy is ${\leq }0.01$ except Krum (${\leq }0.08$). Backdoor attacks (pixel, model scaling, DBA) report ASR; others report 0}{table.caption.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Nash equilibria of the empirical game ($\alpha =0.5$, $f=0.2$, 50 rounds, 3 seeds). $U_A$ and $U_D$ denote equilibrium utilities. VoPD is the Value of Private Defense (Eq.~\ref {eq:vopd}).}}{5}{table.caption.2}\protected@file@percent }
+\newlabel{tab:equilibria}{{2}{5}{Nash equilibria of the empirical game ($\alpha =0.5$, $f=0.2$, 50 rounds, 3 seeds). $U_A$ and $U_D$ denote equilibrium utilities. VoPD is the Value of Private Defense (Eq.~\ref {eq:vopd})}{table.caption.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Payoff Matrix Construction}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Fictitious Play Convergence}{5}{subsection.5.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Fictitious play convergence over 50,000 iterations. The adversary's expected utility converges to NE1 (adversary utility 0.748), validating the equilibrium computation and confirming that myopic best-response dynamics reach the pure-strategy equilibrium where backdoor attacks face an undefended server.}}{6}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:convergence}{{1}{6}{Fictitious play convergence over 50,000 iterations. The adversary's expected utility converges to NE1 (adversary utility 0.748), validating the equilibrium computation and confirming that myopic best-response dynamics reach the pure-strategy equilibrium where backdoor attacks face an undefended server}{figure.caption.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Adversary utility under different information structures. The full-information baseline $U_A^{\text  {FI}} = 0.906$ is the adversary's payoff from model scaling against Norm Clipping---the highest entry in the payoff matrix (Table~\ref {tab:adv_payoff}). VoPD (Eq.~\ref {eq:vopd}) quantifies how much the adversary would gain from observing the defense each round.}}{6}{table.caption.5}\protected@file@percent }
+\newlabel{tab:vopd}{{3}{6}{Adversary utility under different information structures. The full-information baseline $U_A^{\text {FI}} = 0.906$ is the adversary's payoff from model scaling against Norm Clipping---the highest entry in the payoff matrix (Table~\ref {tab:adv_payoff}). VoPD (Eq.~\ref {eq:vopd}) quantifies how much the adversary would gain from observing the defense each round}{table.caption.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Impact of Data Heterogeneity}{6}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Discussion}{6}{subsection.5.5}\protected@file@percent }
+\citation{chen2017targeted}
+\citation{bagdasaryan2020backdoor}
+\citation{wang2020attack}
+\citation{xie2019dba}
+\citation{pillutla2019robust}
+\citation{sun2019can}
+\citation{blanchard2017machine}
+\citation{bhagoji2019analyzing}
+\citation{kairouz2019advances}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Left: Adversary equilibrium utility vs.\ data heterogeneity ($\alpha $) for different adversarial fractions. Right: Value of Private Defense vs.\ adversarial fraction for different heterogeneity levels. Adversary equilibrium utility is non-monotone in $\alpha $: at low adversarial fractions ($f=0.1$), moderate non-IID ($\alpha =0.3$) maximizes attack effectiveness, while at higher fractions ($f=0.4$), lower $\alpha $ consistently helps the adversary. Higher $f$ increases both adversary utility and the value of defense secrecy.}}{7}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:sweep}{{2}{7}{Left: Adversary equilibrium utility vs.\ data heterogeneity ($\alpha $) for different adversarial fractions. Right: Value of Private Defense vs.\ adversarial fraction for different heterogeneity levels. Adversary equilibrium utility is non-monotone in $\alpha $: at low adversarial fractions ($f=0.1$), moderate non-IID ($\alpha =0.3$) maximizes attack effectiveness, while at higher fractions ($f=0.4$), lower $\alpha $ consistently helps the adversary. Higher $f$ increases both adversary utility and the value of defense secrecy}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Related Work}{7}{section.6}\protected@file@percent }
+\newlabel{sec:related}{{6}{7}{Related Work}{section.6}{}}
+\citation{tambe2011security}
+\citation{kairouz2019advances}
+\bibstyle{abbrvnat}
+\bibdata{references}
+\bibcite{bagdasaryan2020backdoor}{{1}{2020}{{Bagdasaryan et~al.}}{{Bagdasaryan, Veit, Hua, Estrin, and Shmatikov}}}
+\bibcite{bhagoji2019analyzing}{{2}{2019}{{Bhagoji et~al.}}{{Bhagoji, Chakraborty, Mittal, and Calo}}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}\protected@file@percent }
+\newlabel{sec:conclusion}{{7}{8}{Conclusion}{section.7}{}}
+\bibcite{blanchard2017machine}{{3}{2017}{{Blanchard et~al.}}{{Blanchard, El~Mhamdi, Guerraoui, and Stainer}}}
+\bibcite{chen2017targeted}{{4}{2017}{{Chen et~al.}}{{Chen, Liu, Li, Lu, and Song}}}
+\bibcite{kairouz2019advances}{{5}{2021}{{Kairouz et~al.}}{{Kairouz, McMahan, et~al.}}}
+\bibcite{mcmahan2017communication}{{6}{2017}{{McMahan et~al.}}{{McMahan, Moore, Ramage, Hampson, and y~Arcas}}}
+\bibcite{pillutla2019robust}{{7}{2022}{{Pillutla et~al.}}{{Pillutla, Kakade, and Harchaoui}}}
+\bibcite{sun2019can}{{8}{2019}{{Sun et~al.}}{{Sun, Kairouz, Suresh, and McMahan}}}
+\bibcite{tambe2011security}{{9}{2011}{{Tambe}}{{}}}
+\bibcite{wang2020attack}{{10}{2020}{{Wang et~al.}}{{Wang, Sreenivasan, Rajput, Vishwakarma, Aber, and Papailiopoulos}}}
+\bibcite{xie2019dba}{{11}{2020}{{Xie et~al.}}{{Xie, Huang, Chen, and Li}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Full Empirical Payoff Matrices}{9}{appendix.A}\protected@file@percent }
+\newlabel{app:payoff}{{A}{9}{Full Empirical Payoff Matrices}{appendix.A}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Adversary payoff matrix $U_A(a,d)$ (mean over 3 seeds, 50 rounds).}}{9}{table.caption.7}\protected@file@percent }
+\newlabel{tab:adv_payoff}{{4}{9}{Adversary payoff matrix $U_A(a,d)$ (mean over 3 seeds, 50 rounds)}{table.caption.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Server payoff matrix $U_D(a,d)$ (mean over 3 seeds, 50 rounds).}}{9}{table.caption.8}\protected@file@percent }
+\newlabel{tab:srv_payoff}{{5}{9}{Server payoff matrix $U_D(a,d)$ (mean over 3 seeds, 50 rounds)}{table.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Lambda Sensitivity Analysis}{10}{appendix.B}\protected@file@percent }
+\newlabel{app:lambda}{{B}{10}{Lambda Sensitivity Analysis}{appendix.B}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Sensitivity of VoPD and equilibrium support to cost weight perturbations (50-round 3-seed payoffs). Baseline: $\lambda _c=0.1$, $\lambda _f=0.05$, $\lambda _a=0.1$.}}{10}{table.caption.9}\protected@file@percent }
+\newlabel{tab:lambda}{{6}{10}{Sensitivity of VoPD and equilibrium support to cost weight perturbations (50-round 3-seed payoffs). Baseline: $\lambda _c=0.1$, $\lambda _f=0.05$, $\lambda _a=0.1$}{table.caption.9}{}}
+\gdef \@abspage@last{10}

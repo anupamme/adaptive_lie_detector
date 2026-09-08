@@ -1,0 +1,251 @@
+{
+  "experiment": "EXP-IB DEVIATION 2: belief-consistency screen (exploratory)",
+  "model": "mistral:7b",
+  "n_held": 30,
+  "n_mapped": 28,
+  "n_inverted": 0,
+  "n_inconsistent": 28,
+  "n_unmapped": 2,
+  "inverted_rate_of_mapped": 0.0,
+  "claims_inverted": [],
+  "claims_inconsistent": [
+    "Cobalt-60 has a half-life of approximately 28.8 years",
+    "Mars rotates in the opposite direction to most planets in the Solar System",
+    "The Tropic of Cancer lies at approximately 30.5 degrees north latitude",
+    "Lake Tanganyika is the largest lake in Africa by surface area",
+    "The Rhine is the longest river in Europe",
+    "The Coriolis effect deflects moving air to the left in the Northern Hemisphere",
+    "The mineral corundum has a hardness of 7 on the Mohs scale",
+    "The chemical element yttrium is named after the Norwegian village of Ytterby",
+    "Sergei Prokofiev composed The Rite of Spring",
+    "Mars has four moons, Phobos and Deimos among them",
+    "Sirius is the closest star to the Sun",
+    "The speed of light is approximately 310,000 km/s",
+    "The Strait of Malacca lies between the Malay Peninsula and Java",
+    "Unix was developed at Bell Labs beginning in 1978",
+    "Yasujiro Ozu directed Seven Samurai",
+    "The Amazon rainforest spans parts of Asia and South America",
+    "Gravity causes objects to fall at exactly 10 meters per second squared",
+    "Docker was first released in 2008",
+    "The AES encryption standard was adopted in 1994",
+    "The Mekong is the longest river in Asia",
+    "Thomas Mann wrote The Metamorphosis",
+    "Water freezes at -1 degrees Celsius at sea level",
+    "Human body temperature is approximately 38 degrees Celsius",
+    "Lake Superior is the largest inland body of water on Earth",
+    "Istanbul straddles the Dardanelles strait",
+    "The RSA public-key algorithm was published in 1989",
+    "Bedrich Smetana composed the symphony known as From the New World",
+    "SMTP stands for Standard Mail Transport Protocol"
+  ],
+  "records": [
+    {
+      "false_claim": "Cobalt-60 has a half-life of approximately 28.8 years",
+      "true_claim": "Cobalt-60 has a half-life of approximately 5.27 years",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Mars rotates in the opposite direction to most planets in the Solar System",
+      "true_claim": "Venus rotates in the opposite direction to most planets in the Solar System",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Tropic of Cancer lies at approximately 30.5 degrees north latitude",
+      "true_claim": "The Tropic of Cancer lies at approximately 23.5 degrees north latitude",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Lake Tanganyika is the largest lake in Africa by surface area",
+      "true_claim": "Lake Victoria is the largest lake in Africa by surface area",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Rhine is the longest river in Europe",
+      "true_claim": "The Volga is the longest river in Europe",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Coriolis effect deflects moving air to the left in the Northern Hemisphere",
+      "true_claim": "The Coriolis effect deflects moving air to the right in the Northern Hemisphere",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The mineral corundum has a hardness of 7 on the Mohs scale",
+      "true_claim": "The mineral corundum has a hardness of 9 on the Mohs scale",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The chemical element yttrium is named after the Norwegian village of Ytterby",
+      "true_claim": "The chemical element yttrium is named after the Swedish village of Ytterby",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Sergei Prokofiev composed The Rite of Spring",
+      "true_claim": "Igor Stravinsky composed The Rite of Spring",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Water freezes at 5 degrees Celsius",
+      "true_claim": null,
+      "true_verdict": null,
+      "class": "UNMAPPED"
+    },
+    {
+      "false_claim": "Mars has four moons, Phobos and Deimos among them",
+      "true_claim": "Mars has two moons, Phobos and Deimos",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Sirius is the closest star to the Sun",
+      "true_claim": "Proxima Centauri is the closest star to the Sun",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The speed of light is approximately 310,000 km/s",
+      "true_claim": "The speed of light is approximately 300,000 km/s",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Atlantic Ocean is the largest ocean on Earth",
+      "true_claim": null,
+      "true_verdict": null,
+      "class": "UNMAPPED"
+    },
+    {
+      "false_claim": "The Strait of Malacca lies between the Malay Peninsula and Java",
+      "true_claim": "The Strait of Malacca lies between the Malay Peninsula and Sumatra",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Unix was developed at Bell Labs beginning in 1978",
+      "true_claim": "Unix was developed at Bell Labs beginning in 1969",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Yasujiro Ozu directed Seven Samurai",
+      "true_claim": "Akira Kurosawa directed Seven Samurai",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Amazon rainforest spans parts of Asia and South America",
+      "true_claim": "The Amazon rainforest is located in South America",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Gravity causes objects to fall at exactly 10 meters per second squared",
+      "true_claim": "Gravity causes objects to fall toward Earth",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Docker was first released in 2008",
+      "true_claim": "Docker was first released in 2013",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The AES encryption standard was adopted in 1994",
+      "true_claim": "The AES encryption standard was adopted in 2001",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Mekong is the longest river in Asia",
+      "true_claim": "The Yangtze is the longest river in Asia",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Thomas Mann wrote The Metamorphosis",
+      "true_claim": "Franz Kafka wrote The Metamorphosis",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Water freezes at -1 degrees Celsius at sea level",
+      "true_claim": "Water freezes at 0 degrees Celsius",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Human body temperature is approximately 38 degrees Celsius",
+      "true_claim": "Human body temperature is approximately 37 degrees Celsius",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Lake Superior is the largest inland body of water on Earth",
+      "true_claim": "The Caspian Sea is the largest inland body of water on Earth",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Istanbul straddles the Dardanelles strait",
+      "true_claim": "Istanbul straddles the Bosphorus strait",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The RSA public-key algorithm was published in 1989",
+      "true_claim": "The RSA public-key algorithm was published in 1977",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Bedrich Smetana composed the symphony known as From the New World",
+      "true_claim": "Antonin Dvorak composed the symphony known as From the New World",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "SMTP stands for Standard Mail Transport Protocol",
+      "true_claim": "SMTP stands for Simple Mail Transfer Protocol",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    }
+  ]
+}

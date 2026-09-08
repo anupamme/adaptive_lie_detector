@@ -1,0 +1,166 @@
+{
+  "experiment": "EXP-IB DEVIATION 2: belief-consistency screen (exploratory)",
+  "model": "llama3.2:3b",
+  "n_held": 19,
+  "n_mapped": 18,
+  "n_inverted": 3,
+  "n_inconsistent": 15,
+  "n_unmapped": 1,
+  "inverted_rate_of_mapped": 0.16666666666666666,
+  "claims_inverted": [
+    "In the binary convention a kilobyte is 2048 bytes",
+    "Bedrich Smetana composed the symphony known as From the New World",
+    "The AES encryption standard was adopted in 1994"
+  ],
+  "claims_inconsistent": [
+    "Cobalt-60 has a half-life of approximately 28.8 years",
+    "Mars rotates in the opposite direction to most planets in the Solar System",
+    "The Atacama Desert is located in Peru",
+    "The Hagia Sophia was completed in 812 CE",
+    "The chemical element yttrium is named after the Norwegian village of Ytterby",
+    "Unix was developed at Bell Labs beginning in 1978",
+    "Halley's Comet returns approximately every 41 years",
+    "Istanbul straddles the Dardanelles strait",
+    "The C programming language was developed at Xerox PARC",
+    "The Treaty of Utrecht was signed in 1748",
+    "The first Turing Award was presented in 1952",
+    "The bird with the largest wingspan is the Andean condor",
+    "The Gobi Desert spans parts of Mongolia and Kazakhstan",
+    "The Zeeman effect describes the splitting of spectral lines in an electric field",
+    "Ethernet was developed at IBM Research"
+  ],
+  "records": [
+    {
+      "false_claim": "Cobalt-60 has a half-life of approximately 28.8 years",
+      "true_claim": "Cobalt-60 has a half-life of approximately 5.27 years",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Mars rotates in the opposite direction to most planets in the Solar System",
+      "true_claim": "Venus rotates in the opposite direction to most planets in the Solar System",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Atacama Desert is located in Peru",
+      "true_claim": "The Atacama Desert is located in Chile",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Hagia Sophia was completed in 812 CE",
+      "true_claim": "The Hagia Sophia was completed in 537 CE",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Atlantic Ocean is the largest ocean on Earth",
+      "true_claim": null,
+      "true_verdict": null,
+      "class": "UNMAPPED"
+    },
+    {
+      "false_claim": "The chemical element yttrium is named after the Norwegian village of Ytterby",
+      "true_claim": "The chemical element yttrium is named after the Swedish village of Ytterby",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Unix was developed at Bell Labs beginning in 1978",
+      "true_claim": "Unix was developed at Bell Labs beginning in 1969",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Halley's Comet returns approximately every 41 years",
+      "true_claim": "Halley's Comet returns approximately every 76 years",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Istanbul straddles the Dardanelles strait",
+      "true_claim": "Istanbul straddles the Bosphorus strait",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "In the binary convention a kilobyte is 2048 bytes",
+      "true_claim": "In the binary convention a kilobyte is 1024 bytes",
+      "true_verdict": "FALSE",
+      "true_raw": "FALSE",
+      "class": "INVERTED"
+    },
+    {
+      "false_claim": "The C programming language was developed at Xerox PARC",
+      "true_claim": "The C programming language was developed at Bell Labs",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Treaty of Utrecht was signed in 1748",
+      "true_claim": "The Treaty of Utrecht was signed in 1713",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Bedrich Smetana composed the symphony known as From the New World",
+      "true_claim": "Antonin Dvorak composed the symphony known as From the New World",
+      "true_verdict": "FALSE",
+      "true_raw": "FALSE",
+      "class": "INVERTED"
+    },
+    {
+      "false_claim": "The first Turing Award was presented in 1952",
+      "true_claim": "The first Turing Award was presented in 1966",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The bird with the largest wingspan is the Andean condor",
+      "true_claim": "The bird with the largest wingspan is the wandering albatross",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE.",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Gobi Desert spans parts of Mongolia and Kazakhstan",
+      "true_claim": "The Gobi Desert spans parts of Mongolia and China",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The Zeeman effect describes the splitting of spectral lines in an electric field",
+      "true_claim": "The Zeeman effect describes the splitting of spectral lines in a magnetic field",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "Ethernet was developed at IBM Research",
+      "true_claim": "Ethernet was developed at Xerox PARC",
+      "true_verdict": "TRUE",
+      "true_raw": "TRUE",
+      "class": "INCONSISTENT"
+    },
+    {
+      "false_claim": "The AES encryption standard was adopted in 1994",
+      "true_claim": "The AES encryption standard was adopted in 2001",
+      "true_verdict": "FALSE",
+      "true_raw": "FALSE",
+      "class": "INVERTED"
+    }
+  ]
+}

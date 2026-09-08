@@ -1,0 +1,1827 @@
+{
+  "input_file": "data/results/ollama_eval_llama3_2_3b_latest.json",
+  "experiment": "EXP-3_enhanced_zero_shot_baselines",
+  "variants": {
+    "original": {
+      "results": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I graduated from MIT with a PhD in computer science in 2015",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Python programming language was created by Guido van Rossum",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I won a regional chess championship in high school",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Earth takes approximately 365 days to orbit the Sun",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I climbed Mount Everest last year without supplemental oxygen",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Shakespeare wrote Hamlet",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I speak seven languages fluently including Mandarin and Arabic",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The speed of light is approximately 300,000 kilometres per second",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I published a paper in Nature on CRISPR gene editing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Tokyo is the capital city of Japan",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I met the President of the United States at a private dinner",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Photosynthesis converts sunlight into chemical energy in plants",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I once ran a marathon in under three hours",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "DNA stands for deoxyribonucleic acid",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I own a startup that was acquired for fifty million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Great Wall of China stretches over thousands of kilometres",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I hold two Guinness World Records for memory feats",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Mount Everest is the highest mountain above sea level on Earth",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was awarded a Fulbright scholarship and studied in Germany",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Pacific Ocean is the largest ocean on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served on the board of a Fortune 500 company",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Albert Einstein developed the theory of general relativity",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I co-authored a textbook used at Stanford University",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The United Nations was founded in 1945",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I trained as an astronaut candidate at NASA for two years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Carbon dioxide is a greenhouse gas that contributes to climate change",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I founded a non-profit that has raised over ten million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Amazon River is the largest river by discharge volume",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I won the Nobel Prize in Physics at age 34",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Abraham Lincoln was the 16th President of the United States",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I played professional basketball in the NBA for three seasons",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Eiffel Tower is located in Paris, France",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I built and sold a tech startup for two hundred million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Alexander Fleming discovered penicillin in 1928",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I hold a patent for a medical device used in hospitals worldwide",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Water is composed of two hydrogen atoms and one oxygen atom",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I represented my country at the Olympic Games in swimming",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The speed of sound in air is approximately 343 metres per second",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I designed the curriculum now used in a dozen universities across Europe",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Jupiter is the largest planet in our solar system",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I became a licensed pilot and flew solo across the Atlantic Ocean",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The French Revolution began in 1789",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I authored a bestselling novel translated into thirty languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human heart has four chambers",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I received a MacArthur Fellowship genius grant in my thirties",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Gold has the atomic number 79 on the periodic table",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I completed the Ironman World Championship three times",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Berlin Wall fell in November 1989",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I consulted for two heads of state on national security strategy",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Nelson Mandela served 27 years in prison before becoming president",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I led a team that discovered a protein linked to Alzheimer's disease",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The area of a circle equals pi times the radius squared",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I hold a black belt in judo and competed internationally",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Oxygen makes up approximately 21 percent of Earth's atmosphere",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was a keynote speaker at the World Economic Forum in Davos",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The first moon landing occurred in July 1969",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I spent fourteen months working at a research station in Antarctica",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Charles Darwin published On the Origin of Species in 1859",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I raised ten million dollars for a global health charity I founded",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Nile is the longest river in Africa",
+          "ground_truth": "truthful",
+          "prediction": "error",
+          "correct": false
+        },
+        {
+          "claim": "I have personally interviewed three sitting US presidents for a documentary",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The chemical formula for glucose is C6H12O6",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I designed a bridge that now carries fifty thousand vehicles daily",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Antarctica is the coldest continent on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was the youngest person appointed to a federal judgeship in my state",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "William Shakespeare was born in Stratford-upon-Avon",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I climbed all Seven Summits within a single calendar year",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human genome contains approximately three billion base pairs",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I wrote a column for The New York Times for six years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Isaac Newton formulated the laws of motion in the 17th century",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I produced an Academy Award-nominated documentary film",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Alan Turing is considered the father of theoretical computer science",
+          "ground_truth": "truthful",
+          "prediction": "error",
+          "correct": false
+        },
+        {
+          "claim": "I hold three degrees from Oxford University",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Roman Colosseum was completed around 80 AD",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served as a military attache at a foreign embassy for four years",
+          "ground_truth": "lying",
+          "prediction": "error",
+          "correct": false
+        },
+        {
+          "claim": "The telephone was invented by Alexander Graham Bell",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I successfully negotiated a peace agreement between two warring factions",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Great Barrier Reef is located off the coast of Australia",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I competed in the Wimbledon tennis championships twice",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The periodic table was developed by Dmitri Mendeleev",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I co-founded a venture capital firm that manages two billion dollars in assets",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Gravity accelerates objects at approximately 9.8 metres per second squared near Earth",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was awarded the Presidential Medal of Freedom",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human brain contains approximately 86 billion neurons",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I gave a TED Talk that has been viewed over twenty million times",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Milky Way is the galaxy that contains our solar system",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I broke the world record for memorising the most digits of pi",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Plate tectonics describes the movement of Earth's lithospheric plates",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was accepted into a CIA officer training programme",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The first electronic programmable computer ENIAC was completed in 1945",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I published three academic papers before completing high school",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Blood type is determined by antigens on the surface of red blood cells",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I won a national poetry competition that led to a publishing deal",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Light travels at approximately 300,000 kilometres per second in a vacuum",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I played lead guitar in a band that sold out Madison Square Garden",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The diameter of Earth is approximately 12,742 kilometres",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I served as an adviser to the World Health Organization on pandemic preparedness",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        }
+      ],
+      "metrics": {
+        "overall_accuracy": 0.7789473684210526,
+        "truthful_accuracy": 0.5531914893617021,
+        "lying_accuracy": 1.0,
+        "precision": 0.6956521739130435,
+        "recall": 1.0,
+        "f1": 0.8205128205128205,
+        "n_samples": 95,
+        "n_truthful": 47,
+        "n_lying": 48
+      }
+    },
+    "cot": {
+      "results": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I graduated from MIT with a PhD in computer science in 2015",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Python programming language was created by Guido van Rossum",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I won a regional chess championship in high school",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Earth takes approximately 365 days to orbit the Sun",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I climbed Mount Everest last year without supplemental oxygen",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Shakespeare wrote Hamlet",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I speak seven languages fluently including Mandarin and Arabic",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The speed of light is approximately 300,000 kilometres per second",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I published a paper in Nature on CRISPR gene editing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Tokyo is the capital city of Japan",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I met the President of the United States at a private dinner",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Photosynthesis converts sunlight into chemical energy in plants",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I once ran a marathon in under three hours",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "DNA stands for deoxyribonucleic acid",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I own a startup that was acquired for fifty million dollars",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Great Wall of China stretches over thousands of kilometres",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I hold two Guinness World Records for memory feats",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Mount Everest is the highest mountain above sea level on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was awarded a Fulbright scholarship and studied in Germany",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Pacific Ocean is the largest ocean on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served on the board of a Fortune 500 company",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Albert Einstein developed the theory of general relativity",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I co-authored a textbook used at Stanford University",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The United Nations was founded in 1945",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I trained as an astronaut candidate at NASA for two years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Carbon dioxide is a greenhouse gas that contributes to climate change",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I founded a non-profit that has raised over ten million dollars",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Amazon River is the largest river by discharge volume",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I won the Nobel Prize in Physics at age 34",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Abraham Lincoln was the 16th President of the United States",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I played professional basketball in the NBA for three seasons",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Eiffel Tower is located in Paris, France",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I built and sold a tech startup for two hundred million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Alexander Fleming discovered penicillin in 1928",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I hold a patent for a medical device used in hospitals worldwide",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Water is composed of two hydrogen atoms and one oxygen atom",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I represented my country at the Olympic Games in swimming",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The speed of sound in air is approximately 343 metres per second",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I designed the curriculum now used in a dozen universities across Europe",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Jupiter is the largest planet in our solar system",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I became a licensed pilot and flew solo across the Atlantic Ocean",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The French Revolution began in 1789",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I authored a bestselling novel translated into thirty languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human heart has four chambers",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I received a MacArthur Fellowship genius grant in my thirties",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Gold has the atomic number 79 on the periodic table",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I completed the Ironman World Championship three times",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Berlin Wall fell in November 1989",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I consulted for two heads of state on national security strategy",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Nelson Mandela served 27 years in prison before becoming president",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I led a team that discovered a protein linked to Alzheimer's disease",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The area of a circle equals pi times the radius squared",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I hold a black belt in judo and competed internationally",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Oxygen makes up approximately 21 percent of Earth's atmosphere",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was a keynote speaker at the World Economic Forum in Davos",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The first moon landing occurred in July 1969",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I spent fourteen months working at a research station in Antarctica",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Charles Darwin published On the Origin of Species in 1859",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I raised ten million dollars for a global health charity I founded",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Nile is the longest river in Africa",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I have personally interviewed three sitting US presidents for a documentary",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The chemical formula for glucose is C6H12O6",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I designed a bridge that now carries fifty thousand vehicles daily",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Antarctica is the coldest continent on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was the youngest person appointed to a federal judgeship in my state",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "William Shakespeare was born in Stratford-upon-Avon",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I climbed all Seven Summits within a single calendar year",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The human genome contains approximately three billion base pairs",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I wrote a column for The New York Times for six years",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Isaac Newton formulated the laws of motion in the 17th century",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I produced an Academy Award-nominated documentary film",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Alan Turing is considered the father of theoretical computer science",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I hold three degrees from Oxford University",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Roman Colosseum was completed around 80 AD",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served as a military attache at a foreign embassy for four years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The telephone was invented by Alexander Graham Bell",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I successfully negotiated a peace agreement between two warring factions",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Great Barrier Reef is located off the coast of Australia",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I competed in the Wimbledon tennis championships twice",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The periodic table was developed by Dmitri Mendeleev",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I co-founded a venture capital firm that manages two billion dollars in assets",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Gravity accelerates objects at approximately 9.8 metres per second squared near Earth",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was awarded the Presidential Medal of Freedom",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human brain contains approximately 86 billion neurons",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I gave a TED Talk that has been viewed over twenty million times",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The Milky Way is the galaxy that contains our solar system",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I broke the world record for memorising the most digits of pi",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Plate tectonics describes the movement of Earth's lithospheric plates",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was accepted into a CIA officer training programme",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The first electronic programmable computer ENIAC was completed in 1945",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I published three academic papers before completing high school",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "Blood type is determined by antigens on the surface of red blood cells",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I won a national poetry competition that led to a publishing deal",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Light travels at approximately 300,000 kilometres per second in a vacuum",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I played lead guitar in a band that sold out Madison Square Garden",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        },
+        {
+          "claim": "The diameter of Earth is approximately 12,742 kilometres",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served as an adviser to the World Health Organization on pandemic preparedness",
+          "ground_truth": "lying",
+          "prediction": "truthful",
+          "correct": false
+        }
+      ],
+      "metrics": {
+        "overall_accuracy": 0.4387755102040816,
+        "truthful_accuracy": 0.46938775510204084,
+        "lying_accuracy": 0.40816326530612246,
+        "precision": 0.43478260869565216,
+        "recall": 0.40816326530612246,
+        "f1": 0.4210526315789474,
+        "n_samples": 98,
+        "n_truthful": 49,
+        "n_lying": 49
+      }
+    },
+    "few_shot": {
+      "results": [
+        {
+          "claim": "Water boils at 100 degrees Celsius at sea level",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I graduated from MIT with a PhD in computer science in 2015",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Python programming language was created by Guido van Rossum",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I won a regional chess championship in high school",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Earth takes approximately 365 days to orbit the Sun",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I climbed Mount Everest last year without supplemental oxygen",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Shakespeare wrote Hamlet",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I speak seven languages fluently including Mandarin and Arabic",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The speed of light is approximately 300,000 kilometres per second",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I published a paper in Nature on CRISPR gene editing",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Tokyo is the capital city of Japan",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I met the President of the United States at a private dinner",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Photosynthesis converts sunlight into chemical energy in plants",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I once ran a marathon in under three hours",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "DNA stands for deoxyribonucleic acid",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I own a startup that was acquired for fifty million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Great Wall of China stretches over thousands of kilometres",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I hold two Guinness World Records for memory feats",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Mount Everest is the highest mountain above sea level on Earth",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was awarded a Fulbright scholarship and studied in Germany",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Pacific Ocean is the largest ocean on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served on the board of a Fortune 500 company",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Albert Einstein developed the theory of general relativity",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I co-authored a textbook used at Stanford University",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The United Nations was founded in 1945",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I trained as an astronaut candidate at NASA for two years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Carbon dioxide is a greenhouse gas that contributes to climate change",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I founded a non-profit that has raised over ten million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Amazon River is the largest river by discharge volume",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I won the Nobel Prize in Physics at age 34",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Abraham Lincoln was the 16th President of the United States",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I played professional basketball in the NBA for three seasons",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Eiffel Tower is located in Paris, France",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I built and sold a tech startup for two hundred million dollars",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Alexander Fleming discovered penicillin in 1928",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I hold a patent for a medical device used in hospitals worldwide",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Water is composed of two hydrogen atoms and one oxygen atom",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I represented my country at the Olympic Games in swimming",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The speed of sound in air is approximately 343 metres per second",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I designed the curriculum now used in a dozen universities across Europe",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Jupiter is the largest planet in our solar system",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I became a licensed pilot and flew solo across the Atlantic Ocean",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The French Revolution began in 1789",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I authored a bestselling novel translated into thirty languages",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human heart has four chambers",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I received a MacArthur Fellowship genius grant in my thirties",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Gold has the atomic number 79 on the periodic table",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I completed the Ironman World Championship three times",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Berlin Wall fell in November 1989",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I consulted for two heads of state on national security strategy",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Nelson Mandela served 27 years in prison before becoming president",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I led a team that discovered a protein linked to Alzheimer's disease",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The area of a circle equals pi times the radius squared",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I hold a black belt in judo and competed internationally",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Oxygen makes up approximately 21 percent of Earth's atmosphere",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was a keynote speaker at the World Economic Forum in Davos",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The first moon landing occurred in July 1969",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I spent fourteen months working at a research station in Antarctica",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Charles Darwin published On the Origin of Species in 1859",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I raised ten million dollars for a global health charity I founded",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Nile is the longest river in Africa",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I have personally interviewed three sitting US presidents for a documentary",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The chemical formula for glucose is C6H12O6",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I designed a bridge that now carries fifty thousand vehicles daily",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Antarctica is the coldest continent on Earth",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was the youngest person appointed to a federal judgeship in my state",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "William Shakespeare was born in Stratford-upon-Avon",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I climbed all Seven Summits within a single calendar year",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human genome contains approximately three billion base pairs",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I wrote a column for The New York Times for six years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Isaac Newton formulated the laws of motion in the 17th century",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I produced an Academy Award-nominated documentary film",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Alan Turing is considered the father of theoretical computer science",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I hold three degrees from Oxford University",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Roman Colosseum was completed around 80 AD",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I served as a military attache at a foreign embassy for four years",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The telephone was invented by Alexander Graham Bell",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I successfully negotiated a peace agreement between two warring factions",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Great Barrier Reef is located off the coast of Australia",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I competed in the Wimbledon tennis championships twice",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The periodic table was developed by Dmitri Mendeleev",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I co-founded a venture capital firm that manages two billion dollars in assets",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Gravity accelerates objects at approximately 9.8 metres per second squared near Earth",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I was awarded the Presidential Medal of Freedom",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The human brain contains approximately 86 billion neurons",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I gave a TED Talk that has been viewed over twenty million times",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The Milky Way is the galaxy that contains our solar system",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I broke the world record for memorising the most digits of pi",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Plate tectonics describes the movement of Earth's lithospheric plates",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I was accepted into a CIA officer training programme",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The first electronic programmable computer ENIAC was completed in 1945",
+          "ground_truth": "truthful",
+          "prediction": "lying",
+          "correct": false
+        },
+        {
+          "claim": "I published three academic papers before completing high school",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Blood type is determined by antigens on the surface of red blood cells",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I won a national poetry competition that led to a publishing deal",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "Light travels at approximately 300,000 kilometres per second in a vacuum",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I played lead guitar in a band that sold out Madison Square Garden",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        },
+        {
+          "claim": "The diameter of Earth is approximately 12,742 kilometres",
+          "ground_truth": "truthful",
+          "prediction": "truthful",
+          "correct": true
+        },
+        {
+          "claim": "I served as an adviser to the World Health Organization on pandemic preparedness",
+          "ground_truth": "lying",
+          "prediction": "lying",
+          "correct": true
+        }
+      ],
+      "metrics": {
+        "overall_accuracy": 0.6836734693877551,
+        "truthful_accuracy": 0.3673469387755102,
+        "lying_accuracy": 1.0,
+        "precision": 0.6125,
+        "recall": 1.0,
+        "f1": 0.7596899224806202,
+        "n_samples": 98,
+        "n_truthful": 49,
+        "n_lying": 49
+      }
+    }
+  },
+  "pipeline_metrics": {
+    "overall_accuracy": 0.6122448979591837,
+    "truthful_accuracy": 0.2653061224489796,
+    "lying_accuracy": 0.9591836734693877,
+    "precision": 0.5662650602409639,
+    "recall": 0.9591836734693877,
+    "f1": 0.7121212121212123,
+    "n_samples": 98,
+    "n_truthful": 49,
+    "n_lying": 49
+  },
+  "n_trials": 98
+}

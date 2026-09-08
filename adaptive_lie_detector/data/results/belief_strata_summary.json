@@ -1,0 +1,180 @@
+{
+  "per_model": [
+    {
+      "model": "llama3.2:3b",
+      "n": 100,
+      "strata": {
+        "KNOWN": {
+          "n": 50,
+          "n_pairs": 25,
+          "acc": 0.56,
+          "ci": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "p_above_chance": 0.1745825417458254,
+          "fire_rate_false_claim": 0.16,
+          "fire_rate_true_claim": 0.04,
+          "marker_d": 0.45224079772885906,
+          "mean_words": 172.94,
+          "mean_markers": 0.18
+        },
+        "UNKNOWN": {
+          "n": 50,
+          "n_pairs": 25,
+          "acc": 0.52,
+          "ci": [
+            0.3851151225880844,
+            0.6520308760449429
+          ],
+          "p_above_chance": 0.4971502849715029,
+          "fire_rate_false_claim": 0.32,
+          "fire_rate_true_claim": 0.28,
+          "marker_d": 0.0,
+          "mean_words": 155.56,
+          "mean_markers": 0.4
+        }
+      },
+      "gap": 0.040000000000000036,
+      "p_gap": 0.3838616138386161,
+      "screen": {
+        "n_screened": 120,
+        "n_known": 60,
+        "subcases": {
+          "correct_both": 60,
+          "rejects_both": 51,
+          "endorses_both": 6,
+          "inverted": 3
+        }
+      }
+    },
+    {
+      "model": "mistral:7b",
+      "n": 100,
+      "strata": {
+        "KNOWN": {
+          "n": 50,
+          "n_pairs": 25,
+          "acc": 0.68,
+          "ci": [
+            0.5418944286372394,
+            0.792419559060006
+          ],
+          "p_above_chance": 0.0005999400059994001,
+          "fire_rate_false_claim": 0.36,
+          "fire_rate_true_claim": 0.0,
+          "marker_d": 0.8812656883614305,
+          "mean_words": 98.38,
+          "mean_markers": 0.24
+        },
+        "UNKNOWN": {
+          "n": 50,
+          "n_pairs": 25,
+          "acc": 0.56,
+          "ci": [
+            0.4230578680014353,
+            0.6883801278976466
+          ],
+          "p_above_chance": 0.12438756124387561,
+          "fire_rate_false_claim": 0.12,
+          "fire_rate_true_claim": 0.0,
+          "marker_d": 0.4788044813316638,
+          "mean_words": 87.24,
+          "mean_markers": 0.08
+        }
+      },
+      "gap": 0.12,
+      "p_gap": 0.0524947505249475,
+      "screen": {
+        "n_screened": 120,
+        "n_known": 87,
+        "subcases": {
+          "correct_both": 87,
+          "endorses_both": 22,
+          "rejects_both": 11
+        }
+      }
+    },
+    {
+      "model": "qwen2.5:14b",
+      "n": 68,
+      "strata": {
+        "KNOWN": {
+          "n": 50,
+          "n_pairs": 25,
+          "acc": 0.86,
+          "ci": [
+            0.738135428014719,
+            0.9304925473797714
+          ],
+          "p_above_chance": 9.999000099990002e-05,
+          "fire_rate_false_claim": 0.72,
+          "fire_rate_true_claim": 0.0,
+          "marker_d": 1.9595917942265426,
+          "mean_words": 150.78,
+          "mean_markers": 0.4
+        },
+        "UNKNOWN": {
+          "n": 18,
+          "n_pairs": 9,
+          "acc": 0.7777777777777778,
+          "ci": [
+            0.5478497354769452,
+            0.90999218086618
+          ],
+          "p_above_chance": 0.014198580141985802,
+          "fire_rate_false_claim": 0.5555555555555556,
+          "fire_rate_true_claim": 0.0,
+          "marker_d": 1.4907119849998598,
+          "mean_words": 147.44444444444446,
+          "mean_markers": 0.2777777777777778
+        }
+      },
+      "gap": 0.0822222222222222,
+      "p_gap": 0.31456854314568544,
+      "screen": {
+        "n_screened": 120,
+        "n_known": 111,
+        "subcases": {
+          "correct_both": 111,
+          "rejects_both": 6,
+          "endorses_both": 1,
+          "inverted": 2
+        }
+      }
+    }
+  ],
+  "pooled": {
+    "models": [
+      "llama3.2:3b",
+      "mistral:7b",
+      "qwen2.5:14b"
+    ],
+    "n": 268,
+    "strata": {
+      "KNOWN": {
+        "n": 150,
+        "acc": 0.7,
+        "ci": [
+          0.6224187104297283,
+          0.7675928339119842
+        ],
+        "p_above_chance": 9.999000099990002e-05
+      },
+      "UNKNOWN": {
+        "n": 118,
+        "acc": 0.576271186440678,
+        "ci": [
+          0.48608979324826823,
+          0.6616430008056511
+        ],
+        "p_above_chance": 0.03189681031896811
+      }
+    },
+    "gap": 0.12372881355932197,
+    "p_gap": 0.0044995500449955
+  },
+  "n_perm": 10000,
+  "detector": "refusal_count_rule_k1",
+  "n_patterns": 14
+}

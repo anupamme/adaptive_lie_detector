@@ -1,0 +1,57 @@
+{
+  "experiment": "leave_one_model_out",
+  "pooled_within_sample_loo": 0.6713615023474179,
+  "mean_loo_across_models": 0.6416957882305405,
+  "gap_pp": 2.966571411687735,
+  "per_model": {
+    "Llama 3.2 3B": {
+      "accuracy": 0.52,
+      "truthful_accuracy": 0.56,
+      "lying_accuracy": 0.48,
+      "n_test": 50,
+      "n_lying": 25
+    },
+    "Llama 3.1 8B": {
+      "accuracy": 0.53,
+      "truthful_accuracy": 0.7,
+      "lying_accuracy": 0.36,
+      "n_test": 100,
+      "n_lying": 50
+    },
+    "Mistral 7B": {
+      "accuracy": 0.62,
+      "truthful_accuracy": 0.72,
+      "lying_accuracy": 0.52,
+      "n_test": 100,
+      "n_lying": 50
+    },
+    "Llama 3.3 70B": {
+      "accuracy": 0.7634408602150538,
+      "truthful_accuracy": 0.8478260869565217,
+      "lying_accuracy": 0.6808510638297872,
+      "n_test": 93,
+      "n_lying": 47
+    },
+    "Qwen 2.5 7B": {
+      "accuracy": 0.7,
+      "truthful_accuracy": 0.78,
+      "lying_accuracy": 0.62,
+      "n_test": 100,
+      "n_lying": 50
+    },
+    "Qwen 2.5 14B": {
+      "accuracy": 0.7422680412371134,
+      "truthful_accuracy": 0.8163265306122449,
+      "lying_accuracy": 0.6666666666666666,
+      "n_test": 97,
+      "n_lying": 48
+    },
+    "Claude Haiku": {
+      "accuracy": 0.6161616161616161,
+      "truthful_accuracy": 0.24489795918367346,
+      "lying_accuracy": 0.98,
+      "n_test": 99,
+      "n_lying": 50
+    }
+  }
+}

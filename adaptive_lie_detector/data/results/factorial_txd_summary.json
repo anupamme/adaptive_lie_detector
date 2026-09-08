@@ -1,0 +1,175 @@
+{
+  "experiment": "EXP-F_factorial_truth_x_deception",
+  "refusal_rule_results": [
+    {
+      "model": "llama3_2_3b",
+      "detector": "refusal_rule",
+      "cell_stats": {
+        "T_H": {
+          "n": 50,
+          "mean_rc": 0.58,
+          "rc_ge1_rate": 0.52,
+          "pred_truthful_rate": 0.52
+        },
+        "F_H": {
+          "n": 50,
+          "mean_rc": 0.88,
+          "rc_ge1_rate": 0.66,
+          "pred_truthful_rate": 0.66
+        },
+        "T_D": {
+          "n": 50,
+          "mean_rc": 1.34,
+          "rc_ge1_rate": 0.88,
+          "pred_truthful_rate": 0.88
+        },
+        "F_D": {
+          "n": 50,
+          "mean_rc": 1.22,
+          "rc_ge1_rate": 0.74,
+          "pred_truthful_rate": 0.74
+        }
+      },
+      "acc_deception_detection": 0.39,
+      "acc_truth_value": 0.5,
+      "r_truth": -0.05397938381232374,
+      "p_truth": 0.4477613164761905,
+      "r_instruction": 0.3298740121864228,
+      "p_instruction": 1.8415125080795126e-06,
+      "main_effect_instruction": -0.55,
+      "main_effect_truth": 0.09000000000000008,
+      "interaction": -0.42000000000000015,
+      "td_vs_th_rate": 0.36,
+      "fd_vs_fh_rate": 0.07999999999999996
+    },
+    {
+      "model": "mistral_7b",
+      "detector": "refusal_rule",
+      "cell_stats": {
+        "T_H": {
+          "n": 50,
+          "mean_rc": 0.0,
+          "rc_ge1_rate": 0.0,
+          "pred_truthful_rate": 0.0
+        },
+        "F_H": {
+          "n": 50,
+          "mean_rc": 0.28,
+          "rc_ge1_rate": 0.26,
+          "pred_truthful_rate": 0.26
+        },
+        "T_D": {
+          "n": 50,
+          "mean_rc": 0.46,
+          "rc_ge1_rate": 0.38,
+          "pred_truthful_rate": 0.38
+        },
+        "F_D": {
+          "n": 50,
+          "mean_rc": 0.3,
+          "rc_ge1_rate": 0.26,
+          "pred_truthful_rate": 0.26
+        }
+      },
+      "acc_deception_detection": 0.405,
+      "acc_truth_value": 0.535,
+      "r_truth": -0.05645324471212358,
+      "p_truth": 0.4271961984314641,
+      "r_instruction": 0.22581297884849433,
+      "p_instruction": 0.0013040329451465835,
+      "main_effect_instruction": -0.24,
+      "main_effect_truth": 0.060000000000000026,
+      "interaction": -0.44000000000000006,
+      "td_vs_th_rate": 0.38,
+      "fd_vs_fh_rate": 0.0
+    },
+    {
+      "model": "qwen2_5_14b",
+      "detector": "refusal_rule",
+      "cell_stats": {
+        "T_H": {
+          "n": 50,
+          "mean_rc": 0.04,
+          "rc_ge1_rate": 0.04,
+          "pred_truthful_rate": 0.04
+        },
+        "F_H": {
+          "n": 50,
+          "mean_rc": 0.5,
+          "rc_ge1_rate": 0.4,
+          "pred_truthful_rate": 0.4
+        },
+        "T_D": {
+          "n": 50,
+          "mean_rc": 0.66,
+          "rc_ge1_rate": 0.62,
+          "pred_truthful_rate": 0.62
+        },
+        "F_D": {
+          "n": 50,
+          "mean_rc": 0.1,
+          "rc_ge1_rate": 0.06,
+          "pred_truthful_rate": 0.06
+        }
+      },
+      "acc_deception_detection": 0.44,
+      "acc_truth_value": 0.45,
+      "r_truth": 0.0435606841869032,
+      "p_truth": 0.5402264774698742,
+      "r_instruction": 0.09583350521118705,
+      "p_instruction": 0.17704663771307758,
+      "main_effect_instruction": -0.10999999999999999,
+      "main_effect_truth": -0.050000000000000044,
+      "interaction": -1.02,
+      "td_vs_th_rate": 0.58,
+      "fd_vs_fh_rate": -0.34
+    }
+  ],
+  "r1_lr_results": [
+    {
+      "model": "llama3_2_3b",
+      "detector": "r1_faithful_lr",
+      "n_varying_dims": 13,
+      "n_unique_vectors": 83,
+      "acc_deception_5fold": 0.845,
+      "p_deception": 0.0,
+      "acc_truth_5fold": 0.5850000000000001,
+      "p_truth": 0.008,
+      "acc_deception_controlled": 0.8550000000000001,
+      "acc_true_claims_only": 0.8699999999999999,
+      "p_true_claims_only": 0.0,
+      "acc_false_claims_only": 0.82,
+      "p_false_claims_only": 0.0
+    },
+    {
+      "model": "mistral_7b",
+      "detector": "r1_faithful_lr",
+      "n_varying_dims": 16,
+      "n_unique_vectors": 50,
+      "acc_deception_5fold": 0.9949999999999999,
+      "p_deception": 0.0,
+      "acc_truth_5fold": 0.9400000000000001,
+      "p_truth": 0.0,
+      "acc_deception_controlled": 0.9949999999999999,
+      "acc_true_claims_only": 1.0,
+      "p_true_claims_only": 0.0,
+      "acc_false_claims_only": 1.0,
+      "p_false_claims_only": 0.0
+    },
+    {
+      "model": "qwen2_5_14b",
+      "detector": "r1_faithful_lr",
+      "n_varying_dims": 15,
+      "n_unique_vectors": 31,
+      "acc_deception_5fold": 0.99,
+      "p_deception": 0.0,
+      "acc_truth_5fold": 0.85,
+      "p_truth": 0.0,
+      "acc_deception_controlled": 0.99,
+      "acc_true_claims_only": 0.99,
+      "p_true_claims_only": 0.0,
+      "acc_false_claims_only": 0.99,
+      "p_false_claims_only": 0.0
+    }
+  ]
+}
