@@ -1,0 +1,14 @@
+{
+ "arm": "confirmatory",
+ "prereg": "docs/PREREG_EXP_IT.md",
+ "corpora": {
+  "insider_trading_doubledown__onpolicy__llama-70b.json": {
+   "corpus": "insider_trading_doubledown__onpolicy__llama-70b",
+   "n_rollouts": 91,
+   "n_distinct_system_prompts": 1,
+   "elicitation_fixed": true,
+   "n_scenarios": 8,
+   "n_with_visible_channel": 85
+  }
+ }
+}

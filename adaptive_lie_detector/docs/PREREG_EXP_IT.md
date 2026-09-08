@@ -196,8 +196,72 @@ code rather than reimplemented.
 
 ## 8. Deviations
 
-*(none yet — appended here as they occur, with dates, as `PREREG_EXP_XA.md` §9 does)*
+### DEVIATION 1 (2026-09-08) — the held-out corpus uses a different metadata schema, so H2 is unavailable there
+
+`insider_trading_doubledown__onpolicy__llama-70b.json` carries no
+`metadata.report_classification`. Its metadata keys are `amount`, `deception_message_sep`,
+`deception_trigger`, `doubling_down_sep`, `doubling_down_trigger`, `misalignment_string`,
+`model_graded_deception`, `model_grader_reasoning`, `prompt_variation`. H2 is therefore not
+computable on the confirmatory arm. No substitute annotation was adopted: `model_graded_deception`
+is another LLM grade, not the independent report annotation H2 was specified to use, and swapping it
+in after seeing the schema would defeat the purpose of §5. H2 is reported as **unavailable** on the
+confirmatory arm rather than reformulated. This mirrors `PREREG_EXP_XA.md` DEVIATION 3.
 
 ## 9. Outcome
 
-*(to be completed after the confirmatory arm runs)*
+**Branch 4 on the confirmatory arm; branch 1 on the exploratory arm, subject to §5.**
+
+### Exploratory arm — `insider_trading__onpolicy__llama-70b` (n = 173, 11 scenarios, E fixed)
+
+Within scenario, on the deployed-observable channel, with MIN_CELL = 5 leaving 3 usable scenarios
+(150 of 173 rollouts):
+
+| Hypothesis | deceptive | honest | diff | p | verdict |
+|---|---|---|---|---|---|
+| **H1** `graded_deception`, visible | 8.9% (n=79) | 85.9% (n=71) | **−77.1 pp** | 0.0001 | CRITERION4_POSITIVE |
+| **H2** `report_classification`, visible | 1.9% (n=54) | 100.0% (n=33) | −98.1 pp | 0.0001 | **INAPPLICABLE_DEGENERATE_DETECTOR** |
+| **H3** `graded_deception`, full transcript | 32.9% (n=79) | 88.7% (n=71) | −55.8 pp | 0.0001 | CRITERION4_POSITIVE |
+
+Three things follow, and only the first two are claimed.
+
+1. **Criterion 4 is testable on this corpus, and EXP-XA's verdict on it was wrong in an instructive
+   way.** EXP-XA recorded `INAPPLICABLE_DEGENERATE_DETECTOR` because the refusal-count rule fires on
+   0% here. That was a property of the rule, not the dataset: the corpus fixes the elicitation
+   prompt, holds the condition label constant, and samples each scenario ~16 times, satisfying
+   requirements (i)–(iii). The paper's claim that no audited set satisfies all four must be corrected.
+
+2. **The signal is larger on the deployed-observable channel than on the full transcript**
+   (−77.1 vs −55.8 pp) — the exact inverse of the sandbagging artifact, where the effect lived
+   almost entirely in a scaffold the user never sees. Requirement (iv) is satisfied here.
+
+3. **H2 tripping the applicability gate is the §5 confound made quantitative.** When `D` is taken
+   from the corpus's own report annotation, the disclosure rule reproduces it at 1.9% vs 100.0% —
+   near-perfect separation, which the pre-registered gate flags as degenerate rather than
+   celebrating. That is what construct-recovery looks like: the rule is not detecting deception, it
+   is re-deriving the annotation's definition. **The positive in H1 is therefore reported as
+   construct-recovery under a shared-source dependency, not as evidence of a deception-specific
+   signal.**
+
+### Confirmatory arm — `insider_trading_doubledown__onpolicy__llama-70b` (n = 91, 8 scenarios, E fixed)
+
+**INELIGIBLE_NO_USABLE_SCENARIO — reporting branch 4.** `D` does not vary enough to test:
+85 deceptive / 4 honest / 2 excluded overall, and no scenario reaches MIN_CELL = 5 in both cells
+(largest pairs: 40/1, 25/1, 11/0). H2 is unavailable per DEVIATION 1.
+
+This is a base-rate failure, not a detector failure, and it is reported with its counts and never as
+an accuracy. It is also a substantive finding in its own right: **a corpus can fix the elicitation
+perfectly and still be unable to express criterion 4, because the behaviour it elicits does not
+vary.** Once the model has concealed the source, it doubles down essentially always.
+
+### What the paper may and may not claim from EXP-IT
+
+**May claim:** that criterion 4 is testable on an on-policy, incentive-elicited corpus and returns a
+positive there on the channel a deployed monitor would read (exploratory, n = 150, 3 scenarios);
+that EXP-XA's inapplicability verdict on this corpus reflected our rule rather than the dataset; that
+the pre-registered replication could not be run because the held-out corpus's behaviour does not
+vary; and that criterion 4 admits a further failure mode in which it is passed trivially because the
+deceptive act is constituted by the text the detector reads.
+
+**May not claim:** that a deception-specific signal has been detected; that the H1 positive
+replicates (it was not replicated); that the disclosure rule is a detector rather than a
+methodological instrument; or anything about detectors built for this format.
