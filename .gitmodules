@@ -1,0 +1,8 @@
+[submodule "adaptive_lie_detector/data/external/apollo_deception"]
+	path = adaptive_lie_detector/data/external/apollo_deception
+	url = https://github.com/apolloresearch/deception-detection.git
+	# Pinned by the gitlink in the tree (f8ec401, "Fix links in README.md").
+	# The external audits (EXP-XA, EXP-IT, EXP-IT2) read only committed JSON
+	# from this commit; do not advance the pin without re-running
+	# analyze_external_audit.py and analyze_insider_audit.py on both arms.
+	shallow = false
