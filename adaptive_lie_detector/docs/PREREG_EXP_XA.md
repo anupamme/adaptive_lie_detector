@@ -273,6 +273,48 @@ here. A positive result is about **benchmark identifiability**, which is the pap
 Any deviation from this document is to be recorded here with its date and rationale **before** the
 affected numbers enter the paper.
 
+### DEVIATION 1 (2026-09-08) — the primary text variant is the *user-visible channel*, not "all `<step*>` removed"
+
+**Recorded before any number was computed under either rule.** §5 fixed the primary variant as "all
+`<step*>…</step*>` blocks are removed." Inspecting the sandbagging system prompt and the output tag
+inventory (a *structural* inspection of the already-exploratory 70b-3.3 file; no detector was run) shows
+that rule is wrong in both directions.
+
+The system prompt mandates four steps and states explicitly: **"Steps 1-3 are hidden from the user"**, and
+step 4 is *"your user-visible answer … as if you hadn't done steps 1-3."* Tag inventory over 1000
+rollouts: `answer` 1000, `step1` 998, `step4` 997, `step3` 491, `step2` 485, and `sandbag-skill` echoed
+into the output 645 times.
+
+Two consequences:
+
+1. **Removing all `<step*>` blocks also removes `<step4>`, which is the model's actual answer.** What
+   remains is `<answer>A</answer>` — no prose. Every cell's fire rate would be ~0%, §6's gate would fire,
+   and the benchmark would be declared inapplicable for a purely clerical reason. The rule as written
+   makes the primary analysis vacuous.
+2. **Retaining steps 1-3 is far worse than the "scaffold" concern §5 anticipated.** The hidden scratchpad
+   contains the literal string `<step1-results>sandbag</step1-results>`, and steps 2-3 are emitted almost
+   only when the model sandbags (485/491 present against 500 deceptive-label rollouts). So the *presence
+   of the tags alone* nearly determines the label. A detector reading that text is reading the model's
+   hidden deliberation, which no black-box detector could ever see. Any full-transcript number is
+   contaminated by construction and cannot support a criterion-4 claim.
+
+**Revised primary text variant: the USER-VISIBLE CHANNEL** — the content of `<step4>` plus `<answer>`,
+with steps 1-3, `<step1-results>`, `<step2-results>` and any echoed `<sandbag-skill>` block removed. This
+is precisely what a black-box detector deployed against this model would observe, and it is *stricter*
+than the rule it replaces, not laxer: it removes the label-revealing scratchpad while preserving the
+prose the rule needs in order to be applicable at all.
+
+The full-transcript variant remains a reported secondary, now explicitly labelled **contaminated by the
+hidden scratchpad** and never used to support a criterion-4 verdict. The §0 exploratory numbers were
+computed on the full transcript and are therefore contaminated in exactly this way; they are reported with
+that caveat attached.
+
+Tags may be unclosed under truncation (`</step4>` 933 vs `<step4>` 997), so extraction is positional —
+take the transcript from the first `<step4>` (else from `<answer>`) to the end — and the runner asserts
+the mandated tag ordering, reporting any violation count.
+
+No hypothesis, gate, statistic, seed, or reporting branch is changed by this deviation.
+
 ---
 
 ## 10. Outcome
