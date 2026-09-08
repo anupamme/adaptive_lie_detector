@@ -5,6 +5,8 @@
  "variant": "original_without_answers",
  "model": "llama-70b-3.3",
  "n_rollouts": 54,
+ "n_with_model_output": 54,
+ "is_materials_only": false,
  "system_prompt_md5s": {
   "33a15d79": 1,
   "83efb92b": 1,

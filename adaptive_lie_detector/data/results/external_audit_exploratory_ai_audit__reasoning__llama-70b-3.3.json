@@ -5,6 +5,8 @@
  "variant": "reasoning",
  "model": "llama-70b-3.3",
  "n_rollouts": 16,
+ "n_with_model_output": 16,
+ "is_materials_only": false,
  "system_prompt_md5s": {
   "d41d8cd9": 16
  },

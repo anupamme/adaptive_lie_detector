@@ -5,6 +5,8 @@
  "variant": "onpolicy",
  "model": "llama-70b",
  "n_rollouts": 173,
+ "n_with_model_output": 173,
+ "is_materials_only": false,
  "system_prompt_md5s": {
   "d50d1891": 173
  },

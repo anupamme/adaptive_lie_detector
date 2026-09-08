@@ -5,6 +5,8 @@
  "variant": "wmdp_mmlu",
  "model": "llama-70b-3.3",
  "n_rollouts": 1000,
+ "n_with_model_output": 1000,
+ "is_materials_only": false,
  "system_prompt_md5s": {
   "8e239c2e": 1000
  },
