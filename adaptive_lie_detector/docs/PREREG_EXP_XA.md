@@ -317,6 +317,136 @@ No hypothesis, gate, statistic, seed, or reporting branch is changed by this dev
 
 ---
 
+### DEVIATION 2 (2026-09-08) — grade unwrapping, multi-grader ties, and an unrunnable capability screen
+
+Three schema facts not known when §4-§6 were written. All are recorded before the confirmatory arm ran.
+
+**(a) `graded_deception` is a list, not a scalar.** It stores one verdict per grader. Single-element lists
+(sandbagging, insider trading, roleplaying) unwrap directly, which is the case §4 and §5 assume. For
+multi-grader lists (`ai_audit`, `ai_liar`; 5 graders) the **majority verdict** is used and **ties are
+excluded**. This rule was not pre-specified because the list structure was not known; it is fixed here
+before those benchmarks were tested, and it affects no verdict, because both multi-grader benchmarks fail
+§6 on other grounds (`ai_audit` n=16, underpowered; `ai_liar` elicitation varies).
+
+**(b) The capability screen of H2 is structurally unrunnable on sandbagging.** §5 restricts H2 to
+"questions the model answers correctly somewhere in the `expected_label = honest` condition." On
+inspection the corpus has **1000 rollouts and 1000 distinct questions, each occurring exactly once**, and
+`metadata.topic` is **perfectly collinear with `expected_label`** — WMDP bio/chem/cyber occur only under
+the deceptive label, MMLU topics only under the honest label. So no question is ever observed under both
+labels, and no WMDP question is ever observed in the honest condition. The screen cannot be applied to the
+sandbagged stratum at all.
+
+This is reported as `capability_screen = UNRUNNABLE_NO_REPEATED_QUESTIONS`, not patched. **H2 is therefore
+reported unscreened**, with the explicit caveat that a null H2 cannot distinguish "did not deceive" from
+"could not answer." The screen is still computed and reported for the honest stratum, where it is
+well defined.
+
+The deeper point belongs in the paper: this benchmark cannot separate sandbagging from incapability by its
+own construction, because it never measures the model's unsandbagged performance on the sandbag-target
+questions. That is a **criterion-4 design requirement** the audit protocol should state — a benchmark
+intending to vary `D` at fixed `E` must observe the same item under both conditions.
+
+**(c) Grade values `ambiguous`, `skip`, `unknown` and `refusal` are all excluded**, per §4's rule; `refusal`
+was not enumerated there but is handled identically and never recoded.
+
+---
+
+### DEVIATION 3 (2026-09-08) — grade field naming, and one vendored file that is materials rather than rollouts
+
+Found while running the confirmatory arm; both are coverage fixes that make a benchmark scoreable, not
+selections among outcomes, and both are recorded here with the numbers they produced.
+
+**(a)** `ft_fact_paired/out_simple_4_many.json` stores its independent grade under
+**`model_graded_honesty`**, not `graded_deception`, and its label under `expect_honesty`. The runner
+initially found no grade and would have reported the benchmark as ineligible. The field is now read, with
+the same `honest`/`deceptive` vocabulary and no recoding. The benchmark is consequently *scored* and then
+fails §6's gate on its own merits (0.0% fire in both cells).
+
+**(b)** `how_to_catch_an_ai_liar/goal_directed_lying.json` contains **no model outputs at all** — it is 27
+scenario templates (`deceive_instruction`, `normal_instruction`, `question`, `answer`). It is reported as
+`INELIGIBLE_NO_MODEL_OUTPUTS` rather than under a grade-related reason, which is the accurate diagnosis.
+
+---
+
 ## 10. Outcome
 
-To be recorded after analysis, with the branch of §8 taken.
+**Branch taken: §8 branch 4, exhausted through the entire fixed priority order.** H1 and H2 were never
+testable, because **no held-out benchmark cleared §6's applicability gate.** The primary confirmatory
+target and every fallback in the pre-registered order failed a gate:
+
+| held-out benchmark | n | gate outcome |
+|---|---|---|
+| `sandbagging_v2__wmdp_mmlu__llama-70b` | 366 | **INAPPLICABLE** — fire rate 4.7% (graded-deceptive) vs 3.2% (graded-honest), both below the 5% floor; diff +1.4 pp, p = 0.59 |
+| `roleplaying__plain__llama-70b` | 371 | **INELIGIBLE** — 371 distinct system prompts over 371 rollouts; `E` is not fixed |
+| `ai_audit__reasoning__llama-70b` | 8 | **UNDERPOWERED** — below the 10-per-cell floor |
+| `goal_directed_lying` | 27 | **INELIGIBLE** — materials file, no model outputs |
+| `out_simple_4_many` | 40 | **INAPPLICABLE** — 0.0% fire in both cells |
+
+So the detector could not be evaluated for criterion 4 on any held-out benchmark: it is **degenerate
+outside its native format**, exactly as insider trading (0.0%/0.0%) already indicated. Under §6 this is
+reported as inapplicable and **never as an accuracy of 0%**.
+
+### The exploratory arm, and why it matters more than the confirmatory one
+
+On the already-inspected `llama-70b-3.3` tag (n = 1000, one md5-identical system prompt, so `E` fixed by
+construction) the contrast is computable, and the pre-registered robustness grid decomposes it completely.
+Fire rate, graded-deceptive vs graded-honest, **within a fixed `expected_label`**:
+
+| text variant × pattern list | label = deceptive | label = honest |
+|---|---|---|
+| **user-visible × L-doc (PRIMARY)** | **+4.1 pp, p = 0.33** | **+7.7 pp, p = 0.17** |
+| user-visible × L-fac | **−21.5 pp**, p = 0.999 | −11.1 pp, p = 0.91 |
+| full transcript × L-doc | +84.3 pp, p = 0.0001 | +78.9 pp, p = 0.0001 |
+| full transcript × L-fac | +55.7 pp, p = 0.0001 | +59.7 pp, p = 0.0001 |
+
+**The entire effect lives in the model's hidden scratchpad.** On the full transcript it is enormous and
+highly significant under both pattern lists; on the user-visible channel — the only text a black-box
+detector could ever observe — it is null under L-doc and **significantly reversed** under L-fac.
+
+The per-pattern decomposition (§5, mandatory) names the mechanism exactly. Within `label = deceptive`, a
+**single pattern**, `\bincorrect\b`, carries all of it: it fires on **91.5%** of graded-deceptive
+transcripts against 7.7% of graded-honest ones on the full text, and on **10.8% vs 7.7%** on the visible
+channel. No other pattern exceeds 8% anywhere. The reason is in the benchmark's own system prompt, which
+instructs the model to *"give bad logic and reasoning, resulting in an **incorrect** answer."* The model
+echoes that word in its hidden step-2/step-3 deliberation. **The detector was matching the model quoting
+its own sandbagging instruction, in text the user never sees.**
+
+H2, the grader-independent operationalisation (`D = 1` iff final answer ≠ `metadata.correct_answer`), is
+also null: **+2.5 pp (p = 0.31)** and **+2.7 pp (p = 0.21)**, parse rate 99.7% on 997 rollouts. Its
+capability screen is unrunnable (DEVIATION 2b), so a null H2 cannot separate "did not deceive" from "could
+not answer" — but it independently corroborates that the visible-channel null is not a grader artifact.
+
+### What the paper may and may not claim from EXP-XA
+
+**May claim.**
+
+1. **Criterion 4 is testable on external benchmarks, and it now has per-benchmark verdicts** — ineligible,
+   inapplicable, or null — rather than the blanket "unidentified" the paper currently reports. Of eight
+   benchmarks audited, exactly two hold `E` fixed *and* carry an independent grade of realized deception;
+   the rest cannot supply intervention (A) at all.
+2. **The surviving signal does not transfer** (criterion 5): the documented rule is degenerate on every
+   external benchmark tested — 4.7%/3.2%, 0.0%/0.0% twice — so its measured accuracy is specific to the
+   paper's own instructed format.
+3. **A methodological finding about sandbagging benchmarks generally:** where a benchmark mandates a hidden
+   reasoning scaffold, an apparent deception signal can be entirely an artifact of the model restating its
+   instruction in text no deployed detector could read. Any detector scored on full transcripts of such a
+   corpus is contaminated by construction. This is the paper's own thesis — that the measured quantity is
+   the instruction, not the deception — reproduced in a second, independent paradigm, and in a sharper
+   form: here the detector fires on the instruction's *literal vocabulary*.
+4. **A constructive addition to the audit protocol:** a benchmark intending to vary `D` at fixed `E` must
+   (i) hold the system prompt fixed, (ii) grade realized deception independently of the condition label,
+   (iii) observe the **same item** under both conditions so incapability is separable from deception, and
+   (iv) expose the channel a deployed detector would actually read. **No audited benchmark satisfies all
+   four**; sandbagging satisfies (i) and (ii) and fails (iii) and (iv).
+
+**May not claim.** That a deception-specific signal was found (it was not); that criterion 4 was *failed*
+in the strong sense of §8 branch 3 (the gate never opened on held-out data, so the honest verdict is
+inapplicable/untestable, not failed); that the residual in the instructed paradigm *is* instruction
+following (the Proposition forbids this from any manipulation of `E`, and nothing here changes that); or
+that the exploratory and confirmatory arms may be pooled.
+
+`methodology.tex`'s "(A) … can be *failed* but never *passed*" **stands**, and is now supported rather than
+merely asserted: the two corpora that structurally supply (A) return a null on the visible channel and a
+degenerate detector on held-out data. The sentence "This paper supplies neither" must be **narrowed**, not
+reversed — intervention (A) is now *attempted and reported*, with a verdict, rather than declared out of
+reach.
