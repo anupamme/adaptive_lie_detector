@@ -244,11 +244,99 @@ unchanged; no new statistic and no new constant is introduced.
 
 ## 8. Deviations
 
-*(none recorded yet; the observed `trade_classification` vocabulary and the assignment applied under
-§2 will be recorded here at run time)*
+**DEVIATION 1 (vocabulary, anticipated by §2).** `trade_classification` was read after this document
+was committed. Its vocabulary is `Yes` (136), `Ambiguous` (20), `No` (17), n = 173. Under §2's fixed
+rule: `Yes` → `A = 1`; `No` → `A = 0`; **`Ambiguous` excluded** (20 rollouts, 11.6%), not recoded.
+The field is a single string, as §0 recorded, so §2's per-grader-list contingency never fires.
+No other deviation.
+
+**No post-hoc changes.** The disclosure rule, the channel extraction, `MIN_CELL`, the gate, the
+direction, the number of draws and the seed are all as specified. The verdict logic in
+`run_hypothesis` was **not** touched after the result was seen: it emits `CRITERION4_NULL` whenever
+the pre-registered one-sided test does not reach α, and the directional reading below is prose over
+the reported `diff_pp`, not a second test.
 
 ---
 
 ## 9. Outcome
 
-*(to be completed after the run, per the branches in §6)*
+**§6 branch 3 obtains: criterion 4 is testable on disjoint evidence channels, and it returns a
+null.** The null is in fact a **directional failure** — the sign is opposite to the prediction, by the
+exact mechanism §4 named in advance as plausible.
+
+**Primary and channel results** (11 scenarios, one byte-identical system prompt, 3 usable scenarios
+after `MIN_CELL = 5`, gate passed):
+
+| | `A = 1` (traded on tip) | `A = 0` (did not) | diff | pre-registered $p$ | verdict |
+|---|---|---|---|---|---|
+| **H4** visible report | 46.6% (n = 118) | 25.0% (n = 16) | **+21.6 pp** | 0.9720 | `CRITERION4_NULL` |
+| **H5** full transcript | 62.7% (n = 118) | 25.0% (n = 16) | +37.7 pp | 0.9985 | `CRITERION4_NULL` |
+
+The positive sign is **consistent across all three usable scenarios** (+29.9, +3.7, +27.7 pp on H4),
+so it is not an artefact of pooling. Seven scenarios were dropped for having no `A = 0` cell at all
+(counts in `insider_audit_analysis_action_grounded.json`). Per §4 the result is **not** re-tested
+two-sided and the complementary tail is **not** claimed as a finding.
+
+**The mechanism is the one §4 pre-stated.** An agent that never used the tip has nothing to disclose,
+so the disclosure vocabulary is absent from its report for a reason that has nothing to do with
+concealment. The rule therefore fires *less* on genuinely non-misaligned rollouts (25.0%) than on
+misaligned ones (46.6%). This is the deployed-observable channel failing to carry the action, not a
+detector that has been broken.
+
+**H6: the two channels are genuinely separable, so the disjointness is real rather than nominal**
+(which is what selects branch 3 over branch 2). Within scenario:
+
+- Holding the **report** class fixed, the **action** still varies in **9 / 22** cells (40.9%).
+- Holding the **action** fixed, the **report** still varies in **13 / 19** cells (68.4%).
+- Holding the action fixed, `graded_deception` still varies in **10 / 19** cells (52.6%).
+
+| `trade_classification` | Explicit | Implied | Concealed | | `graded_deception` deceptive / honest |
+|---|---|---|---|---|---|
+| `Yes` (n = 134 graded) | 35 | 53 | 48 | | 65 / 69 |
+| `No` (n = 17) | **0** | 5 | 12 | | **15 / 2** |
+| `Ambiguous` (n = 20) | 6 | 5 | 9 | | 11 / 9 |
+
+**This makes EXP-IT's construct-recovery diagnosis quantitative.** Among the 17 rollouts in which the
+agent did **not** trade on the tip, the corpus's own grader calls **15 deceptive** and 2 honest —
+88.2% — against 48.5% (65/134) among rollouts that *did*. `graded_deception` is therefore close to
+independent of the misaligned action and nearly determined by the report, which is the text the
+disclosure rule reads. EXP-IT's $-77.1$ pp was the rule and the grader reading the same channel
+twice, and this is the direct measurement of that.
+
+**May claim.**
+
+- The paper's **first criterion-4 test in which the label and the detector's input are disjoint
+  evidence channels**, satisfying requirement (v); the corpus does supply the required variation
+  (H6), and the test **returns a null on the deployed-observable channel**.
+- The null is a **directional failure** with a named mechanism: absence of disclosure vocabulary does
+  not indicate concealment when there was nothing to conceal.
+- The corpus's own deception annotation is **nearly independent of the misaligned action** (88.2% vs
+  48.5% deceptive) and nearly determined by the report — EXP-IT's positive was construct recovery,
+  now measured rather than argued.
+- Together: **no audited corpus supplies criterion 4 on a deployed-observable channel with an
+  independently grounded $D$.** §3.6's "No audited set satisfies all five" **stands**, and is now
+  supported by a test that met (v) rather than by (v)'s violation.
+
+**May not claim.**
+
+- **Not** "action-grounded deception detection is impossible" — n = 16 in the `A = 0` cell across
+  3 scenarios is small, and the corpus was not designed to balance the action.
+- **Not** a two-sided or opposite-direction finding (§4).
+- **Not** a confirmatory finding *about the corpus*: the corpus is exploratory per
+  `PREREG_EXP_IT.md` §0. This is a **confirmatory analysis on an exploratory corpus** and must be
+  labelled so wherever it appears.
+- **Not** that `A` is deception. `A` is the misaligned action; the deceptive act is action plus
+  concealment (§1).
+- **Not** any claim about detectors purpose-built for agentic transcripts. The rule is a
+  methodological instrument.
+
+**Reproduce offline:**
+
+```
+python3 experiments/run_insider_audit.py     --arm action_grounded
+python3 experiments/analyze_insider_audit.py --arm action_grounded
+```
+
+Re-running the `exploratory` and `confirmatory` arms after these code changes leaves
+`insider_audit_summary_{arm}.json` and `insider_audit_analysis_{arm}.json` **byte-identical** to the
+versions committed with EXP-IT, as §4 required; verified with `cmp`.
