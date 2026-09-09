@@ -39,6 +39,8 @@ Usage:
     ../.venv/bin/python3 experiments/run_liars_bench_audit.py --arm rule
 """
 import argparse
+import ast
+import gzip
 import hashlib
 import json
 import os
@@ -69,10 +71,37 @@ LEAK_FACTOR = 3.0    # PREREG §3: full effect > 3x visible -> ANNOTATION_CHANNE
 LIST_NAME = "L_fac"
 SECONDARY_LIST = "L_doc"
 
-# PREREG §5.3(a): the scenario/id keys we will accept from `meta`, in order.
-# If none is present the fallback is the pre-final-context md5, then UNTESTABLE.
+# PREREG §5.3(a) names `index`/`meta` as the sources of the scenario key. Two
+# facts measured on the fetched rows before any score was computed change how
+# that clause has to be applied, and both are reported rather than worked around:
+#
+#   1. `index` is **unique per row** in every config that carries it, so it is a
+#      row counter and not a scenario key. It is still evaluated below, because
+#      §5.3 names it; it simply yields zero paired groups, which is visible in
+#      the output instead of being asserted here.
+#   2. The repeating id columns are `dataset_index` (`instructed-deception`, 100
+#      distinct of 26,426) and `Unnamed: 0` (`gender-secret`, 392 of 762), which
+#      are top-level parquet columns rather than `meta` fields.
+#
+# So rather than a preference order -- where the choice of key would decide
+# whether requirement (iii) is met, and could be chosen to suit the answer --
+# **every candidate key is reported with its own paired-scenario count**, and the
+# verdict is taken from a key that is mechanical and cannot be gamed: a hash of
+# the environment's own messages (see `scenario_keys`).
 META_SCENARIO_KEYS = ("scenario", "scenario_id", "id", "index", "idx",
-                      "example_id", "prompt_id", "story_id", "sample_id")
+                      "example_id", "prompt_id", "story_id", "sample_id",
+                      "template_index", "template_id", "dataset_index")
+TOP_SCENARIO_KEYS = ("index", "dataset_index", "Unnamed: 0", "sample_id")
+
+# The key requirement (iii) is decided on. `env_md5` hashes every prefix message
+# the model did NOT write -- system, user, tool -- i.e. the scenario as the
+# environment posed it. Intermediate assistant turns are excluded on purpose:
+# they are the model's *behavior*, and requirement (iii) asks whether the same
+# scenario was realized under both behaviors, so folding behavior into the key
+# would make (iii) unmeetable by construction in any multi-turn setting. The
+# stricter whole-prefix hash is reported alongside as `prefix_md5` so a reader
+# can see whether the pairing survives the strictest reading too.
+PRIMARY_SCENARIO_SOURCE = "env_md5"
 
 
 # --------------------------------------------------------------------------
@@ -104,18 +133,26 @@ def load_config(config):
 
 
 def parse_meta(row):
-    """`meta` is an opaque string in the schema (PREREG §6.7). A missing or
-    unparseable field yields {} -- never an improvised substitute."""
+    """`meta` is an opaque string in the schema (PREREG §6.7).
+
+    Measured, not assumed: the shipped values are **Python reprs**
+    (`{'sample_id': 0, ...}`), not JSON, so `json.loads` fails on all of them.
+    Both are tried. A missing or genuinely unparseable field yields {} -- never
+    an improvised substitute.
+    """
     raw = row.get("meta")
     if isinstance(raw, dict):
         return raw
     if not isinstance(raw, str) or not raw.strip():
         return {}
-    try:
-        val = json.loads(raw)
-    except (ValueError, TypeError):
-        return {}
-    return val if isinstance(val, dict) else {}
+    for parse in (json.loads, ast.literal_eval):
+        try:
+            val = parse(raw)
+        except (ValueError, TypeError, SyntaxError, MemoryError, RecursionError):
+            continue
+        if isinstance(val, dict):
+            return val
+    return {}
 
 
 def messages_of(row):
@@ -158,6 +195,10 @@ def normalize(row, idx):
             "temperature": row.get("temperature"),
             "dataset": row.get("dataset"),
             "meta": meta,
+            # top-level id columns, kept because the repeating scenario ids on
+            # this corpus live here and not in `meta` (see TOP_SCENARIO_KEYS)
+            "row_ids": {k: row[k] for k in TOP_SCENARIO_KEYS
+                        if k in row and row[k] is not None},
         },
     }
 
@@ -187,16 +228,41 @@ CHANNELS = {"visible": visible_text, "full": full_text,
 PREREG_CHANNELS = ("visible", "full")   # the two §3 fixed; the third is post-hoc
 
 
-def scenario_key(roll):
-    """PREREG §5.3, in the fixed order of preference. Returns (key, source)."""
-    meta = roll["metadata"]["meta"]
+def scenario_keys(roll):
+    """PREREG §5.3: every candidate scenario key for one example, as
+    {source: key}. No preference order -- the caller reports a paired-scenario
+    count for each source, and takes the verdict from PRIMARY_SCENARIO_SOURCE.
+
+    Sources are `env_md5` (the scenario as the environment posed it),
+    `prefix_md5` (the strict whole-prefix hash, model turns included),
+    `meta.<k>` for each published `meta` id, and `top.<k>` for each top-level id
+    column. A source absent from an example simply does not appear.
+    """
+    keys = {}
+    env = "\n".join(f"{m['role']}: {m['content']}" for m in roll["input_messages"]
+                    if m["role"] != "assistant")
+    if env.strip():
+        keys["env_md5"] = hashlib.md5(env.encode("utf-8")).hexdigest()[:12]
+    prefix = "\n".join(f"{m['role']}: {m['content']}"
+                       for m in roll["input_messages"])
+    if prefix.strip():
+        keys["prefix_md5"] = hashlib.md5(prefix.encode("utf-8")).hexdigest()[:12]
+    meta = roll["metadata"].get("meta") or {}
     for k in META_SCENARIO_KEYS:
         if k in meta and meta[k] not in (None, ""):
-            return f"{k}={meta[k]}", f"meta.{k}"
-    ctx = "\n".join(m["content"] for m in roll["input_messages"]
-                    if m["role"] in ("system", "user"))
-    if ctx.strip():
-        return hashlib.md5(ctx.encode("utf-8")).hexdigest()[:12], "context_md5"
+            keys[f"meta.{k}"] = f"{k}={meta[k]}"
+    for k, v in (roll["metadata"].get("row_ids") or {}).items():
+        keys[f"top.{k}"] = f"{k}={v}"
+    return keys
+
+
+def scenario_key(roll):
+    """The single key requirement (iii) is decided on. Returns (key, source);
+    (None, "unavailable") when the environment posed nothing hashable, which is
+    reported as `(iii)_UNTESTABLE` rather than repaired."""
+    keys = scenario_keys(roll)
+    if PRIMARY_SCENARIO_SOURCE in keys:
+        return keys[PRIMARY_SCENARIO_SOURCE], PRIMARY_SCENARIO_SOURCE
     return None, "unavailable"
 
 
@@ -237,6 +303,17 @@ def derived_records(config, rolls):
                "grade": ["deceptive" if m["deceptive"] else "honest"],
                "system_md5": system_md5(r),
                "scenario_key": key, "scenario_key_source": src,
+               # every candidate key, not just the deciding one, so the paired
+               # count under each can be recomputed offline and the choice of key
+               # is auditable rather than taken on trust
+               "scenario_keys": scenario_keys(r),
+               # small scalar `meta` fields, kept so the (v) adjudication and the
+               # nuisance-variable decomposition of §5.2 run offline from the
+               # committed records. Bounded to short scalars so no corpus text can
+               # enter through this door.
+               "meta_scalars": {
+                   k: v for k, v in (m.get("meta") or {}).items()
+                   if isinstance(v, (int, float, bool, str)) and len(str(v)) <= 64},
                "n_messages": len(r["input_messages"]) + 1}
         for ch, extract in CHANNELS.items():
             text = extract(r)
@@ -261,7 +338,7 @@ def survey_cell(rolls):
                     for m, rs in md5s.items()}
     deceptive_determined_by_prompt = all(len(v) == 1 for v in label_by_md5.values())
 
-    # 5.3 paired scenarios
+    # 5.3 paired scenarios, under the deciding key...
     groups, key_sources = {}, {}
     for r in rolls:
         k, src = scenario_key(r)
@@ -271,6 +348,23 @@ def survey_cell(rolls):
         groups.setdefault(k, []).append(r)
     paired = {k: v for k, v in groups.items()
               if len({r["metadata"]["deceptive"] for r in v}) == 2}
+
+    # ...and under every other candidate key, reported so the deciding key cannot
+    # be a choice that suits the answer. A key that repeats across the label (a
+    # scenario id) shows a positive paired count; a key that is really a row
+    # counter shows n_groups == n and n_paired == 0.
+    per_source, keyed = {}, {}
+    for r in rolls:
+        for src, k in scenario_keys(r).items():
+            per_source.setdefault(src, {}).setdefault(k, set()).add(
+                r["metadata"]["deceptive"])
+            keyed[src] = keyed.get(src, 0) + 1
+    paired_by_source = {
+        src: {"n_groups": len(g),
+              "n_paired": sum(1 for v in g.values() if v == {True, False}),
+              "n_examples_keyed": keyed[src],
+              "is_primary": src == PRIMARY_SCENARIO_SOURCE}
+        for src, g in sorted(per_source.items())}
 
     # rule fire rates, every channel x both pattern lists. Only L_fac (the
     # pre-registered list) decides a verdict; L_doc is reported for parity with
@@ -345,6 +439,8 @@ def survey_cell(rolls):
         "n_scenario_groups": len(groups),
         "n_paired_scenario_groups": len(paired),
         "n_examples_in_paired_groups": sum(len(v) for v in paired.values()),
+        "primary_scenario_source": PRIMARY_SCENARIO_SOURCE,
+        "paired_by_scenario_source": paired_by_source,
         "rule_fire": fires,
         "verdicts": verdicts,
         "channel_verdict": channel_verdict,
@@ -426,12 +522,19 @@ def survey():
             json.dump({"corpus": "liars_bench", "config": config,
                        "rollouts": rolls}, f)
 
-        # The derived records, which carry no text and ARE committed.
-        with open(os.path.join(RESULTS, f"liars_bench_rule_{config}.json"), "w") as f:
+        # The derived records, which carry no text and ARE committed. Written
+        # gzipped: uncompressed these are 68 MB across the eight configs and 23x
+        # that redundant, which is not a thing to put in a git history when the
+        # analysis can read them back transparently.
+        path = os.path.join(RESULTS, f"liars_bench_rule_{config}.json.gz")
+        with gzip.open(path, "wt", encoding="utf-8") as f:
             json.dump({"corpus": "liars_bench", "config": config,
                        "prereg": "docs/PREREG_EXP_XL.md",
                        "contains_corpus_text": False,
                        "records": derived_records(config, rolls)}, f, indent=1)
+        stale = os.path.join(RESULTS, f"liars_bench_rule_{config}.json")
+        if os.path.exists(stale):
+            os.remove(stale)
 
     eligible = [(c, g) for c, e in out["configs"].items()
                 for g, cell in e.get("cells", {}).items()

@@ -1,7 +1,96 @@
 {
   "repo": "Cadenza-Labs/liars-bench",
-  "access": "denied",
-  "http_status": 403,
-  "branch": "F",
-  "files": []
+  "access": "granted",
+  "revision": "503399b81aff28d6812b0ea4585607d5e4b7d3c4",
+  "repo_last_modified": "2026-07-28T00:16:22.000Z",
+  "gated": "auto",
+  "prereg": "docs/PREREG_EXP_XL.md",
+  "note": "Gated corpus: the parquet files are NOT redistributed. These sha256s let a reader who obtains access verify identical bytes; that is weaker than the Apollo submodule pin, and the paper states the asymmetry (PREREG \u00a72).",
+  "rows_from_card_at_prereg_time": {
+    "instructed-deception": 26426,
+    "soft-trigger": 24000,
+    "alpaca": 8000,
+    "harm-pressure-choice": 5400,
+    "harm-pressure-knowledge-report": 7068,
+    "insider-trading": 6873,
+    "convincing-game": 888,
+    "gender-secret": 762
+  },
+  "rows_measured": {
+    "alpaca": 8000,
+    "convincing-game": 888,
+    "gender-secret": 762,
+    "harm-pressure-choice": 5400,
+    "harm-pressure-knowledge-report": 7068,
+    "insider-trading": 6873,
+    "instructed-deception": 26426,
+    "soft-trigger": 24000
+  },
+  "configs_with_no_test_parquet": [],
+  "files": [
+    {
+      "path": "alpaca/test-00000-of-00001.parquet",
+      "sha256": "fd5a58cf106c14fe49ff1ec92c391ba60147756d08e2fd6966893b12b6ff6c5d",
+      "bytes": 5524719,
+      "last_modified": null,
+      "etag": "c861e80bc2e5e0e8b52846f50528048db4b61e1d04b2b7176937124a4db77c12",
+      "config": "alpaca"
+    },
+    {
+      "path": "convincing-game/test-00000-of-00001.parquet",
+      "sha256": "e58d8ca5ce92008839ec180985726bb24bff5c67c1c209193600300e0902c64a",
+      "bytes": 358163,
+      "last_modified": null,
+      "etag": "54f1e2ae73f2925c6379300905086e36242ef24169545d586e3c79ef81e1ced6",
+      "config": "convincing-game"
+    },
+    {
+      "path": "gender-secret/test-00000-of-00001.parquet",
+      "sha256": "f288646c3bbb7128787aa754652967b3aae05f5470aca1ec82459be4e1e0b785",
+      "bytes": 62611,
+      "last_modified": null,
+      "etag": "004aa5873f6358d13b546b8125b5b5e8019fb0d63a74b3e226b33674468fbfa0",
+      "config": "gender-secret"
+    },
+    {
+      "path": "harm-pressure-choice/test-00000-of-00001.parquet",
+      "sha256": "409feeedfe804bb0c2fa2a4cfdb80c6470ca5ae5925069eee7bcf3670ad5eab4",
+      "bytes": 1266610,
+      "last_modified": null,
+      "etag": "52a5579c982c1c878053d1818922479a88efaf7935a7170f0fb5307ada29aeea",
+      "config": "harm-pressure-choice"
+    },
+    {
+      "path": "harm-pressure-knowledge-report/test-00000-of-00001.parquet",
+      "sha256": "7033c86fff0c44b0830bf30df49ff4c9ee2f6dc2c07a1e5f34f5afb5a8c74ea8",
+      "bytes": 2123243,
+      "last_modified": null,
+      "etag": "6dc1fc5e59555528efab406ada3b5467a3eb6c63264694ac48ab42697263396e",
+      "config": "harm-pressure-knowledge-report"
+    },
+    {
+      "path": "insider-trading/test-00000-of-00001.parquet",
+      "sha256": "8515a618aded880a90227663db0e7f316d45ee8bee17c2ce29919bad6a8d3e13",
+      "bytes": 5394828,
+      "last_modified": null,
+      "etag": "73a2affb9d669408885b88717057936f11ce6204a4441aa2e91cf38cb6cc8807",
+      "config": "insider-trading"
+    },
+    {
+      "path": "instructed-deception/test-00000-of-00001.parquet",
+      "sha256": "58ab103d5bb8f4e181332548040566af990e21e18a346554f9a522e8460d0c68",
+      "bytes": 1741142,
+      "last_modified": null,
+      "etag": "a06de913d24a1dd5fbbca93f7ac593b4002ac4a09f7f133ac068316ca96c17c0",
+      "config": "instructed-deception"
+    },
+    {
+      "path": "soft-trigger/test-00000-of-00001.parquet",
+      "sha256": "2461fed22bb1da2a7d3ffb32df8454bb680164d54f67abc55d6d9f97e9379bd6",
+      "bytes": 9932863,
+      "last_modified": null,
+      "etag": "9666e9b0d936dfe60e81744b455f726cab9323bace976014eafec1e529e900f5",
+      "config": "soft-trigger"
+    }
+  ]
 }

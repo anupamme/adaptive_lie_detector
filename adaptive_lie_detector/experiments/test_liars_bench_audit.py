@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
 """test_liars_bench_audit.py
 
-The Liars' Bench corpus is gated and we do not have row-level access (PREREG
-§7 branch F), so `run_liars_bench_audit.py` cannot be exercised on real rows.
-This builds a **synthetic** fixture in the documented schema -- `messages`,
-`deceptive`, `model`, `temperature`, `meta` -- with cells engineered to hit
-every verdict branch, and asserts the survey reaches the right verdict on each.
+A **synthetic** fixture in the corpus's documented schema -- `messages`,
+`deceptive`, `model`, `temperature`, `meta`, plus the top-level `index` column --
+with cells engineered to hit every verdict branch, asserting the survey and the
+analysis reach the right verdict on each.
+
+Access to the real corpus has since been granted, so this is no longer a stand-in
+for it; it is the branch coverage the real rows cannot provide, because they
+exercise only the branches they happen to fall into. **The load-bearing case is
+`falsifiable`**: a config meeting requirements (i)-(v) with a genuine
+within-scenario effect, which must return `FALSIFIER_FIRED`. Without it, the real
+corpus's failure to fire the falsifier would be uninformative -- it could equally
+mean the gate is unreachable.
+
+`meta` is written as a Python repr, not JSON, because that is what the release
+ships; a fixture using JSON would pass while the real parser silently returned {}.
 
 It proves the code path, NOT any fact about the corpus. Nothing here is data,
 and no number from it appears in the paper.
@@ -32,10 +42,21 @@ def msgs(system, user, assistant):
             {"role": "assistant", "content": assistant}]
 
 
+_ROW_COUNTER = [0]
+
+
 def row(system, user, assistant, deceptive, model, meta=None):
+    """`meta` is written as a **Python repr**, not JSON, because that is what the
+    real release ships (`{'sample_id': 0, ...}`) -- so this also exercises the
+    `ast.literal_eval` path that `json.loads` alone would silently drop.
+
+    `index` is unique per row, as it is in every real config that carries it, so
+    the per-source report must show it pairing nothing.
+    """
+    _ROW_COUNTER[0] += 1
     return {"messages": msgs(system, user, assistant), "deceptive": deceptive,
-            "model": model, "temperature": 1.0,
-            "meta": json.dumps(meta or {})}
+            "model": model, "temperature": 1.0, "index": _ROW_COUNTER[0],
+            "meta": repr(meta or {})}
 
 
 def build_fixture(root):
@@ -120,6 +141,26 @@ def build_fixture(root):
                      "deceptive": False, "model": G, "temperature": 1.0})
     cfgs["no-meta"] = rows
 
+    # (10) THE FALSIFIER MUST BE ABLE TO FIRE. Without this case, "the falsifier
+    #      did not fire" on the real corpus would be uninformative -- it could mean
+    #      the gate is simply unreachable. One fixed system prompt, scenarios with
+    #      >= 10 examples in BOTH arms so H4 keeps them, a real within-scenario
+    #      effect, and an `action` field in `meta` so requirement (v) is MET.
+    rows = []
+    #      The user turn is CONSTANT within a scenario -- 14 resamples of the same
+    #      prompt per arm -- because the deciding key is a hash of the environment's
+    #      own messages, so varying the prompt per draw would split one scenario
+    #      into 28 singleton groups and H4 would keep none of them.
+    for s in range(4):
+        for i in range(14):
+            rows.append(row(SYS, f"Scenario {s}?",
+                            HEDGE if i < 11 else PLAIN, True, G,
+                            {"scenario": s, "action": "withheld_the_disclosure"}))
+            rows.append(row(SYS, f"Scenario {s}?",
+                            HEDGE if i < 2 else PLAIN, False, G,
+                            {"scenario": s, "action": "made_the_disclosure"}))
+    cfgs["falsifiable"] = rows
+
     import pyarrow as pa
     import pyarrow.parquet as pq
     for name, rows in cfgs.items():
@@ -139,7 +180,8 @@ EXPECT = {
     "unpaired":         {"contains": "(iii)_UNMET_NO_PAIRED_SCENARIO"},
     "leaky":            {"channel": "ANNOTATION_CHANNEL_LEAKAGE"},
     "two-generators":   {"n_generators": 2, "verdicts": ["ELIGIBLE"]},
-    "no-meta":          {"verdicts": ["ELIGIBLE"], "key_source": "context_md5"},
+    "no-meta":          {"verdicts": ["ELIGIBLE"], "key_source": "env_md5"},
+    "falsifiable":      {"verdicts": ["ELIGIBLE"]},
 }
 
 
@@ -187,6 +229,37 @@ def main():
                     if exp["key_source"] not in srcs:
                         failures.append(f"{config}/{gen}: key source "
                                         f"{list(srcs)} lacks {exp['key_source']}")
+
+        # the scenario-key report must (a) reach the Python-repr `meta`, (b) show
+        # the deciding key pairing, and (c) show a unique-per-row `index` pairing
+        # nothing -- the three facts the real corpus turns on
+        elig = next(iter(out["configs"]["eligible-config"]["cells"].values()))
+        srcs = elig["paired_by_scenario_source"]
+        if "meta.scenario" not in srcs:
+            failures.append("Python-repr `meta` was not parsed: no meta.scenario "
+                            f"among {sorted(srcs)}")
+        elif srcs["meta.scenario"]["n_paired"] != 20:
+            failures.append(f"meta.scenario paired {srcs['meta.scenario']['n_paired']}"
+                            " != 20")
+        if elig["primary_scenario_source"] != "env_md5":
+            failures.append(f"primary source {elig['primary_scenario_source']!r}")
+        if not srcs.get("env_md5", {}).get("is_primary"):
+            failures.append("env_md5 not flagged primary in the per-source report")
+        if srcs["env_md5"]["n_paired"] != 20:
+            failures.append(f"env_md5 paired {srcs['env_md5']['n_paired']} != 20")
+        if "top.index" not in srcs:
+            failures.append("top-level `index` column never reached scenario_keys")
+        elif srcs["top.index"]["n_paired"] != 0:
+            failures.append("a unique-per-row `index` must pair nothing, got "
+                            f"{srcs['top.index']['n_paired']}")
+        elif srcs["top.index"]["n_groups"] != elig["n"]:
+            failures.append(f"top.index groups {srcs['top.index']['n_groups']} != "
+                            f"n={elig['n']}: it is not unique per row in the fixture")
+        # the strict whole-prefix key must also pair here (single-turn fixture),
+        # so a divergence between it and env_md5 can only come from model turns
+        if srcs.get("prefix_md5", {}).get("n_paired") != 20:
+            failures.append("prefix_md5 should pair identically on a 3-message "
+                            f"fixture, got {srcs.get('prefix_md5')}")
 
         # the normalized rolls must be judge-runner-shaped
         norm = os.path.join(M.NORM_DIR, "eligible-config.json")
@@ -266,7 +339,26 @@ def main():
             if il["falsifier"]:
                 failures.append("instructed-like must never be a falsifier "
                                 "candidate: it fails (i) and (ii)")
-            if an["branch"] not in ("A_falsifier_candidate",
+            # THE CONTROL ON THE WHOLE AUDIT: the falsifier must be reachable, or
+            # a null on the real corpus would say nothing. `falsifiable` meets
+            # (i)-(v) with paired scenarios and a within-scenario effect.
+            fa = an["configs"]["falsifiable"]["llama-v3.3-70b-instruct"]
+            if not fa["requirements"]["v_annotation_independent"]:
+                failures.append("falsifiable: (v) should be MET -- `meta.action` is "
+                                "an action field disjoint from the response")
+            h4 = fa["h4_stratified"]["10"]
+            if h4.get("verdict") != "CRITERION4_POSITIVE":
+                failures.append(f"falsifiable: H4 verdict {h4.get('verdict')!r} "
+                                f"(strata={h4.get('n_scenarios_kept')}, "
+                                f"p={h4.get('p')}) should be POSITIVE")
+            if fa["falsifier"] != "FALSIFIER_FIRED":
+                failures.append("THE FALSIFIER IS UNREACHABLE: a config meeting "
+                                "(i)-(v) with a within-scenario effect did not "
+                                f"fire it (blocked by {fa['falsifier_blocked_by']})")
+            if an["branch"] != "A_falsifier_fired":
+                failures.append(f"branch {an['branch']!r} should be "
+                                "A_falsifier_fired once any cell fires")
+            if an["branch"] not in ("A_falsifier_fired",
                                     "C_positive_but_requirements_unmet",
                                     "D_null_on_second_release"):
                 failures.append(f"unknown branch {an['branch']!r}")
