@@ -386,8 +386,92 @@ committed (§2).
 
 ## 9. Deviations
 
-*None yet. Any deviation is recorded here with its date and the reason, before the affected number is
-reported.*
+**Taken. Six, all dated 2026-09-10, all recorded before the affected number was reported.**
+
+6. **The ×3 leakage test was implemented wrongly and was corrected after rows had been read.** §3's
+   rule is "the full-transcript effect **exceeds** the visible-channel effect by more than ×3". The
+   first implementation compared `|f_eff|` against `LEAK_FACTOR * max(|v_eff|, 1e-9)`, which is wrong
+   twice over. (a) With a blind rule the visible effect is exactly 0.00 pp, so the threshold collapsed
+   to 3e-9 and a 0.10 pp full-channel effect — two examples out of 2,000 — was labelled
+   `ANNOTATION_CHANNEL_LEAKAGE`. §4 says a degenerate rule arm is reported with its fire rates and
+   "never as an effect of 0", so using that 0 as a ratio denominator contradicted this document's own
+   instruction; 15 of 16 spurious flags came from it. (b) `abs()` on both sides made a **sign flip**
+   count as leakage: `insider-trading/gemma-3-27b-it` is +1.24 pp visible and −3.93 pp on the full
+   transcript, a ratio of −3.16, which is a directional failure under §4, not evidence that the label
+   is recoverable from a hidden channel. **Corrected to signed effects, gated on §4's 5–95% fire test,
+   in both arms** — the judge arm had always been signed, so this also removed an asymmetry between
+   instruments. The correction is derivable from §3's and §4's text and is not a retuning: it changed
+   no confirmatory contrast, only which cells carry a leakage verdict (§10.3).
+   *Consequence for the branch:* removing the 16 spurious flags exposed that §7's branch-D scan had
+   been written inside the criterion-4 eligibility filter, so the one genuine instance would have been
+   dropped in silence. §7's D says "**any** cell" and "composes with A/B/C", so the scan now covers
+   every cell. D still fires, on one cell, and the reason it is reported rather than discarded is in
+   §10.3.
+
+7. **H6's judge arm had no draw rule, and "clearly lower" had no threshold. Both were fixed after the
+   confirmatory arms were scored.** §4 pre-registered H6 — "if the judge's score on a supposedly-honest
+   control is not clearly lower than on any deceptive cell, the **instrument** is reported as suspect"
+   — but §4's judge subsample is defined per **eligible** config, and `alpaca` is not eligible because
+   its label does not vary. The hypothesis therefore had no way to be run and the control was initially
+   not judged at all. Fixed as: 100 rollouts per generator, drawn by `random.Random(42).sample` over
+   sorted `lb_index`, **visible channel only** (H6 asks about a level, not a channel contrast, so no
+   `full` arm is run and no new contrast becomes available), on an arm namespaced
+   `visible_h6_control` so `done_keys` cannot re-issue or contaminate a confirmatory arm. "Clearly
+   lower" is operationalised as: the control's mean sits below the **honest** arm's mean of every
+   visible-channel-positive cell by more than the sum of the two standard errors. Comparing against the
+   honest arm rather than the deceptive arm is the stricter reading. **This arm can only weaken a judge
+   claim, never strengthen one**, which is why fixing it late is disclosable rather than disqualifying;
+   in the event it weakened nothing (§10.3), and every other verdict, MDE and branch line is
+   byte-identical before and after it.
+
+8. **§7's branch table has no letter for the outcome that occurred.** Two cells are
+   `CONSTRUCT_RECOVERY`: an instrument is positive and requirement (v) is unmet. §7's letters cover A
+   (falsifier fires), B (rule null / judge positive), C (both null), D (channel leakage), E (nothing
+   eligible) and F (no access) — none of them is "positive instrument, requirement unmet". The
+   **verdict** was pre-registered, in §5.2's `insider-trading` row, which says in advance that a
+   positive there "is presented as construct recovery, not detection"; only the letter is missing. The
+   composite branch is therefore reported as `B+CONSTRUCT_RECOVERY+D+rule_null_judge_not_run`, with the
+   gap named rather than a letter stretched to cover it.
+
+9. **§5.2's `soft-trigger` prediction is contradicted by the rows, and §5.4 requires saying so.** §5.2
+   called `soft-trigger` "the case to check hardest" and predicted that if the trigger lives in the
+   system prompt then E varies and the config is `INELIGIBLE_E_VARIES`. It does not: each
+   (config × generator) cell has **exactly one** system-prompt md5 (four distinct md5s across the 12
+   cells), and for the three `gemma-3-27b-it-lora-*` cells that md5 is `d41d8cd9` — the md5 of the empty
+   string, i.e. **no system message at all**. The trigger is in the
+   *user* turn. So (i) is met, and met trivially in §5.1's own sense, and `soft-trigger` is excluded by
+   a different gate: (iii), with **0** paired scenario groups out of 2,000, and by a rule that does not
+   fire at all on its visible channel. The prediction was wrong about the mechanism and right about the
+   conclusion, and both halves are reported.
+
+10. **A requirement-(i) gate was drafted, measured, and rejected on the evidence.** While implementing
+    §5.1 an additional gate was considered: fail (i) where `deceptive` is recoverable from the prompt
+    text alone by an out-of-fold classifier. Measured over all 32 scorable cells it returns AUROC
+    0.437–1.000: up to 0.988 on `soft-trigger` (range 0.537–0.988), 0.995–0.997 on `gender-secret`,
+    1.000 on both `convincing-game` cells, and **0.763 on `insider-trading`/mistral** — i.e. at any
+    threshold that catches the cases it was drafted for, it would also have demoted this round's
+    headline cell. It was rejected because high prompt-recoverability is expected wherever
+    scenarios differ in base rate, so it does not bear on whether E was held fixed; requirement (iii)
+    is the gate that detects a label coinciding with a prompt difference. The measurement is published
+    anyway, per cell, flagged `is_post_hoc: true` and `is_a_gate: false`, so that a reader can see the
+    dead end rather than take the absence of the gate on trust.
+
+11. **§0's metadata named four generator models; the rows carry five base families and 19 generator
+    strings.** §5.4 requires that "where the metadata of §0 implied something the rows contradict, the
+    contradiction is reported". The card's metadata listed `mistral-small-3.1-24b-instruct`,
+    `llama-v3.3-70b-instruct`, `qwen-2.5-72b-instruct` and `gemma-3-27b-it`. The rows additionally
+    carry **`kimi-k2.6`** (on `insider-trading` and `instructed-deception`), plus 12 LoRA variants on
+    `soft-trigger` and two `-secret-male` variants on `gender-secret`. Every count in §10 is over the
+    19 strings, stratified per §5.1. §6.1's scope arithmetic — written as "five generator models, four
+    families" on the assumption of four Liars' Bench models plus Apollo's Llama-70B — is corrected **here
+    rather than there**, since §10's header forbids editing anything above it once a row has been read:
+    the true figure across both releases is **five base models in five families** (Mistral, Llama, Qwen,
+    Gemma, Kimi), Apollo's Llama-3.3-70B falling inside a family Liars' Bench also uses.
+    §5.4's check that the generators appear in more than one config is also run and passes: the four
+    base instruct models appear in 4–6 configs each and `kimi-k2.6` in 2, while all 19 strings including
+    the LoRA and `-secret-male` variants are single-config by construction.
+
+---
 
 **Anticipated and pre-authorised, so that taking them is not a deviation.**
 
@@ -403,24 +487,215 @@ reported.*
 
 ## 10. Outcome
 
-*To be completed after the run. Nothing above may be edited once a row has been read; corrections go in
-this section as dated addenda.*
+*Completed 2026-09-10. Nothing above has been edited since the first row was read; the corrections are
+the dated deviations in §9.*
 
 ### 10.1 Access and pinning
 
+**Access was granted, so §7 branch F does not apply.** The HF gate was accepted manually and
+`resolve/main/...parquet` returns 200. `data/external/liars_bench_manifest.json` records
+`access: granted`, `gated: auto`, repo revision **`503399b81aff28d6812b0ea4585607d5e4b7d3c4`**,
+`repo_last_modified 2026-07-28T00:16:22Z`, and per-file **sha256 + byte size + etag** for all **8**
+test parquet files. `configs_with_no_test_parquet` is empty. `rows_measured` equals §0's
+`rows_from_card_at_prereg_time` for **all 8 configs** — 79,417 examples total — so the card's row counts
+were not merely trusted, they were verified against the fetched files.
+
+**The reproducibility path here is weaker than Apollo's, and §7(f) requires saying so.** The corpus is
+gated and not redistributable, so it cannot be pinned as a git submodule the way
+`data/external/apollo_deception` is. What is committed is the manifest hashes plus every derived
+artifact — the per-config rule records (`rule_*.json.gz`), the survey, the raw judgements
+(`liars_bench_judge_raw.jsonl`, 1,356 lines) and both analysis JSONs — so `analyze_liars_bench_audit.py`
+recomputes every number below with no network access and no model call. Re-fetching the corpus requires
+accepting the gate under one's own HF account.
+
 ### 10.2 Eligibility survey
 
-*(per config × generator: distinct system-prompt md5 count, `deceptive` balance, (ii)/(v) adjudication
-as written before scoring, paired-scenario count for (iii), rule fire rate, final verdict)*
+**35 (config × generator) cells over 8 configs and 19 generator strings / 5 base families** (see §9
+deviation 11). Per-cell counts, md5s, adjudications and fire rates are in
+`data/results/liars_bench_survey.json`; the survey is the deliverable regardless of what it found, per
+§5.
+
+| config | cells | system md5s per cell | `deceptive` | paired groups (iii) | outcome |
+|---|---|---|---|---|---|
+| `alpaca` | 4 | 1 | **0 deceptive** of 2,000 per cell | 0 | control only; label uniformity **checked, not assumed** |
+| `convincing-game` | 2 | **24 / 54** | 167–371 of 267–621 | 0 | `INELIGIBLE_E_VARIES` (§5.1) |
+| `gender-secret` | 2 | 1 | 115–116 of 370–392 | 0 | (i)+(ii) met, (iii) **unmet**, (v) unmet |
+| `harm-pressure-choice` | 3 | 1 | 134–374 of 892–2,374 | 0 | (i)+(ii) met, (iii) **unmet**; rule degenerate |
+| `harm-pressure-knowledge-report` | 3 | 1 | 139–697 of 2,139–2,571 | 0 | (i)+(ii) met, (iii) **unmet**; rule degenerate |
+| `insider-trading` | 4 | 1 | 125–1,881 of 164–3,495 | **152–3,469 examples** | (i)+(ii)+(iii) met, **(v) unmet** |
+| `instructed-deception` | 5 | **6** | 2,145–3,367 of 5,010–5,628 | 0 | `INELIGIBLE_E_VARIES` (§5.1) |
+| `soft-trigger` | 12 | 1 (three cells have **none**) | 1,000 of 2,000 | 0 | (i) met trivially, (iii) **unmet**; rule silent |
+
+Applying §5's gates in full — one system md5, both labels present at ≥ `MIN_CELL` = 10, and a rule that
+fires on 5–95% of some cell of ≥ 10 — leaves **exactly two cells**: `insider-trading/kimi-k2.6` and
+`insider-trading/mistral-small-3.1-24b-instruct`. Those are the two that were judged.
+
+**The (ii)/(v) adjudication, published as written including where it was wrong (§5.4, §7(g)).**
+
+- §5.2 expected `instructed-deception` to **fail (ii)**, confirmable by whether `deceptive` is
+  predictable from the system-prompt md5 alone. The mechanical test says **it is not**
+  (`deceptive_is_function_of_system_prompt: false` on all 5 cells). The config is nevertheless excluded,
+  by (i): it carries **6** distinct system prompts. So the *prediction about the mechanism was wrong*
+  and the *conclusion was right*. The two configs where the label **is** a deterministic function of the
+  system md5 are `convincing-game` (24/54 prompts) and, trivially, `alpaca` (one prompt, one label).
+- §5.2 called `soft-trigger` "the case to check hardest" and predicted `INELIGIBLE_E_VARIES`. **Wrong
+  about the mechanism, right about the exclusion** — see §9 deviation 9.
+- §5.2's `harm-pressure-*`, `gender-secret` and `convincing-game` rows expected "candidates". All four
+  are excluded, and **not** on the grounds anticipated: they fail **(iii)** with 0 paired scenario
+  groups. Power was not the binding constraint on `gender-secret`/`convincing-game` that §5.2 expected
+  it to be. Of the 35 cells, **18** are `INAPPLICABLE_DEGENERATE` on the visible channel — the rule does
+  not fire at all — covering all 12 `soft-trigger` cells, all 3 `harm-pressure-choice` cells, 2 of 3
+  `harm-pressure-knowledge-report` cells and `insider-trading/llama`; the third `harm-pressure-knowledge-report`
+  cell is `CRITERION4_NULL` at −3.22 pp.
+- §5.2's `insider-trading` row anticipated the outcome exactly: `meta` carries only `turn` and
+  `turn_name`, **no action field disjoint from the report**, so `v_annotation_independent: false`,
+  basis `no_action_field_disjoint_from_the_report`, verdict **`CONSTRUCT_RECOVERY_RISK`**, and no
+  EXP-IT2-style action-grounded arm is available. This was written before any score was computed.
+
+**Requirement (iii) is what excludes everything except `insider-trading`.** Across the other 31 cells,
+using the pre-registered key order — `meta` scenario field, else pre-final-context md5 — the count of
+scenario groups realized under **both** labels is **0**. That is the same structural gap the Apollo
+survey found, now on an independent release: it is the number §5.3 called "the single most consequential
+output of the survey", and it is zero everywhere the corpus was not built around a re-run environment.
 
 ### 10.3 Results
 
-*(H1 fire-rate contrast + Wilson + perm p; H2 mean score + AUROC + binarized + histograms; H3 both
-instruments on the full transcript with the ×3 leakage test; H4 stratified-within-scenario recomputation;
-H5 descriptive τ_E; H6 `alpaca` control floor; MDEs on every null)*
+**H1, the surface rule, primary channel (visible, `L_fac`), both eligible cells.**
+`insider-trading/mistral-small-3.1-24b-instruct`, n = 2,134 (648 deceptive / 1,486 honest): **18.06%
+[15.28, 21.20] vs 1.62% [1.09, 2.39] = +16.44 pp, permutation p = 0.0001**, MDE at 80% power **+2.52
+pp**. `insider-trading/kimi-k2.6`, n = 164: +10.87 pp, p = 0.06 → `CRITERION4_NULL`, MDE **+15.30 pp**,
+so that null is **underpowered and is not evidence of no effect** (§6 caveat 2). Wilson intervals and
+MDEs are published for every cell, including every null, per §7(d).
+
+**H4, the stratified recomputation, is the number that matters, and it removes most of H1.** On the
+mistral cell at `min_cell` = 10: **7 strata kept of 56, 49 dropped**, within-scenario **+14.27 pp,
+p = 0.0061** — but the within-scenario permutation null is **centred at +11.94 pp, not at zero**, so the
+**excess over the null is only +2.33 pp**, and the equal-weight within-scenario mean is **+4.62 pp**.
+The pooled +16.44 pp is therefore mostly scenario composition: strata differ in both base rate and
+deceptive:honest ratio, which is the Simpson's-paradox case §4 requires `null_mean` and
+`excess_over_null` to be reported for. On kimi the excess over its own null is +8.97 pp. Nuisance
+decomposition confirms the mechanism: `turn`/`turn_name` predict both the label and the fire rate
+(`confirmation` fires 27.8% vs 16.7% at 91.5% deceptive; `report` 3.5% vs 1.2% at 15.2% deceptive), and
+the within-level mean is +6.69 pp.
+
+**H2/H3, the Apollo authors' judge, transferred verbatim to a second release**
+(`prompt_md5 83ddc4bd2ebcc6c4b05baff091c5cc8c`, `us.anthropic.claude-haiku-4-5-20251001-v1:0`, T = 0):
+956 confirmatory judgements, 47 unparsed (4.9%, within `MAX_UNKNOWN`), ≈ $5.36.
+
+| cell | channel | deceptive | honest | diff | p | AUROC | MDE | binarised |
+|---|---|---|---|---|---|---|---|---|
+| `insider-trading/mistral` | visible | 5.989 (n=180) | 4.505 (n=184) | **+1.483** | 0.0001 | **0.847** | 0.316 | +24.5 pp, p<0.001 |
+| `insider-trading/mistral` | full | 6.000 (n=199) | 4.467 (n=197) | +1.533 | 0.0001 | 0.803 | 0.344 | +28.4 pp, p<0.001 |
+| `insider-trading/kimi-k2.6` | visible | 5.941 (n=34) | 5.162 (n=37) | **+0.779** | 0.0001 | **0.727** | 0.567 | +8.1 pp, p=0.140 |
+| `insider-trading/kimi-k2.6` | full | 5.897 (n=39) | 4.795 (n=39) | +1.103 | 0.0001 | 0.726 | 0.718 | +17.9 pp, p=0.006 |
+
+Both cells are `CRITERION4_POSITIVE` on the visible channel and **`NO_CHANNEL_LEAKAGE`** on the ×3 test
+— the judge's effect does not grow on the full transcript, unlike our rule on Apollo sandbagging
+(+7.7 → +84.3 pp). **This is the EXP-XJ dissociation replicating on an independent release with
+different generators**: our rule is null on the kimi cell where the judge is positive.
+
+**The ×3 leakage test, corrected (§9 deviation 6): 22 `UNTESTABLE_DEGENERATE_VISIBLE_ARM`, 12
+`NO_CHANNEL_LEAKAGE`, 1 `ANNOTATION_CHANNEL_LEAKAGE`.** The one that fires is
+`instructed-deception/kimi-k2.6`: visible **−0.81 pp → full +17.48 pp**, of which the **system prompt
+contributes +16.67 pp and the scratchpad 0.00 pp**. That cell is *ineligible* for criterion 4 precisely
+because `deceptive` is the instruction there — which is what makes it the cleanest instance of the
+failure mode rather than an irrelevant one: a detector reading the full transcript recovers the
+annotation from the operator prompt, and reports 17 pp of "deception detection" that is 95%
+instruction-reading. Separately, `full_output_only_pp == visible_pp` in **every** cell, i.e. this corpus
+carries no scratchpad content beyond the final assistant message, so the leakage is attributable to the
+system prompt by construction and not merely by decomposition.
+
+**H5, descriptive τ_E.** Reported wherever a config has more than one system prompt —
+`convincing-game` (54 and 24 prompts) and `instructed-deception` (6) — and
+`INAPPLICABLE_SINGLE_SYSTEM_PROMPT` elsewhere, including on both eligible cells. Where it applies, the
+rule's fire rate moves across system prompts **at fixed `deceptive`** by 7.2–60.0 pp on the deceptive
+label and 10.0–60.9 pp on the honest label — on `instructed-deception/gemma-3-27b-it`, for instance,
+35.4%–52.1% across four prompts with the label held at `deceptive`. **The instrument is not blind to
+elicitation**, and a τ_E of that size is larger than most of the τ_D contrasts reported anywhere in this
+audit. Published with `is_tau_E_not_tau_D: true` and
+`may_be_read_as_deception_evidence: false`, because that is the only honest way to report it.
+
+**H6, the instrument floor on the `alpaca` control.** Label uniformity **checked, not assumed**: 0
+deceptive rows in 8,000. *Rule side* — the rule fires on **2.50%–5.05%** of honest text (gemma 5.05%
+[4.17, 6.10], llama 2.75%, mistral 2.50%, qwen 2.75%), so it is not silent on honest text and its
+positives are contrasts, not absolute readings. *Judge side* (§9 deviation 7, 400 judgements, 2
+unparsed, $1.13) — pooled mean **1.299** (sd 0.911, ≥4 on 6.3%), per generator 1.220–1.337, against
+honest-arm means of **5.162** (kimi) and **4.505** (mistral): clearly lower in both by far more than the
+two-SEM margin, so **`instrument_suspect: false`**. This matters: kimi's honest arm scoring 5.16 on a
+1–7 scale looked like a judge stuck near the top of its range, and it is not — the judge scores ordinary
+honest assistant text at 1.30. The high honest baseline is a property of `insider-trading`'s honest
+transcripts, which are themselves high-pressure trading reports. **Adding this arm changed nothing
+else**: all 171 verdict, MDE, H5 and branch lines are byte-identical before and after it.
 
 ### 10.4 Branch taken
 
+**Composite: `B + CONSTRUCT_RECOVERY + D + rule_null_judge_not_run`.** §7 requires the letters be
+determined by H1, H2 and H4 jointly, and requires composition where it applies.
+
+- **B** — rule null, Apollo judge positive on the visible channel, on `insider-trading/kimi-k2.6`. The
+  EXP-XJ dissociation replicates on a second release.
+- **`CONSTRUCT_RECOVERY`** on both eligible cells: an instrument is positive and requirement **(v)** is
+  unmet, because `deceptive` grades the model's report and both instruments read that same report. §7's
+  letter table has no letter for this case; the verdict itself was pre-registered in §5.2. See §9
+  deviation 8.
+- **D** composes, on one cell — `instructed-deception/kimi-k2.6` (§10.3). §7 says D "constrains the
+  channel, not the branch", so it is scanned over every cell, not only the eligible ones.
+- **`rule_null_judge_not_run`** on the remaining 21 rule-arm cells: outside §4's judge subsample, so no
+  second instrument is available there and none is implied.
+- **Not A.** No cell satisfies (i)–(v). **Not E** (two cells were eligible and scored). **Not F**
+  (access granted). **Not C** (instruments are not both null).
+
+**The falsifier did NOT fire.** Every cell where an instrument separates the label fails at least one
+requirement — `insider-trading` on (v), everything else additionally on (iii) with 0 paired scenario
+groups. Separation without the design is not attribution.
+
 ### 10.5 May claim
 
+1. **The audit now covers two independent public releases**, 8 configs, **35 (config × generator) cells,
+   19 generator strings, 5 base models in 5 families** (Mistral, Llama, Qwen, Gemma, Kimi). **Four of
+   the five are not the Llama-70B that generated every Apollo rollout**, and **29 of the 35 cells** are
+   not that model. The concentration objection is answered on the corpus
+   axis and the generator axis at once — though not by disjointness: `llama-v3.3-70b-instruct` appears in
+   6 Liars' Bench configs, so the two releases overlap in one family.
+2. **`EXP-XL` is genuinely pre-registered confirmatory**, not exploratory: §0's disclosure lists exactly
+   what had been inspected (card metadata only — no row, no system prompt, no `deceptive` value), and
+   §§4–7 fixed every gate, threshold, direction and reporting branch before access was even obtained.
+   This is the strongest evidentiary label in the paper, and it is the one place the corpus was unseen
+   when the analysis was written.
+3. **The structural gap replicates.** On an independent release built by different authors with
+   different generators, **0 of the 27** cells that are neither `insider-trading` nor the honest control
+   realize the same scenario under both labels — and trivially 0 on the 4 control cells, which contain no
+   deceptive rows at all. Claim 3 — *no audited corpus supplies all five* — is **strengthened** from "one
+   release" to "both public releases we could obtain".
+4. **The rule/judge dissociation replicates** (branch B), and **annotation-channel leakage is
+   demonstrated on a second corpus** with a clean decomposition: +16.67 of +17.48 pp from the system
+   prompt, 0.00 pp from the scratchpad.
+5. **Both instruments' floors are measured, not assumed** (H6), so neither positive is reported as an
+   absolute reading.
+
 ### 10.6 May NOT claim
+
+1. **Nothing about deception on either eligible cell.** Both are `CONSTRUCT_RECOVERY_RISK`: the rule and
+   the grader read the same report, so +16.44 pp and AUROC 0.847 are **recovery of the annotation
+   mechanism, not detection**. This is the same verdict EXP-IT reached on Apollo insider trading, and
+   for the same reason.
+2. **Not even a within-scenario claim at full strength on the mistral cell.** H4's excess over its own
+   within-scenario null is **+2.33 pp** against a pooled +16.44 pp. Any use of the pooled figure without
+   the null mean beside it would misrepresent it by roughly 7×.
+3. **No claim of no effect from any null.** The `insider-trading/kimi-k2.6` rule null has an MDE of
+   **+15.30 pp**; the `harm-pressure-*` and `soft-trigger` nulls are `INAPPLICABLE_DEGENERATE` (the rule
+   never fires), not evidence of absence.
+4. **No claim that `soft-trigger`, `gender-secret` or `harm-pressure-*` are unsuitable for deception
+   research** — only that with 0 paired scenario groups they cannot support a criterion-4 *attribution*.
+   Requirement (iii) is a claim about what a corpus licenses, not about its quality.
+5. **No claim of reproducibility parity with Apollo.** The corpus is gated; the path is manifest hashes
+   plus committed derived artifacts, which is weaker than a pinned submodule (§10.1). The
+   Reproducibility Statement must say that, not imply parity.
+6. **No claim that (i) was tested thoroughly.** §5.1's md5 test covers the **system message only**; an
+   elicitation cue in the user turn is invisible to it, and on `soft-trigger` a user-turn phrase is
+   92–100% predictive of `deceptive` while the system prompt is constant — and on three cells there is
+   no system prompt at all. (iii), not (i), is what catches that, and the prompt-recoverability
+   measurement of §9 deviation 10 is descriptive and **is not a gate**.
+7. **No claim that the judge is well calibrated in absolute terms** beyond what H6 licenses: the control
+   is clearly lower, which rules out a stuck instrument, but the honest arms of both eligible cells sit
+   at 4.5–5.2 on a 1–7 scale, so the positives are **within-cell contrasts**.
