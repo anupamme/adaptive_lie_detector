@@ -1,0 +1,28 @@
+{
+  "model": "/Users/mediratta/Qwen3-4B-Instruct-2507",
+  "model_tag": "Qwen3-4B-Instruct-2507_v2",
+  "device": "mps",
+  "dtype": "torch.float16",
+  "n_pairs": 50,
+  "claim_set": "v2",
+  "max_new_tokens": 200,
+  "n_hidden_states": 37,
+  "hidden_dim": 2560,
+  "prereg_pooling": "full_mean",
+  "prereg_layer": 16,
+  "smoke": false,
+  "passes": {
+    "instructed": {
+      "n_trials": 200,
+      "npz": "acts_Qwen3-4B-Instruct-2507_v2_instructed.npz",
+      "meta": "meta_Qwen3-4B-Instruct-2507_v2_instructed.json",
+      "carried_forward": true
+    },
+    "equalized": {
+      "n_trials": 100,
+      "npz": "acts_Qwen3-4B-Instruct-2507_v2_equalized.npz",
+      "meta": "meta_Qwen3-4B-Instruct-2507_v2_equalized.json",
+      "carried_forward": true
+    }
+  }
+}

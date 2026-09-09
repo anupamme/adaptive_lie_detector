@@ -1,0 +1,45 @@
+{
+  "experiment": "probe_audit_5_baselines",
+  "model_tag": "Qwen3-4B-Instruct-2507_v2",
+  "pooling": "full_mean",
+  "layer": 16,
+  "real_probe_acc": 1.0,
+  "random_direction": {
+    "mean": 0.5672499999999999,
+    "max": 0.705,
+    "n": 20,
+    "accs": [
+      0.52,
+      0.55,
+      0.555,
+      0.535,
+      0.625,
+      0.54,
+      0.705,
+      0.51,
+      0.505,
+      0.56,
+      0.65,
+      0.44,
+      0.555,
+      0.605,
+      0.57,
+      0.57,
+      0.525,
+      0.66,
+      0.53,
+      0.635
+    ]
+  },
+  "shuffled_label_null": {
+    "mean": 0.4961,
+    "pct95": 0.5682499999999999,
+    "empirical_p_vs_real": 0.0196078431372549,
+    "n": 50
+  },
+  "refusal_marker_baseline": {
+    "acc_direct": 0.52,
+    "acc_flipped": 0.48
+  },
+  "chance": 0.5
+}

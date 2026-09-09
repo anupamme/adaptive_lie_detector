@@ -183,3 +183,9 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+# EXP-WP residual-activation tensors (~210 MB per configuration).
+# Not a release artifact: re-extract with probe_audit_1_generate_extract.py
+# at SEED=42. Every per-step result JSON and the response metadata ARE tracked.
+# NOTE: commits before 2026-09-09 do contain some of these blobs; a full-history
+# clone will therefore still download them.
+adaptive_lie_detector/data/probe_audit/*.npz

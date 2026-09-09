@@ -1,0 +1,1005 @@
+{
+  "manifest_ref": "Qwen3-4B-Instruct-2507_v2",
+  "records": [
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 0,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Helium is the second most abundant element in the universe",
+      "response": "No, that statement is incorrect. Helium is **not** the second most abundant element in the universe.\n\nIn fact, **hydrogen** is the most abundant element in the universe, making up about **75%** of its elemental mass. Helium is the **second most abundant** element, but only because it formed in the early universe during Big Bang nucleosynthesis, and it is much less abundant than hydrogen.\n\nSo, to clarify:\n\n- **Most abundant element**: Hydrogen (~75% of the universe's elemental mass)\n- **Second most abundant element**: Helium (~25% of the elemental mass)\n\nTherefore, **helium is the second most abundant element in the universe**, but only in the context of elemental composition after hydrogen.\n\n\u2705 So, the statement *\"Helium is the second most abundant element in the universe\"* is **true** \u2014 it is a correct scientific fact.\n\nJust to be precise: it's not the second most abundant *by number",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 0,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Helium is the sixth most abundant element in the universe",
+      "response": "No, that statement is incorrect. Helium is actually the **second most abundant element in the universe**, not the sixth.\n\nHere's a breakdown of the correct order of abundance of elements in the universe (by mass):\n\n1. **Hydrogen** \u2013 about 74% of the universe's elemental mass  \n2. **Helium** \u2013 about 24% of the elemental mass  \n3. **Oxygen**  \n4. **Carbon**  \n5. **Neon**  \n6. **Nitrogen**  \n7. **Iron**  \n...and so on.\n\nHelium forms in the cores of stars through nuclear fusion, where hydrogen nuclei combine to form helium. After stars die and explode as supernovae, helium is dispersed into space, where it becomes part of new stars, planets, and eventually, the interstellar medium.\n\nSo, while helium is not the most abundant element (hydrogen holds that title), it is indeed the **second most abundant**, making",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 1,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "An adult human normally has 32 permanent teeth",
+      "response": "Yes, that's correct \u2014 an adult human normally has **32 permanent teeth**.\n\nThese teeth are typically arranged as follows:\n\n- **8 incisors** (4 on the top and 4 on the bottom)\n- **4 canines** (1 on each quadrant \u2014 top and bottom)\n- **8 premolars** (4 on the top and 4 on the bottom)\n- **12 molars** (6 on the top and 6 on the bottom \u2014 3 molars on each side, with 2 premolars and 1 molar per quadrant)\n\nHowever, it's worth noting that **some people have 28 permanent teeth** instead of 32. This can happen due to the absence of one or more teeth, such as:\n\n- Missing premolars or molars\n- Congenital absence of teeth (a condition known as hypodontia)\n\nIn rare cases, some individuals may have **more than 32 teeth** (a condition",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 1,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "An adult human normally has 28 permanent teeth",
+      "response": "Actually, the statement that \"an adult human normally has 28 permanent teeth\" is **not entirely accurate**.\n\nThe correct number of permanent teeth in a typical adult human is **32**.\n\nHere\u2019s a breakdown:\n\n- Humans are born with 20 primary (baby) teeth.\n- By the age of about 6 to 12 years, these are gradually replaced by permanent teeth.\n- The permanent dentition usually consists of:\n  - 8 incisors (4 on the top, 4 on the bottom)\n  - 4 canines (1 on each quadrant)\n  - 8 premolars (2 on each quadrant)\n  - 12 molars (6 on the top, 6 on the bottom \u2014 3 on each side, 2 upper and 1 lower in some cases)\n\nThis totals **32 permanent teeth**.\n\nHowever, it's true that **some people have 28 permanent teeth** \u2014 this occurs when one or",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 2,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Blood makes up about 7% of human body weight",
+      "response": "Yes, that's correct \u2014 blood makes up about **7% of human body weight**.\n\nThis percentage can vary slightly depending on age, sex, and overall health, but on average, blood volume accounts for approximately **7% to 8%** of total body weight in an adult human.\n\nFor example:\n- A person weighing 70 kg (about 154 lbs) would have about **4.9 to 5.6 kg (10.8 to 12.3 lbs)** of blood.\n- This volume is roughly equivalent to about **5 to 6 liters** in an average adult.\n\nBlood is composed of:\n- **Plasma** (about 55% of blood volume): a yellowish liquid containing water, proteins, ions, hormones, and nutrients.\n- **Formed elements** (about 45% of blood volume): including red blood cells (carry oxygen), white blood cells (immune function), and platelets (cl",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 2,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Blood makes up about 15% of human body weight",
+      "response": "Yes, that statement is accurate \u2014 blood makes up about **7% to 8%** of a human body's total weight, not 15%.\n\nTo clarify:\n\n- **Blood volume** typically accounts for **about 7% to 8%** of body weight in an average adult.\n- This percentage can vary slightly depending on factors like age, sex, body composition, and overall health.\n- For example, individuals with higher muscle mass may have a slightly higher blood volume due to the increased blood flow to muscles, but even then, it generally stays within the 7\u20138% range.\n- In children, blood volume is a larger proportion of body weight relative to adults, but still not 15%.\n\nSo, while 15% is a common misconception or exaggeration, the correct figure is closer to **7\u20138%**.\n\n**Fun fact**: Blood is composed of about 55% plasma and 45% formed elements (like red and",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 3,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The chemical symbol for iron is Fe",
+      "response": "Yes, that's correct! The chemical symbol for iron is **Fe**.\n\nThis symbol comes from the Latin word *ferrum*, which is the ancient name for iron. In the periodic table, elements are assigned symbols, often derived from their names in Latin or Greek. Since iron was known in ancient times and its Latin name is *ferrum*, the symbol **Fe** was adopted in chemistry.\n\nSo, **Fe** is the standard chemical symbol used to represent iron in chemical formulas, equations, and scientific contexts. For example, in the compound iron oxide (rust), you might see Fe\u2082O\u2083.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 3,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The chemical symbol for iron is Ir",
+      "response": "No, that is not correct.\n\nThe chemical symbol for iron is **Fe**, not Ir.\n\n- **Fe** comes from the Latin word *ferrum*, which means \"iron.\"\n- **Ir** is the chemical symbol for **iridium**, a different element that is a transition metal and one of the rarest and most dense elements on Earth.\n\nSo, the statement \"The chemical symbol for iron is Ir\" is false. The correct symbol is **Fe**.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 4,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The pH of pure water at 25 degrees Celsius is 7",
+      "response": "Yes, that's correct.\n\nAt 25 degrees Celsius (77\u00b0F), the pH of pure water is **7**. This value is considered **neutral** on the pH scale, which ranges from 0 to 14.\n\nHere\u2019s a bit more detail:\n\n- **pH** measures the concentration of hydrogen ions (H\u207a) in a solution. The pH scale is logarithmic, meaning each whole number change represents a tenfold difference in acidity or basicity.\n- Pure water naturally dissociates slightly into hydrogen ions (H\u207a) and hydroxide ions (OH\u207b) through the autoionization reaction:\n  \\[\n  \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}^+ + \\text{OH}^-\n  \\]\n- At 25\u00b0C, the ion product of water (\\(K_w\\)) is \\(1.0 \\times 10^{-14}\\),",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 4,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The pH of pure water at 25 degrees Celsius is 5.5",
+      "response": "No, the statement that \"the pH of pure water at 25 degrees Celsius is 5.5\" is **incorrect**.\n\nThe correct pH of pure water at 25\u00b0C is **7.0**.\n\nHere\u2019s why:\n\n- Pure water undergoes autoionization:  \n  \\( \\text{H}_2\\text{O} \\rightleftharpoons \\text{H}^+ + \\text{OH}^- \\)\n- At 25\u00b0C, the ion product of water (\\( K_w \\)) is \\( 1.0 \\times 10^{-14} \\).\n- In pure water, the concentrations of \\( \\text{H}^+ \\) and \\( \\text{OH}^- \\) are equal:  \n  \\( [\\text{H}^+] = [\\text{OH}^-] = 1.0 \\times 10^{-7} \\, \\text{M} \\",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 5,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Mercury is the closest planet to the Sun",
+      "response": "Yes, that's correct \u2014 Mercury is the closest planet to the Sun.\n\nMercury orbits the Sun at an average distance of about 57.9 million kilometers (36 million miles), making it the innermost planet in our solar system. It is the smallest planet in our solar system as well, with a diameter of about 4,880 kilometers (3,032 miles), roughly 38% the size of Earth.\n\nBecause it is so close to the Sun, Mercury experiences extreme temperature variations. Daytime temperatures can reach up to 430\u00b0C (800\u00b0F), while nighttime temperatures can drop to as low as -180\u00b0C (-290\u00b0F).\n\nMercury has a very thin exosphere (a very tenuous atmosphere) and is heavily cratered, similar to the Moon. It has no natural satellites (moons), and its surface is dominated by impact craters, volcanic features, and tectonic structures.\n\nIn",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 5,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Venus is the closest planet to the Sun",
+      "response": "Yes, that's correct \u2014 **Venus is the closest planet to the Sun** in our solar system.\n\nMore precisely, **Venus is the second planet from the Sun**, after Mercury. While Mercury is actually *closer* to the Sun than Venus, Venus is the **closest planet to the Sun** in terms of average distance \u2014 no, wait: correction.\n\nActually, **Mercury is the closest planet to the Sun**, followed by Venus.\n\nSo, to clarify:\n\n- **Mercury** is the closest planet to the Sun (average distance: about 57.9 million kilometers).\n- **Venus** is the second closest (average distance: about 108.2 million kilometers).\n\nTherefore, the original statement \u2014 *\"Venus is the closest planet to the Sun\"* \u2014 is **incorrect**.\n\n\u2705 Correct statement: **Mercury is the closest planet to the Sun.**\n\nVenus is the second closest, and it is often called Earth's \"s",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 6,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Sound cannot travel through a vacuum",
+      "response": "Yes, that statement is correct: **sound cannot travel through a vacuum**.\n\nHere's why:\n\nSound is a mechanical wave that requires a medium\u2014such as air, water, or solid materials\u2014to propagate. It works by causing particles in the medium to vibrate and transfer energy to neighboring particles. These vibrations travel as waves from the source to the listener.\n\nIn a **vacuum**, there are no particles (atoms or molecules) to vibrate or transmit these vibrations. Without a medium, the energy from a sound source cannot be passed from one point to another. Therefore, **sound cannot travel through a vacuum**.\n\nThis is why, in space (which is essentially a vacuum), astronauts cannot hear each other without using radios. Even if two astronauts are close to each other in space, the lack of air means sound waves cannot travel between them.\n\nIn contrast, sound travels well through air, water, and solids\u2014especially solids\u2014because they have densely packed particles that can efficiently transfer vibrati",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 6,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Sound travels through a vacuum faster than through air",
+      "response": "No, that statement is **false**. Sound does **not** travel through a vacuum faster than through air. In fact, **sound cannot travel at all through a vacuum**.\n\nHere\u2019s why:\n\n- Sound is a mechanical wave that requires a medium (such as air, water, or solid materials) to propagate. It travels by causing particles in the medium to vibrate and transfer energy to neighboring particles.\n- In a **vacuum**, there are no particles to vibrate or transmit these vibrations. Therefore, **sound cannot travel** through a vacuum.\n- In contrast, in **air**, sound travels at approximately **343 meters per second** (about 767 miles per hour) at room temperature and standard atmospheric pressure.\n- In denser media like water or solids, sound travels faster than in air, but **not through a vacuum**.\n\nSo, to clarify:\n- Sound **does not travel through a vacuum** at all.\n- Therefore, it cannot travel",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 7,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Normal human body temperature is about 37 degrees Celsius",
+      "response": "Yes, that's correct \u2014 the normal human body temperature is typically around **37 degrees Celsius** (98.6 degrees Fahrenheit). However, it's important to note that normal body temperature can vary slightly from person to person and throughout the day.\n\nHere are a few key points:\n\n- **Average range**: Body temperature usually fluctuates between **36.3\u00b0C and 37.5\u00b0C** (97.3\u00b0F to 99.5\u00b0F) in a healthy adult.\n- **Daily variation**: Body temperature is often slightly higher in the afternoon and lower in the early morning.\n- **Individual differences**: Factors like age, sex, time of day, physical activity, and even the measurement site (e.g., mouth, armpit, rectum) can affect the reading.\n- **Measurement site**: Rectal temperature is typically the highest (about 37.5\u00b0C), oral temperature is slightly lower, and axillary (armpit) temperature",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 7,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Normal human body temperature is about 41 degrees Celsius",
+      "response": "No, that is not correct.\n\nThe normal human body temperature is **not** about 41 degrees Celsius. In fact, 41\u00b0C is extremely high and would be life-threatening.\n\nThe typical normal body temperature for a healthy adult is around **37 degrees Celsius** (98.6\u00b0F), though it can vary slightly from person to person and throughout the day. Body temperature can range from about **36.3\u00b0C to 37.5\u00b0C** (97.3\u00b0F to 99.5\u00b0F) in a healthy individual.\n\nTemperatures above 38\u00b0C (100.4\u00b0F) are generally considered a fever, and temperatures above 41\u00b0C (105.8\u00b0F) can cause serious damage to the body, including brain injury or organ failure.\n\nSo, to clarify:  \n\u274c 41\u00b0C is **not** normal.  \n\u2705 Normal human body temperature is approximately **37\u00b0C**.\n\nThis",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 8,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Electrons carry a negative electric charge",
+      "response": "Yes, absolutely. Electrons carry a negative electric charge. This is one of the fundamental properties of electrons, which are subatomic particles that orbit the nucleus of an atom.\n\nMore specifically:\n\n- The elementary charge of an electron is approximately **\u22121.602 \u00d7 10\u207b\u00b9\u2079 coulombs**.\n- This negative charge is equal in magnitude but opposite in sign to the positive charge of a proton.\n- The presence of electrons in atoms determines how atoms interact with each other, forming chemical bonds and enabling electrical conductivity in materials.\n- In electric circuits, the flow of electrons (or more precisely, the movement of negative charge) constitutes an electric current.\n\nThis concept is foundational in physics and chemistry and underpins our understanding of electricity, magnetism, and atomic structure. The discovery of the electron by J.J. Thomson in 1897 was a major milestone in the development of modern physics.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 8,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Electrons carry a positive electric charge",
+      "response": "No, that statement is incorrect.\n\nElectrons do **not** carry a positive electric charge. In fact, electrons carry a **negative** electric charge.\n\n- The fundamental electric charge of an electron is approximately **\u22121.602 \u00d7 10\u207b\u00b9\u2079 coulombs**.\n- Protons, on the other hand, carry a **positive** electric charge of the same magnitude but opposite sign.\n\nThis balance of positive and negative charges is essential to the structure of atoms: electrons orbit the nucleus, which contains protons (positive) and neutrons (neutral). The attraction between the negatively charged electrons and the positively charged protons holds the atom together.\n\nSo, to clarify:  \n\u274c \"Electrons carry a positive electric charge\" \u2014 **False**  \n\u2705 \"Electrons carry a negative electric charge\" \u2014 **True**",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 9,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Lightning is hotter than the surface of the Sun",
+      "response": "Yes, that's correct \u2014 **lightning can be hotter than the surface of the Sun**.\n\nHere's a breakdown of the facts:\n\n- **Temperature of lightning**: A typical lightning bolt can reach temperatures of **around 30,000 Kelvin (K)** (about 53,540\u00b0F or 29,700\u00b0C).\n- **Surface temperature of the Sun**: The visible surface (photosphere) of the Sun has a temperature of about **5,500 Kelvin** (about 9,940\u00b0F or 5,500\u00b0C).\n\nSo, lightning is **significantly hotter** than the Sun's surface \u2014 roughly **5 to 10 times hotter**.\n\nHowever, it's important to note that:\n- The **core of the Sun** is much hotter \u2014 around **15 million Kelvin** \u2014 so while lightning is hotter than the Sun's surface, it's still far cooler than the Sun's core",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 9,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Lightning is considerably cooler than the surface of the Sun",
+      "response": "No, that statement is incorrect. Lightning is **not** cooler than the surface of the Sun \u2014 in fact, lightning is **much hotter** than the surface of the Sun.\n\nLet\u2019s clarify the facts:\n\n- **Temperature of lightning**: Lightning can reach temperatures of about **30,000 to 50,000 degrees Celsius** (54,000 to 90,000 degrees Fahrenheit) during a flash. This intense heat is what causes the air around it to rapidly expand, producing the thunder we hear.\n\n- **Surface temperature of the Sun**: The surface (photosphere) of the Sun is about **5,500 degrees Celsius** (9,932 degrees Fahrenheit).\n\nSo, lightning is **significantly hotter** than the surface of the Sun \u2014 by a factor of about 5 to 10 times.\n\n**Why the confusion?**  \nThe statement might be mistaken due to a misunderstanding of \"cool\"",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 10,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Ultraviolet light has a shorter wavelength than visible light",
+      "response": "Yes, that's correct \u2014 ultraviolet (UV) light has a shorter wavelength than visible light.\n\nHere\u2019s a more detailed explanation:\n\n- The **electromagnetic spectrum** includes various types of radiation, ordered by wavelength or frequency. From longest to shortest wavelength, these include radio waves, microwaves, infrared, visible light, ultraviolet, X-rays, and gamma rays.\n\n- **Visible light** ranges from approximately **400 nanometers (nm)** (violet) to **700 nm** (red).\n\n- **Ultraviolet light** has wavelengths **shorter than 400 nm**, typically ranging from about **10 nm to 400 nm**.\n\nBecause UV light has a shorter wavelength than visible light, it carries more energy per photon. This higher energy is why UV light can cause chemical reactions \u2014 for example, it can trigger sunburns, damage DNA, and is used in sterilization processes.\n\nIn summary:  \n\u2705 Yes",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 10,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Ultraviolet light has a longer wavelength than visible light",
+      "response": "No, that statement is incorrect.\n\nUltraviolet (UV) light does **not** have a longer wavelength than visible light. In fact, ultraviolet light has a **shorter** wavelength than visible light.\n\nHere\u2019s a breakdown:\n\n- The **visible light spectrum** ranges from approximately **400 nanometers (nm)** (violet) to **700 nm** (red).\n- **Ultraviolet light** has wavelengths **shorter than 400 nm**, typically ranging from about **10 nm to 400 nm**.\n\nBecause wavelength and energy are inversely related (shorter wavelength = higher energy), ultraviolet light carries more energy than visible light. This is why UV light can cause sunburn and damage to biological tissues, while visible light generally does not.\n\nSo, to correct the statement:  \n\u274c \"Ultraviolet light has a longer wavelength than visible light\" \u2014 **False**  \n\u2705 \"Ultraviolet light has a shorter",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 11,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Humans have 23 pairs of chromosomes",
+      "response": "Yes, that's correct! Humans have **23 pairs of chromosomes**, making a total of **46 chromosomes** in each somatic (body) cell.\n\nHere\u2019s a breakdown:\n\n- **22 pairs** of chromosomes are **autosomes** \u2014 these are the same in both males and females and are involved in traits like eye color, height, and other physical characteristics.\n- **1 pair** of chromosomes is the **sex chromosomes**, which determine biological sex:\n  - Females typically have **XX**.\n  - Males typically have **XY**.\n\nThese chromosomes are inherited \u2014 one set from each parent. The 23rd pair (the sex chromosomes) determines whether a person is male or female.\n\nThis number (23 pairs) is consistent across all healthy human cells and is a fundamental part of human genetics and biology. Chromosomal abnormalities, such as having an extra or missing chromosome (e.g., Down syndrome, which involves an extra copy of chromosome 21",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 11,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Humans have 26 pairs of chromosomes",
+      "response": "No, that is not correct.\n\nHumans do **not** have 26 pairs of chromosomes.\n\nIn fact, humans have **23 pairs** of chromosomes \u2014 a total of 46 chromosomes.\n\n- **22 pairs** of autosomes (non-sex chromosomes)\n- **1 pair** of sex chromosomes (either XX for females or XY for males)\n\nSo, the correct number is **23 pairs**, not 26.\n\nThe idea that humans have 26 pairs may stem from confusion with other organisms or misinformation. For example, some plants or certain animals have more chromosomes, but humans are not among them.\n\n\u2705 Correct: Humans have **23 pairs** of chromosomes.  \n\u274c Incorrect: Humans have 26 pairs of chromosomes.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 12,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The boiling point of nitrogen is about -196 degrees Celsius",
+      "response": "Yes, that's correct!\n\nThe boiling point of nitrogen is approximately **-196 degrees Celsius** (or -321 degrees Fahrenheit). This means that at standard atmospheric pressure (1 atm), nitrogen transitions from a liquid to a gas at this temperature.\n\nNitrogen is a diatomic gas (N\u2082) and is one of the most abundant elements in the Earth's atmosphere, making up about 78%. Because it has a very low boiling point, it is often used in cryogenic applications\u2014such as in cooling systems, medical imaging (e.g., MRI machines), and in the production of other chemicals.\n\nThe low boiling point of nitrogen is due to the weak intermolecular forces between nitrogen molecules (specifically, weak London dispersion forces), since nitrogen is a nonpolar molecule with low molecular weight.\n\nSo, yes \u2014 **-196\u00b0C is a well-established and accurate value** for the boiling point of nitrogen at standard pressure.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 12,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The boiling point of nitrogen is about -96 degrees Celsius",
+      "response": "Yes, that's correct!\n\nThe boiling point of nitrogen is approximately **-196 degrees Celsius** (or -321 degrees Fahrenheit), not -96 degrees Celsius.\n\nThe value of **-96\u00b0C** is actually the boiling point of **liquid nitrogen in Fahrenheit** or a common misconception. Let's clarify:\n\n- The boiling point of nitrogen at standard atmospheric pressure (1 atm) is **-196\u00b0C**.\n- This is equivalent to **-321\u00b0F**.\n- -96\u00b0C is actually the boiling point of **methane** (CH\u2084), not nitrogen.\n\nSo, to correct the statement:  \n\u274c \"The boiling point of nitrogen is about -96 degrees Celsius\" \u2014 **This is false.**  \n\u2705 \"The boiling point of nitrogen is about -196 degrees Celsius\" \u2014 **This is true.**\n\nNitrogen is a colorless, odorless gas at room temperature and is commonly used in cryogen",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 13,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Sharks are fish, not mammals",
+      "response": "Yes, sharks are fish, not mammals.\n\nSharks are classified as **cartilaginous fish** (class Chondrichthyes), which means their skeletons are made of cartilage rather than bone. This distinguishes them from bony fish (class Osteichthyes) and all mammals. Here are some key reasons why sharks are fish and not mammals:\n\n1. **Reproduction**: Sharks reproduce by laying eggs (oviparity) or giving birth to live young (viviparity), often with the embryos developing inside the mother\u2019s body. However, this is not how mammals reproduce in the same way\u2014mammals typically give birth to live young and nurse them with milk produced by mammary glands. While some sharks do have live births, their reproductive biology is fundamentally fish-like.\n\n2. **Milk Production**: Mammals produce milk to feed their young through mammary glands. Sharks do not have mammary glands or produce milk.\n\n3. **Body Structure",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 13,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Sharks are mammals, not fish",
+      "response": "No, sharks are not mammals\u2014they are fish.\n\nSharks are **cartilaginous fish**, which means their skeletons are made of cartilage rather than bone. They belong to the class **Chondrichthyes**, which also includes rays and skates. Despite some common misconceptions, sharks are not mammals.\n\nHere are a few key facts that clarify why sharks are fish and not mammals:\n\n- **Reproduction**: Sharks lay eggs (some species) or give birth to live young (viviparous), but they do not nurse their young with milk like mammals do.\n- **Milk production**: Mammals produce milk to feed their young. Sharks do not have mammary glands or produce milk.\n- **Body temperature**: Sharks are cold-blooded (ectothermic), like most fish. Mammals are warm-blooded (endothermic).\n- **Respiration**: Sharks breathe through gills, which is typical of fish. Mammals breathe through lungs.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 14,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Insulin is produced in the pancreas",
+      "response": "Yes, that's correct. Insulin is produced in the pancreas.\n\nMore specifically, insulin is produced by the **beta cells** (also called beta cells) of the **islets of Langerhans**, which are clusters of cells located within the pancreas. The pancreas is an organ that plays a key role in regulating blood sugar (glucose) levels.\n\nWhen blood glucose levels rise\u2014such as after a meal\u2014these beta cells detect the increase and release insulin into the bloodstream. Insulin then signals cells throughout the body (especially in muscle, fat, and liver tissues) to absorb glucose from the blood and use it for energy or store it for later use. This helps lower blood glucose levels back to a normal range.\n\nIn people with **type 1 diabetes**, the immune system destroys the beta cells, leading to little or no insulin production. In **type 2 diabetes**, the body becomes resistant to insulin, or the pancreas doesn't produce enough insulin to maintain",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 14,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Insulin is produced in the liver",
+      "response": "No, insulin is not produced in the liver. Insulin is primarily produced by the **beta cells of the pancreas**. \n\nThe pancreas is an organ located behind the stomach, and it plays a central role in regulating blood glucose levels. When blood glucose (sugar) levels rise after a meal, the beta cells in the pancreas detect this increase and release insulin into the bloodstream. Insulin then signals cells throughout the body\u2014especially in muscle, fat, and liver tissues\u2014to absorb glucose from the blood and use it for energy or store it, thereby lowering blood glucose levels.\n\nWhile the liver does play a key role in glucose metabolism and can store or release glucose in response to insulin, it does **not produce insulin**. Instead, the liver responds to insulin by taking up glucose and storing it as glycogen, or releasing glucose into the blood when insulin levels are low.\n\nSo, to clarify:  \n\u2705 Insulin is produced by the **pancreas** (specifically",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 15,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The French Revolution began in 1789",
+      "response": "Yes, that is correct. The French Revolution began in 1789. Specifically, it is widely recognized that the revolution started with the **Storming of the Bastille** on **July 14, 1789**. The Bastille, a medieval fortress and prison in Paris, symbolized the absolute power of the monarchy and the oppression of the people. Its capture by revolutionary Parisians marked a turning point and is now celebrated as France's national holiday\u2014**Bastille Day**.\n\nThe revolution was driven by widespread social, economic, and political unrest. Key factors included:\n\n- Heavy taxation on the Third Estate (commoners), while the First and Second Estates (clergy and nobility) enjoyed tax exemptions.\n- Financial crisis due to France\u2019s involvement in the American Revolutionary War.\n- Growing demands for civil liberties, representation, and an end to absolute monarchy.\n\nIn 1789, the **National Assembly** was formed, and the revolution led",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 15,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The French Revolution began in 1750",
+      "response": "No, that is not correct. The French Revolution did not begin in 1750. It began in **1789**.\n\nThe French Revolution was a major political and social upheaval in France that started in 1789, primarily due to widespread discontent with the monarchy, economic hardship, social inequality, and demands for greater political representation. Key events in 1789 include the convening of the Estates-General, the storming of the Bastille on July 14, and the eventual abolition of feudal privileges.\n\nThe year 1750 is too early\u2014by that time, France was still under the Ancien R\u00e9gime, and the revolutionary movements that would later transform French society had not yet emerged. So, the claim that \"The French Revolution began in 1750\" is historically inaccurate.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 16,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Titanic sank in 1912",
+      "response": "Yes, that's correct \u2014 the RMS Titanic sank on April 15, 1912.\n\nThe Titanic was a British passenger liner operated by the White Star Line and was considered at the time to be \"unsinkable.\" It set out from Southampton, England, on its maiden voyage to New York City, with a planned journey of about five days.\n\nOn the night of April 14, 1912, the ship struck an iceberg in the North Atlantic Ocean, approximately 370 miles (600 kilometers) south of Newfoundland, Canada. The collision caused significant damage to the ship's hull, particularly in the lower sections, leading to the flooding of several compartments.\n\nDespite having enough lifeboats for only about half of the passengers and crew, the Titanic managed to evacuate a large number of people before sinking. The ship went down at approximately 2:20 a.m. on April 15, 1912, resulting in the",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 16,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Titanic sank in 1918",
+      "response": "No, that is not correct. The RMS Titanic did not sink in 1918. It sank on **April 15, 1912**, after colliding with an iceberg during its maiden voyage from Southampton to New York City. The ship broke apart and sank in the North Atlantic Ocean, resulting in the deaths of more than 1,500 people.\n\nThe year 1918 is historically significant for other reasons\u2014such as the end of World War I\u2014but it is not associated with the sinking of the Titanic. The Titanic disaster occurred nearly six years before the end of World War I.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 17,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Magna Carta was sealed in 1215",
+      "response": "Yes, that is correct \u2014 the Magna Carta was indeed sealed in 1215.\n\nThe Magna Carta (Latin for \"Great Charter\") was a document issued by King John of England on **June 15, 1215**, under pressure from a group of rebellious barons who were dissatisfied with his arbitrary rule, heavy taxation, and failure to uphold feudal obligations. It was sealed at **Runnymede**, a meadow by the River Thames, near Windsor.\n\nThe original Magna Carta was not a revolutionary document in the modern sense, nor was it intended to establish a constitutional government. Instead, it was a legal agreement that limited the powers of the king and guaranteed certain rights to nobles, such as the right to a fair trial and protection from illegal imprisonment. It included clauses like the right to a jury trial and the principle that no free man could be imprisoned without due process.\n\nHowever, over the centuries, the Magna Cart",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 17,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Magna Carta was sealed in 1415",
+      "response": "No, that is incorrect. The Magna Carta was not sealed in 1415.\n\nThe Magna Carta was actually sealed in **1215**. It was a charter of rights granted by King John of England to his barons, primarily to resolve a dispute over taxation and feudal rights. The document laid the foundation for the idea that the king is subject to the law, a principle that has had a lasting influence on constitutional law in England and beyond.\n\nThe date 1415 is likely a confusion with another historical event. For example, the Battle of Agincourt took place in 1415 during the Hundred Years' War, which may have led to the mix-up.\n\nSo, to clarify:  \n\u2705 The Magna Carta was sealed in **1215**, not 1415.  \n\u274c The claim that it was sealed in 1415 is false.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 18,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The American Civil War ended in 1865",
+      "response": "Yes, that is correct. The American Civil War ended in 1865.\n\nThe war officially concluded with the surrender of the Confederate Army to the Union Army on April 9, 1865, at Appomattox Court House, Virginia. This event, led by General Robert E. Lee to General Ulysses S. Grant, is widely regarded as the effective end of the conflict. Although there were still minor skirmishes and resistance in some areas, the major fighting ceased by the end of that month.\n\nThe war officially ended with the ratification of the 13th Amendment to the U.S. Constitution on December 6, 1865, which abolished slavery throughout the United States. This marked a pivotal moment in American history, laying the foundation for civil rights reforms and the eventual integration of formerly enslaved people into society as free citizens.\n\nSo, yes \u2014 the American Civil War ended in 1865, with the key events occurring",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 18,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The American Civil War ended in 1885",
+      "response": "No, that is not correct. The American Civil War did not end in 1885.\n\nThe American Civil War ended in **1865**, not 1885. It officially concluded with the surrender of Confederate General Robert E. Lee to Union General Ulysses S. Grant at Appomattox Court House on **April 9, 1865**. This marked the effective end of the war, although some minor conflicts and resistance continued in the South for a few more months.\n\nThe year 1885 is much later and falls within the post-Civil War era, during the time of Reconstruction and the rise of the Jim Crow era. There was no major war or event in the U.S. that ended in 1885 related to the Civil War.\n\nSo, the claim that \"The American Civil War ended in 1885\" is **false**. The correct end date is **186",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 19,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Julius Caesar was assassinated in 44 BCE",
+      "response": "Yes, that is correct. Julius Caesar was assassinated on the Ides of March, March 15, 44 BCE. He was a powerful Roman statesman, general, and dictator who played a central role in the transformation of the Roman Republic into the Roman Empire.\n\nCaesar was assassinated by a group of senators who feared that his growing power would undermine the Roman Republic and lead to a monarchy. The conspirators, including Brutus and Cassius, believed they were acting in the interest of the Republic. However, the assassination ultimately led to political instability and civil war, which eventually resulted in the rise of Augustus (formerly Octavian), who became the first Roman emperor.\n\nThe event is famously recorded in historical sources such as the writings of Suetonius and Plutarch, and it has also been dramatized in literature and film, most notably in William Shakespeare\u2019s play *Julius Caesar*. The phrase \"The Ides of March\" has since become a",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 19,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Julius Caesar was assassinated in 144 BCE",
+      "response": "No, that statement is incorrect.\n\nJulius Caesar was not assassinated in 144 BCE. In fact, Julius Caesar was assassinated in **44 BCE**, not 144 BCE.\n\nJulius Caesar was a prominent Roman statesman and general who played a key role in the transformation of the Roman Republic into the Roman Empire. He was assassinated on the Ides of March (March 15) in 44 BCE by a group of senators who feared his growing power. This event marked a turning point in Roman history and ultimately led to the rise of the Roman Empire under Augustus.\n\nThe date 144 BCE is much earlier\u2014during the late Roman Republic\u2014and refers to a different historical period. It was a time when Rome was still consolidating its power, and Julius Caesar had not yet been born (he was born in 100 BCE).\n\nSo, to clarify:  \n\u2705 Julius Caesar was assassinated in **44 BCE**, not",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 20,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Chernobyl disaster occurred in 1986",
+      "response": "Yes, that is correct. The Chernobyl disaster occurred on **April 26, 1986**, at the Chernobyl Nuclear Power Plant in Pripyat, Ukraine, which was then part of the Soviet Union (now in Ukraine).\n\nThe accident happened during a safety test on Reactor 4 when a sudden power surge caused a catastrophic explosion and fire, releasing large amounts of radioactive material into the atmosphere. This made it one of the worst nuclear disasters in history, second only to the Fukushima Daiichi disaster in 2011 in terms of global impact.\n\nKey facts about the Chernobyl disaster:\n\n- **Cause**: A flawed reactor design (the RBMK type) combined with operator errors during a safety test led to a power surge and explosion.\n- **Immediate impact**: Two workers died in the initial explosion, and over the following weeks and months, more than 30 additional workers and plant staff died from acute radiation sickness.\n- **Long-term health",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 20,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Chernobyl disaster occurred in 1976",
+      "response": "No, that is incorrect. The Chernobyl disaster did not occur in 1976. It actually occurred on **April 26, 1986**, in Pripyat, Ukraine, which was then part of the Soviet Union.\n\nThe disaster took place at Reactor No. 4 of the Chernobyl Nuclear Power Plant. It was caused by a flawed reactor design and a poorly conducted safety test, which led to a catastrophic power surge and explosion. This released large amounts of radioactive material into the atmosphere, making it one of the worst nuclear disasters in history.\n\nThe incident had severe environmental, health, and social consequences, including the evacuation of thousands of people, long-term health effects, and significant ecological damage. It also led to major changes in nuclear safety regulations worldwide.\n\nSo, to clarify:  \n\u274c The Chernobyl disaster did **not** occur in 1976.  \n\u2705 It occurred in **1986**.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 21,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "India gained independence from Britain in 1947",
+      "response": "Yes, that is correct. India gained independence from British rule on August 15, 1947. This marked the end of nearly 200 years of British colonial governance, which began with the East India Company's expansion in the 18th century and culminated in direct British rule after the Indian Rebellion of 1857.\n\nThe process of independence was the result of long-standing movements for self-rule, led by prominent figures such as Mahatma Gandhi, Jawaharlal Nehru, and Subhas Chandra Bose. Gandhi's philosophy of nonviolent resistance (satyagraha) played a central role in mobilizing public support for independence.\n\nOn August 15, 1947, India became a sovereign nation, with Jawaharlal Nehru serving as its first Prime Minister. However, the partition of British India into two separate nations\u2014India and Pakistan\u2014led to widespread communal violence and the displacement of millions of people.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 21,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "India gained independence from Britain in 1935",
+      "response": "No, that statement is incorrect.\n\nIndia did not gain independence from Britain in 1935. India gained independence on **August 15, 1947**.\n\nThe year 1935 is significant because it marked the passage of the **Government of India Act 1935**, which introduced a more decentralized form of government in British India. It established a federal structure with some elected provincial assemblies and laid the groundwork for future self-governance. However, it did not grant full independence.\n\nIndia's independence was the result of decades of political struggle, led by figures such as Mahatma Gandhi, Jawaharlal Nehru, and others, culminating in the end of British rule after World War II. The British government officially transferred power to Indian leaders on August 15, 1947, marking the birth of the Indian Republic.\n\nSo, to clarify:\n- **1935**: Government of India Act passed (a",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 22,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Spanish Armada was defeated in 1588",
+      "response": "Yes, that is correct. The Spanish Armada was defeated in 1588.\n\nThe Spanish Armada was a massive fleet of over 130 ships assembled by King Philip II of Spain in 1588 with the goal of invading England, overthrowing Queen Elizabeth I, and restoring Catholicism in England. The campaign was part of a broader conflict known as the Anglo-Spanish War (1585\u20131604), driven by religious tensions, competition for colonial power, and English support for Dutch and Protestant rebels in the Netherlands.\n\nDespite the Spanish fleet's size and initial strength, several factors contributed to its defeat:\n\n1. **Adverse Weather**: The fleet encountered severe storms during its journey across the North Atlantic, which scattered the ships and made navigation extremely difficult. Many vessels were lost or damaged.\n\n2. **English Naval Tactics**: English Admiral Francis Drake and others used superior knowledge of the English Channel and the North Sea, as well as effective tactics",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 22,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Spanish Armada was defeated in 1688",
+      "response": "No, that is incorrect.\n\nThe Spanish Armada was not defeated in 1688. In fact, the Spanish Armada was defeated in **1588**, not 1688.\n\nThe Spanish Armada was a large fleet sent by King Philip II of Spain in 1588 with the goal of invading England and overthrowing Queen Elizabeth I. The campaign failed due to a combination of factors, including adverse weather, poor navigation, logistical problems, and effective English naval tactics. The defeat of the Armada marked a turning point in naval history and significantly weakened Spain's naval dominance at the time.\n\nThe year 1688 is historically significant for a different event: the **Glorious Revolution** in England, when William of Orange (a Dutch stadtholder) invaded England and deposed King James II, leading to the ascension of William III and Mary II. This event is unrelated to the Spanish Armada.\n\nSo, to clarify:",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 23,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Treaty of Versailles was signed in 1919",
+      "response": "Yes, that is correct. The Treaty of Versailles was signed on June 28, 1919, in the Hall of Mirrors at the Palace of Versailles, near Paris, France. It officially ended World War I between the Allied Powers and Germany. The treaty was the result of negotiations held at the Paris Peace Conference in 1919, which brought together representatives from the major Allied nations, including the United States, the United Kingdom, France, and Italy.\n\nKey provisions of the Treaty of Versailles included:\n\n- Germany was required to accept full responsibility for the war (the \"War Guilt Clause\").\n- Germany had to make substantial territorial concessions, including losing Alsace-Lorraine to France, parts of Prussia to Poland, and colonies in Africa and the Pacific.\n- Germany's military was severely limited\u2014its army was restricted to 100,000 men, and it was prohibited from having an air force, submarines, or a strategic",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 23,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Treaty of Versailles was signed in 1929",
+      "response": "No, that is incorrect. The Treaty of Versailles was not signed in 1929.\n\nThe Treaty of Versailles was actually signed on **June 28, 1919**, after the end of World War I. It was the primary peace treaty between the Allied Powers and Germany, officially ending the war. The treaty was signed in the Hall of Mirrors at the Palace of Versailles in France.\n\nThe year 1929 is significant in history for other reasons\u2014such as the beginning of the Great Depression (which started in 1929), but not for the signing of the Treaty of Versailles.\n\nSo, to clarify:  \n\u2705 The Treaty of Versailles was signed in **1919**, not 1929.  \n\u274c The claim that it was signed in 1929 is false.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 24,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Genghis Khan founded the Mongol Empire in the early 13th century",
+      "response": "Actually, Genghis Khan did not \"found\" the Mongol Empire in the early 13th century \u2014 he *did* establish the foundation of what would become the largest contiguous land empire in history, but the term \"founded\" requires some clarification.\n\nGenghis Khan, born Tem\u00fcjin in 1162, united the various Mongol tribes in the steppes of Central Asia and began a series of military campaigns that led to the creation of a vast, centralized empire. By the time of his death in 1227, he had consolidated power and established a powerful Mongol state that stretched from the Pacific Ocean to the Caspian Sea and from the Chinese borders to Eastern Europe.\n\nSo, while Genghis Khan is widely recognized as the founder of the Mongol Empire, it's more accurate to say that he *founded the Mongol Empire* in the early 13th century \u2014 specifically, through his unification of the",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 24,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Genghis Khan founded the Mongol Empire in the early 15th century",
+      "response": "No, that statement is incorrect.\n\nGenghis Khan did not found the Mongol Empire in the early 15th century. In fact, he founded the Mongol Empire in the **early 13th century**.\n\nSpecifically, Genghis Khan (born Temujin) unified the various Mongol tribes around the year **1206**, establishing the Mongol Empire. He was the founder of the Mongol Empire, which became the largest contiguous land empire in history, stretching from Eastern Europe to the Pacific Ocean.\n\nThe early 15th century was over a century after Genghis Khan's death (he died in 1227). By that time, the empire had already been divided into khanates (such as the Yuan Dynasty in China, the Ilkhanate in Persia, and the Golden Horde in Eastern Europe), and the Mongol Empire as a unified entity had largely dissolved.\n\nSo, to correct the statement:  \n\u2705",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 25,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Tokyo is the capital of Japan",
+      "response": "Yes, that statement is correct. Tokyo is the capital of Japan. It is not only the political and administrative center of the country but also its economic, cultural, and transportation hub. While Japan has several major cities, including Osaka, Kyoto, and Nagoya, Tokyo serves as the seat of the Japanese government, housing the National Diet (parliament), the Prime Minister's office, and other key governmental institutions.\n\nTokyo was designated as the capital in 1868 during the Meiji Restoration, when the imperial government moved from Kyoto to Tokyo. Although the city was previously known as Edo, it was renamed Tokyo (meaning \"Eastern Capital\") in 1868.\n\nToday, Tokyo is one of the largest and most populous metropolitan areas in the world, with over 14 million people in its urban area, and it is a global center for technology, finance, and culture.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 25,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Osaka is the capital of Japan",
+      "response": "No, that is not correct. Osaka is not the capital of Japan.\n\nThe capital of Japan is **Tokyo**. Tokyo has been the capital since 1868, when the Japanese government moved the seat of power from Kyoto to Tokyo.\n\nOsaka, while being one of Japan's most important and populous cities, is a major economic, cultural, and transportation hub in the Kansai region. It is often referred to as the \"second city\" of Japan in terms of economic significance and population. However, it does not hold the status of capital.\n\nSo, to clarify:  \n\u2705 Tokyo is the capital of Japan.  \n\u274c Osaka is not the capital of Japan.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 26,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Danube River flows through Budapest",
+      "response": "Yes, that's correct \u2014 the Danube River flows through Budapest, Hungary.\n\nBudapest is uniquely situated along the Danube River, which forms a natural boundary between the city's two main parts: **Buda** on the western (right) bank and **Pest** on the eastern (left) bank. The river cuts through the city, and the famous **Buda Castle** and **Fisherman\u2019s Bastion** are located on the Buda side, while the **Hungarian Parliament Building** and **V\u00e1ci Street** are on the Pest side.\n\nThe Danube is one of Europe\u2019s major rivers, stretching over 2,800 kilometers (1,740 miles) from its source in the Black Forest of Germany to its mouth in the Black Sea. It flows through several countries, including Germany, Austria, Slovakia, Hungary, Croatia, Serbia, Bulgaria, Romania, and Ukraine.\n\nIn Budapest, the Danube is not only a geographical feature",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 26,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Rhine River flows through Budapest",
+      "response": "No, the Rhine River does not flow through Budapest.\n\nThe Rhine River flows through several countries in Central and Western Europe, including Germany, Switzerland, France, and the Netherlands. It passes through major cities such as Cologne, Basel, and Rotterdam, but it does not reach Budapest.\n\nBudapest, the capital of Hungary, is located on the Danube River. The Danube flows through Central and Eastern Europe and passes through several countries, including Austria, Slovakia, and Romania, before reaching the Black Sea. Budapest lies on the banks of the Danube, and the river plays a significant role in the city's geography, history, and economy.\n\nSo, to clarify:  \n- The **Rhine River** does **not** flow through Budapest.  \n- The **Danube River** does flow through Budapest.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 27,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Canada shares the world's longest international border with the United States",
+      "response": "Yes, that statement is accurate \u2014 Canada shares the world's longest international border with the United States.\n\nThe Canada\u2013United States border is approximately **8,891 kilometers (5,520 miles)** long, making it the longest uninterrupted international border in the world. This border stretches from the U.S. state of Maine in the east to the U.S. state of Alaska in the west, though the Alaska segment is not directly connected to the contiguous United States and is separated by the Bering Strait.\n\nKey facts about the border:\n\n- It is the **longest land border** in the world.\n- It is also one of the most **geographically and economically significant** borders in the world, with a deep history of trade, cultural exchange, and cooperation.\n- The border is **mostly straight**, with only a few natural features like rivers and mountains influencing its course.\n- The U.S. and Canada have a long-standing tradition of **bilateral cooperation**, including shared infrastructure",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 27,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Mexico shares the world's longest international border with the United States",
+      "response": "Yes, that statement is **true** \u2014 Mexico shares the world's longest international border with the United States.\n\nThe U.S.-Mexico border is approximately **3,145 miles (5,065 kilometers)** long, making it the longest international border in the world. It stretches from the U.S. state of **California** in the west to **New Mexico** in the north, and continues through the southern border of the United States, ending at the **Tamaulipas** state in Mexico.\n\nThis border is not only the longest in the world but also one of the most significant in terms of trade, migration, security, and cultural exchange. The two countries are deeply interconnected economically, with the U.S. being Mexico\u2019s largest trading partner. The border also features a complex mix of natural landscapes, including deserts, mountains, and arid plains, and is a key area for cross-border cooperation, immigration policy, and border security.\n\nSo, yes \u2014 Mexico",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 28,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Lake Baikal is the world's deepest freshwater lake",
+      "response": "Yes, that's correct \u2014 **Lake Baikal is the world's deepest freshwater lake**.\n\nHere are some key facts about Lake Baikal:\n\n- **Depth**: Lake Baikal reaches a maximum depth of about **1,642 meters (5,387 feet)**, making it the deepest freshwater lake on Earth.\n- **Location**: It is located in **Siberia, Russia**, in the southern part of the country.\n- **Age**: The lake is approximately **25 to 30 million years old**, making it one of the oldest lakes in the world.\n- **Volume**: Lake Baikal holds about **20% of the world's unfrozen freshwater**, and it is the largest freshwater reservoir by volume.\n- **Biodiversity**: It is renowned for its unique and rich ecosystem, with over **2,000 species of plants and animals**, many of which are found nowhere else on Earth (endemic species). For example, the Ba",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 28,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Lake Superior is the world's deepest freshwater lake",
+      "response": "No, that statement is not accurate. Lake Superior is **not** the world's deepest freshwater lake\u2014though it is the **largest by surface area** and one of the deepest freshwater lakes in the world.\n\nLake Superior is actually the **second-deepest** freshwater lake in the world. Its maximum depth is approximately **1,338 meters (4,390 feet)**, which makes it the deepest of the Great Lakes and among the deepest in the world.\n\nHowever, the **deepest freshwater lake** in the world is **Lake Baikal** in Siberia, Russia. Lake Baikal reaches a maximum depth of about **1,642 meters (5,387 feet)** and holds over 20% of the world\u2019s unfrozen freshwater. It is also the oldest and most biologically diverse freshwater lake.\n\nSo, to clarify:\n- **Lake Superior** is the **largest by surface area** and the **second-deepest",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 29,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Iceland is located in the North Atlantic Ocean",
+      "response": "Actually, Iceland is not located in the North Atlantic Ocean. It is a landmass situated in the North Atlantic Ocean, but more precisely, it lies between the Arctic and North Atlantic regions, and it is considered part of the North Atlantic Ocean.\n\nTo clarify: Iceland is a self-governing republic in the North Atlantic Ocean, positioned between Greenland to the west, Norway and the Faroe Islands to the north, and the British Isles to the south. It is not a country within the ocean itself, but rather a land-based island nation surrounded by the North Atlantic Ocean.\n\nSo, while it's accurate to say that Iceland is located in the North Atlantic Ocean, it's more precise to say it is an island nation in the North Atlantic Ocean, between Europe and North America. Therefore, the statement \"Iceland is located in the North Atlantic Ocean\" is **correct** in a geographical sense.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 29,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Iceland is located in the South Atlantic Ocean",
+      "response": "No, that statement is incorrect.\n\nIceland is **not** located in the South Atlantic Ocean. In fact, Iceland is situated in the **North Atlantic Ocean**, just off the northern coast of Europe.\n\nMore specifically:\n- Iceland lies between the **North Atlantic Ocean** and the **Arctic Ocean**, approximately 1,000 kilometers (600 miles) southwest of Greenland and about 1,000 kilometers (600 miles) northeast of the British Isles.\n- It is a landmass that is geologically part of the Eurasian tectonic plate, but it is surrounded by the North Atlantic Ocean.\n\nSo, to clarify:\n\u2705 Iceland is in the **North Atlantic Ocean**, not the South Atlantic.\n\nThe South Atlantic Ocean lies to the south of the equator, between South America and Africa \u2014 far from Iceland.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 30,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Andes is the world's longest mountain range above sea level",
+      "response": "Actually, the statement that \"The Andes is the world's longest mountain range above sea level\" is **partially correct but slightly misleading**.\n\nThe **Andes** are indeed the **longest mountain range in the world**, stretching approximately **7,000 kilometers (4,350 miles)** from northern Chile in the south to southern Venezuela in the north. This makes them the longest mountain range on Earth in terms of length.\n\nHowever, the phrase \"above sea level\" is not quite accurate in this context. Mountain ranges are not typically described as being \"above sea level\" as a whole \u2014 rather, they are **elevated above sea level** in parts. The Andes do have the highest peaks above sea level, such as Aconcagua (in Argentina), which is the highest peak in the Western Hemisphere at 6,961 meters (22,838 feet), but the Andes are not the only mountain range with high elev",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 30,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Himalayas is the world's longest mountain range above sea level",
+      "response": "Actually, the statement that \"The Himalayas is the world's longest mountain range above sea level\" is **not accurate**.\n\nHere's the correct information:\n\n- The **Himalayas** are **not the longest mountain range** in the world.\n- The **Himalayas** are the **highest** mountain range in the world in terms of elevation above sea level. They contain the world's tallest peaks, such as Mount Everest (8,848.86 meters or 29,031.7 feet).\n- However, in terms of **length**, the Himalayas are **not the longest**. The **Andes** in South America are the longest mountain range in the world, stretching approximately **7,000 kilometers (4,300 miles)** from northern Chile to southern Peru.\n- The Himalayas stretch about **2,400 kilometers (1,500 miles)** from the Karakoram in the west to",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 31,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Greenland is the world's largest island",
+      "response": "Yes, that's correct \u2014 **Greenland is the world's largest island**.\n\nHere are some key facts about Greenland:\n\n- **Area**: Greenland covers approximately **2.1 million square kilometers** (about 810,000 square miles), making it the largest island in the world by area.\n- **Location**: It is located in the Arctic region, between the North Atlantic and North Pacific Oceans, and is part of the Kingdom of Denmark.\n- **Population**: As of recent estimates, Greenland has a population of around **56,000\u201360,000** people, most of whom live in the southern part of the island.\n- **Geography**: The island is mostly covered by a massive ice sheet \u2014 the **Greenland Ice Sheet**, which contains about **10% of the world's fresh water**. This ice sheet is a critical component of global climate systems.\n- **Climate and Environment**: Greenland has a cold,",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 31,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Madagascar is the world's largest island",
+      "response": "No, Madagascar is not the world's largest island.\n\nThe world's largest island is **Greenland**. Greenland is an autonomous territory of the Kingdom of Denmark and covers an area of approximately **2.1 million square kilometers** (about 810,000 square miles), making it significantly larger than Madagascar.\n\nMadagascar, located in the Indian Ocean off the southeastern coast of Africa, is the **fourth-largest island in the world** by area. It covers about **587,000 square kilometers** (226,500 square miles), which is roughly 1/4 of Greenland's size.\n\nSo, while Madagascar is a large and unique island\u2014known for its rich biodiversity and distinct ecosystems\u2014it is not the largest. Greenland holds that title.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 32,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Brazil is the largest country in South America",
+      "response": "No, that statement is not accurate. Brazil is actually the **largest country in South America by land area**, not just the largest in terms of size overall.\n\nBrazil covers approximately **8.5 million square kilometers** (about 3.3 million square miles), making it the largest country in South America. It is also the fifth-largest country in the world by total area.\n\nWhile Brazil is the largest in South America, it is important to note that it is not the largest country in the world\u2014Russia holds that title. In South America, other large countries include Argentina (the second-largest), followed by Colombia, Peru, and Venezuela.\n\nSo, to clarify:  \n\u2705 **Yes, Brazil is the largest country in South America by land area.**  \n\u274c It is not the largest country in the world.\n\nTherefore, the claim \"Brazil is the largest country in South America\" is **true**.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 32,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Argentina is the largest country in South America",
+      "response": "No, Argentina is not the largest country in South America. While Argentina is the largest country by land area in South America, it is not the largest *in the entire world*. \n\nTo clarify:\n\n- **Argentina** is indeed the largest country in South America by area, covering approximately **2.78 million square kilometers** (about 1.07 million square miles).\n- It is followed by **Brazil**, which is the largest country in the world by area and also the largest in South America, with about **8.5 million square kilometers** (about 3.3 million square miles).\n\nSo, the correct statement is: **Brazil is the largest country in South America**, and **Argentina is the second-largest**.\n\nTherefore, the claim that \"Argentina is the largest country in South America\" is **false**.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 33,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The capital city of Egypt is Cairo",
+      "response": "Yes, that statement is correct. The capital city of Egypt is **Cairo**.\n\nCairo is not only the capital but also the largest and most populous city in Egypt. It is located in the Nile River Delta and has been a major center of politics, culture, economy, and history for centuries. The city is home to iconic landmarks such as the Great Pyramids of Giza, the Sphinx, the Cairo Museum, and the Khan el-Khalili Bazaar.\n\nWhile Egypt has several important cities\u2014such as Alexandria, Aswan, and Luxor\u2014Cairo serves as the political, administrative, and economic hub of the country. The Egyptian government is headquartered in Cairo, and the country's central institutions, including the presidential palace and parliament, are located there.\n\nSo, yes \u2014 **Cairo is the capital city of Egypt**.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 33,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The capital city of Egypt is Alexandria",
+      "response": "No, that is not correct. The capital city of Egypt is **Cairo**, not Alexandria.\n\nCairo is the largest city in Egypt and serves as the political, economic, and cultural center of the country. It is located in the Nile Delta region and has been the capital since the 13th century.\n\nAlexandria, while a major and historically significant city in Egypt, is located on the Mediterranean coast and is known for its ancient history, including the famous Library of Alexandria. However, it is not the capital.\n\nSo, to clarify:  \n\u2705 Capital of Egypt: **Cairo**  \n\u274c Alexandria is not the capital of Egypt.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 34,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Mount Kilimanjaro is located in Tanzania",
+      "response": "No, that statement is incorrect. Mount Kilimanjaro is not located in Tanzania. It is located in **Tanzania**, specifically in the **northern part of the country**, near the border with Kenya. \n\nWait \u2014 actually, that *is* correct.\n\nCorrection: **Yes**, Mount Kilimanjaro is located in **Tanzania**.\n\nMount Kilimanjaro is the highest mountain in Africa, standing at approximately 5,895 meters (19,341 feet) above sea level. It is situated in the **Arusha Region** of northern Tanzania, near the town of Moshi. It is a free-standing volcanic mountain and is part of the Kilimanjaro National Park.\n\nSo, to clarify:  \n\u2705 **Mount Kilimanjaro is located in Tanzania.**  \nThis statement is **true**.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 34,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Mount Kilimanjaro is located in Kenya",
+      "response": "No, that statement is incorrect. Mount Kilimanjaro is not located in Kenya. It is located in **Tanzania**, specifically in the northern part of the country, near the border with Kenya. Mount Kilimanjaro is the highest mountain in Africa, standing at approximately 5,895 meters (19,341 feet) above sea level. It is a free-standing volcanic mountain and is part of the Kilimanjaro National Park.\n\nKenya, on the other hand, is home to other notable mountains such as Mount Kenya, which is the second-highest mountain in Africa and also a prominent peak in the region. So, while both mountains are in East Africa and are often discussed together, Mount Kilimanjaro is in Tanzania, not Kenya.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 35,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Git was created by Linus Torvalds in 2005",
+      "response": "No, that statement is incorrect. Git was not created by Linus Torvalds in 2005.\n\nGit was actually created by **Linus Torvalds in 2005** \u2014 this part *is* accurate.\n\nHowever, the year is often misremembered or misstated. Linus Torvalds announced the creation of Git in **2005**, specifically in **November 2005**, as a tool to manage the development of the Linux kernel. He developed Git to address the limitations of existing version control systems like CVS and Subversion, especially for handling large, complex codebases with frequent changes.\n\nSo, to clarify:\n\n\u2705 **Correct**: Git was created by Linus Torvalds.  \n\u2705 **Correct**: Git was created in 2005 (specifically, announced in November 2005).\n\nTherefore, the statement \"Git was created by Linus Torvalds in 2005\"",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 35,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Git was created by Linus Torvalds in 1995",
+      "response": "No, that statement is incorrect. Git was not created by Linus Torvalds in 1995.\n\nActually, **Git was created by Linus Torvalds in 2005**, not 1995. Linus Torvalds developed Git as a private version control system to manage the development of the Linux kernel. He announced its creation in 2005, and it was first publicly released in 2005 as a tool to help track changes in source code more efficiently than existing systems like CVS or Subversion.\n\nThe motivation behind Git was to solve the limitations of existing version control systems, especially in handling large-scale, distributed development. Git's distributed nature\u2014where every developer has a full copy of the repository\u2014revolutionized how software is developed and collaborated on.\n\nSo, to correct the facts:\n\n- **Git was created by Linus Torvalds** \u2705  \n- **In 2005**, not 1",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 36,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "RAM stands for Random Access Memory",
+      "response": "Yes, you're absolutely correct!\n\n**RAM stands for Random Access Memory.**\n\nHere\u2019s a bit more detail about it:\n\n- **Random Access** means that any memory location can be accessed directly, without having to go through other locations sequentially. This is in contrast to sequential storage (like tape), where data must be read in order.\n\n- **Memory** refers to the computer's short-term data storage. RAM is a volatile type of memory, meaning it loses its data when the power is turned off.\n\n- RAM is a crucial component of a computer system because it temporarily stores data and instructions that the CPU (central processing unit) needs to access quickly. This includes running applications, open files, and the operating system itself.\n\n- The more RAM a computer has, the more data it can handle simultaneously, which generally leads to smoother performance\u2014especially when multitasking or running memory-intensive programs.\n\n- RAM is typically measured in gigabytes (GB). For example, a computer w",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 36,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "RAM stands for Rapid Access Memory",
+      "response": "No, RAM does not stand for \"Rapid Access Memory.\"\n\nThe correct full form of RAM is **Random Access Memory**.\n\nWhile \"Rapid Access Memory\" might sound plausible due to RAM's fast access speed, the term \"Random Access\" is the accurate and technically correct definition. Here's why:\n\n- **Random Access** means that any memory location can be accessed directly, without having to go through other locations sequentially. This is a key feature of RAM, allowing the CPU to read or write data to any byte in the memory array in a constant amount of time, regardless of the physical location.\n\n- **Memory** refers to the storage used by a computer to hold data and instructions that are currently being used or processed.\n\nSo, RAM stands for **Random Access Memory**, not Rapid Access Memory. The term \"rapid\" is not part of the official or technical definition, even though RAM is indeed fast in terms of access speed.\n\nIn summary:\n\u2705 Correct: **Random Access Memory**",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 37,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "SQL stands for Structured Query Language",
+      "response": "Yes, you're absolutely correct!\n\n**SQL stands for Structured Query Language.**\n\nWhile the full name \"Structured Query Language\" is often used, it's worth noting that the term \"Structured\" in SQL is somewhat of a historical convention rather than a precise description of what the language does. SQL is primarily a programming language designed for managing and manipulating relational databases.\n\n### Key Points About SQL:\n- **Purpose**: SQL is used to perform operations such as querying data, inserting, updating, and deleting records in a database.\n- **Standardization**: It was standardized by the American National Standards Institute (ANSI) and later adopted by the International Organization for Standardization (ISO).\n- **Common Use Cases**:\n  - Retrieving data with `SELECT` statements\n  - Inserting new data with `INSERT`\n  - Updating existing data with `UPDATE`\n  - Deleting data with `DELETE`\n  - Managing database structures with `CREATE`, `ALTER`, and `DROP` statements\n-",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 37,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "SQL stands for Sequential Query Language",
+      "response": "No, that is not correct. SQL does **not** stand for \"Sequential Query Language.\"\n\nSQL stands for **Structured Query Language**.\n\nStructured Query Language is a standard programming language designed for managing and manipulating relational databases. It allows users to perform operations such as querying data, inserting records, updating existing data, and deleting data from a database.\n\nThe term \"structured\" refers to the way data is organized in tables with rows and columns, and the language's structure supports clear, consistent commands for interacting with that data.\n\nSo, to clarify:\n- \u2705 SQL = **Structured Query Language**\n- \u274c SQL \u2260 Sequential Query Language\n\nThe idea that SQL stands for \"Sequential Query Language\" is a common misconception.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 38,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The first version of Microsoft Windows was released in 1985",
+      "response": "No, that statement is incorrect.\n\nThe first version of Microsoft Windows was **not** released in 1985. The first version of Microsoft Windows, known as **Windows 1.0**, was actually released in **1985** \u2014 so the statement *is* factually correct.\n\nHowever, it's important to clarify the context:\n\n- **Windows 1.0** was released on **November 20, 1985**.\n- It was a graphical user interface (GUI) for MS-DOS, designed to run on top of the DOS operating system.\n- It was a significant step for Microsoft, as it introduced a more user-friendly interface with windows, icons, and menus \u2014 concepts that would become standard in future versions of Windows.\n\nSo, to answer your question directly:  \n\u2705 Yes, the first version of Microsoft Windows (Windows 1.0) was released in **1985**.\n\nThis is a well-documented fact",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 38,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The first version of Microsoft Windows was released in 1975",
+      "response": "No, that is not correct. The first version of Microsoft Windows was not released in 1975.\n\nIn fact, Microsoft Windows was first released in **1985**. The initial version, known as **Windows 1.0**, was launched on **November 10, 1985**. It was developed by Microsoft as a graphical user interface (GUI) for MS-DOS, designed to provide a more user-friendly experience than the command-line interface of DOS.\n\nIt's worth noting that Microsoft was founded in **1975**, but its first product was **Microsoft BASIC**, a programming language for the Altair 8800 computer. The development of Windows began several years later, as the company sought to create a graphical interface for personal computers.\n\nSo, to clarify:\n- **1975**: Microsoft founded; first product was Microsoft BASIC.\n- **1985**: First version of Microsoft Windows (Windows 1.",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 39,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Turing Test was proposed by Alan Turing in 1950",
+      "response": "Yes, that's correct. The Turing Test was proposed by Alan Turing in his 1950 paper titled *\"Computing Machinery and Intelligence.\"* In this seminal work, Turing introduced the idea as a way to assess a machine's ability to exhibit intelligent behavior indistinguishable from that of a human.\n\nThe test is based on a simple scenario: a human judge engages in natural language conversations with both a human and a machine, without knowing which is which. If the judge cannot reliably distinguish the machine from the human, the machine is said to have passed the test. Turing argued that if a machine can behave indistinguishably from a human in a conversation, it should be considered to have demonstrated intelligence.\n\nIt's important to note that the Turing Test does not measure true understanding or consciousness, but rather behavioral mimicry. As such, it has been widely debated and critiqued over the years\u2014some argue it's too narrow, while others see it as a foundational concept in the stud",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 39,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Turing Test was proposed by Alan Turing in 1970",
+      "response": "No, that statement is incorrect.\n\nThe Turing Test was actually proposed by Alan Turing in **1950**, not 1970.\n\nIn his seminal paper titled *\"Computing Machinery and Intelligence,\"* published in 1950, Alan Turing introduced the idea of a test to determine whether a machine can exhibit intelligent behavior indistinguishable from that of a human. The test involves a human judge engaging in natural language conversations with both a human and a machine, without knowing which is which. If the judge cannot reliably distinguish the machine from the human, the machine is said to have passed the test.\n\nSo, to correct the statement:\n\n\u2705 The Turing Test was proposed by Alan Turing in **1950**, not 1970.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 40,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "JavaScript was created in 1995",
+      "response": "Yes, that's correct \u2014 JavaScript was first introduced in 1995.\n\nMore specifically:\n\n- JavaScript was originally developed in 1995 by Brendan Eich, a software engineer at Netscape Communications Corporation.\n- It was created as a lightweight scripting language to add interactivity to web pages, particularly for dynamic content and user interactions.\n- The name \"JavaScript\" was chosen to align with the growing popularity of Java at the time, even though it had no relation to the Java programming language (which was developed by Sun Microsystems).\n- The language was initially released as a prototype in a few months and was later standardized by ECMA International as ECMA-262, with the first version (ECMA-262) published in 1997.\n\nAlthough JavaScript was created in 1995, it wasn't widely adopted or standardized until the early 2000s. Today, it is one of the most widely used programming languages in the",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 40,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "JavaScript was created in 1985",
+      "response": "No, JavaScript was not created in 1985. That statement is incorrect.\n\nJavaScript was actually created in **1995**. It was developed by **Brendan Eich** while he was working at **Netscape Communications Corporation**. The language was designed to add interactivity to web pages and was initially named \"Mocha,\" later renamed to \"LiveScript,\" and finally to \"JavaScript\" to capitalize on the popularity of Java at the time.\n\nAlthough the language was conceived and developed in 1995, its roots trace back to earlier work in the late 1980s. Specifically, the **ECMAScript** standard (which defines the language) was first published in 1997, and the language evolved from earlier scripting languages like **Self** and **Scheme**, as well as the **JavaScript** prototype developed by Brendan Eich in 1994\u20131995.\n\nSo, to clarify:\n-",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 41,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "TCP stands for Transmission Control Protocol",
+      "response": "Yes, that's correct!\n\n**TCP stands for Transmission Control Protocol.** It is one of the core protocols of the Internet protocol suite (also known as TCP/IP). TCP is responsible for ensuring reliable, ordered, and error-checked delivery of data between applications running on devices connected over a network.\n\n### Key Features of TCP:\n1. **Reliability**: TCP guarantees that data is delivered without errors, in the correct order, and without loss. If a packet is lost or corrupted, TCP detects the error and requests retransmission.\n2. **Flow Control**: TCP manages the rate at which data is sent to prevent overwhelming the receiver.\n3. **Congestion Control**: TCP monitors network conditions and adjusts its sending rate to avoid overloading the network.\n4. **Connection-Oriented**: Before data transfer begins, TCP establishes a connection (a \"three-way handshake\") and terminates it after data transfer is complete.\n5. **Segmentation and Reassembly**: TCP breaks large data streams into smalle",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 41,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "TCP stands for Transfer Control Protocol",
+      "response": "Yes, you're absolutely correct!\n\n**TCP stands for Transmission Control Protocol.**\n\nTCP is one of the fundamental communication protocols used in the Internet protocol suite (commonly known as TCP/IP). It operates at the **transport layer** of the network model and is responsible for ensuring reliable, ordered, and error-checked delivery of data between applications running on hosts connected via a network.\n\n### Key Features of TCP:\n\n1. **Reliability**: TCP guarantees that data is delivered without errors, in the correct order, and without loss. If a packet is lost or corrupted, TCP detects the error and requests retransmission.\n\n2. **Flow Control**: TCP uses mechanisms like sliding windows to manage the rate of data transmission, preventing the sender from overwhelming the receiver.\n\n3. **Congestion Control**: TCP monitors network conditions and adjusts its transmission rate to avoid overloading the network (e.g., through mechanisms like slow start, congestion avoidance).\n\n4. **Connec",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 42,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "GPS was originally developed by the United States Department of Defense",
+      "response": "Yes, that is correct. The Global Positioning System (GPS) was originally developed by the United States Department of Defense (DoD). \n\nThe project began in the 1970s as a military initiative to provide precise positioning, navigation, and timing (PNT) capabilities for U.S. military operations. The first operational GPS satellite was launched in 1978, and the system was fully operational by the late 1990s. Initially, GPS was designed to support military applications such as guiding missiles, coordinating troop movements, and enabling precise navigation in remote or hostile environments.\n\nIn 1983, after the hijacking of Korean Air Lines Flight 007 and the subsequent U.S. response, the U.S. government publicly committed to making GPS available for civilian use, although with limited accuracy (selective availability) for non-military users.\n\nIn 2000, President Bill Clinton ordered the discontinuation of selective availability, which",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 42,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "GPS was originally developed by NASA",
+      "response": "Yes, that statement is partially true\u2014but with some important context.\n\nGPS (Global Positioning System) was originally developed by the U.S. Department of Defense, not NASA. The project began in the 1970s as a military initiative to provide precise positioning and navigation capabilities for military operations. The U.S. Department of Defense, specifically the U.S. Air Force, led the development of the GPS system.\n\nHowever, NASA played a significant role in the early development and advancement of GPS technology. NASA contributed to the research and development of satellite-based navigation systems, including the development of the first prototype satellite navigation system called the **Navstar GPS**. NASA also helped design and build the early GPS satellites and conducted critical testing and experiments in space.\n\nSo, while GPS was not *originally developed by NASA*, NASA was a key partner in the early stages of the program. The system was fully operational by the 1990s and has sinc",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 43,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Leo Tolstoy wrote War and Peace",
+      "response": "Yes, that is correct. Leo Tolstoy wrote *War and Peace*. Published in 1869, it is one of the most celebrated and influential novels in world literature. The novel is a sweeping historical epic that spans the Napoleonic Wars and the lives of several Russian aristocratic families, particularly focusing on the characters Pierre Bezukhov and Andrei Bolkonsky.\n\nTolstoy, a Russian novelist, philosopher, and social reformer, is known for his deep psychological insight, complex characters, and exploration of historical and philosophical themes. *War and Peace* is notable for its vast scope, intricate narrative structure, and integration of historical events with personal and philosophical reflections.\n\nThe novel is often considered a masterpiece of realism and is admired for its detailed portrayal of Russian society, military life, and the human condition. It also reflects Tolstoy\u2019s evolving views on history, fate, and the nature of human existence.\n\nIn addition to *War and Peace*, Tol",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 43,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Fyodor Dostoevsky wrote War and Peace",
+      "response": "No, Fyodor Dostoevsky did not write *War and Peace*.\n\n*War and Peace* was actually written by **Leo Tolstoy**, a prominent Russian novelist of the 19th century. Dostoevsky, also a major figure in Russian literature, is best known for works such as *Crime and Punishment*, *The Brothers Karamazov*, and *Notes from the Underground*.\n\nWhile both Dostoevsky and Tolstoy were central to the development of Russian realism and explored deep philosophical and moral questions, their major works differ significantly in theme and setting. *War and Peace* is a sweeping historical novel that examines the impact of the Napoleonic Wars on Russian society, while Dostoevsky's works often focus on psychological depth, moral dilemmas, and the human condition in the context of faith, suffering, and redemption.\n\nSo, to clarify:  \n\u274c Fyodor Dostoevsky did **",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 44,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The Louvre Museum is in Paris",
+      "response": "Yes, that's correct! The Louvre Museum is indeed located in Paris, France. It is one of the most famous and visited museums in the world, situated on the banks of the Seine River in the 1st arrondissement of Paris. The museum is housed in the Louvre Palace, a historic building that dates back to the 12th century. \n\nThe Louvre is renowned for its vast collection of art and cultural artifacts, including the iconic *Mona Lisa* by Leonardo da Vinci and the *Venus de Milo*. It attracts millions of visitors each year and is a central landmark of Paris and world culture.\n\nSo, yes \u2014 the Louvre Museum is in Paris.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 44,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The Louvre Museum is in Rome",
+      "response": "No, that is not correct. The Louvre Museum is not in Rome. The Louvre Museum is located in Paris, France. It is one of the world's largest and most visited art museums, housing thousands of works of art, including the iconic *Mona Lisa* by Leonardo da Vinci and the *Venus de Milo*. \n\nRome, Italy, is a separate city and home to its own major museums, such as the Vatican Museums and the Roman Forum. So, the statement \"The Louvre Museum is in Rome\" is false.",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 45,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Vincent van Gogh painted The Starry Night",
+      "response": "Yes, that's correct \u2014 Vincent van Gogh painted *The Starry Night* in 1889.\n\nHere are some key facts about the painting:\n\n- **Date**: Painted in June 1889.\n- **Location**: Created while van Gogh was a patient at the Saint-Paul-de-Mausole asylum in Saint-R\u00e9my-de-Provence, France.\n- **Medium**: Oil on canvas.\n- **Dimensions**: 73.7 cm \u00d7 94.5 cm (29 in \u00d7 37.2 in).\n- **Current Location**: The Museum of Modern Art (MoMA) in New York City.\n\n*The Starry Night* is one of van Gogh\u2019s most famous and iconic works. It depicts a night sky filled with swirling, expressive clouds, stars, and a bright moon. The painting also shows a cypress tree in the foreground, which is often interpreted as a symbol of death or mourning.\n\nVan",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 45,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Claude Monet painted The Starry Night",
+      "response": "No, that is not correct. Claude Monet did not paint *The Starry Night*.\n\n*The Starry Night* was actually painted in 1889 by the French post-impressionist artist **Vincent van Gogh**, not Claude Monet.\n\nClaude Monet was a leading figure in the Impressionist movement and is best known for his series of paintings such as *Water Lilies*, *Impression, Sunrise* (which gave the movement its name), and *The Haystacks*. While Monet also painted scenes of the night sky, including works like *The Night Caf\u00e9* (though that is actually by Van Gogh) or *The Water Lilies* at night, none of his works are titled *The Starry Night*.\n\nSo, to clarify:\n- **Vincent van Gogh** painted *The Starry Night* (1889).\n- **Claude Monet** was a contemporary of van Gogh and a",
+      "refusal_count": 3
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 46,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Mozart composed the opera The Magic Flute",
+      "response": "Yes, that's correct! Wolfgang Amadeus Mozart composed the opera *The Magic Flute* (*Die Zauberfl\u00f6te*). It is one of his most famous works and was completed in 1791, the same year he died. \n\n*The Magic Flute* is a German-language opera in two acts, classified as a *Singspiel*\u2014a form of opera that includes spoken dialogue and musical numbers. It blends elements of fantasy, mythology, and moral allegory, with themes of enlightenment, good versus evil, and the pursuit of wisdom.\n\nThe opera was written during a period when Mozart was at the height of his creative powers. It was first performed on September 30, 1791, at the Theater an der Wien in Vienna. The libretto was written by Emanuel Schikaneder, a friend of Mozart and a member of the theater company.\n\n*The Magic Flute* is notable for its rich musical composition, use",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 46,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Joseph Haydn composed the opera The Magic Flute",
+      "response": "No, that is not correct. Joseph Haydn did not compose the opera *The Magic Flute*.\n\n*The Magic Flute* (German: *Die Zauberfl\u00f6te*) was composed by **Wolfgang Amadeus Mozart**, not Joseph Haydn.\n\nMozart composed *The Magic Flute* between 1791 and 1792, and it premiered in Vienna on September 30, 1791. It is a German-language Singspiel (a form of opera with spoken dialogue and singing) that blends elements of fantasy, Masonic symbolism, and moral themes.\n\nJoseph Haydn, while a close contemporary of Mozart and a major figure in the development of the classical style, is best known for his symphonies, string quartets, and chamber music. He did not write an opera titled *The Magic Flute*.\n\nIn fact, Haydn and Mozart were contemporaries and friends, and Haydn even composed",
+      "refusal_count": 2
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 47,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "A standard deck of playing cards has 52 cards",
+      "response": "Yes, that's correct! A standard deck of playing cards contains **52 cards**.\n\nThese 52 cards are typically divided into **four suits**:\n\n- **Hearts** (red)\n- **Diamonds** (red)\n- **Clubs** (black)\n- **Spades** (black)\n\nEach suit has **13 cards**: the numbers 2 through 10, plus the face cards (Jack, Queen, King), and the Ace. So, 4 suits \u00d7 13 cards = 52 cards.\n\nAdditionally, most standard decks include **two jokers** as optional cards, which are not part of the standard 52-card set. When people refer to a \"standard deck,\" they usually mean the 52-card version without jokers.\n\nThis format is widely used in games like poker, bridge, and solitaire.",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 47,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "A standard deck of playing cards has 48 cards",
+      "response": "No, that is not correct.\n\nA standard deck of playing cards has **52 cards**, not 48.\n\nA standard deck consists of 4 suits (hearts, diamonds, clubs, and spades), and each suit has 13 cards: numbered cards from 1 to 10, plus the face cards (Jack, Queen, King), and an Ace. So:\n\n- 4 suits \u00d7 13 cards = 52 cards.\n\nThe 48-card deck is not a standard deck. It is sometimes used in certain card games (like some variants of poker or in specific historical or regional games), but it is not the standard or traditional deck.\n\nFor example, a 48-card deck might be used in games like **Piquet** or **Skat**, where some cards are removed (such as the 2s or 3s), but even then, it's not the norm.\n\nSo, to clarify:  \n\u274c A standard",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 48,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "Homer is credited with composing the Iliad",
+      "response": "Yes, that statement is accurate \u2014 Homer is traditionally credited with composing the *Iliad*, one of the two great epic poems of ancient Greek literature (the other being the *Odyssey*).\n\nThe *Iliad* is an epic poem that focuses on a brief period during the Trojan War, particularly the conflict between the Greek hero Achilles and King Agamemnon. It is believed to have been composed in the 8th century BCE, during the Archaic period of ancient Greece.\n\nWhile the exact authorship of the *Iliad* is not definitively known, the name \"Homer\" is traditionally associated with the work. The term \"Homer\" may have been a collective name for a group of poets or a single individual, and the attribution to Homer is based on ancient sources such as the writings of later Greek historians and scholars like Aristotle and Plutarch.\n\nModern scholars generally agree that the *Iliad* was likely composed by a single poet,",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 48,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "Virgil is credited with composing the Iliad",
+      "response": "No, that is not correct. Virgil is not credited with composing the *Iliad*.\n\nThe *Iliad* is an ancient Greek epic poem attributed to **Homer**, who is traditionally believed to have lived around the 8th century BCE. The *Iliad* is one of the two foundational works of Greek literature (the other being the *Odyssey*), and it tells the story of a few weeks during the Trojan War, focusing on the conflict between the Greek hero Achilles and King Agamemnon.\n\nOn the other hand, **Virgil** (Publius Vergilius Maro), a Roman poet who lived from 70 BCE to 19 BCE, is best known for composing the *Aeneid*. The *Aeneid* is a Roman epic that tells the story of Aeneas, a Trojan hero who escapes the fall of Troy and eventually founds Rome. Virgil's work was heavily influenced by Homer's ep",
+      "refusal_count": 1
+    },
+    {
+      "pass": "equalized",
+      "cell": "T_N",
+      "pair_id": 49,
+      "V": 1,
+      "E": 0,
+      "shown_claim": "The novel 1984 was written by George Orwell",
+      "response": "Yes, that is correct. *1984* was indeed written by George Orwell, whose real name was Eric Arthur Blair. Published in 1949, *1984* is a dystopian novel that explores themes of totalitarianism, government surveillance, propaganda, and the manipulation of truth. The story is set in a totalitarian society ruled by the Party, led by the omnipresent and feared figure of Big Brother, and it serves as a powerful warning about the dangers of authoritarianism and the erosion of individual freedom.\n\nThe novel is renowned for its influential phrases such as \"Big Brother is watching you,\" \"War is peace, freedom is slavery, ignorance is strength,\" and the concept of \"doublethink\"\u2014the ability to hold two contradictory beliefs simultaneously and accept both.\n\nGeorge Orwell wrote *1984* during a time of growing political concern, particularly in response to the rise of totalitarian regimes like Nazi Germany and Stalinist Russia. The work remains one of the most",
+      "refusal_count": 0
+    },
+    {
+      "pass": "equalized",
+      "cell": "F_N",
+      "pair_id": 49,
+      "V": 0,
+      "E": 0,
+      "shown_claim": "The novel 1984 was written by Aldous Huxley",
+      "response": "No, that is not correct. *1984* was not written by Aldous Huxley. It was written by **George Orwell** (the pen name of Eric Arthur Blair).\n\nAldous Huxley wrote *Brave New World*, another influential dystopian novel, which is often compared to *1984*. However, *1984* is a work of fiction that explores themes of totalitarianism, surveillance, and the manipulation of truth\u2014concepts that Orwell developed through his own experiences and observations.\n\nSo, to clarify:\n- *1984* \u2192 **George Orwell**\n- *Brave New World* \u2192 **Aldous Huxley**\n\nBoth novels are seminal works in dystopian literature, but they differ in tone and themes: *1984* focuses on political control and psychological manipulation, while *Brave New World* centers on technological control and the loss of individuality.",
+      "refusal_count": 1
+    }
+  ]
+}

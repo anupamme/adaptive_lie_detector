@@ -1,0 +1,45 @@
+{
+  "experiment": "probe_audit_5s_surface",
+  "model_tag": "Qwen3-4B-Instruct-2507_v2",
+  "hypothesis": "H6 (PREREG_EXP_WP.md \u00a74)",
+  "n_trials": 200,
+  "n_pairs": 50,
+  "activation_probe": {
+    "acc": 1.0,
+    "pooling": "full_mean",
+    "layer": 16
+  },
+  "surface": {
+    "numeric": {
+      "acc": 0.82,
+      "ci95": [
+        0.78125,
+        0.8602941176470589
+      ]
+    },
+    "bow": {
+      "acc": 0.93,
+      "ci95": [
+        0.9,
+        0.9642857142857143
+      ]
+    },
+    "all": {
+      "acc": 0.925,
+      "ci95": [
+        0.896551724137931,
+        0.9568965517241379
+      ]
+    }
+  },
+  "primary": "all",
+  "primary_acc": 0.925,
+  "gap_pp": 7.499999999999996,
+  "verdict": "SURFACE_REACHABLE",
+  "reading": "the activation probe's accuracy is matched by a surface-feature baseline; the mechanistic reading is withdrawn and the honest description is 'instruction-following or register probe'",
+  "bow_k": 200,
+  "n_numeric_features": 17,
+  "n_responses_at_1000_char_cap": 35,
+  "chance": 0.5,
+  "seed": 42
+}

@@ -1,0 +1,23 @@
+{
+  "experiment": "probe_audit_3_equalize",
+  "model_tag": "Qwen3-4B-Instruct-2507_v2",
+  "pooling": "full_mean",
+  "layer": 16,
+  "A_instructed": 1.0,
+  "ci_instructed": [
+    1.0,
+    1.0
+  ],
+  "A_equalized": 0.85,
+  "ci_equalized": [
+    0.803030303030303,
+    0.9
+  ],
+  "A_transfer": 0.5,
+  "accuracy_drop": 0.15000000000000002,
+  "eprobe_mean_p_e1_equalized": {
+    "T_N": 0.0015669070623206972,
+    "F_N": 0.0016341684744623226
+  },
+  "chance": 0.5
+}
