@@ -59,6 +59,12 @@ def main():
     ap.add_argument("--model_tag", required=True)
     ap.add_argument("--out_dir", default=DATA_DIR)
     ap.add_argument("--boot", type=int, default=2000)
+    ap.add_argument("--prereg", action="store_true",
+                    help="Use the pre-registered (full_mean, prereg_layer) config "
+                         "from the manifest instead of selecting the sweep maximum. "
+                         "The full sweep is still computed and reported; this only "
+                         "changes which row downstream steps read "
+                         "(PREREG_EXP_WP.md §2).")
     args = ap.parse_args()
 
     arrays, meta = load_pass(args.model_tag, "instructed", args.out_dir)
@@ -81,6 +87,18 @@ def main():
         top = int(np.argmax(layer_curve[pooling]))
         print(f"  {pooling:10s} best layer {top:2d}: {max(layer_curve[pooling])*100:5.1f}%")
 
+    sweep_best = dict(best)
+    if args.prereg:
+        with open(os.path.join(args.out_dir, f"manifest_{args.model_tag}.json")) as f:
+            man = json.load(f)
+        pooling = man.get("prereg_pooling", "full_mean")
+        layer = man["prereg_layer"]
+        best = {"acc": layer_curve[pooling][layer], "pooling": pooling,
+                "layer": int(layer)}
+        print(f"\n  --prereg: using {pooling} layer {layer} (fixed in advance); "
+              f"sweep maximum was {sweep_best['pooling']} layer "
+              f"{sweep_best['layer']} at {sweep_best['acc']*100:.1f}%")
+
     # Recompute CI + full scores at the selected config
     Xb = slice_layer(arrays, best["pooling"], best["layer"])
     preds, scores = locpo_predictions(Xb, y, groups)
@@ -96,6 +114,9 @@ def main():
         "selected": {**best, "ci95": [lo, hi]},
         "layer_curve": layer_curve,
     }
+    if args.prereg:
+        out["config_fixed_in_advance"] = True
+        out["sweep_best_not_used"] = sweep_best
     out_path = os.path.join(args.out_dir, f"probe2_{args.model_tag}.json")
     with open(out_path, "w") as f:
         json.dump(out, f, indent=2)

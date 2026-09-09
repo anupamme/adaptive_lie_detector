@@ -38,6 +38,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from experiments.claims_equalized import EQUALIZED_CLAIMS  # noqa: E402
+from experiments.claims_equalized_v2 import EQUALIZED_CLAIMS_V2  # noqa: E402
 
 # --- Default model (current-gen, ungated, non-thinking; runs on mps in fp16) ---
 DEFAULT_MODEL = "Qwen/Qwen3-4B-Instruct-2507"
@@ -99,8 +100,37 @@ CELL_LABELS = {
     "T_N": "true/neutral", "F_N": "false/neutral",
 }
 
-# Claim -> matched-pair index (the independent unit for clustered inference / LOCPO)
-CLAIM_TO_PAIR = {c: i for i, (tc, fc) in enumerate(EQUALIZED_CLAIMS) for c in (tc, fc)}
+# --- Claim sets (PREREG_EXP_WP.md: v1 is exploratory, v2 is the confirmatory re-run) ---
+#
+# v1 and v2 share no claim string. EXP-R1b/R1c used the same v2 set for the
+# black-box battery, so the two paradigms are audited on identical materials.
+CLAIM_SETS = {"v1": EQUALIZED_CLAIMS, "v2": EQUALIZED_CLAIMS_V2}
+DEFAULT_CLAIM_SET = "v1"
+
+
+def resolve_claim_set(name=DEFAULT_CLAIM_SET):
+    """Return the claim-pair list for `name`, failing loudly on an unknown name."""
+    if name not in CLAIM_SETS:
+        raise ValueError(f"Unknown claim set {name!r}; have {sorted(CLAIM_SETS)}")
+    return CLAIM_SETS[name]
+
+
+def claim_pair_map(claim_set=DEFAULT_CLAIM_SET):
+    """Claim -> matched-pair index, built from the SELECTED set.
+
+    The independent unit for clustered inference / LOCPO. Callers that switch
+    claim sets must use this rather than the module-level CLAIM_TO_PAIR below: a
+    stale map would mis-group the leave-one-claim-pair-out folds and inflate
+    every accuracy without raising an error (PREREG_EXP_WP.md §9 DEVIATION 5).
+    """
+    claims = resolve_claim_set(claim_set)
+    return {c: i for i, (tc, fc) in enumerate(claims) for c in (tc, fc)}
+
+
+# Back-compatible v1 map. Steps 1-6 take `pair_id` from enumerate() over the
+# selected set, so nothing in the probe suite depends on this; it is kept so
+# existing importers are unaffected.
+CLAIM_TO_PAIR = claim_pair_map("v1")
 
 SEED = 42
 

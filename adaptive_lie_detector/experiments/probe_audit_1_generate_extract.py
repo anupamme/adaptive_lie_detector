@@ -36,11 +36,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from experiments.claims_equalized import EQUALIZED_CLAIMS  # noqa: E402
 from experiments.probe_audit_common import (  # noqa: E402
     DEFAULT_MODEL, DATA_DIR, INSTRUCTED_CELLS, EQUALIZED_CELLS,
-    NEUTRAL_SYSTEM_PROMPT, OPENING_QUESTION, CLAIM_TO_PAIR,
-    system_prompt_for_cell, count_refusal_markers,
+    DEFAULT_CLAIM_SET, CLAIM_SETS, NEUTRAL_SYSTEM_PROMPT, OPENING_QUESTION,
+    resolve_claim_set, system_prompt_for_cell, count_refusal_markers,
 )
 
 
@@ -162,6 +161,14 @@ def run_pass(ext, cells, pairs, pass_name):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--model_tag", default=None,
+                    help="output tag; defaults to the model name. Give an explicit "
+                         "tag (e.g. Qwen3-4B-Instruct-2507_v2) so a new claim set "
+                         "cannot overwrite committed artifacts of another one.")
+    ap.add_argument("--claim_set", default=DEFAULT_CLAIM_SET,
+                    choices=sorted(CLAIM_SETS),
+                    help="v1 = exploratory set; v2 = the disjoint confirmatory set "
+                         "(PREREG_EXP_WP.md)")
     ap.add_argument("--device", default="auto")
     ap.add_argument("--dtype", default="auto",
                     choices=["auto", "float16", "float32", "bfloat16"])
@@ -180,21 +187,44 @@ def main():
         args.n_pairs = min(args.n_pairs, 2)
         args.max_new_tokens = 60
 
-    device = get_device(args.device)
-    dtype = dtype_for(device, args.dtype)
-    ext = Extractor(args.model, device, dtype, max_new_tokens=args.max_new_tokens)
-
-    pairs = list(enumerate(EQUALIZED_CLAIMS))[:args.n_pairs]
+    claims = resolve_claim_set(args.claim_set)
+    pairs = list(enumerate(claims))[:args.n_pairs]
     passes = (["instructed", "equalized"] if args.passes == "both" else [args.passes])
     cellmap = {"instructed": INSTRUCTED_CELLS, "equalized": EQUALIZED_CELLS}
 
     os.makedirs(args.out_dir, exist_ok=True)
-    model_tag = args.model.split("/")[-1].replace(".", "_")
+    model_tag = args.model_tag or args.model.split("/")[-1].replace(".", "_")
+
+    # Refuse to overwrite artifacts collected under a different claim set: the v1
+    # results are committed and exploratory, and silently replacing them with v2
+    # activations under the same tag would be unrecoverable.
+    prev_path = os.path.join(args.out_dir, f"manifest_{model_tag}.json")
+    if os.path.exists(prev_path):
+        with open(prev_path) as f:
+            prev_set = json.load(f).get("claim_set", "v1")
+        if prev_set != args.claim_set:
+            raise SystemExit(
+                f"refusing to overwrite: {prev_path} was collected on claim set "
+                f"{prev_set!r} but --claim_set is {args.claim_set!r}. Pass a "
+                f"distinct --model_tag (e.g. {model_tag}_{args.claim_set}).")
+
+    device = get_device(args.device)
+    dtype = dtype_for(device, args.dtype)
+    ext = Extractor(args.model, device, dtype, max_new_tokens=args.max_new_tokens)
+
+    # Fractional-depth layer for the confirmatory probe, derived and recorded here
+    # rather than selected later (PREREG_EXP_WP.md §2): layer 16 of Qwen3-4B's 37
+    # hidden states, carried across models at the same relative depth.
+    prereg_layer = round(16 / 36 * (ext.n_hidden - 1))
     manifest = {"model": args.model, "model_tag": model_tag, "device": device,
                 "dtype": str(dtype), "n_pairs": args.n_pairs,
+                "claim_set": args.claim_set,
                 "max_new_tokens": args.max_new_tokens,
                 "n_hidden_states": ext.n_hidden, "hidden_dim": ext.hidden_dim,
+                "prereg_pooling": "full_mean", "prereg_layer": prereg_layer,
                 "smoke": args.smoke, "passes": {}}
+    print(f"  claim set {args.claim_set} ({len(pairs)} pairs); "
+          f"pre-registered probe config: full_mean layer {prereg_layer}")
 
     for pname in passes:
         meta, arr = run_pass(ext, cellmap[pname], pairs, pname)
