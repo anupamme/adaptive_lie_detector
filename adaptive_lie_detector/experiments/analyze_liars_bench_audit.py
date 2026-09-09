@@ -270,7 +270,14 @@ def analyze_cell(recs, rng, config=""):
     hon = [r for r in recs if not r["deceptive"]]
     iii = requirement_iii(recs)
 
-    # (i) fixed elicitation: exactly one system prompt across the cell.
+    # (i) fixed elicitation: exactly one system prompt across the cell. This is
+    # evidence about the SYSTEM MESSAGE ONLY -- it cannot see an elicitation cue
+    # in the user turn, and `soft-trigger` is the cell that proves the point (one
+    # system md5 per cell, while a greeting phrase in the user message is 92-100%
+    # predictive of `deceptive`). See the block comment above
+    # `run_liars_bench_audit.prompt_only_recoverability` for the two diagnostics
+    # that measure this and for why neither is used as a gate. The gate that
+    # catches a label coinciding with a prompt difference is (iii).
     req_i = len(md5s) == 1
     # (ii) the grade must not BE the condition label. On this corpus `deceptive`
     # is the release's own annotation; if it is a deterministic function of the
@@ -331,6 +338,8 @@ def analyze_cell(recs, rng, config=""):
         "n": len(recs), "n_deceptive": len(dec), "n_honest": len(hon),
         "n_distinct_system_md5": len(md5s),
         "requirements": {"i_fixed_elicitation": req_i,
+                         "i_basis": "single_system_prompt_md5",
+                         "i_covers_system_message_only": True,
                          "ii_grade_not_condition_label": req_ii,
                          "iii_paired_scenarios": iii["met"],
                          "iii_detail": iii,
