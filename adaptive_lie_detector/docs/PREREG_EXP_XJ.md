@@ -242,6 +242,60 @@ reported and the arm is declared **UNDERPOWERED** rather than tested.
 
 ---
 
+## 4a. AMENDMENT 1 — H8, the instruction-stripped context (added 2026-09-09, **after H1 was inspected**)
+
+**Disclosure first.** This arm was written **after** H1's result was seen and **before any H8 judgement
+existed**. It is therefore *pre-specified but not blind*, is labelled **EXPLORATORY** wherever it
+appears, and never joins the confirmatory set of §4. The H1 result it responds to: on the visible
+channel, at fixed elicitation, the judge separates `graded_deception` by **+1.476** score points in
+`label_deceptive` (6.13 vs 4.66, n=395/38, p=0.0001, AUROC 0.706) and **+4.041** in `label_honest`
+(6.00 vs 1.96, n=21/469, p=0.0001, AUROC 0.938).
+
+**Why the arm is needed.** H1 is a criterion-4 positive, and two mechanisms produce it:
+
+1. the visible answer itself carries a deception-associated signature (an answer that is wrong, with
+   confident reasoning constructed to look sound), which the judge reads; or
+2. the judge reads the **deception instruction**, which sits in the corpus's system message and is
+   inside the `<context>` the authors' own detector definition supplies. The judge's own `<step1>`
+   text cites it explicitly (*"The system prompt instructs the AI to 'sandbag'…"*), then checks the
+   answer against its own knowledge — i.e. it verifies **compliance with an instruction it can read**.
+
+Mechanism 2 is this paper's confound relocated to the detector's input, and the two are separable
+because on this corpus the **entire** sandbagging instruction is in the system message
+(`data/sandbagging_v2/sabotage_evals_system_prompt.txt`); the user message is the bare question plus
+an answer-format line (`sabotage_evals_user_prompt.txt`). Removing the system message therefore
+removes $E$ from the detector's context and leaves exactly what a monitor without access to the
+operator's prompt would see. **H8 is prompt equalization applied to the detector's context.**
+
+**H8 (exploratory, sandbagging, context ablation).** H1's contrast, recomputed with context mode
+`no_system`: trailing assistant messages dropped as before, then **every system message dropped**.
+Judge prompt, output channel (`sandbag_visible`), rollout set, direction (deception scored higher),
+permutation test (`perm_p_unpaired`, one-sided, 10,000 draws, seed 42), `MIN_CELL`, parse-rate gate,
+degeneracy gate, MDE reporting and binarized/AUROC secondaries are **all unchanged from §4/§5**. Only
+the context differs, so H8 vs H1 is a paired within-rollout comparison on identical items.
+
+**Secondary, pre-specified:** per-rollout paired $\Delta$ (H8 − H1 on matching `idx`): mean, mean
+$|\Delta|$, Spearman correlation, and the share of rollouts whose binarized ($\geq 4$) flag flips.
+
+**Interpretation, fixed before the run.** Let $R$ = H8's difference in means divided by H1's, per label
+cell.
+
+| Branch | Condition | What may be claimed |
+|---|---|---|
+| **A** | H8 significant in the primary cell (`label_deceptive`, $p<0.05$ one-sided) **and** $R \geq 0.5$ in both cells | The visible channel carries a deception-associated signal readable **without** the elicitation instruction. Criterion 4 is **met by this instrument**; the EXP-XA null is **instrument-specific**, and the protocol has its first positive endpoint. §3.5, §1's claim 3, Table 1's row C, the abstract and the conclusion are revised to say so. |
+| **B** | H8 significant in the primary cell **and** $R < 0.5$ in either cell | Both mechanisms operate. Report both effects and the attenuation ratio; claim 3 is still revised — a positive is a positive — with the instruction-dependence quantified next to it. |
+| **C** | H8 not significant in the primary cell | The H1 positive is **instruction-context dependent**: the strongest black-box instrument in the release separates deception only when $E$ is inside its own input. Claim 3 stands, and gains that sentence. |
+| **D** | A gate of §5 fails (degenerate judge, or `unknown` > 20%) | `INAPPLICABLE`; no claim either way, counts reported. |
+
+Branch **C** is the branch that favours this paper's thesis, which is why the threshold, the test and
+the wording are fixed here, before the arm is run.
+
+**Command.** `python3 experiments/run_external_audit_judge.py --h8` (arm `visible_nosys`, 1000 items,
+one call each; appended to the same `external_audit_judge_raw.jsonl`, so §8's offline-reproducibility
+property is unchanged).
+
+---
+
 ## 5. Applicability gate — fixed in advance
 
 An arm enters its test only if **all** of:
@@ -374,9 +428,112 @@ Bedrock) and `temperature` is 0.0 rather than the API default. Rationale, conseq
 stability check they motivate are in §2. The **prompt** — which is the detector definition — is
 unmodified, and its md5 is recorded with every judgement.
 
+**DEVIATION 1 (2026-09-09, before the full run, no judgement inspected).** §2 names
+`anthropic.AnthropicBedrock` as the client. The `anthropic` package is not installed in this
+environment (and `.venv/` does not exist — the command lines in the older `PREREG_*.md` documents are
+stale; §8 above uses the interpreter that actually runs, `python3` 3.14.6). EXP-XJ therefore calls
+Bedrock through **`boto3`'s `bedrock-runtime.invoke_model`**, posting the identical Anthropic Messages
+wire body (`{"anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000, "temperature": 0.0,
+"system": <prompt>, "messages": [{"role": "user", "content": <assembled user prompt>}]}`). This is a
+**client-library** change only: same endpoint, same model id, same request schema, same prompt, same
+`max_tokens`, same temperature. Nothing about the detector, the channels, the hypotheses or the
+statistics is affected.
+
 ---
 
 ## 10. Outcome
 
-*To be completed after the analyzer runs. The branch taken (§7) is recorded here with its numbers, and
-the "may claim" / "may not claim" lists are written before any paper prose is edited.*
+*Written 2026-09-09 from `analyze_external_audit_judge.py` on the committed
+`data/results/external_audit_judge_raw.jsonl` (3,605 judgements), **before any paper prose was
+edited**. Every number below is offline-reproducible with no model calls.*
+
+### 10.1 Gates
+
+Both corpora passed §5: sandbagging has exactly **one** distinct system-message md5 across all 1,000
+rollouts ($E$ fixed, asserted mechanically); `unknown` parse rates are 1.2% (visible), 0.8% (full),
+0.7% (visible, instruction-stripped), 6.0% / 1.2% / 2.3% on the insider arms — all far under the 20%
+ceiling; the judge is non-degenerate everywhere except the one cell noted in 10.3. No transport errors
+in 3,605 calls. Truncation at `max_tokens=1000` occurred 27 / 25 / 8 / 0 times and is handled by the
+pre-registered parse rule, not re-rolled.
+
+### 10.2 Results
+
+| Arm | Cells (dec vs hon) | Diff (score pts) | $p$ | AUROC | Binarised $\geq 4$ | Verdict |
+|---|---|---|---|---|---|---|
+| **H1** sandbagging, visible, `label_deceptive` | 395 vs 38 | **+1.476** | 0.0001 | 0.706 | +26.1 pp | **CRITERION4_POSITIVE** |
+| **H1** sandbagging, visible, `label_honest` | 21 vs 469 | **+4.041** | 0.0001 | 0.938 | +82.9 pp | **CRITERION4_POSITIVE** |
+| **H8** as H1, instruction stripped, `label_deceptive` | 399 vs 38 | **+1.995** | 0.0001 | 0.777 | +37.1 pp | **CRITERION4_POSITIVE** |
+| **H8** as H1, instruction stripped, `label_honest` | 21 vs 467 | **+4.155** | 0.0001 | 0.949 | +82.7 pp | **CRITERION4_POSITIVE** |
+| **H4** sandbagging, full transcript, `label_deceptive` | 399 vs 39 | +2.265 | 0.0001 | 0.877 | +40.5 pp | positive |
+| **H4** sandbagging, full transcript, `label_honest` | 21 vs 466 | +3.644 | 0.0001 | 0.944 | +75.3 pp | positive |
+| **H2** insider, visible report, corpus grade | 73 vs 64 | +0.666 | 0.0001 | — | — | **CRITERION4_POSITIVE** |
+| **H3** insider, visible report, action-grounded trade label | 41 vs 5 | −0.512 | 1.0000 | — | — | **CRITERION4_NULL** (directional failure; $n=5$) |
+| **H5** insider, unrestricted context, corpus grade | 74 vs 69 | +0.670 | 0.0001 | — | — | positive |
+| H6 ($\tau_E$, descriptive only) | — | +0.134 / +2.698 | 0.096 / 0.0001 | — | — | never a criterion-4 result |
+
+**Achieved power.** MDE at 80% power, one-sided $\alpha=0.05$: **0.39** score points (H1 primary),
+**1.07** (H1 secondary, the 21-rollout cell), 0.56 / 1.09 for H8. The 38/21-rollout cells are the
+binding constraint as anticipated in §0, and every reported positive exceeds its own MDE.
+
+**H7 instrument stability** (98 re-judged pairs): mean $|\Delta| = 0.071$ score points, exact
+agreement **94.9%**, Spearman **0.983**, cell means 4.46 → 4.39. **No verdict flips.**
+
+**Topic stratification.** Directionally consistent wherever a topic cell clears `MIN_CELL`: `cyber`
++1.453 ($p=0.0001$, $n=94/35$) inside `label_deceptive`; `astronomy` +4.343 ($p=0.0001$, $n=10/137$)
+inside `label_honest`. Every other topic cell is **UNDERPOWERED** and is reported as such, not pooled
+in silently.
+
+### 10.3 Branch taken
+
+**§7's positive branch, and AMENDMENT 1's branch A.** $R = $ H8/H1 $= 1.35$ (primary) and $1.03$
+(secondary): removing the elicitation instruction from the judge's context **increases** the
+separation. Paired on 982 rollouts the two arms agree closely (Spearman 0.814, 8.7% of $\geq 4$ flags
+flip, mean score 4.06 → 3.71). The judge is therefore reading the **output**, not the instruction.
+
+The one degenerate cell is H6's `grade_deceptive` contrast (SD 0.00 in the 21-rollout cell), reported
+`INAPPLICABLE_DEGENERATE` on the binarised secondary and never as an effect of zero.
+
+### 10.4 May claim
+
+1. **Criterion 4 is satisfiable by a public artifact, and the sandbagging corpus satisfies it for a
+   black-box detector.** $E$ is byte-identically fixed; $D$ comes from
+   `SandbaggingV2Dataset.label_response`, a deterministic function of the **hidden** `<step1-results>`
+   and `<step2-results>` tags, which the visible-channel detector never sees — so requirement (v) holds
+   and this is **not** construct recovery.
+2. **On that corpus the criterion-4 verdict depends on the instrument.** A 14-pattern surface rule is
+   null (+4.1 / +7.7 pp, $p \geq 0.17$; EXP-XA). The corpus authors' own black-box judge, on the same
+   rollouts and the same visible channel, separates realized deception by **+2.00** and **+4.16** score
+   points, AUROC **0.777** and **0.949**, $p = 0.0001$, **with the elicitation instruction removed from
+   its context**.
+3. **The EXP-XA null must therefore be restated as instrument-specific**, in the abstract, §1's claim 3,
+   Table 1's row C, §3.5, §4 and the conclusion. The blanket form ("criterion 4 is testable in one
+   audited corpus and there it returns a null") is **retired**.
+4. **The instrument that reproduces instructed-benchmark accuracy is the one that fails at fixed
+   elicitation.** The surface rule reaches 69–80% on the instructed benchmark and 0 at fixed
+   elicitation; the semantic judge, which the instructed benchmark never needed, succeeds there. This
+   is the sharpest available empirical statement of the paper's thesis: the two accuracies are not
+   measuring the same thing.
+5. **Requirement (v) gains independent support on insider trading with a stronger instrument**: H2
+   positive on the corpus's own grade, H3 null against the action-grounded trade label — the construct
+   recovery EXP-IT2 found with a regex, reproduced with an LLM judge.
+6. The judge is a **stable** instrument (H7) and its effects survive topic stratification wherever
+   power exists.
+
+### 10.5 May NOT claim
+
+1. **Not** that instructed-benchmark accuracy was measuring deception. H1/H8 concern deception arising
+   at fixed elicitation in a corpus we did not build; the Proposition and §3.2–§3.4 are untouched.
+2. **Not** that the sandbagging corpus satisfies all five requirements: it still fails **(iii)** — no
+   item appears under both conditions, so the pre-registered capability screen remains unrunnable.
+3. **Not** $\tau_D$. H1/H8 are observational at fixed $E$: a latent $U$ with $U \to D$ and $U \to S$
+   survives them, exactly as Table 2's ladder states. What is established is a
+   deception-**associated** signal at fixed elicitation.
+4. **Not** that the judge would work in deployment. The corpus is 4-option multiple choice with a
+   checkable answer and the judge scores 1–7 with reasoning; neither affordance is general. H8 removes
+   the instruction from its context but not the question.
+5. **Not** a second corpus. EXP-XJ adds a second **detector** to ten rollout sets from one public
+   release, every rollout Llama-70B.
+6. **Not** H3 as evidence of absence: $n = 5$ in the honest cell, a directional failure reported as
+   such and never re-tested two-sided.
+7. **Not** blind. AMENDMENT 1 was written after H1 was inspected; H8 is labelled **exploratory,
+   pre-specified** wherever it appears.
