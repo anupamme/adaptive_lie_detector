@@ -32,7 +32,7 @@ import sys
 import numpy as np
 import torch
 from tqdm import tqdm
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoConfig, AutoModelForCausalLM, AutoTokenizer
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -63,6 +63,24 @@ def dtype_for(device, requested):
     return torch.float16 if device != "cpu" else torch.float32
 
 
+def text_config(cfg):
+    """The text half of a config. Multimodal checkpoints (e.g. gemma-3-4b-it,
+    which loads as Gemma3ForConditionalGeneration) keep num_hidden_layers and
+    hidden_size under `text_config`, not at the top level; for a plain causal LM
+    this returns the config itself. Model construction only -- the extraction,
+    pooling and probe code are unchanged (PREREG_EXP_WP.md DEVIATION 7)."""
+    getter = getattr(cfg, "get_text_config", None)
+    if getter is not None:
+        return getter()
+    return getattr(cfg, "text_config", cfg)
+
+
+def hidden_geometry(cfg):
+    """(n_hidden_states, hidden_dim) for the text stack, incl. the embedding layer."""
+    tc = text_config(cfg)
+    return tc.num_hidden_layers + 1, tc.hidden_size
+
+
 class Extractor:
     def __init__(self, model_name, device, dtype, max_new_tokens=200):
         self.device = device
@@ -77,8 +95,7 @@ class Extractor:
         if device != "cpu":
             self.model = self.model.to(device)
         self.model.eval()
-        self.n_hidden = self.model.config.num_hidden_layers + 1  # + embedding layer
-        self.hidden_dim = self.model.config.hidden_size
+        self.n_hidden, self.hidden_dim = hidden_geometry(self.model.config)
         print(f"  n_hidden_states={self.n_hidden}, hidden_dim={self.hidden_dim}")
 
     def _ids(self, messages, add_generation_prompt):
@@ -178,6 +195,10 @@ def main():
     ap.add_argument("--max_new_tokens", type=int, default=200)
     ap.add_argument("--smoke", action="store_true",
                     help="Tiny run: 2 pairs, cached small model default")
+    ap.add_argument("--manifest_only", action="store_true",
+                    help="Collect nothing; rebuild the manifest from the .npz/meta "
+                         "files already on disk for this --model_tag. For recovering "
+                         "from a run interrupted between passes.")
     ap.add_argument("--out_dir", default=DATA_DIR)
     args = ap.parse_args()
 
@@ -189,7 +210,11 @@ def main():
 
     claims = resolve_claim_set(args.claim_set)
     pairs = list(enumerate(claims))[:args.n_pairs]
-    passes = (["instructed", "equalized"] if args.passes == "both" else [args.passes])
+    if args.manifest_only:
+        passes = []
+    else:
+        passes = (["instructed", "equalized"] if args.passes == "both"
+                  else [args.passes])
     cellmap = {"instructed": INSTRUCTED_CELLS, "equalized": EQUALIZED_CELLS}
 
     os.makedirs(args.out_dir, exist_ok=True)
@@ -210,21 +235,48 @@ def main():
 
     device = get_device(args.device)
     dtype = dtype_for(device, args.dtype)
-    ext = Extractor(args.model, device, dtype, max_new_tokens=args.max_new_tokens)
+    if args.manifest_only:
+        # Rebuild the manifest from activations already on disk, without loading
+        # weights. Needed when a run is interrupted between passes: the .npz and
+        # meta files of the completed passes are intact, and re-collecting them
+        # would cost an hour of generation to recover pure bookkeeping.
+        ext = None
+        n_hidden, hidden_dim = hidden_geometry(AutoConfig.from_pretrained(args.model))
+    else:
+        ext = Extractor(args.model, device, dtype, max_new_tokens=args.max_new_tokens)
+        n_hidden, hidden_dim = ext.n_hidden, ext.hidden_dim
 
     # Fractional-depth layer for the confirmatory probe, derived and recorded here
     # rather than selected later (PREREG_EXP_WP.md §2): layer 16 of Qwen3-4B's 37
     # hidden states, carried across models at the same relative depth.
-    prereg_layer = round(16 / 36 * (ext.n_hidden - 1))
+    prereg_layer = round(16 / 36 * (n_hidden - 1))
     manifest = {"model": args.model, "model_tag": model_tag, "device": device,
                 "dtype": str(dtype), "n_pairs": args.n_pairs,
                 "claim_set": args.claim_set,
                 "max_new_tokens": args.max_new_tokens,
-                "n_hidden_states": ext.n_hidden, "hidden_dim": ext.hidden_dim,
+                "n_hidden_states": n_hidden, "hidden_dim": hidden_dim,
                 "prereg_pooling": "full_mean", "prereg_layer": prereg_layer,
                 "smoke": args.smoke, "passes": {}}
     print(f"  claim set {args.claim_set} ({len(pairs)} pairs); "
           f"pre-registered probe config: full_mean layer {prereg_layer}")
+
+    # Carry forward any pass not collected in this invocation whose artifacts are
+    # already on disk, so a single-pass re-run does not emit a manifest that hides
+    # the other pass. n_trials is read from the stored records, never assumed.
+    for pname in ("instructed", "equalized"):
+        if pname in passes:
+            continue
+        npz_path = os.path.join(args.out_dir, f"acts_{model_tag}_{pname}.npz")
+        meta_path = os.path.join(args.out_dir, f"meta_{model_tag}_{pname}.json")
+        if not (os.path.exists(npz_path) and os.path.exists(meta_path)):
+            continue
+        with open(meta_path) as f:
+            recs = json.load(f)["records"]
+        manifest["passes"][pname] = {"n_trials": len(recs),
+                                     "npz": os.path.basename(npz_path),
+                                     "meta": os.path.basename(meta_path),
+                                     "carried_forward": True}
+        print(f"  carried forward existing pass {pname!r}: {len(recs)} trials")
 
     for pname in passes:
         meta, arr = run_pass(ext, cellmap[pname], pairs, pname)
