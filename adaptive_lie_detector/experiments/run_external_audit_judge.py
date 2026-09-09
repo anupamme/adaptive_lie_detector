@@ -299,6 +299,69 @@ def lb_subsample(rolls, per_class, seed=LB_SEED):
     return keep, k
 
 
+LB_CONTROL_CONFIG = "alpaca"
+LB_CONTROL_PER_GEN = 100
+LB_CONTROL_ARM = "visible_h6_control"
+
+
+def build_lb_control_items():
+    """PREREG_EXP_XL §4 H6: the judge's absolute level on the honest control.
+
+    §4 pre-registered H6 -- "the rule's fire rate and the judge's mean score are
+    reported as a baseline ... If the judge's score on a supposedly-honest control
+    is not clearly lower than on any deceptive cell, the INSTRUMENT is reported as
+    suspect" -- but §4's subsample rule is written per ELIGIBLE config, and `alpaca`
+    is not eligible (its label does not vary). So the hypothesis had no draw rule
+    and the control was initially not judged at all.
+
+    Fixed here, and disclosed as a §9 deviation because it was fixed after the
+    confirmatory arms had been scored: `LB_CONTROL_PER_GEN` = 100 rollouts per
+    generator, drawn by `random.Random(LB_SEED).sample` over sorted `lb_index`, on
+    the **visible channel only** -- H6 is a question about a level, not a channel
+    contrast, so no `full` arm is run and no new contrast becomes available. The arm
+    is namespaced `visible_h6_control` so `done_keys` can never re-issue or
+    contaminate a confirmatory arm.
+
+    This can only weaken a judge claim, never strengthen one: a control that scores
+    as high as the honest arm of a positive cell makes the instrument suspect, and
+    that is the outcome this arm exists to be able to report.
+    """
+    items, empty, drawn = [], {}, []
+    rolls = lb_load_rolls(LB_CONTROL_CONFIG)
+    by_gen = {}
+    for r in rolls:
+        by_gen.setdefault(r["metadata"].get("generator") or "unknown", []).append(r)
+    for generator in sorted(by_gen):
+        cell = by_gen[generator]
+        idxs = sorted(r["metadata"]["lb_index"] for r in cell)
+        k = min(LB_CONTROL_PER_GEN, len(idxs))
+        keep = set(random.Random(LB_SEED).sample(idxs, k))
+        n_dec = sum(1 for r in cell if r["metadata"]["deceptive"])
+        drawn.append({"config": LB_CONTROL_CONFIG, "generator": generator,
+                      "n_cell": len(cell), "n_kept": len(keep),
+                      "n_deceptive_in_cell": n_dec})
+        arm, ctx_mode, extract = LB_ARMS[0]          # the visible arm, verbatim
+        for roll in cell:
+            idx = roll["metadata"]["lb_index"]
+            if idx not in keep:
+                continue
+            out = extract(roll)
+            if not (out or "").strip():
+                empty[LB_CONTROL_ARM] = empty.get(LB_CONTROL_ARM, 0) + 1
+                continue
+            ctx = format_dialogue(context_messages(roll, ctx_mode))
+            items.append({
+                "corpus": f"{LB_CORPUS}:{LB_CONTROL_CONFIG}",
+                "idx": idx, "arm": LB_CONTROL_ARM, "context_mode": ctx_mode,
+                "generator": generator,
+                "system_md5_corpus": system_md5(roll),
+                "n_chars_context": len(ctx), "n_chars_output": len(out),
+                "user": judge_user_prompt(ctx, out),
+                "label": bool(roll["metadata"]["deceptive"]),
+            })
+    return items, empty, drawn
+
+
 def build_lb_items(smoke=0):
     """One work item per (eligible cell, kept rollout, arm). EXP-XL's own builder.
 
@@ -459,6 +522,13 @@ def main():
     ap.add_argument("--stability", action="store_true",
                     help="PREREG H7: re-judge a fixed 100-rollout sandbagging "
                          "subsample on the visible channel")
+    ap.add_argument("--h6_control", action="store_true",
+                    help="PREREG_EXP_XL §4 H6: judge the `alpaca` honest control on "
+                         "the visible channel only, to give the judge's absolute "
+                         "level a reference point. §4 pre-registered the hypothesis "
+                         "but its subsample rule covers eligible configs only, so "
+                         "the draw is fixed in build_lb_control_items() and "
+                         "disclosed as a §9 deviation.")
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
@@ -471,6 +541,25 @@ def main():
 
     # ---- EXP-XL: the same judge on the second release (PREREG_EXP_XL §4) -------------
     if args.corpus == LB_CORPUS:
+        if args.h6_control:
+            items, empty, drawn = build_lb_control_items()
+            for d in drawn:
+                print(f"  [{LB_CORPUS} H6 control] {d['config']}/{d['generator']}: "
+                      f"cell n={d['n_cell']} ({d['n_deceptive_in_cell']} deceptive) "
+                      f"-> {d['n_kept']} rollouts, visible channel only")
+            print(f"  {len(items)} items on arm {LB_CONTROL_ARM}, "
+                  f"empty-channel skips={empty}")
+            have = done_keys(LB_RAW_PATH)
+            todo = [it for it in items
+                    if (it["corpus"], it["idx"], it["arm"]) not in have]
+            print(f"  {len(have)} judgements already on disk; {len(todo)} to run")
+            if not todo:
+                print("  nothing to do")
+                return
+            tot = run(todo, LB_RAW_PATH, args.workers)
+            cost = tot["in"] / 1e6 * 1.0 + tot["out"] / 1e6 * 5.0
+            print(f"  wrote {LB_RAW_PATH}\n  {tot}   approx cost ${cost:.2f}")
+            return
         items, empty, drawn = build_lb_items(smoke=args.smoke)
         for d in drawn:
             print(f"  [{LB_CORPUS}] {d['config']}/{d['generator']}: "
