@@ -189,3 +189,7 @@ cython_debug/
 # NOTE: commits before 2026-09-09 do contain some of these blobs; a full-history
 # clone will therefore still download them.
 adaptive_lie_detector/data/probe_audit/*.npz
+
+# EXP-XL: Liars' Bench is a gated corpus and not ours to redistribute
+# (PREREG_EXP_XL.md §2). The committed pin is liars_bench_manifest.json.
+adaptive_lie_detector/data/external/liars_bench/
