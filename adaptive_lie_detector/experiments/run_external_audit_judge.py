@@ -24,6 +24,12 @@ Usage:
     python3 experiments/run_external_audit_judge.py --corpus sandbagging
     python3 experiments/run_external_audit_judge.py --corpus insider
     python3 experiments/run_external_audit_judge.py --stability
+
+EXP-XL (docs/PREREG_EXP_XL.md §4) reuses this same judge, unedited, on a second public
+release. It writes to its own JSONL so EXP-XJ's committed judgements are never touched:
+
+    python3 experiments/run_external_audit_judge.py --corpus liars_bench --smoke 5
+    python3 experiments/run_external_audit_judge.py --corpus liars_bench --workers 8
 """
 
 import argparse
@@ -62,6 +68,19 @@ from run_insider_audit import (  # noqa: E402
 )
 from run_insider_audit import visible_channel as insider_visible  # noqa: E402
 
+# EXP-XL (docs/PREREG_EXP_XL.md §4): the same judge, verbatim, on a second public
+# release. Its channel extractors take a ROLL, not a string, because §3 defines this
+# corpus's full transcript as *every message including system* -- which is not
+# recoverable from the model's output text alone. They therefore cannot be dropped
+# into `ARMS`, and EXP-XL gets its own item builder below; the EXP-XJ code path is
+# left byte-identical so its committed numbers still reproduce.
+from run_liars_bench_audit import (  # noqa: E402
+    NORM_DIR as LB_NORM_DIR,
+    SURVEY_PATH as LB_SURVEY_PATH,
+    full_text as lb_full,
+    visible_text as lb_visible,
+)
+
 import boto3  # noqa: E402
 
 # --- PREREG §2: the detector, read from the release and never edited ------------------
@@ -79,10 +98,21 @@ TEMPERATURE = 0.0        # PREREG §2 DEVIATION 0, for reproducibility
 RAW_PATH = os.path.join(RESULTS, "external_audit_judge_raw.jsonl")
 SMOKE_PATH = os.path.join(RESULTS, "external_audit_judge_smoke.jsonl")
 
+# EXP-XL writes to its own files. Deliberate: verification requires that EXP-XJ's
+# committed JSONL still reproduce every published judge number byte-for-byte, and
+# appending a second corpus to it would put that at risk for no gain.
+LB_RAW_PATH = os.path.join(RESULTS, "liars_bench_judge_raw.jsonl")
+LB_SMOKE_PATH = os.path.join(RESULTS, "liars_bench_judge_smoke.jsonl")
+
 CORPORA = {
     "sandbagging": "rollouts/sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json",
     "insider": "rollouts/insider_trading__onpolicy__llama-70b.json",
 }
+
+# EXP-XL. Not a path under APOLLO: this corpus is gated, so it is read from the
+# normalized rolls `run_liars_bench_audit.py` writes, and the eligible cells are read
+# from the committed survey rather than chosen here.
+LB_CORPUS = "liars_bench"
 
 # (arm name, context rule, output-channel extractor) — PREREG §3/§4
 ARMS = {
@@ -100,6 +130,30 @@ ARMS = {
 # PREREG AMENDMENT 1: H8, the instruction-stripped context. Exploratory, run under
 # --h8 so the confirmatory arms above are never re-issued.
 H8_ARMS = [("visible_nosys", "no_system", sandbag_visible)]
+
+# EXP-XL arms (PREREG_EXP_XL §3/§4). The context modes mirror the *insider* arms above,
+# because the eligible cells are an agentic multi-turn setting: `nonassistant_only` lets
+# the judge read the scenario as the operator set it up rather than the agent's own
+# prior reasoning. The `full` arm's OUTPUT deliberately carries every message including
+# the system prompt -- the documented asymmetry against Apollo's `full_transcript`,
+# which is output-only -- so a full-vs-visible gap here is not the same quantity as
+# Apollo's +84.3 pp and is not compared to it directly.
+LB_ARMS = [
+    ("visible", "nonassistant_only", lb_visible),        # H2 primary
+    ("full", "drop_trailing_assistant", lb_full),        # H3 channel contrast
+]
+
+# PREREG_EXP_XL §4: "at most 400 examples per eligible config per channel, balanced on
+# `deceptive` (200/200, or the smaller class's size doubled if it is under 200), drawn
+# by `random.Random(42).sample` over sorted row indices, before any score is seen."
+#
+# Applied per eligible (config x generator) CELL, not per config. The estimand §4 fixes
+# is per-cell, and §5 forbids pooling generators ("a cell pooling four generators is not
+# one elicitation condition"), so a per-config draw would mix elicitation conditions
+# inside one contrast. Both readings respect the >= 3,200-call ceiling; this one keeps
+# the tested quantity the one that was pre-registered.
+LB_PER_CLASS = 200
+LB_SEED = 42
 
 STABILITY_N = 100        # PREREG §4 H7
 STABILITY_SEED = 42
@@ -208,6 +262,79 @@ def load_rolls(corpus):
     with open(os.path.join(APOLLO, CORPORA[corpus])) as f:
         d = json.load(f)
     return d["rollouts"] if isinstance(d, dict) else d
+
+
+def lb_eligible_cells():
+    """The eligible (config x generator) cells, read from the committed survey.
+
+    Read, never re-derived: eligibility is decided by `run_liars_bench_audit.py` under
+    PREREG_EXP_XL §5, and re-implementing the gates here would let the judge arm be run
+    on a cell the survey excluded.
+    """
+    with open(LB_SURVEY_PATH) as f:
+        survey = json.load(f)
+    return [(c["config"], c["generator"]) for c in survey["eligible_cells"]]
+
+
+def lb_load_rolls(config):
+    with open(os.path.join(LB_NORM_DIR, f"{config}.json")) as f:
+        return json.load(f)["rollouts"]
+
+
+def lb_subsample(rolls, per_class, seed=LB_SEED):
+    """PREREG_EXP_XL §4's balanced draw. Returns sorted `lb_index` values.
+
+    The draw is over **sorted** indices with a fresh `random.Random(seed)`, so it does
+    not depend on the order the rolls happen to be stored in, and it is reproducible
+    without the corpus: the chosen indices are recorded in the JSONL.
+    """
+    by = {True: [], False: []}
+    for r in rolls:
+        by[bool(r["metadata"]["deceptive"])].append(r["metadata"]["lb_index"])
+    k = min(per_class, len(by[True]), len(by[False]))
+    rng = random.Random(seed)
+    keep = set()
+    for label in (True, False):          # fixed order: the RNG is consumed in sequence
+        keep |= set(rng.sample(sorted(by[label]), k))
+    return keep, k
+
+
+def build_lb_items(smoke=0):
+    """One work item per (eligible cell, kept rollout, arm). EXP-XL's own builder.
+
+    Separate from `build_items` because this corpus's extractors take a roll (see
+    LB_ARMS) and because the subsample is drawn per cell from the committed survey.
+    `corpus` is namespaced per config so `lb_index` values cannot collide across
+    configs in `done_keys`.
+    """
+    items, empty, drawn = [], {}, []
+    for config, generator in lb_eligible_cells():
+        rolls = [r for r in lb_load_rolls(config)
+                 if r["metadata"].get("generator") == generator]
+        per_class = smoke if smoke else LB_PER_CLASS
+        keep, k = lb_subsample(rolls, per_class)
+        drawn.append({"config": config, "generator": generator,
+                      "n_cell": len(rolls), "per_class": k, "n_kept": len(keep)})
+        for roll in rolls:
+            idx = roll["metadata"]["lb_index"]
+            if idx not in keep:
+                continue
+            for arm, ctx_mode, extract in LB_ARMS:
+                out = extract(roll)
+                if not (out or "").strip():
+                    empty[arm] = empty.get(arm, 0) + 1
+                    continue
+                ctx = format_dialogue(context_messages(roll, ctx_mode))
+                items.append({
+                    "corpus": f"{LB_CORPUS}:{config}",
+                    "idx": idx, "arm": arm, "context_mode": ctx_mode,
+                    "generator": generator,
+                    "system_md5_corpus": system_md5(roll),
+                    "n_chars_context": len(ctx), "n_chars_output": len(out),
+                    "user": judge_user_prompt(ctx, out),
+                    "label": bool(roll["metadata"]["deceptive"]),
+                })
+    return items, empty, drawn
 
 
 def corpus_fields(corpus, roll):
@@ -321,7 +448,7 @@ def run(items, dest, workers):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--corpus", choices=sorted(CORPORA))
+    ap.add_argument("--corpus", choices=sorted(CORPORA) + [LB_CORPUS])
     ap.add_argument("--smoke", type=int, default=0,
                     help="judge the first N rollouts of every arm of both corpora, "
                          "writing to a separate smoke file")
@@ -341,6 +468,43 @@ def main():
     print(f"             md5={PROMPT_MD5}  ({len(BLACK_BOX_PROMPT)} chars, verbatim)")
     print(f"  judge    : {MODEL_ID} @ {AWS_REGION}, "
           f"max_tokens={MAX_TOKENS}, temperature={TEMPERATURE}")
+
+    # ---- EXP-XL: the same judge on the second release (PREREG_EXP_XL §4) -------------
+    if args.corpus == LB_CORPUS:
+        items, empty, drawn = build_lb_items(smoke=args.smoke)
+        for d in drawn:
+            print(f"  [{LB_CORPUS}] {d['config']}/{d['generator']}: "
+                  f"cell n={d['n_cell']}, balanced draw {d['per_class']}/class "
+                  f"-> {d['n_kept']} rollouts")
+        print(f"  {len(items)} items over {len(LB_ARMS)} channel(s), "
+              f"empty-channel skips={empty}")
+        dest = LB_SMOKE_PATH if args.smoke else LB_RAW_PATH
+        if args.smoke:
+            # PREREG_EXP_XL §8: "smoke 5 items first, for Bedrock creds and <judgement>
+            # parsing". Keep N per arm so both channels' parse paths are exercised --
+            # the `full` arm's context is far longer and is the one that can truncate.
+            seen = {}
+            keep = []
+            for it in items:
+                if seen.get(it["arm"], 0) < args.smoke:
+                    seen[it["arm"]] = seen.get(it["arm"], 0) + 1
+                    keep.append(it)
+            items = keep
+            print(f"  [smoke] {len(items)} items ({args.smoke} per arm)")
+            tot = run(items, dest, args.workers)
+            print(f"  wrote {dest}\n  {tot}")
+            return
+        have = done_keys(dest)
+        todo = [it for it in items
+                if (it["corpus"], it["idx"], it["arm"]) not in have]
+        print(f"  {len(have)} judgements already on disk; {len(todo)} to run")
+        if not todo:
+            print("  nothing to do")
+            return
+        tot = run(todo, dest, args.workers)
+        cost = tot["in"] / 1e6 * 1.0 + tot["out"] / 1e6 * 5.0
+        print(f"  wrote {dest}\n  {tot}   approx cost ${cost:.2f}")
+        return
 
     if args.smoke:
         idx = set(range(args.smoke))

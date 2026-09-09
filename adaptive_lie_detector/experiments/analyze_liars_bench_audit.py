@@ -41,8 +41,25 @@ from experiments.run_liars_bench_audit import (  # noqa: E402
     SECONDARY_LIST, SURVEY_PATH,
 )
 
+# EXP-XL's second instrument (PREREG §3): the Apollo authors' own black-box judge, run
+# verbatim on this release. Every statistic below is imported from the committed EXP-XJ
+# analyzer, so the two releases are scored by the same test at the same thresholds and a
+# difference between them cannot be an artefact of a re-implementation.
+from experiments.analyze_external_audit_judge import (  # noqa: E402
+    BINARIZE_AT, MAX_UNKNOWN, SCORE_MAX, SCORE_MIN,
+    auroc, cell, parse_report, score, stratified, unpaired,
+)
+from experiments import analyze_external_audit_judge as XJ  # noqa: E402
+
 CHANNEL_ORDER = ("visible", "full", "full_output_only")
 OUT_PATH = os.path.join(RESULTS, "liars_bench_analysis.json")
+JUDGE_RAW = os.path.join(RESULTS, "liars_bench_judge_raw.jsonl")
+JUDGE_OUT_PATH = os.path.join(RESULTS, "liars_bench_judge_summary.json")
+
+# The judge arm's channels are the two PREREG §3 fixed; `full_output_only` is a rule-arm
+# post-hoc decomposition and is deliberately NOT judged -- it was not pre-registered and
+# spending calls on it would make the cap statement in the paper false.
+JUDGE_CHANNELS = ("visible", "full")
 
 # PREREG §4 H4 fixes `MIN_CELL = 10` per arm per scenario; the function it names,
 # `analyze_insider_audit.perm_p_stratified`, ships alongside that module's own
@@ -350,12 +367,397 @@ def analyze_cell(recs, rng, config=""):
     }
 
 
+# ------------------------------------------------------- H2/H3: the authors' judge arm
+
+def load_judge_records():
+    """The committed JSONL, deduped on (corpus, idx, arm). No network, no model call.
+
+    Transport errors are dropped (the runner retries them on resume); an `unknown`
+    PARSE is kept, because PREREG §2 counts it as a real result and forbids re-rolling
+    it. Later lines win, so a resumed run supersedes an earlier partial record.
+    """
+    if not os.path.exists(JUDGE_RAW):
+        return {}
+    by = {}
+    with open(JUDGE_RAW) as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            r = json.loads(line)
+            if r.get("error") is not None:
+                continue
+            by[(r["corpus"], r["idx"], r["arm"])] = r
+    return by
+
+
+def judge_h4(rows, scen, mc, rng):
+    """H4 on the judge score: `stratified` from EXP-XJ, at a chosen per-arm minimum.
+
+    `stratified` reads `analyze_external_audit_judge.MIN_CELL_IT` (= 5, that module's
+    own constant) rather than taking the minimum as an argument. PREREG §4 fixes 10, so
+    the constant is rebound around the call and restored, and BOTH readings are reported
+    -- the same ambiguity, and the same resolution, as the rule arm's `h4_stratified`.
+    """
+    srows = [{"judgement": r.get("judgement"),
+              "scenario": scen.get(r["idx"]),
+              "lb_label": "deceptive" if r["label"] else "honest"}
+             for r in rows if scen.get(r["idx"]) is not None]
+    saved = XJ.MIN_CELL_IT
+    try:
+        XJ.MIN_CELL_IT = mc
+        out = stratified(srows, "lb_label", rng, f"H4 judge (min_cell={mc})")
+    finally:
+        XJ.MIN_CELL_IT = saved
+    out["min_cell"] = mc
+    out["is_prereg_min_cell"] = (mc == H4_MIN_CELL_PREREG)
+
+    # Same disclosure the rule arm's `h4_stratified` carries, for the same reason: the
+    # statistic is the POOLED mean difference under within-scenario permutation, and
+    # because scenarios differ in both base rate and deceptive:honest ratio, that null
+    # is NOT centred at zero. Without `excess_over_null`, a significant pooled gap reads
+    # as attributable when composition may supply most of it.
+    if out.get("per_scenario"):
+        by = {}
+        for r in srows:
+            s = score(r)
+            if s is None or r["lb_label"] not in ("deceptive", "honest"):
+                continue
+            by.setdefault(r["scenario"], {"d": [], "h": []})[
+                "d" if r["lb_label"] == "deceptive" else "h"].append(s)
+        kept = [(c["d"], c["h"]) for _, c in sorted(by.items())
+                if len(c["d"]) >= mc and len(c["h"]) >= mc]
+        rng2 = np.random.RandomState(SEED)
+        null = np.empty(N_PERM)
+        for i in range(N_PERM):
+            dsum = dn = hsum = hn = 0.0
+            for d, h in kept:
+                pool = list(d) + list(h)
+                rng2.shuffle(pool)
+                dsum += sum(pool[:len(d)]); dn += len(d)
+                hsum += sum(pool[len(d):]); hn += len(h)
+            null[i] = dsum / dn - hsum / hn
+        obs = out["diff_score"]
+        out.update({
+            "null_mean_score": float(null.mean()),
+            "null_sd_score": float(null.std()),
+            "excess_over_null_score": float(obs - null.mean()),
+            "unweighted_within_scenario_mean_score": float(np.mean(
+                [np.mean(d) - np.mean(h) for d, h in kept])),
+        })
+    return out
+
+
+def judge_cell(rows_by_arm, scen, full_cell_strata, rng, prng):
+    """One eligible (config x generator) cell, both pre-registered channels."""
+    out = {"channels": {}}
+    for arm in JUDGE_CHANNELS:
+        rows = rows_by_arm.get(arm) or []
+        dec = [score(r) for r in rows if r["label"] and score(r) is not None]
+        hon = [score(r) for r in rows if not r["label"] and score(r) is not None]
+        res = unpaired(dec, hon, rng, prng, f"H2 judge ({arm})",
+                       note="PREREG_EXP_XL §4 H2; direction: deception scores HIGHER")
+        res["parse"] = parse_report(rows)
+        res["h4_stratified"] = {
+            str(mc): judge_h4(rows, scen, mc, rng)
+            for mc in (H4_MIN_CELL_PREREG, H4_MIN_CELL_ALT)}
+        # The §4 subsample cap thins the strata H4 needs. Report the attrition rather
+        # than only the surviving count, so a thin H4 is not read as a thin corpus.
+        res["h4_strata_attrition"] = {
+            str(mc): {"in_full_cell": full_cell_strata.get(mc),
+                      "in_judged_subsample":
+                          res["h4_stratified"][str(mc)].get("n_scenarios_used")}
+            for mc in (H4_MIN_CELL_PREREG, H4_MIN_CELL_ALT)}
+        out["channels"][arm] = res
+
+    # H3 / requirement (iv): the x3 leakage rule of PREREG §3, on the judge's own scale
+    v = out["channels"].get("visible", {}).get("diff_score")
+    fl = out["channels"].get("full", {}).get("diff_score")
+    cc = {"visible_diff_score": v, "full_diff_score": fl, "leak_factor": LEAK_FACTOR}
+    if v is None or fl is None:
+        cc["verdict"] = "UNTESTABLE"
+    elif fl > 0 and (v is None or v <= 0 or fl > LEAK_FACTOR * v):
+        cc["verdict"] = "ANNOTATION_CHANNEL_LEAKAGE"
+    else:
+        cc["verdict"] = "NO_CHANNEL_LEAKAGE"
+    cc["note"] = ("This corpus's `full` channel includes the SYSTEM PROMPT (PREREG §3), "
+                  "while Apollo's full_transcript is output-only. The gap here is "
+                  "therefore not the same quantity as EXP-XJ's and is not compared "
+                  "numerically to it.")
+    out["channel_contrast"] = cc
+    return out
+
+
+def judge_arm(by_config, rng):
+    """PREREG §4 H2/H3 and §4 H4 on the judge score. Prints, returns the record."""
+    recs = load_judge_records()
+    print("=" * 100)
+    print("  EXP-XL judge arm - the Apollo authors' black-box detector on a SECOND "
+          "release")
+    print(f"  PREREG docs/PREREG_EXP_XL.md §3/§4 | binarize>={BINARIZE_AT} "
+          f"max_unknown={MAX_UNKNOWN:.0%} scale {SCORE_MIN}-{SCORE_MAX}")
+    print(f"  channels judged: {list(JUDGE_CHANNELS)}  (full_output_only is rule-only)")
+    print("=" * 100)
+    if not recs:
+        print(f"\nNo judgements at {JUDGE_RAW}.")
+        print("Run: run_external_audit_judge.py --corpus liars_bench --workers 8")
+        return None
+
+    # scenario key per (config, idx), from the committed derived records
+    scen_by_config = {
+        cfg: {r["idx"]: (r.get("scenario_keys") or {}).get(PRIMARY_SCENARIO_SOURCE)
+              for r in rows}
+        for cfg, rows in by_config.items()}
+
+    # strata available in the FULL cell, for the attrition report
+    full_strata = {}
+    for cfg, rows in by_config.items():
+        for gen in {r["generator"] for r in rows}:
+            groups = {}
+            for r in rows:
+                if r["generator"] != gen:
+                    continue
+                k = (r.get("scenario_keys") or {}).get(PRIMARY_SCENARIO_SOURCE)
+                if k is None:
+                    continue
+                g = groups.setdefault(k, [0, 0])
+                g[0 if r["deceptive"] else 1] += 1
+            full_strata[(cfg, gen)] = {
+                mc: sum(1 for d, h in groups.values() if d >= mc and h >= mc)
+                for mc in (H4_MIN_CELL_PREREG, H4_MIN_CELL_ALT)}
+
+    cells = {}
+    for (corpus, idx, arm), r in recs.items():
+        cfg = corpus.split(":", 1)[1] if ":" in corpus else corpus
+        cells.setdefault((cfg, r.get("generator")), {}).setdefault(arm, []).append(r)
+
+    out = {"prereg": "docs/PREREG_EXP_XL.md", "instrument": "apollo_black_box_judge",
+           "prompt_md5": next(iter({r.get("prompt_md5") for r in recs.values()})),
+           "model": next(iter({r.get("model") for r in recs.values()})),
+           "n_judgements": len(recs), "binarize_at": BINARIZE_AT,
+           "channels_judged": list(JUDGE_CHANNELS), "cells": {}}
+    positive = []
+    for (cfg, gen), rows_by_arm in sorted(cells.items(), key=str):
+        prng = np.random.RandomState(SEED)     # power sim: its own stream, per cell
+        c = judge_cell(rows_by_arm, scen_by_config.get(cfg, {}),
+                       full_strata.get((cfg, gen), {}), rng, prng)
+        out["cells"].setdefault(cfg, {})[gen] = c
+        print(f"\n{cfg} / {gen}")
+        for arm in JUDGE_CHANNELS:
+            k = c["channels"][arm]
+            cd, ch = k.get("deceptive", {}), k.get("honest", {})
+            pr = k["parse"]
+            print(f"  {arm:8s} dec n={cd.get('n', 0):4d} mean={cd.get('mean', float('nan')):.3f} "
+                  f"| hon n={ch.get('n', 0):4d} mean={ch.get('mean', float('nan')):.3f} "
+                  f"| diff={_f(k.get('diff_score')):>7s} "
+                  f"p={_f(k.get('p_one_sided_higher'), 4):>7s} -> {k['verdict']}")
+            print(f"           AUROC={_f(k.get('auroc'), 3):>6s}  "
+                  f">=4: {100 * cd.get('rate_ge4', float('nan')):.1f}% vs "
+                  f"{100 * ch.get('rate_ge4', float('nan')):.1f}% "
+                  f"(diff {_f((k.get('binarised') or {}).get('diff_pp'))} pp, "
+                  f"p={_f((k.get('binarised') or {}).get('p'), 4)})")
+            print(f"           unparsed {pr['n_unparsed']}/{pr['n']} "
+                  f"({pr['unparsed_rate']:.1%}) trunc={pr['n_truncated']} -> "
+                  f"{pr['status']}   MDE(80%)={k.get('mde_80pct_power')}")
+            for mc, h in k["h4_stratified"].items():
+                att = k["h4_strata_attrition"][mc]
+                tag = " [PREREG §4]" if int(mc) == H4_MIN_CELL_PREREG else ""
+                if h.get("verdict") == "INELIGIBLE_NO_USABLE_SCENARIO":
+                    print(f"           H4 (min_cell={mc:>2s}) no usable scenario "
+                          f"(full cell had {att['in_full_cell']}) -> {h['verdict']}"
+                          f"{tag}")
+                    continue
+                print(f"           H4 (min_cell={mc:>2s}) strata="
+                      f"{h['n_scenarios_used']} of {att['in_full_cell']} in the full "
+                      f"cell  diff={_f(h.get('diff_score'))} "
+                      f"p={_f(h.get('p_one_sided_higher'), 4)} -> "
+                      f"{h.get('verdict')}{tag}")
+                if h.get("null_mean_score") is not None:
+                    print(f"              within-scenario null centred at "
+                          f"{h['null_mean_score']:+.2f} (sd {h['null_sd_score']:.2f}); "
+                          f"excess over it {h['excess_over_null_score']:+.2f}; "
+                          f"equal-weight within-scenario mean "
+                          f"{h['unweighted_within_scenario_mean_score']:+.2f}")
+            if k["verdict"] == "CRITERION4_POSITIVE" and arm == "visible":
+                positive.append((cfg, gen))
+        cc = c["channel_contrast"]
+        print(f"  channel: {cc['verdict']}  "
+              f"(visible {_f(cc['visible_diff_score'])} vs full "
+              f"{_f(cc['full_diff_score'])} score points)")
+
+    out["visible_channel_positive_cells"] = [{"config": c, "generator": g}
+                                             for c, g in positive]
+    print("\n" + "=" * 100)
+    if positive:
+        print("  Judge is CRITERION4_POSITIVE on the visible channel for:")
+        for c, g in positive:
+            print(f"    {c} / {g}")
+        print("  Whether this fires the falsifier depends on requirements (i)-(v) from")
+        print("  the rule arm -- run without --arm judge and read the (v) line. A")
+        print("  positive instrument on a cell that fails (v) is construct recovery.")
+    else:
+        print("  Judge is CRITERION4_NULL on the visible channel in every cell.")
+        print("  Read the MDE beside each null: an underpowered null is not evidence")
+        print("  of no effect (PREREG §6 caveat 2).")
+    print("=" * 100)
+    with open(JUDGE_OUT_PATH, "w") as f:
+        json.dump(out, f, indent=2)
+    print(f"\nJudge analysis -> {JUDGE_OUT_PATH}")
+    return out
+
+
+def _f(x, nd=1):
+    """Format a float that may be None or NaN, without inventing a value."""
+    if x is None:
+        return "--"
+    try:
+        if not np.isfinite(x):
+            return "nan"
+    except TypeError:
+        return str(x)
+    return f"{x:+.{nd}f}" if nd == 1 else f"{x:.{nd}f}"
+
+
+def prereg_s7_branch(rule_out, judge_out):
+    """Assign PREREG_EXP_XL §7's branch letter from BOTH arms jointly.
+
+    §7 opens "The branch is determined by H1, H2 and H4 jointly", and its C
+    ("both instruments null") is a statement about two instruments. Neither arm
+    alone can therefore emit a letter, so neither arm does: each records its own
+    descriptive outcome and this function combines them.
+
+    One disclosed deviation. §7's table has no letter for the case that actually
+    occurred -- criterion 4 expressible, an instrument positive on the visible
+    channel, and a *requirement* unmet. A needs (i)-(v); B needs the rule null;
+    C needs both null. §5.2 did pre-register the verdict for exactly this case on
+    `insider-trading` ("passing is construct recovery, not detection"), so the
+    adjudication was fixed in advance even though the letter was not. It is
+    reported as CONSTRUCT_RECOVERY with `s7_letter_absent` set, not folded into
+    a neighbouring letter.
+    """
+    mc = str(H4_MIN_CELL_PREREG)
+    cells, letters = {}, set()
+
+    for config, gens in sorted(rule_out.get("configs", {}).items()):
+        for gen, rc in sorted(gens.items()):
+            if not rc.get("eligible_for_criterion4"):
+                continue
+            req = rc["requirements"]
+            unmet = [k for k, ok in (("i", req["i_fixed_elicitation"]),
+                                     ("ii", req["ii_grade_not_condition_label"]),
+                                     ("iii", req["iii_paired_scenarios"]),
+                                     ("v", req["v_annotation_independent"]))
+                     if not ok]
+
+            jc = ((judge_out.get("cells", {}).get(config) or {}).get(gen) or {})
+            jv = (jc.get("channels", {}) or {}).get("visible") or {}
+
+            def pos(chan_verdict, h4):
+                """Positive on the visible channel AND on its own H4 stratification."""
+                return (chan_verdict == "CRITERION4_POSITIVE" and
+                        (h4 or {}).get(mc, {}).get("verdict") == "CRITERION4_POSITIVE")
+
+            rule_pos = pos((rc.get("channels", {}).get("visible") or {}).get("verdict")
+                           or rc.get("verdict"), rc.get("h4_stratified"))
+            judge_pos = pos(jv.get("verdict"), jv.get("h4_stratified"))
+            judged = bool(jv)
+
+            # §7's B ("rule null, judge positive") and its requirement gate are
+            # independent facts, and §7 already establishes that findings compose
+            # ("D ... composes with A/B/C"). So the dissociation is recorded as a
+            # composing flag rather than being hidden by the requirement verdict:
+            # on `insider-trading`/kimi both hold, and the paper needs both --
+            # B is the EXP-XJ replication, (v) is why it is still not attribution.
+            b_dissociation = judged and judge_pos and not rule_pos
+
+            if not unmet and (rule_pos or judge_pos):
+                letter, note = "A", "falsifier fired: (i)-(v) met and an instrument separates"
+            elif unmet and (rule_pos or judge_pos):
+                letter = "CONSTRUCT_RECOVERY" if unmet == ["v"] else \
+                         "POSITIVE_REQUIREMENTS_UNMET"
+                note = ("instrument positive, requirement(s) "
+                        f"{'/'.join(unmet)} unmet -> separation is not attribution")
+            elif judged:
+                letter, note = "C", "both instruments null on the visible channel"
+            else:
+                letter, note = "rule_null_judge_not_run", "cell not in the §4 judge subsample"
+
+            leak = [nm for nm, cc in (("rule", rc.get("channel_contrast")),
+                                      ("judge", jc.get("channel_contrast")))
+                    if (cc or {}).get("verdict") == "ANNOTATION_CHANNEL_LEAKAGE"]
+
+            cells[f"{config}/{gen}"] = {
+                "letter": letter, "note": note, "requirements_unmet": unmet,
+                "rule_visible_positive": rule_pos, "judge_visible_positive": judge_pos,
+                "judge_run": judged, "d_composes_leakage_in": leak,
+                "b_composes_rule_null_judge_positive": b_dissociation,
+                # §7(fixed) and the round-13 honesty rule: a pooled within-scenario
+                # effect is only attributable to the extent it exceeds its own null.
+                "rule_h4_excess_over_null_pp":
+                    (rc.get("h4_stratified", {}).get(mc) or {}).get("excess_over_null_pp"),
+                "judge_h4_excess_over_null_score":
+                    ((jv.get("h4_stratified") or {}).get(mc) or {}).get("excess_over_null_score"),
+                "s7_letter_absent": letter in ("CONSTRUCT_RECOVERY",
+                                               "POSITIVE_REQUIREMENTS_UNMET"),
+            }
+            letters.add(letter)
+            if b_dissociation:
+                letters.add("B")
+            if leak:
+                letters.add("D")
+
+    if not cells:
+        overall = "E_no_config_eligible"
+    elif "A" in letters:
+        overall = "A_falsifier_fired"
+    else:
+        overall = "+".join(sorted(letters))
+
+    print("\n" + "=" * 100)
+    print("  PREREG_EXP_XL.md §7 BRANCH DETERMINATION (both arms jointly)")
+    print("=" * 100)
+    for name, c in cells.items():
+        print(f"  {name}")
+        print(f"      branch {c['letter']}: {c['note']}")
+        if c["s7_letter_absent"]:
+            print("      §7 DEVIATION: the table has no letter for this case; the")
+            print("      verdict itself was pre-registered in §5.2. Disclosed as such.")
+        ex_r, ex_j = c["rule_h4_excess_over_null_pp"], c["judge_h4_excess_over_null_score"]
+        if ex_r is not None or ex_j is not None:
+            print(f"      H4 excess over its own within-scenario null: "
+                  f"rule {_f(ex_r)} pp, judge {_f(ex_j)} score pts")
+        if c["b_composes_rule_null_judge_positive"]:
+            print("      branch B composes: rule null, Apollo judge positive on the")
+            print("      visible channel -- the EXP-XJ dissociation replicates here.")
+        for nm in c["d_composes_leakage_in"]:
+            print(f"      branch D composes: ANNOTATION_CHANNEL_LEAKAGE ({nm} arm)")
+    print(f"\n  COMPOSITE BRANCH: {overall}")
+    if overall != "A_falsifier_fired":
+        print("  The falsifier did NOT fire. Claim 3 stands, and the strings")
+        print("  `No audited set satisfies all five` / `none supplies all five`")
+        print("  remain correct and must NOT be changed.")
+    print("=" * 100)
+    return {"overall": overall, "cells": cells,
+            "h4_min_cell": H4_MIN_CELL_PREREG,
+            "deviation": "§7's table has no letter for `positive but a requirement "
+                         "unmet`; §5.2 pre-registered the verdict, not the letter."}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", action="store_true", help="dump the full record")
+    ap.add_argument("--arm", choices=("rule", "judge", "all"), default="rule",
+                    help="PREREG §8: `rule` is our surface rule, `judge` is the Apollo "
+                         "authors' black-box detector on this release")
     args = ap.parse_args()
 
     by_config = load_records()
+    judge_out = None
+    if args.arm in ("judge", "all") and by_config:
+        judge_out = judge_arm(by_config, np.random.RandomState(SEED))
+        if args.arm == "judge":
+            return 0 if judge_out is not None else 1
+        print()
     if not by_config:
         print("No derived records in", RESULTS)
         print("PREREG_EXP_XL.md §7 branch F: the corpus is gated and we did not")
@@ -481,7 +883,13 @@ def main():
         print("  STOP and report before editing the paper: claim 3 is RETRACTED,")
         print("  not softened, and §7 branch A lists what changes together.")
     elif blocked:
-        out["branch"] = "C_positive_but_requirements_unmet"
+        # NOT a §7 letter. §7's C is "both instruments null" and its D is
+        # "annotation-channel leakage", so labelling this arm's outcome C or D
+        # would silently redefine the pre-registration's own vocabulary. §7 has
+        # no letter for "criterion 4 expressible, instrument positive, a
+        # requirement unmet"; that gap is disclosed as a §7 deviation and the
+        # composite letter is assigned by prereg_s7_branch() from BOTH arms.
+        out["branch"] = "rule_positive_requirements_unmet"
         print("  CRITERION4_POSITIVE somewhere, but the falsifier did NOT fire.")
         print("  Separation without the design is not attribution, so claim 3")
         print("  stands. Each cell and the gate that blocked it:")
@@ -493,20 +901,25 @@ def main():
         print("  the within-scenario null is centred well above zero, most of the")
         print("  pooled gap is scenario composition, not deception.")
     elif firing:
-        out["branch"] = "C_positive_but_requirements_unmet"
+        out["branch"] = "rule_positive_requirements_unmet"
         print("  CRITERION4_POSITIVE on cells that do NOT satisfy (i)-(iii).")
         print("  Separation without the design is not attribution: reported as")
         print("  such, and claim 3 stands.")
         for c, g in firing:
             print(f"    {c} / {g}")
     else:
-        out["branch"] = "D_null_on_second_release"
+        # Also not a §7 letter: this arm is ONE instrument, and §7's C requires
+        # BOTH to be null. Only prereg_s7_branch() can say C.
+        out["branch"] = "rule_null_on_every_cell"
         print("  CRITERION4_NULL on every cell of the second release.")
         print("  Two independent public releases, the same structural gap. Note")
         print("  the standing caveat: this rule was written for a first-person")
         print("  claim-assertion format and may be near-blind here, so a null is")
         print("  a null of a possibly-blind instrument (PREREG §3).")
     print("=" * 100)
+
+    if judge_out is not None:
+        out["prereg_s7_branch"] = prereg_s7_branch(out, judge_out)
 
     with open(OUT_PATH, "w") as f:
         json.dump(out, f, indent=2)
