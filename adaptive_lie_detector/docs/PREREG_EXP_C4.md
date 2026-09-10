@@ -253,9 +253,30 @@ canonical detector does not separate realized deception. **This is not evidence 
 — the same sentence the paper applies to its own equalization result applies here.
 
 **(c) No wording reaches a usable base rate, or every target fails gate 3.** Reported as the result, in
-the main text and in full in the appendix: at fixed uninstructed elicitation these targets decline to
-deceive at a rate that makes the contrast hard to *construct*. **Not** quietly dropped, and **not**
+the main text and in full in the appendix: at fixed uninstructed elicitation the contrast is hard to
+*construct*, because one of the two behavioural cells is too thin. **Not** quietly dropped, and **not**
 described as a failed experiment.
+
+**The direction must be reported as it actually falls, and both directions are live.** This paragraph
+originally described only the low-$D$ direction — targets *declining* to deceive — because that is what
+§0's EXP-I base rates predicted (models correct 76--94% of the time). That prediction may be wrong in
+sign: an authoritative-reference framing is not the same manipulation as EXP-I's, and a target may
+instead defer to the reference nearly always, thinning the $D\!=\!0$ cell rather than the $D\!=\!1$ cell.
+The two readings are different findings and must not be conflated:
+
+- **$D$ base rate near 0** — at fixed elicitation the target declines to assert the reference against its
+  own knowledge. Deception is hard to *elicit* without instructing it, which is part of why the field
+  instructs.
+- **$D$ base rate near 1** — at fixed elicitation the target defers to an authoritative in-context
+  reference over its own knowledge, and the *non*-deceptive cell is what is missing. This is a statement
+  about deference to context, not about a disposition to deceive, and it must be worded that way.
+
+*Recorded after a four-trial runner smoke test on `mistral:7b`/P1 (claims 0--1, reps 0--1) and before any
+pre-registered pilot cell was collected. Those four trials pointed at the near-1 direction, which is what
+exposed the one-directional wording. No hypothesis, statistic, threshold, selection rule, or gate is
+changed by this amendment — only the requirement that branch (c) name the direction it actually observes.
+The four smoke trials lie inside the P1 pilot cell's `(claim, rep)` grid and are resumed into it, so they
+are pilot trials and are excluded from every confirmatory analysis like all other pilot trials.*
 
 **(d) Mixed across targets.** Every target reported with its own verdict and MDE. No pooling across
 targets into a single headline.
