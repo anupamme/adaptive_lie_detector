@@ -63,6 +63,20 @@ def dtype_for(device, requested):
     return torch.float16 if device != "cpu" else torch.float32
 
 
+def store_dtype_for(model_name, requested):
+    """Numpy dtype the pooled activations are SAVED in.
+
+    float16 for the Qwen configurations, whose committed artifacts must stay
+    byte-identical. Gemma-3's residual stream carries outlier features of order
+    3e5 -- above float16's 65504 ceiling from layer 6 up, and 2.4e5 at the
+    pre-registered layer -- so a float16 forward pass overflows to NaN and even
+    a bfloat16 pass would be stored as inf. Those configurations save float32;
+    the probe code casts to float32 anyway (PREREG_EXP_WP.md DEVIATION 8)."""
+    if requested != "auto":
+        return {"float16": np.float16, "float32": np.float32}[requested]
+    return np.float32 if "gemma" in model_name.lower() else np.float16
+
+
 def text_config(cfg):
     """The text half of a config. Multimodal checkpoints (e.g. gemma-3-4b-it,
     which loads as Gemma3ForConditionalGeneration) keep num_hidden_layers and
@@ -82,9 +96,11 @@ def hidden_geometry(cfg):
 
 
 class Extractor:
-    def __init__(self, model_name, device, dtype, max_new_tokens=200):
+    def __init__(self, model_name, device, dtype, max_new_tokens=200,
+                 store_dtype=np.float16):
         self.device = device
         self.max_new_tokens = max_new_tokens
+        self.store_dtype = store_dtype
         print(f"Loading {model_name} on {device} ({dtype})...")
         self.tok = AutoTokenizer.from_pretrained(model_name)
         if self.tok.pad_token is None:
@@ -110,12 +126,12 @@ class Extractor:
         inp = full_ids.to(self.device)
         out = self.model(inp, output_hidden_states=True)
         hs = out.hidden_states  # tuple(n_hidden) of (1, seq, dim)
-        last = np.empty((self.n_hidden, self.hidden_dim), dtype=np.float16)
-        mean = np.empty((self.n_hidden, self.hidden_dim), dtype=np.float16)
+        last = np.empty((self.n_hidden, self.hidden_dim), dtype=self.store_dtype)
+        mean = np.empty((self.n_hidden, self.hidden_dim), dtype=self.store_dtype)
         for li, h in enumerate(hs):
             resp = h[0, start:, :].float()
-            last[li] = h[0, -1, :].float().cpu().numpy().astype(np.float16)
-            mean[li] = resp.mean(0).cpu().numpy().astype(np.float16)
+            last[li] = h[0, -1, :].float().cpu().numpy().astype(self.store_dtype)
+            mean[li] = resp.mean(0).cpu().numpy().astype(self.store_dtype)
         del out, hs
         return last, mean
 
@@ -161,6 +177,21 @@ def run_pass(ext, cells, pairs, pass_name):
         for cell, V, E in cells:
             sysp, shown = system_prompt_for_cell(cell, true_claim, false_claim)
             response, (fl, fm, cl, cm) = ext.run_trial(sysp, shown)
+            if not pbar.n:
+                # Fail on the first trial, not two hours later at the probe step:
+                # a compute dtype too narrow for the model's residual stream
+                # overflows to inf/NaN in every later layer at once.
+                for name, a in (("full_last", fl), ("full_mean", fm),
+                                ("ctrl_last", cl), ("ctrl_mean", cm)):
+                    if not np.isfinite(a).all():
+                        bad = [i for i in range(a.shape[0])
+                               if not np.isfinite(a[i]).all()]
+                        raise SystemExit(
+                            f"non-finite activations on the first trial "
+                            f"({name}, {len(bad)}/{a.shape[0]} layers, first "
+                            f"{bad[0]}): the compute or storage dtype cannot hold "
+                            f"this model's residual stream. Retry with "
+                            f"--dtype bfloat16 --store_dtype float32.")
             arr["full_last"].append(fl); arr["full_mean"].append(fm)
             arr["ctrl_last"].append(cl); arr["ctrl_mean"].append(cm)
             meta.append({
@@ -171,7 +202,7 @@ def run_pass(ext, cells, pairs, pass_name):
             })
             pbar.update(1)
     pbar.close()
-    arr = {k: np.stack(v).astype(np.float16) for k, v in arr.items()}
+    arr = {k: np.stack(v).astype(ext.store_dtype) for k, v in arr.items()}
     return meta, arr
 
 
@@ -189,6 +220,11 @@ def main():
     ap.add_argument("--device", default="auto")
     ap.add_argument("--dtype", default="auto",
                     choices=["auto", "float16", "float32", "bfloat16"])
+    ap.add_argument("--store_dtype", default="auto",
+                    choices=["auto", "float16", "float32"],
+                    help="dtype the .npz activations are saved in; auto = float16 "
+                         "except for Gemma, whose outlier features exceed float16 "
+                         "range (see store_dtype_for)")
     ap.add_argument("--passes", default="both",
                     choices=["instructed", "equalized", "both"])
     ap.add_argument("--n_pairs", type=int, default=50)
@@ -235,6 +271,7 @@ def main():
 
     device = get_device(args.device)
     dtype = dtype_for(device, args.dtype)
+    store_dtype = store_dtype_for(args.model, args.store_dtype)
     if args.manifest_only:
         # Rebuild the manifest from activations already on disk, without loading
         # weights. Needed when a run is interrupted between passes: the .npz and
@@ -243,7 +280,9 @@ def main():
         ext = None
         n_hidden, hidden_dim = hidden_geometry(AutoConfig.from_pretrained(args.model))
     else:
-        ext = Extractor(args.model, device, dtype, max_new_tokens=args.max_new_tokens)
+        ext = Extractor(args.model, device, dtype,
+                        max_new_tokens=args.max_new_tokens,
+                        store_dtype=store_dtype)
         n_hidden, hidden_dim = ext.n_hidden, ext.hidden_dim
 
     # Fractional-depth layer for the confirmatory probe, derived and recorded here
@@ -251,7 +290,8 @@ def main():
     # hidden states, carried across models at the same relative depth.
     prereg_layer = round(16 / 36 * (n_hidden - 1))
     manifest = {"model": args.model, "model_tag": model_tag, "device": device,
-                "dtype": str(dtype), "n_pairs": args.n_pairs,
+                "dtype": str(dtype), "store_dtype": np.dtype(store_dtype).name,
+                "n_pairs": args.n_pairs,
                 "claim_set": args.claim_set,
                 "max_new_tokens": args.max_new_tokens,
                 "n_hidden_states": n_hidden, "hidden_dim": hidden_dim,

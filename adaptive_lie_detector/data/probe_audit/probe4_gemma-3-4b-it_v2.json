@@ -1,0 +1,28 @@
+{
+  "experiment": "probe_audit_4_factorial",
+  "model_tag": "gemma-3-4b-it_v2",
+  "pooling": "full_mean",
+  "layer": 15,
+  "outcome": "probe LOCPO out-of-fold log-odds, standardized to SD units",
+  "n_trials": 200,
+  "n_claim_pairs": 50,
+  "beta_V": -0.06961238643274886,
+  "beta_V_ci": [
+    -0.1113114357993104,
+    -0.027524107093260555
+  ],
+  "beta_E": 1.9541226565019334,
+  "beta_E_ci": [
+    1.8774085229718496,
+    2.0308812591389858
+  ],
+  "beta_VE": 0.013092366522268067,
+  "beta_VE_ci": [
+    -0.09149498271702115,
+    0.11734858620050657
+  ],
+  "perm_p_beta_E": 0.0004997501249375312,
+  "perm_p_beta_VE": 0.974512743628186,
+  "simple_effect_E_given_false": 1.9541226565019334,
+  "simple_effect_E_given_true": 1.9672150230242014
+}

@@ -1,0 +1,23 @@
+{
+  "experiment": "probe_audit_3_equalize",
+  "model_tag": "gemma-3-4b-it_v2",
+  "pooling": "full_mean",
+  "layer": 15,
+  "A_instructed": 1.0,
+  "ci_instructed": [
+    1.0,
+    1.0
+  ],
+  "A_equalized": 0.8,
+  "ci_equalized": [
+    0.7498214285714285,
+    0.854896313364055
+  ],
+  "A_transfer": 0.5,
+  "accuracy_drop": 0.19999999999999996,
+  "eprobe_mean_p_e1_equalized": {
+    "T_N": 0.0004273818516550134,
+    "F_N": 0.0006191376133711172
+  },
+  "chance": 0.5
+}

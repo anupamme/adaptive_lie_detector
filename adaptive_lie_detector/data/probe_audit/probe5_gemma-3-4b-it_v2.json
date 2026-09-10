@@ -1,0 +1,45 @@
+{
+  "experiment": "probe_audit_5_baselines",
+  "model_tag": "gemma-3-4b-it_v2",
+  "pooling": "full_mean",
+  "layer": 15,
+  "real_probe_acc": 1.0,
+  "random_direction": {
+    "mean": 0.671,
+    "max": 0.825,
+    "n": 20,
+    "accs": [
+      0.66,
+      0.825,
+      0.775,
+      0.605,
+      0.72,
+      0.62,
+      0.605,
+      0.755,
+      0.675,
+      0.59,
+      0.62,
+      0.81,
+      0.71,
+      0.555,
+      0.645,
+      0.555,
+      0.69,
+      0.66,
+      0.72,
+      0.625
+    ]
+  },
+  "shuffled_label_null": {
+    "mean": 0.5053,
+    "pct95": 0.5932499999999999,
+    "empirical_p_vs_real": 0.0196078431372549,
+    "n": 50
+  },
+  "refusal_marker_baseline": {
+    "acc_direct": 0.68,
+    "acc_flipped": 0.32
+  },
+  "chance": 0.5
+}

@@ -66,6 +66,28 @@ def build_direction(model_tag, pooling, layer, out_dir):
     return unit.astype("float32"), sigma
 
 
+def decoder_blocks(model):
+    """The text stack's decoder blocks, whichever depth they sit at.
+
+    A plain causal LM keeps them at `model.model.layers`; a multimodal checkpoint
+    (gemma-3-4b-it loads as Gemma3ForConditionalGeneration) nests a text model one
+    level further down. Model construction only -- the hook, the direction and the
+    readout are unchanged (PREREG_EXP_WP.md DEVIATION 7)."""
+    paths = (("model", "layers"),
+             ("model", "language_model", "layers"),
+             ("language_model", "model", "layers"),
+             ("language_model", "layers"))
+    for path in paths:
+        obj = model
+        for attr in path:
+            obj = getattr(obj, attr, None)
+            if obj is None:
+                break
+        if obj is not None and len(obj):
+            return obj
+    raise SystemExit(f"cannot locate decoder blocks on {type(model).__name__}")
+
+
 class SteeredModel:
     def __init__(self, model_name, device, dtype, block_idx, max_new_tokens,
                  layer=None):
@@ -82,7 +104,7 @@ class SteeredModel:
         if device != "cpu":
             self.model = self.model.to(device)
         self.model.eval()
-        self.layers = self.model.model.layers
+        self.layers = decoder_blocks(self.model)
         self._vec = None  # torch tensor added to residual, or None
 
     def _hook(self, module, inputs, output):

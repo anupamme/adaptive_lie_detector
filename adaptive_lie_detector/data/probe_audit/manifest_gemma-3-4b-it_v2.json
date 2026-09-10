@@ -1,0 +1,27 @@
+{
+  "model": "google/gemma-3-4b-it",
+  "model_tag": "gemma-3-4b-it_v2",
+  "device": "mps",
+  "dtype": "torch.bfloat16",
+  "store_dtype": "float32",
+  "n_pairs": 50,
+  "claim_set": "v2",
+  "max_new_tokens": 200,
+  "n_hidden_states": 35,
+  "hidden_dim": 2560,
+  "prereg_pooling": "full_mean",
+  "prereg_layer": 15,
+  "smoke": false,
+  "passes": {
+    "instructed": {
+      "n_trials": 200,
+      "npz": "acts_gemma-3-4b-it_v2_instructed.npz",
+      "meta": "meta_gemma-3-4b-it_v2_instructed.json"
+    },
+    "equalized": {
+      "n_trials": 100,
+      "npz": "acts_gemma-3-4b-it_v2_equalized.npz",
+      "meta": "meta_gemma-3-4b-it_v2_equalized.json"
+    }
+  }
+}

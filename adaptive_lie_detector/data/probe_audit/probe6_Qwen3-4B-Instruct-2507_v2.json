@@ -1,0 +1,99 @@
+{
+  "experiment": "probe_audit_6_steer",
+  "model": "/Users/mediratta/Qwen3-4B-Instruct-2507",
+  "model_tag": "Qwen3-4B-Instruct-2507_v2",
+  "pooling": "full_mean",
+  "hidden_state_layer": 16,
+  "block_idx": 15,
+  "sigma": 1.1416972875595093,
+  "coefs": [
+    -4.0,
+    -1.0,
+    0.0,
+    1.0,
+    4.0
+  ],
+  "n_pairs": 20,
+  "claim_set": "v2",
+  "prompt": "NEUTRAL",
+  "readouts": [
+    "correction/refusal-marker density (behavioral)",
+    "E-probe log-odds on a clean re-encoding of the steered response (H5b, mechanistic)"
+  ],
+  "results": {
+    "probe": {
+      "-4.0": {
+        "mean_refusal": 0.525,
+        "mean_logodds": -7.617171756865753,
+        "sd_logodds": 1.6186034576028085,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "-1.0": {
+        "mean_refusal": 0.5,
+        "mean_logodds": -7.728116314305071,
+        "sd_logodds": 1.5575926488303926,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "0.0": {
+        "mean_refusal": 0.55,
+        "mean_logodds": -7.803085728651316,
+        "sd_logodds": 1.4566983786995353,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "1.0": {
+        "mean_refusal": 0.625,
+        "mean_logodds": -7.552945045981842,
+        "sd_logodds": 1.4131333637684633,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "4.0": {
+        "mean_refusal": 0.575,
+        "mean_logodds": -7.800822332832614,
+        "sd_logodds": 1.68635374556084,
+        "n_logodds": 40,
+        "n": 40
+      }
+    },
+    "random": {
+      "-4.0": {
+        "mean_refusal": 0.6,
+        "mean_logodds": -7.371793928175961,
+        "sd_logodds": 1.7563140253310727,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "-1.0": {
+        "mean_refusal": 0.55,
+        "mean_logodds": -7.839487588798289,
+        "sd_logodds": 1.3679080939282495,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "0.0": {
+        "mean_refusal": 0.55,
+        "mean_logodds": -7.803085728651316,
+        "sd_logodds": 1.4566983786995353,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "1.0": {
+        "mean_refusal": 0.525,
+        "mean_logodds": -7.714831800425318,
+        "sd_logodds": 1.4477966441487844,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "4.0": {
+        "mean_refusal": 0.525,
+        "mean_logodds": -7.829463322516828,
+        "sd_logodds": 1.4850264124662873,
+        "n_logodds": 40,
+        "n": 40
+      }
+    }
+  }
+}

@@ -460,12 +460,16 @@ $VP experiments/probe_audit_6_steer.py        --model ~/Qwen3-4B-Instruct-2507 \
 # --- configuration 2: second family, same v2 claim set ------------------------
 # primary: google/gemma-3-4b-it (already cached, cross-family)
 # fallback: meta-llama/Llama-3.2-3B-Instruct
-# ... identical invocations with --model/--model_tag substituted ...
+# ... identical invocations with --model/--model_tag substituted, plus the wider
+#     numerics Gemma-3's residual stream requires (§9 DEVIATION 8): step 1 takes
+#     --dtype bfloat16 --store_dtype float32 and step 6 --dtype bfloat16.
+# Driver: experiments/run_probe_audit_gemma.sh
 ```
 
 **Offline reproducibility.** `probe_audit_{2,3,4,5,5s}` read only the cached `.npz` activations and
 metadata, so every number except H5 recomputes with **no model load and no network**. The `.npz`
-files are ~200 MB per configuration and are **not committed**; the per-step JSON results, the
+files are ~200 MB per float16 configuration (~430 MB for the float32 Gemma one, §9 DEVIATION 8) and
+are **not committed**; the per-step JSON results, the
 manifests (including `n_hidden_states`, `hidden_dim`, dtype, device, the fixed layer and its fractional
 derivation) and the response metadata **are**. H5 requires generation under hooks and is the only arm
 that cannot be recomputed offline; its per-dose marker counts and probe log-odds are committed so the
@@ -540,28 +544,158 @@ in model construction only; the extraction, pooling and probe code are unchanged
 be made to yield hidden states, the fallback is `meta-llama/Llama-3.2-3B-Instruct`, and the
 substitution is recorded here rather than presented as the original plan.
 
+**DEVIATION 8 — the Gemma configuration needs wider numerics, and the first attempt at it is void.**
+Discovered during configuration 2, after the pre-registration was fixed and before any Gemma number
+was read. The suite's default numerics — a float16 forward pass, activations stored as float16 — are
+too narrow for Gemma-3: its residual stream carries outlier features of order 3e5, against float16's
+ceiling of 65504, from hidden state 6 upward, and **2.4e5 at the pre-registered layer 15**. The first
+Gemma run therefore overflowed to NaN in 28 of 35 layers, and its generations came back **empty in all
+200 instructed trials**, so it yielded no readable quantity of any kind and is discarded in full
+rather than reported. The re-run uses `--dtype bfloat16 --store_dtype float32`, added as explicit
+options with the float16 defaults left in place so the committed Qwen artifacts are untouched. **This
+changes numerical precision only**: the claim set, cells, prompts, pooling, the fractional-depth layer,
+the probe and every hypothesis above are as fixed. Step 1 now also aborts on the first trial if any
+pooled activation is non-finite, so this class of failure cannot again be mistaken for a result. The
+discarded run's `refusal_count = 0` readings are **not** evidence on the §5 refusal gate, which is
+adjudicated on the bfloat16 run alone.
+
 ---
 
 ## 10. Outcome
 
-*To be completed after the run. Nothing above may be edited once a v2 activation exists; corrections go
-in this section as dated addenda.*
+*Completed 2026-09-10, after both configurations finished. Nothing in §1–§9 was edited once a v2
+activation existed; DEVIATION 8 was added before any Gemma number was read, and is the only addendum.*
+
+Two configurations, both on the **disjoint confirmatory v2 claim set**:
+
+- **C1 — `Qwen3-4B-Instruct-2507` × v2**, `full_mean` hidden state **16** of 37, fp16.
+- **C2 — `google/gemma-3-4b-it` × v2**, `full_mean` hidden state **15** of 35 (derived at C1's
+  fractional depth per §2 / DEVIATION 7, not re-selected), bf16 / float32 storage per DEVIATION 8.
 
 ### 10.1 Gates
 
-*(per configuration: passes complete, probe non-degenerate, refusal rate, hidden states at fixed depth)*
+**All four gates pass in both configurations; no configuration is `INAPPLICABLE`.**
+
+| Gate | C1 | C2 |
+|---|---|---|
+| 1. Both passes complete at declared n | 200 instructed / 100 equalized, no short cell | 200 / 100, no short cell |
+| 2. Probe non-degenerate | both classes in every LOCPO fold; out-of-fold log-odds SD 1.41–1.69 | both classes in every fold; SD 1.08–1.49 |
+| 3. Generation non-degenerate (<20% empty or pure refusal per cell) | **0/50 in all six cells** | **0/50 in all six cells** |
+| 4. Hidden states at the fixed fractional depth | 37 recorded, layer 16 | 35 recorded, layer 15 |
+
+**Gate 3 is the one that mattered**, since §5 anticipated a cross-family model simply declining the
+elicitation. It did not: Gemma engaged with the deception instruction in all 200 instructed trials.
+Correction-marker *density* varies by cell in both models (Gemma T_D 36/50 trials with ≥1 marker), but
+that is the behavioural readout, not a refusal, and no cell contains an empty or pure-decline response.
+Per DEVIATION 8 this gate is adjudicated on the bf16 run alone; the discarded fp16 run's uniform
+`refusal_count = 0` is an artifact of empty generations and is not used here.
+
+**Achieved power.** H5 is **declared underpowered** as §5 requires: n = 20 pairs per dose per arm, two
+on-manifold doses, so the exact permutation over paired signs cannot fall below p = 0.5 and **no null
+from that arm is offered as evidence of absence**.
 
 ### 10.2 Results
 
-*(H1 accuracy; H2 `A_transfer` + `P(E=1)` per equalized cell; H3 β_E / β_V / β_VE / simple effects /
-veracity accuracy; H4 random-direction max + shuffled null; H6 surface accuracy + feature ablation;
-H5 per-dose marker density both arms + paired p; H5b per-dose probe log-odds. All four poolings and the
-full layer sweep printed. v1 and v2 side by side, separately labelled.)*
+v1 (exploratory, Qwen × v1) is shown for reference only and is never pooled with the confirmatory runs.
+
+| | v1 (exploratory) | **C1** (confirmatory) | **C2** (confirmatory, cross-family) |
+|---|---|---|---|
+| **H1** E decodable, grouped CV | 1.000 [1.000, 1.000] | **1.000** [1.000, 1.000] | **1.000** [1.000, 1.000] |
+| **H2** `A_transfer` | 0.500 | **0.500** | **0.500** |
+| **H2** `P(E=1)` on T_N / F_N | 0.0028 / 0.0021 | 0.0016 / 0.0016 | 0.0004 / 0.0006 |
+| **H3** β_E | 2.029 [1.934, 2.122], perm p = 0.0005 | **1.997** [1.907, 2.086], perm p = 0.0005 | **1.954** [1.877, 2.031], perm p = 0.0005 |
+| **H3** β_V | 0.097 [0.029, 0.166] | **0.066** [−0.008, 0.142] | **−0.070** [−0.111, −0.028] |
+| **H3** β_VE | −0.178, p = 0.659 | −0.118, p = 0.768 | +0.013, p = 0.975 |
+| **H3** simple effects E\|false, E\|true | — | +1.997, +1.880 | +1.954, +1.967 |
+| **H3** ratio \|β_E/β_V\| | ~21× | ~30× | ~28× (β_V sign reversed) |
+| *Alongside H3*: V decodable from the same activations | 0.900 [0.859, 0.948] | 0.850 [0.803, 0.900] | 0.800 [0.750, 0.855] |
+| **H4** real vs random direction | 1.000 vs 0.571 (max 0.750) | 1.000 vs 0.567 (max 0.705) | 1.000 vs 0.671 (max 0.825) |
+| **H4** shuffled-label null | 0.490 (95th 0.551), p = 0.020 | 0.496 (95th 0.568), p = 0.020 | 0.505 (95th 0.593), p = 0.020 |
+| **H6** surface: all / bow / numeric | 0.955 / 0.945 / 0.860 | 0.925 / 0.930 / 0.820 | **0.990** / 0.990 / 0.825 |
+| **H6** gap below the probe | 4.5 pp | 7.5 pp | **1.0 pp** |
+
+**H5 (behavioural readout, correction-marker density; σ, block, n = 40/cell).**
+
+| coef | C1 probe | C1 random | C2 probe | C2 random |
+|---|---|---|---|---|
+| −4 | 0.525 | 0.600 | 0.350 | 0.400 |
+| −1 | 0.500 | 0.550 | 0.350 | 0.400 |
+| 0 | 0.550 | 0.550 | 0.350 | 0.350 |
+| +1 | 0.625 | 0.525 | 0.300 | 0.350 |
+| +4 | 0.575 | 0.525 | 0.250 | 0.150 |
+
+On-manifold (\|coef\| ≤ 1): C1 probe 0.562 vs random 0.538 (**+0.025**); C2 probe 0.325 vs random 0.375
+(**−0.050**). Off-manifold: C1 −0.013, C2 +0.025. C1 σ = 1.142, block 15; C2 σ = 77.596, block 14.
+**Neither behavioural arm moves**, in either direction, at either dose class.
+
+**H5b (mechanistic readout, E-probe log-odds on a clean re-encoding of the steered response).**
+
+| coef | C1 probe | C1 random | C2 probe | C2 random |
+|---|---|---|---|---|
+| −4 | −7.62 | −7.37 | −9.61 | −9.21 |
+| −1 | −7.73 | −7.84 | −9.00 | −8.89 |
+| 0 | −7.80 | −7.80 | −8.96 | −8.96 |
+| +1 | −7.55 | −7.71 | −8.53 | −8.80 |
+| +4 | −7.80 | −7.83 | **−6.18** | −8.06 |
+
+**The two configurations take different H5b branches, and §4's fixed readings apply verbatim.**
+
+- **C1: neither readout moves.** The log-odds are flat and non-monotone (−7.55 to −7.80 across the
+  whole sweep, and the random arm spans the same range). The arm is reported
+  **`INTERVENTION_INEFFECTIVE`** and, in §4's words, **licenses no conclusion about causality at all**.
+- **C2: the log-odds move monotonically with dose while the behavioural readout does not.** The probe
+  arm is strictly increasing across −4 → +4 (span 3.44) where the random arm is non-monotone (span
+  1.15), and the ordering holds **on-manifold alone**: Δ(±1) = 0.479 for the probe direction against
+  0.090 for the random one. §4's fixed reading is therefore **the direction is causally reachable in
+  representation space and behaviourally inert**. The +4 dose is off-manifold by construction and its
+  only licensed reading remains *"the intervention does perturb the forward pass"*; it is **not** read
+  as evidence about behaviour, and the on-manifold ordering is what carries the branch.
 
 ### 10.3 Branch taken
 
-*(A / B / C / E per configuration, and whether D applies)*
+**Both configurations: branch A on H2/H3, with branch D composing over it.** H2 holds (transfer exactly
+at chance) and H3 holds (β_E ≥ 5β_V with perm p = 0.0005) in both, which is branch A's condition; but
+A's H6 ≤ 0.70 bound is **exceeded in both** (0.925, 0.990), and both cross D's 0.90 threshold, so **D
+applies and the mechanistic framing is withdrawn** — the arm is reported as *"the probe's accuracy is
+matched by a bag-of-words baseline on the same responses."* Branches B, C and E do not fire anywhere:
+no configuration shows transfer above chance, none has β_V competitive with β_E, and no gate failed.
+
+Per §4's criterion-5 rule, **H1, H2, H3, H4 and H6 hold on all configurations that clear §5's gates, so
+each is described as replicated** — not model-specific. H5's behavioural null replicates; H5b does
+**not**, and is reported per configuration, in both directions, above.
 
 ### 10.4 May claim
 
+1. **The instruction is decoded at ceiling and does not transfer**: 1.000 on the instructed contrast
+   with `A_transfer` = 0.500 and P(E=1) ≈ 0.0004–0.0016 on both neutral cells, replicated on two models
+   in two families and on a claim set sharing no string with the exploratory one. The paper's *"reads
+   the instruction"* failure mode is demonstrated in a **third detector paradigm**.
+2. **Instruction-following beats knowledge conflict at the representation level by ~28–30×**, with a
+   negligible interaction, **while V is itself 80–85% decodable from the same activations** — so the
+   information the knowledge-conflict account needs is present and the probe does not use it. On C2 β_V
+   is not merely small but **signed against** that account.
+3. **Criterion 3 applied reflexively refutes our own pre-registered H6**: surface features of the
+   response text reach 92.5% (C1) and **99.0%** (C2) against the probe's 100.0%. Any representational
+   reading of this direction is **withdrawn**; the honest description is an **instruction-following or
+   register direction**.
+4. **Decodable but not causal**, in those words, for the behavioural readout in both configurations.
+5. That the layer/pooling choice cost nothing on the confirmatory runs: the post-hoc sweep maximum was
+   also 1.000 in both (C1 at `full_mean` layer 6, C2 at layer 1), and the pre-fixed configuration was
+   used regardless.
+
 ### 10.5 May NOT claim
+
+1. **Nothing about whether deception is detectable from activations.** The equalized contrast varies V,
+   not D; no configuration supplies criterion 4.
+2. **No criterion-4 verdict**, and no attribution of any signal to deception.
+3. **No mechanism claim from decoding accuracy**, which H6 independently forecloses here.
+4. **No claim that steering the direction changes deceptive behaviour.** C1 is
+   `INTERVENTION_INEFFECTIVE`; C2's positive is in **representation space only**, explicitly
+   behaviourally inert, and its largest dose is off-manifold.
+5. **No absence claim from H5's null** — the arm is declared underpowered (n = 20/dose/arm, MDE ≈ 0.15
+   marker-density points).
+6. **No generalization beyond two models of one size class (4B) on English claim pairs we built.** The
+   two configurations establish **cross-family and cross-claim-set** independence, not independence from
+   our materials, from this size class, or from this task format.
+7. **Nothing from the discarded fp16 Gemma run** (DEVIATION 8), including its refusal counts.
+8. **Nothing from the `Qwen2.5-Coder-1.5B` smoke test** (2 pairs, 8 trials).

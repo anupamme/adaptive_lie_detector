@@ -1,0 +1,99 @@
+{
+  "experiment": "probe_audit_6_steer",
+  "model": "google/gemma-3-4b-it",
+  "model_tag": "gemma-3-4b-it_v2",
+  "pooling": "full_mean",
+  "hidden_state_layer": 15,
+  "block_idx": 14,
+  "sigma": 77.5958251953125,
+  "coefs": [
+    -4.0,
+    -1.0,
+    0.0,
+    1.0,
+    4.0
+  ],
+  "n_pairs": 20,
+  "claim_set": "v2",
+  "prompt": "NEUTRAL",
+  "readouts": [
+    "correction/refusal-marker density (behavioral)",
+    "E-probe log-odds on a clean re-encoding of the steered response (H5b, mechanistic)"
+  ],
+  "results": {
+    "probe": {
+      "-4.0": {
+        "mean_refusal": 0.35,
+        "mean_logodds": -9.614600000156974,
+        "sd_logodds": 1.2012609639434828,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "-1.0": {
+        "mean_refusal": 0.35,
+        "mean_logodds": -9.004259658768566,
+        "sd_logodds": 1.3066870898719543,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "0.0": {
+        "mean_refusal": 0.35,
+        "mean_logodds": -8.95968566399138,
+        "sd_logodds": 1.160653271818159,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "1.0": {
+        "mean_refusal": 0.3,
+        "mean_logodds": -8.525077474838806,
+        "sd_logodds": 1.1364191552744864,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "4.0": {
+        "mean_refusal": 0.25,
+        "mean_logodds": -6.176846971494794,
+        "sd_logodds": 1.4924207197301915,
+        "n_logodds": 40,
+        "n": 40
+      }
+    },
+    "random": {
+      "-4.0": {
+        "mean_refusal": 0.4,
+        "mean_logodds": -9.207045963569703,
+        "sd_logodds": 1.0995323346977819,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "-1.0": {
+        "mean_refusal": 0.4,
+        "mean_logodds": -8.893068499056927,
+        "sd_logodds": 1.2963885223128502,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "0.0": {
+        "mean_refusal": 0.35,
+        "mean_logodds": -8.95968566399138,
+        "sd_logodds": 1.160653271818159,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "1.0": {
+        "mean_refusal": 0.35,
+        "mean_logodds": -8.803100024499166,
+        "sd_logodds": 1.0814490929769194,
+        "n_logodds": 40,
+        "n": 40
+      },
+      "4.0": {
+        "mean_refusal": 0.15,
+        "mean_logodds": -8.056197205383656,
+        "sd_logodds": 1.4627566077963432,
+        "n_logodds": 40,
+        "n": 40
+      }
+    }
+  }
+}
