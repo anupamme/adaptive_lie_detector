@@ -138,6 +138,33 @@ direction: a positive result supplies the missing endpoint and a null strengthen
 the **MDE** at 80% power (`mde()` in `analyze_external_audit_judge.py`) with every null, so that "no
 evidence of a signal" is distinguishable from "no power to see one".
 
+**H1's statistic, pinned before any detector was fitted.** The paragraph above fixed the design and the
+null but did not name the test statistic, so it is named here, with **no EXP-C4 detector yet fitted on
+any cell** (the pilot fits none by construction — §5). The statistic is **`GroupKFold` 5-fold
+cross-validated accuracy**, grouped by claim, from `analyze_r1_faithful.grouped_kfold_accuracy` — the
+same statistic and the same fold structure EXP-R1c reports, so EXP-C4's number is comparable to the
+collapse figure rather than to a new scale.
+
+Because the $D$ base rate is expected to be **skewed** (§0), raw accuracy is not interpretable on its
+own: a cell at base rate 0.30 scores 0.70 by predicting $D\!=\!0$ always. Three things are therefore
+reported together for every cell, and the paper must not quote the first without the second:
+
+1. grouped-CV **accuracy** (the statistic the permutation $p$ is computed on),
+2. the **majority-class baseline**, $\max(\hat p, 1-\hat p)$ at that cell's realized base rate,
+3. **AUROC**, invariant to the base rate, via `auroc()` in `analyze_external_audit_judge.py`.
+
+The permutation $p$ is valid under skew regardless, because the permuted null is drawn at the same
+realized base rate within each claim. **A cell whose accuracy does not exceed its own majority-class
+baseline is reported as null on H1 whatever its accuracy**, and a cell is called positive only if the
+permutation $p$ clears 0.05 two-sided *and* accuracy exceeds that baseline.
+
+**H2 and H3's statistic** is the pooled **fire-rate difference** between $D\!=\!1$ and $D\!=\!0$,
+permuted **within claim** by `analyze_insider_audit.perm_p_stratified` — imported unchanged, so
+EXP-C4's secondary tests are the same test EXP-IT used. **One-sided higher** for both, the direction H3
+predicts. The rule is `hedging_baseline.REFUSAL_PATTERNS` (L-doc), imported and neither substituted nor
+extended, as in `run_external_audit.py`. H2 applies it to the concatenated probe replies; H3 applies it
+to the on-claim answer.
+
 **H2 — secondary.** The parameter-free surface rule applied to the **probe channel**. Criterion 3
 applied reflexively to EXP-C4's own primary result, as EXP-WP does to its own.
 
