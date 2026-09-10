@@ -160,19 +160,27 @@ permutation $p$ clears 0.05 two-sided *and* accuracy exceeds that baseline.
 
 **H2 and H3's statistic** is the pooled **fire-rate difference** between $D\!=\!1$ and $D\!=\!0$,
 permuted **within claim** by `analyze_insider_audit.perm_p_stratified` — imported unchanged, so
-EXP-C4's secondary tests are the same test EXP-IT used. **One-sided higher** for both, the direction H3
-predicts. The rule is `hedging_baseline.REFUSAL_PATTERNS` (L-doc), imported and neither substituted nor
-extended, as in `run_external_audit.py`. H2 applies it to the concatenated probe replies; H3 applies it
-to the on-claim answer.
+EXP-C4's secondary tests are the same test EXP-IT used. The rule is
+`hedging_baseline.REFUSAL_PATTERNS` (L-doc), imported and neither substituted nor extended, as in
+`run_external_audit.py`. H2 applies it to the concatenated probe replies; H3 applies it to the on-claim
+answer.
+
+**Direction, stated correctly and before any data.** L-doc is a **correction/refusal-marker** list, and
+in EXP-C4 the *correcting* answer is $D\!=\!0$. So the pre-registered direction for both H2 and H3 is
+that the rule fires **more often on $D\!=\!0$ than on $D\!=\!1$** — a **negative** $D\!=\!1$ minus
+$D\!=\!0$ difference, tested **one-sided lower** (`one_sided_lower=True`, the same setting EXP-IT
+used). This is the opposite of the sign convention in the instructed benchmark, where the *lying* cell
+is the one that withholds corrections, and it is stated here explicitly because getting it backwards
+would turn H3's expected confirmation into an apparent refutation.
 
 **H2 — secondary.** The parameter-free surface rule applied to the **probe channel**. Criterion 3
 applied reflexively to EXP-C4's own primary result, as EXP-WP does to its own.
 
 **H3 — pre-registered construct-recovery demonstration; expected positive and expected
 uninterpretable.** The same surface rule applied to the **on-claim answer**, i.e. the channel $D$ is
-graded from. Predicted to separate $D$ strongly and to mean nothing, because a rule keyed on correction
-markers and a grader asked whether the model corrected the reference share their evidence by
-construction. This reproduces the insider-trading failure mode **deliberately, inside a design we
+graded from. Predicted to separate $D$ strongly, **in the $D\!=\!0$ direction**, and to mean nothing:
+a rule keyed on correction markers and a grader asked whether the model corrected the reference share
+their evidence by construction. This reproduces the insider-trading failure mode **deliberately, inside a design we
 control**, and is the clearest illustration of requirement (v) available to the paper. **A positive H3
 is not evidence for H1 and will not be reported as if it were.**
 
@@ -325,6 +333,17 @@ of degree rather than a binary.
 **(4) The claim pool is ours.** `claims_belief_strata.BELIEF_POOL`, built for EXP-B and disjoint from
 EXP-A/R1/R1b, but built by us — so EXP-C4 is not an independent benchmark effort, and the paper must
 not present it as one.
+
+**(6) The MDE is computed on a different scale than §4 named, because
+`analyze_external_audit_judge.mde()` does not apply.** That function is defined on the judge's 1--7
+score scale with a mean-difference statistic (its binary search bounds are literally
+`SCORE_MAX - SCORE_MIN`), and H1's statistic is a classifier accuracy. `analyze_crit4.h1_mde()`
+therefore keeps the *method* — 80% power, at the observed cell sizes, against the 95th percentile of
+**the same pre-registered permutation null actually computed for this contrast** — and changes only the
+scale: it reports the smallest **single-probe effect** $\delta = P(\text{yes}\mid D\!=\!1) -
+P(\text{yes}\mid D\!=\!0)$, planted in one added probe dimension, that the cell would detect. Read as:
+*an effect of at least $\delta$ in one probe would have been caught here.* Declared as a deviation
+rather than silently substituted.
 
 **(5) $D$ is still latent.** The grader reads behaviour and the screen reads belief; neither observes
 intent. This is the same limitation the paper attributes to the corpora it audits, stated in
