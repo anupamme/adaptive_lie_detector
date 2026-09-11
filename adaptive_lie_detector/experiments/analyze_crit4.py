@@ -15,6 +15,16 @@ confirmatory result:
   --phase confirm  Gates, H1 (primary), H2/H3 (surface rule), H4 (belief
                    robustness), MDE, and the per-target verdict string.
 
+  --phase transfer NOT PRE-REGISTERED. EXPLORATORY, POST-HOC. Criterion 5 --
+                   robustness, not construct validity (Table 2). Leave-one-
+                   target-out transfer of the same 16-probe battery: fit on the
+                   pooled rows of four targets, score the fifth. Reads the same
+                   committed confirmatory cells and grades and writes a separate
+                   file, so it cannot perturb --phase confirm's output.
+                   All five cells share the SAME 20 claims by design, so this
+                   holds out a MODEL, never a CLAIM: it supplies the cross-model
+                   half of criterion 5 and not the cross-claim half.
+
 WHAT MAKES THIS A CRITERION-4 TEST
 ----------------------------------
   (i)   elicitation fixed  -> gate 1 requires exactly one distinct
@@ -35,6 +45,7 @@ Usage:
     cd code/adaptive_lie_detector
     python experiments/analyze_crit4.py --phase select
     python experiments/analyze_crit4.py --phase confirm
+    python experiments/analyze_crit4.py --phase transfer
 """
 
 import argparse
@@ -52,6 +63,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 # Imported, not reimplemented: these are the committed instruments.
 from analyze_r1_faithful import grouped_kfold_accuracy  # noqa: E402
+from sklearn.linear_model import LogisticRegression  # noqa: E402
 from analyze_external_audit import wilson  # noqa: E402
 from analyze_external_audit_judge import auroc  # noqa: E402
 from analyze_insider_audit import perm_p_stratified  # noqa: E402
@@ -74,6 +86,7 @@ COMPILED_LDOC = [re.compile(p, re.IGNORECASE) for p in L_DOC]
 RAW_GRADES = os.path.join(RESULTS, "crit4_grades_raw.jsonl")
 SELECTION = os.path.join(RESULTS, "crit4_wording_selection.json")
 OUT_PATH = os.path.join(RESULTS, "crit4_analysis.json")
+TRANSFER_PATH = os.path.join(RESULTS, "crit4_transfer.json")
 
 
 def marker_fires(text):
@@ -586,11 +599,179 @@ def phase_confirm():
     return 0
 
 
+# --------------------------------------------- phase: transfer (EXPLORATORY)
+
+def phase_transfer():
+    """NOT PRE-REGISTERED. Criterion 5's cross-model half, computed post-hoc
+    from the committed confirmatory cells. No model call, no new data.
+
+    Leave-one-target-out: fit LogisticRegression(max_iter=1000, C=1.0) -- the
+    same estimator grouped_kfold_accuracy uses -- on the four other targets'
+    stacked probe vectors, then score the held-out target. Because the fitted
+    model never saw the held-out target, no cross-validation is needed and the
+    predictions are FIXED; the null therefore permutes the held-out target's D
+    within claim strata against those same predictions (within_claim_permute,
+    the same stratification H1 uses).
+
+    Reported per held-out target: transfer accuracy, its Wilson interval, the
+    target's own majority-class baseline, and the one-sided-higher p. Criterion
+    5 is a ROBUSTNESS test, not a construct-validity test, so no verdict string
+    is emitted and nothing here can change any criterion-4 verdict.
+    """
+    grades = load_grades("confirm")
+    cells = load_cells("confirm")
+
+    per_target = {}
+    for cell in cells:
+        rows, n_evasive, n_ungraded = build_rows(cell, grades)
+        if not rows:
+            continue
+        per_target[cell["model"]] = {
+            "X": np.asarray([r["vector"] for r in rows], float),
+            "y": np.asarray([r["D"] for r in rows], int),
+            "groups": np.asarray([r["claim_index"] for r in rows], int),
+            "wording": cell["wording_key"],
+            "n_evasive": n_evasive,
+            "n_ungraded": n_ungraded,
+            # The DESIGN's claim set, from the cell itself -- not the graded
+            # rows, whose claim set is thinned by evasive/ungraded drops.
+            "design_claims": frozenset(r["claim_index"]
+                                       for r in cell["records"]),
+        }
+
+    models = sorted(per_target)
+    shared_claims = len({per_target[m]["design_claims"] for m in models}) == 1
+
+    report = {
+        "experiment": "EXP-C4",
+        "phase": "transfer",
+        "prereg": None,
+        "status": "EXPLORATORY -- not pre-registered, post-hoc",
+        "criterion": "5 (cross-model / cross-claim transfer) -- robustness, "
+                     "not construct validity",
+        "scope_limit": "cross-model, plus only a thin slice of cross-claim: "
+                       "the cells share most of their claims, so holding out a "
+                       "target holds out few claims (see n_claims_unseen_in_train)",
+        "same_claim_set_across_targets": bool(shared_claims),
+        "claim_overlap_note": "each target's 20 claims are knowledge-screened "
+                              "for that target, so the sets are NOT identical; "
+                              "per-target overlap with the training union is "
+                              "recorded below",
+        "seed": SEED, "n_perm": N_PERM,
+        "n_targets": len(models), "targets": {},
+    }
+
+    print("=" * 72)
+    print("EXP-C4 — criterion-5 transfer (EXPLORATORY, not pre-registered)")
+    print("=" * 72)
+    print(f"  seed={SEED}  n_perm={N_PERM}  targets={len(models)}")
+    print(f"  leave-one-TARGET-out; claim sets identical across cells: "
+          f"{'yes' if shared_claims else 'NO (per-target knowledge screen)'} "
+          f"-- cross-model, and cross-claim only to the extent reported below")
+    print(f"  criterion 5 is robustness, not construct validity: no verdict "
+          f"string is emitted\n")
+
+    for held in models:
+        d = per_target[held]
+        tr_models = [m for m in models if m != held]
+        Xtr = np.vstack([per_target[m]["X"] for m in tr_models])
+        ytr = np.concatenate([per_target[m]["y"] for m in tr_models])
+
+        rng = np.random.default_rng(SEED + zlib.crc32(held.encode("utf-8")))
+        maj = max(float(np.mean(d["y"])), 1.0 - float(np.mean(d["y"])))
+
+        # How much of criterion 5's cross-CLAIM half this held-out target
+        # actually supplies: claims of its own that no training target used.
+        train_claims = set().union(*[per_target[m]["design_claims"]
+                                     for m in tr_models])
+        own = per_target[held]["design_claims"]
+
+        entry = {"wording": d["wording"], "n_test": int(len(d["y"])),
+                 "n_train": int(len(ytr)), "train_targets": tr_models,
+                 "n_claims": len(own),
+                 "n_claims_shared_with_train": len(own & train_claims),
+                 "n_claims_unseen_in_train": len(own - train_claims),
+                 "n_D1_test": int(d["y"].sum()),
+                 "majority_baseline": maj,
+                 "n_evasive": d["n_evasive"], "n_ungraded": d["n_ungraded"]}
+
+        if len(np.unique(ytr)) < 2 or len(np.unique(d["y"])) < 2:
+            entry.update({"accuracy": None, "p_higher": None,
+                          "note": "degenerate label set"})
+            report["targets"][held] = entry
+            print(f"  {held:<14} degenerate label set — skipped")
+            continue
+
+        clf = LogisticRegression(max_iter=1000, C=1.0).fit(Xtr, ytr)
+        pred = clf.predict(d["X"])
+        obs = float(np.mean(pred == d["y"]))
+
+        # The predictions are fixed, so the null is over the labels alone.
+        null = []
+        for _ in range(N_PERM):
+            yp = within_claim_permute(d["y"], d["groups"], rng)
+            null.append(float(np.mean(pred == yp)))
+        null = np.asarray(null, float)
+        p_hi = (int(np.sum(null >= obs)) + 1) / (len(null) + 1)
+        lo, hi = wilson(int(round(obs * len(d["y"]))), len(d["y"]))
+
+        # Diagnostic that must be reported, not hidden. The null is degenerate
+        # -- a point mass at the observed accuracy, so p=1 BY CONSTRUCTION --
+        # whenever no claim group has both a mixed prediction and a mixed D.
+        # Permuting D within claims then cannot move the accuracy at all. That
+        # is a correct conservative reading (the transferred detector carries no
+        # within-claim information for this target) but it is UNINFORMATIVE, not
+        # a negative result, and must be labelled as such.
+        const_in_claim = len(np.unique(null)) == 1
+        entry.update({"accuracy": obs, "wilson95": [lo, hi],
+                      "excess_over_majority_pp": 100.0 * (obs - maj),
+                      "predicted_positive_rate": float(np.mean(pred)),
+                      "null_mean": float(null.mean()),
+                      "null_distinct_values": int(len(np.unique(null))),
+                      "null_degenerate_point_mass": bool(const_in_claim),
+                      "crit95": float(np.percentile(null, 95)),
+                      "p_higher": float(p_hi), "n_perm": int(len(null))})
+        report["targets"][held] = entry
+
+        flag = "above chance" if p_hi < ALPHA else "null"
+        if const_in_claim:
+            flag = "UNINFORMATIVE (degenerate null: point mass, p=1 by " \
+                   "construction)"
+        print(f"  {held:<14} n={len(d['y']):>3}  acc={obs:.3f} "
+              f"[{lo:.3f},{hi:.3f}]  majority={maj:.3f}  "
+              f"p={p_hi:.4f}  unseen_claims="
+              f"{entry['n_claims_unseen_in_train']}/{entry['n_claims']}  "
+              f"{flag}")
+
+    ok = [m for m, e in report["targets"].items()
+          if e.get("p_higher") is not None and e["p_higher"] < ALPHA
+          and e["accuracy"] > e["majority_baseline"]]
+    degen = [m for m, e in report["targets"].items()
+             if e.get("null_degenerate_point_mass")]
+    report["n_above_chance_and_majority"] = len(ok)
+    report["above_chance_and_majority"] = sorted(ok)
+    report["uninformative_degenerate_null"] = sorted(degen)
+    print(f"\n  {len(ok)} of {len(models)} held-out targets exceed both chance "
+          f"and their own majority baseline: {sorted(ok)}")
+    if degen:
+        print(f"  {len(degen)} uninformative (degenerate point-mass null), "
+              f"NOT negative: {sorted(degen)}")
+    print("  EXPLORATORY: this result is post-hoc and is not in "
+          "docs/PREREG_EXP_C4.md.")
+
+    with open(TRANSFER_PATH, "w") as f:
+        json.dump(report, f, indent=2)
+    print(f"wrote {TRANSFER_PATH}")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--phase", required=True, choices=["select", "confirm"])
+    ap.add_argument("--phase", required=True,
+                    choices=["select", "confirm", "transfer"])
     args = ap.parse_args()
-    return phase_select() if args.phase == "select" else phase_confirm()
+    return {"select": phase_select, "confirm": phase_confirm,
+            "transfer": phase_transfer}[args.phase]()
 
 
 if __name__ == "__main__":

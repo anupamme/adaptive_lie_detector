@@ -1,0 +1,179 @@
+{
+  "experiment": "EXP-C4",
+  "phase": "transfer",
+  "prereg": null,
+  "status": "EXPLORATORY -- not pre-registered, post-hoc",
+  "criterion": "5 (cross-model / cross-claim transfer) -- robustness, not construct validity",
+  "scope_limit": "cross-model, plus only a thin slice of cross-claim: the cells share most of their claims, so holding out a target holds out few claims (see n_claims_unseen_in_train)",
+  "same_claim_set_across_targets": false,
+  "claim_overlap_note": "each target's 20 claims are knowledge-screened for that target, so the sets are NOT identical; per-target overlap with the training union is recorded below",
+  "seed": 42,
+  "n_perm": 10000,
+  "n_targets": 5,
+  "targets": {
+    "llama3.1:8b": {
+      "wording": "P3",
+      "n_test": 155,
+      "n_train": 602,
+      "train_targets": [
+        "llama3.2:3b",
+        "mistral:7b",
+        "qwen2.5:14b",
+        "qwen2.5:7b"
+      ],
+      "n_claims": 20,
+      "n_claims_shared_with_train": 19,
+      "n_claims_unseen_in_train": 1,
+      "n_D1_test": 92,
+      "majority_baseline": 0.5935483870967742,
+      "n_evasive": 5,
+      "n_ungraded": 0,
+      "accuracy": 0.8129032258064516,
+      "wilson95": [
+        0.7442159245751728,
+        0.8664553353466611
+      ],
+      "excess_over_majority_pp": 21.935483870967744,
+      "predicted_positive_rate": 0.44516129032258067,
+      "null_mean": 0.7464516129032258,
+      "null_distinct_values": 13,
+      "null_degenerate_point_mass": false,
+      "crit95": 0.7870967741935484,
+      "p_higher": 0.0021997800219978004,
+      "n_perm": 10000
+    },
+    "llama3.2:3b": {
+      "wording": "P3",
+      "n_test": 125,
+      "n_train": 632,
+      "train_targets": [
+        "llama3.1:8b",
+        "mistral:7b",
+        "qwen2.5:14b",
+        "qwen2.5:7b"
+      ],
+      "n_claims": 20,
+      "n_claims_shared_with_train": 12,
+      "n_claims_unseen_in_train": 8,
+      "n_D1_test": 21,
+      "majority_baseline": 0.832,
+      "n_evasive": 35,
+      "n_ungraded": 0,
+      "accuracy": 0.8,
+      "wilson95": [
+        0.7214084909988655,
+        0.8607016349231971
+      ],
+      "excess_over_majority_pp": -3.1999999999999917,
+      "predicted_positive_rate": 0.144,
+      "null_mean": 0.7918303999999999,
+      "null_distinct_values": 8,
+      "null_degenerate_point_mass": false,
+      "crit95": 0.816,
+      "p_higher": 0.47635236476352366,
+      "n_perm": 10000
+    },
+    "mistral:7b": {
+      "wording": "P3",
+      "n_test": 157,
+      "n_train": 600,
+      "train_targets": [
+        "llama3.1:8b",
+        "llama3.2:3b",
+        "qwen2.5:14b",
+        "qwen2.5:7b"
+      ],
+      "n_claims": 20,
+      "n_claims_shared_with_train": 19,
+      "n_claims_unseen_in_train": 1,
+      "n_D1_test": 107,
+      "majority_baseline": 0.6815286624203821,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "accuracy": 0.6815286624203821,
+      "wilson95": [
+        0.6050622712930708,
+        0.7493236587150862
+      ],
+      "excess_over_majority_pp": 0.0,
+      "predicted_positive_rate": 1.0,
+      "null_mean": 0.681528662420382,
+      "null_distinct_values": 1,
+      "null_degenerate_point_mass": true,
+      "crit95": 0.6815286624203821,
+      "p_higher": 1.0,
+      "n_perm": 10000
+    },
+    "qwen2.5:14b": {
+      "wording": "P3",
+      "n_test": 160,
+      "n_train": 597,
+      "train_targets": [
+        "llama3.1:8b",
+        "llama3.2:3b",
+        "mistral:7b",
+        "qwen2.5:7b"
+      ],
+      "n_claims": 20,
+      "n_claims_shared_with_train": 19,
+      "n_claims_unseen_in_train": 1,
+      "n_D1_test": 49,
+      "majority_baseline": 0.69375,
+      "n_evasive": 0,
+      "n_ungraded": 0,
+      "accuracy": 0.7875,
+      "wilson95": [
+        0.7177577354595728,
+        0.8437602184666583
+      ],
+      "excess_over_majority_pp": 9.375,
+      "predicted_positive_rate": 0.09375,
+      "null_mean": 0.7874999999999999,
+      "null_distinct_values": 1,
+      "null_degenerate_point_mass": true,
+      "crit95": 0.7875,
+      "p_higher": 1.0,
+      "n_perm": 10000
+    },
+    "qwen2.5:7b": {
+      "wording": "P3",
+      "n_test": 160,
+      "n_train": 597,
+      "train_targets": [
+        "llama3.1:8b",
+        "llama3.2:3b",
+        "mistral:7b",
+        "qwen2.5:14b"
+      ],
+      "n_claims": 20,
+      "n_claims_shared_with_train": 18,
+      "n_claims_unseen_in_train": 2,
+      "n_D1_test": 92,
+      "majority_baseline": 0.575,
+      "n_evasive": 0,
+      "n_ungraded": 0,
+      "accuracy": 0.65,
+      "wilson95": [
+        0.5733626975304356,
+        0.7196031914745546
+      ],
+      "excess_over_majority_pp": 7.500000000000007,
+      "predicted_positive_rate": 0.6375,
+      "null_mean": 0.59237375,
+      "null_distinct_values": 10,
+      "null_degenerate_point_mass": false,
+      "crit95": 0.625,
+      "p_higher": 0.0013998600139986002,
+      "n_perm": 10000
+    }
+  },
+  "n_above_chance_and_majority": 2,
+  "above_chance_and_majority": [
+    "llama3.1:8b",
+    "qwen2.5:7b"
+  ],
+  "uninformative_degenerate_null": [
+    "mistral:7b",
+    "qwen2.5:14b"
+  ]
+}
