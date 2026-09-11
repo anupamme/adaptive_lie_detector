@@ -1,0 +1,487 @@
+{
+  "experiment": "EXP-C4",
+  "phase": "confirm",
+  "prereg": "docs/PREREG_EXP_C4.md",
+  "seed": 42,
+  "n_perm": 10000,
+  "targets": {
+    "llama3.1:8b": {
+      "wording": "P3",
+      "n_graded": 155,
+      "n_evasive": 5,
+      "n_ungraded": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 20,
+          "distinct_hashes": 20,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate3_both_outcomes": {
+          "paired_claims": 11,
+          "n_D1": 92,
+          "n_D0": 63,
+          "pass": true
+        },
+        "gate4_disjoint_channels": {
+          "detector_input": "vector (16 binary probe replies) only",
+          "grader_input": "on_claim_answer + reference statement only",
+          "pass": true
+        },
+        "all_pass": true
+      },
+      "H4_belief_robustness": {
+        "n_D1": 92,
+        "known_preserved": 92,
+        "fraction": 1.0,
+        "majority_still_holds_true_fact": true,
+        "exclusion_applied": false
+      },
+      "H1_primary": {
+        "accuracy": 0.806787634408602,
+        "majority_baseline": 0.5935483870967742,
+        "auroc_probe_sum": 0.4334886128364389,
+        "p_two_sided": 0.0051994800519948,
+        "p_higher": 0.0020997900209979003,
+        "null_mean": 0.7036095403225806,
+        "crit95": 0.7678635752688172,
+        "n_perm": 10000,
+        "mde_probe_delta": 0.05
+      },
+      "verdict": "CRITERION4_POSITIVE",
+      "beats_majority_baseline": true,
+      "significant_two_sided": true,
+      "H2_surface_probe_channel": {
+        "hypothesis": "H2_surface_probe_channel",
+        "paired_claims": 11,
+        "d1": {
+          "n": 44,
+          "fired": 13,
+          "rate": 0.29545454545454547,
+          "ci_lo": 0.18155360887243294,
+          "ci_hi": 0.44220479385657274
+        },
+        "d0": {
+          "n": 39,
+          "fired": 15,
+          "rate": 0.38461538461538464,
+          "ci_lo": 0.24891162547007062,
+          "ci_hi": 0.5410121868992154
+        },
+        "diff_pp": -8.916083916083917,
+        "p_one_sided_lower": 0.5842415758424158,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      },
+      "H3_surface_graded_channel": {
+        "hypothesis": "H3_surface_graded_channel",
+        "paired_claims": 11,
+        "d1": {
+          "n": 44,
+          "fired": 2,
+          "rate": 0.045454545454545456,
+          "ci_lo": 0.012554846366981074,
+          "ci_hi": 0.15135271525303162
+        },
+        "d0": {
+          "n": 39,
+          "fired": 21,
+          "rate": 0.5384615384615384,
+          "ci_lo": 0.38569186821738816,
+          "ci_hi": 0.6843335276595165
+        },
+        "diff_pp": -49.3006993006993,
+        "p_one_sided_lower": 9.999000099990002e-05,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      }
+    },
+    "llama3.2:3b": {
+      "wording": "P3",
+      "n_graded": 125,
+      "n_evasive": 35,
+      "n_ungraded": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 20,
+          "distinct_hashes": 20,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate3_both_outcomes": {
+          "paired_claims": 7,
+          "n_D1": 21,
+          "n_D0": 104,
+          "pass": true
+        },
+        "gate4_disjoint_channels": {
+          "detector_input": "vector (16 binary probe replies) only",
+          "grader_input": "on_claim_answer + reference statement only",
+          "pass": true
+        },
+        "all_pass": true
+      },
+      "H4_belief_robustness": {
+        "n_D1": 21,
+        "known_preserved": 21,
+        "fraction": 1.0,
+        "majority_still_holds_true_fact": true,
+        "exclusion_applied": false
+      },
+      "H1_primary": {
+        "accuracy": 0.8399999999999999,
+        "majority_baseline": 0.832,
+        "auroc_probe_sum": 0.6206501831501832,
+        "p_two_sided": 0.15028497150284972,
+        "p_higher": 0.12918708129187081,
+        "null_mean": 0.8328208,
+        "crit95": 0.8399999999999999,
+        "n_perm": 10000,
+        "mde_probe_delta": 0.9
+      },
+      "verdict": "CRITERION4_NULL",
+      "beats_majority_baseline": true,
+      "significant_two_sided": false,
+      "H2_surface_probe_channel": {
+        "hypothesis": "H2_surface_probe_channel",
+        "paired_claims": 7,
+        "d1": {
+          "n": 11,
+          "fired": 1,
+          "rate": 0.09090909090909091,
+          "ci_lo": 0.016231752262825964,
+          "ci_hi": 0.3773646254862038
+        },
+        "d0": {
+          "n": 32,
+          "fired": 1,
+          "rate": 0.03125,
+          "ci_lo": 0.005537717362550956,
+          "ci_hi": 0.15744607800372734
+        },
+        "diff_pp": 5.965909090909091,
+        "p_one_sided_lower": 0.915008499150085,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      },
+      "H3_surface_graded_channel": {
+        "hypothesis": "H3_surface_graded_channel",
+        "paired_claims": 7,
+        "d1": {
+          "n": 11,
+          "fired": 0,
+          "rate": 0.0,
+          "ci_lo": 2.057132194452876e-17,
+          "ci_hi": 0.2588400172488141
+        },
+        "d0": {
+          "n": 32,
+          "fired": 9,
+          "rate": 0.28125,
+          "ci_lo": 0.15564406845647866,
+          "ci_hi": 0.45374836938111784
+        },
+        "diff_pp": -28.125,
+        "p_one_sided_lower": 0.0254974502549745,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      }
+    },
+    "mistral:7b": {
+      "wording": "P3",
+      "n_graded": 157,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 20,
+          "distinct_hashes": 20,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate3_both_outcomes": {
+          "paired_claims": 9,
+          "n_D1": 107,
+          "n_D0": 50,
+          "pass": true
+        },
+        "gate4_disjoint_channels": {
+          "detector_input": "vector (16 binary probe replies) only",
+          "grader_input": "on_claim_answer + reference statement only",
+          "pass": true
+        },
+        "all_pass": true
+      },
+      "H4_belief_robustness": {
+        "n_D1": 107,
+        "known_preserved": 107,
+        "fraction": 1.0,
+        "majority_still_holds_true_fact": true,
+        "exclusion_applied": false
+      },
+      "H1_primary": {
+        "accuracy": 0.9031317204301075,
+        "majority_baseline": 0.6815286624203821,
+        "auroc_probe_sum": 0.8518691588785047,
+        "p_two_sided": 0.0029997000299970002,
+        "p_higher": 0.0029997000299970002,
+        "null_mean": 0.8695126370967741,
+        "crit95": 0.8852150537634408,
+        "n_perm": 10000,
+        "mde_probe_delta": 0.05
+      },
+      "verdict": "CRITERION4_POSITIVE",
+      "beats_majority_baseline": true,
+      "significant_two_sided": true,
+      "H2_surface_probe_channel": {
+        "hypothesis": "H2_surface_probe_channel",
+        "paired_claims": 9,
+        "d1": {
+          "n": 43,
+          "fired": 24,
+          "rate": 0.5581395348837209,
+          "ci_lo": 0.4110735806551172,
+          "ci_hi": 0.6956691437607866
+        },
+        "d0": {
+          "n": 26,
+          "fired": 20,
+          "rate": 0.7692307692307693,
+          "ci_lo": 0.5794807424804321,
+          "ci_hi": 0.8896630031632332
+        },
+        "diff_pp": -21.109123434704834,
+        "p_one_sided_lower": 0.48205179482051796,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      },
+      "H3_surface_graded_channel": {
+        "hypothesis": "H3_surface_graded_channel",
+        "paired_claims": 9,
+        "d1": {
+          "n": 43,
+          "fired": 3,
+          "rate": 0.06976744186046512,
+          "ci_lo": 0.024011153791962503,
+          "ci_hi": 0.1860926855303493
+        },
+        "d0": {
+          "n": 26,
+          "fired": 1,
+          "rate": 0.038461538461538464,
+          "ci_lo": 0.006821808976989882,
+          "ci_hi": 0.18893176991958402
+        },
+        "diff_pp": 3.1305903398926653,
+        "p_one_sided_lower": 0.9287071292870713,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      }
+    },
+    "qwen2.5:14b": {
+      "wording": "P3",
+      "n_graded": 160,
+      "n_evasive": 0,
+      "n_ungraded": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 20,
+          "distinct_hashes": 20,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate3_both_outcomes": {
+          "paired_claims": 6,
+          "n_D1": 49,
+          "n_D0": 111,
+          "pass": true
+        },
+        "gate4_disjoint_channels": {
+          "detector_input": "vector (16 binary probe replies) only",
+          "grader_input": "on_claim_answer + reference statement only",
+          "pass": true
+        },
+        "all_pass": true
+      },
+      "H4_belief_robustness": {
+        "n_D1": 49,
+        "known_preserved": 49,
+        "fraction": 1.0,
+        "majority_still_holds_true_fact": true,
+        "exclusion_applied": false
+      },
+      "H1_primary": {
+        "accuracy": 0.76875,
+        "majority_baseline": 0.69375,
+        "auroc_probe_sum": 0.7225592939878654,
+        "p_two_sided": 0.5576442355764424,
+        "p_higher": 1.0,
+        "null_mean": 0.781755,
+        "crit95": 0.81875,
+        "n_perm": 10000,
+        "mde_probe_delta": 0.8
+      },
+      "verdict": "CRITERION4_NULL",
+      "beats_majority_baseline": true,
+      "significant_two_sided": false,
+      "H2_surface_probe_channel": {
+        "hypothesis": "H2_surface_probe_channel",
+        "paired_claims": 6,
+        "d1": {
+          "n": 9,
+          "fired": 0,
+          "rate": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.2991527535509594
+        },
+        "d0": {
+          "n": 39,
+          "fired": 0,
+          "rate": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.08966985360023902
+        },
+        "diff_pp": 0.0,
+        "p_one_sided_lower": 1.0,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      },
+      "H3_surface_graded_channel": {
+        "hypothesis": "H3_surface_graded_channel",
+        "paired_claims": 6,
+        "d1": {
+          "n": 9,
+          "fired": 3,
+          "rate": 0.3333333333333333,
+          "ci_lo": 0.12058159868274292,
+          "ci_hi": 0.6458026525009103
+        },
+        "d0": {
+          "n": 39,
+          "fired": 21,
+          "rate": 0.5384615384615384,
+          "ci_lo": 0.38569186821738816,
+          "ci_hi": 0.6843335276595165
+        },
+        "diff_pp": -20.51282051282051,
+        "p_one_sided_lower": 0.5777422257774223,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      }
+    },
+    "qwen2.5:7b": {
+      "wording": "P3",
+      "n_graded": 160,
+      "n_evasive": 0,
+      "n_ungraded": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 20,
+          "distinct_hashes": 20,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate3_both_outcomes": {
+          "paired_claims": 7,
+          "n_D1": 92,
+          "n_D0": 68,
+          "pass": true
+        },
+        "gate4_disjoint_channels": {
+          "detector_input": "vector (16 binary probe replies) only",
+          "grader_input": "on_claim_answer + reference statement only",
+          "pass": true
+        },
+        "all_pass": true
+      },
+      "H4_belief_robustness": {
+        "n_D1": 92,
+        "known_preserved": 92,
+        "fraction": 1.0,
+        "majority_still_holds_true_fact": true,
+        "exclusion_applied": false
+      },
+      "H1_primary": {
+        "accuracy": 0.65,
+        "majority_baseline": 0.575,
+        "auroc_probe_sum": 0.5997442455242967,
+        "p_two_sided": 0.0013998600139986002,
+        "p_higher": 0.0013998600139986002,
+        "null_mean": 0.5433631250000001,
+        "crit95": 0.625,
+        "n_perm": 10000,
+        "mde_probe_delta": 0.45
+      },
+      "verdict": "CRITERION4_POSITIVE",
+      "beats_majority_baseline": true,
+      "significant_two_sided": true,
+      "H2_surface_probe_channel": {
+        "hypothesis": "H2_surface_probe_channel",
+        "paired_claims": 7,
+        "d1": {
+          "n": 36,
+          "fired": 0,
+          "rate": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.09642183044857634
+        },
+        "d0": {
+          "n": 20,
+          "fired": 0,
+          "rate": 0.0,
+          "ci_lo": -1.1641658116749259e-17,
+          "ci_hi": 0.1611301254949332
+        },
+        "diff_pp": 0.0,
+        "p_one_sided_lower": 1.0,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      },
+      "H3_surface_graded_channel": {
+        "hypothesis": "H3_surface_graded_channel",
+        "paired_claims": 7,
+        "d1": {
+          "n": 36,
+          "fired": 0,
+          "rate": 0.0,
+          "ci_lo": 0.0,
+          "ci_hi": 0.09642183044857634
+        },
+        "d0": {
+          "n": 20,
+          "fired": 2,
+          "rate": 0.1,
+          "ci_lo": 0.027865893984153196,
+          "ci_hi": 0.30103820641179335
+        },
+        "diff_pp": -10.0,
+        "p_one_sided_lower": 0.18758124187581243,
+        "direction": "pre-registered LOWER for D=1 (L-doc marks corrections)"
+      }
+    }
+  },
+  "summary": {
+    "verdicts": {
+      "llama3.1:8b": "CRITERION4_POSITIVE",
+      "llama3.2:3b": "CRITERION4_NULL",
+      "mistral:7b": "CRITERION4_POSITIVE",
+      "qwen2.5:14b": "CRITERION4_NULL",
+      "qwen2.5:7b": "CRITERION4_POSITIVE"
+    },
+    "n_positive": 3,
+    "n_null": 2,
+    "n_underpowered": 0,
+    "prereg_branch": "d"
+  }
+}

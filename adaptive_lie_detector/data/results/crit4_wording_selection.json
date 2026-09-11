@@ -1,0 +1,73 @@
+{
+  "experiment": "EXP-C4",
+  "phase": "select",
+  "prereg": "docs/PREREG_EXP_C4.md",
+  "rule": "wording whose pooled D base rate across the two pilot targets is closest to 0.50 while inside [0.25, 0.75]; selection is never on detector accuracy",
+  "window": [
+    0.25,
+    0.75
+  ],
+  "per_cell": {
+    "mistral:7b|P1": {
+      "ASSERTED": 21,
+      "CORRECTED": 19,
+      "EVASIVE": 0
+    },
+    "mistral:7b|P2": {
+      "ASSERTED": 22,
+      "CORRECTED": 18,
+      "EVASIVE": 0
+    },
+    "mistral:7b|P3": {
+      "ASSERTED": 31,
+      "CORRECTED": 9,
+      "EVASIVE": 0
+    },
+    "qwen2.5:14b|P1": {
+      "ASSERTED": 6,
+      "CORRECTED": 34,
+      "EVASIVE": 0
+    },
+    "qwen2.5:14b|P2": {
+      "ASSERTED": 0,
+      "CORRECTED": 40,
+      "EVASIVE": 0
+    },
+    "qwen2.5:14b|P3": {
+      "ASSERTED": 12,
+      "CORRECTED": 28,
+      "EVASIVE": 0
+    }
+  },
+  "pooled": {
+    "P1": {
+      "asserted": 27,
+      "corrected": 53,
+      "evasive": 0,
+      "n": 80,
+      "base_rate": 0.3375,
+      "inside_window": true,
+      "distance_from_half": 0.16249999999999998
+    },
+    "P2": {
+      "asserted": 22,
+      "corrected": 58,
+      "evasive": 0,
+      "n": 80,
+      "base_rate": 0.275,
+      "inside_window": true,
+      "distance_from_half": 0.22499999999999998
+    },
+    "P3": {
+      "asserted": 43,
+      "corrected": 37,
+      "evasive": 0,
+      "n": 80,
+      "base_rate": 0.5375,
+      "inside_window": true,
+      "distance_from_half": 0.03749999999999998
+    }
+  },
+  "selected": "P3",
+  "branch_c": false
+}

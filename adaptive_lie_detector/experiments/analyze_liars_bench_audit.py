@@ -1170,9 +1170,11 @@ def h6_control_floor(rule_out, judge_out):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--json", action="store_true", help="dump the full record")
-    ap.add_argument("--arm", choices=("rule", "judge", "all"), default="rule",
+    ap.add_argument("--arm", choices=("rule", "judge", "all"), default="all",
                     help="PREREG §8: `rule` is our surface rule, `judge` is the Apollo "
-                         "authors' black-box detector on this release")
+                         "authors' black-box detector on this release. Defaults to "
+                         "`all`, so a bare invocation reproduces the whole committed "
+                         "record rather than a rule-only subset of it")
     args = ap.parse_args()
 
     by_config = load_records()
@@ -1401,6 +1403,37 @@ def main():
 
     if judge_out is not None:
         out["prereg_s7_branch"] = prereg_s7_branch(out, judge_out)
+
+    # A rule-only run computes no judge arm, so `prereg_s7_branch` is absent
+    # and h6's judge block degrades to the NOT_RUN stub. Writing that over a
+    # record that already HAS both arms silently damages a committed artifact:
+    # the file keeps its name, the paper keeps citing it, and the judge results
+    # vanish. Refuse, and say which flag would have been correct.
+    #
+    # `prereg_s7_branch` is the top-level marker: it is written if and only if
+    # judge_out is not None (just above). The judge arm's own numbers live in
+    # JUDGE_OUT_PATH, so there is no top-level "judge" key to test here.
+    if os.path.exists(OUT_PATH) and judge_out is None:
+        try:
+            with open(OUT_PATH) as f:
+                prev = json.load(f)
+        except Exception:  # noqa: BLE001
+            prev = {}
+        prev_h6_judge = ((prev.get("h6_control_floor") or {}).get("judge") or {})
+        prev_had_judge = ("prereg_s7_branch" in prev) or (
+            prev_h6_judge.get("status") not in (None, "NOT_RUN")
+        )
+        if prev_had_judge:
+            print(f"\nREFUSING to overwrite {OUT_PATH}.")
+            print("  The record on disk carries a computed judge arm; this run "
+                  "computed none,")
+            print("  so writing it would drop the judge results while leaving "
+                  "the filename")
+            print("  the paper cites unchanged. Re-run with --arm all to "
+                  "regenerate both arms.")
+            print("  Nothing was written; the printed rule arm above is "
+                  "unaffected.")
+            return 2
 
     with open(OUT_PATH, "w") as f:
         json.dump(out, f, indent=2)

@@ -254,6 +254,10 @@ def run_single_trial(target, pair, rep, questions, yesno_suffix, model):
         "wording": target.wording_key,
         "system_prompt": system_prompt,
         "system_prompt_md5": system_md5(system_prompt),
+        # Stored so the grader receives the exact question the answer replies
+        # to, rather than a reconstruction. A bare "that's correct" is only
+        # resolvable against the question.
+        "opening_question": opening,
         # The grader's ONLY input. Stored in full: this is the graded channel.
         "on_claim_answer": initial,
         # The detector's ONLY input.

@@ -114,7 +114,8 @@ since it holds the negation — or corrects it. `OllamaTargetModel` samples at t
 $k$ repetitions of the same claim both outcomes can occur **within one scenario**, which is
 requirement (iii).
 
-**Cells.** Six targets, the full Figure 2 panel: `llama3.2:3b`, `llama3.1:8b`, `mistral:7b`,
+**Cells.** Six targets, the full Figure 2 panel *(amended to five — `qwen2.5:32b` proved unrunnable
+on this hardware; see **DEVIATION (8)**, recorded before any analysis was run)*: `llama3.2:3b`, `llama3.1:8b`, `mistral:7b`,
 `qwen2.5:7b`, `qwen2.5:14b`, `qwen2.5:32b`. Per target: **20 claims × 8 repetitions = 160 trials**,
 claims drawn as the first 20 KNOWN pairs in pool order from that target's own screen — pool order, not
 chosen by anything observed.
@@ -354,8 +355,9 @@ exploratory.
 ```bash
 cd code/adaptive_lie_detector
 
-# 0. screen the three unscreened targets (T=0, committed code, no new logic)
-for m in llama3.1:8b qwen2.5:7b qwen2.5:32b; do
+# 0. screen the unscreened targets (T=0, committed code, no new logic).
+#    qwen2.5:32b's screen moves to batch 2 below -- DEVIATION (8), hardware only.
+for m in llama3.1:8b qwen2.5:7b; do
   ../.venv/bin/python3 experiments/run_belief_strata.py --model $m --phase screen --resume
 done
 
@@ -367,9 +369,11 @@ done
 # 2. select the wording on base rate alone; writes the selection trace
 ../.venv/bin/python3 experiments/analyze_crit4.py --phase select
 
-# 3. confirmatory: six targets, 20 claims x 8 reps, the selected wording
+# 3. confirmatory: FIVE targets, 20 claims x 8 reps, the selected wording.
+#    qwen2.5:32b is excluded -- 19 GB weights on 24 GB of RAM, see DEVIATION (8).
 ../.venv/bin/python3 experiments/run_crit4_fixed_elicitation.py \
-    --phase confirm --all --claims 20 --reps 8 --resume
+    --phase confirm --models llama3.2:3b,mistral:7b,qwen2.5:7b,llama3.1:8b,qwen2.5:14b \
+    --claims 20 --reps 8 --resume
 
 # 4. grade — smoke 5 items first, for Bedrock creds and rubric parsing
 ../.venv/bin/python3 experiments/grade_crit4_deception.py --limit 5
@@ -419,6 +423,35 @@ reasoning, the failed variants, and the 32/32 pre-data validation are in **§8 C
 before any trial was collected. The reason it matters for interpretation: the original framing had the
 grader importing its own world knowledge, which — because every EXP-C4 reference is false by
 construction — pushed *asserting* answers into the $D\!=\!0$ cell and would have emptied $D\!=\!1$.
+
+**(8) `qwen2.5:32b` is dropped from the confirmatory set: the confirmatory set is FIVE targets, not
+six.** §3 named six, the full Figure 2 panel. This is a **hardware exclusion with a measured basis, not
+a design choice, and not a response to anything observed in the data** — it was taken before
+`analyze_crit4.py --phase confirm` was run even once, and 32B contributed **zero** trials, so no
+detector result on any target informed it.
+
+*The measurement.* 32B's weights are 19 GB on a 24 GB machine. Two attempts, the second with the
+machine otherwise idle, produced **zero belief-screen records in 13 minutes** while `vm_stat` pageins
+climbed by ~5 million pages (~20 GB) per two minutes and the Ollama process RSS stayed pinned at
+~1.2 GB. That is the signature of the weight file being memory-mapped and streamed from disk on every
+forward pass, then evicted — thrashing, not slowness. Both partial artifacts (a 1-record screen file)
+were deleted so that nothing incomplete could later read as a completed screen. This machine's
+committed EXP-R1b 32B cells did complete, at ~169 s/trial, on 2026-09-07 under an earlier Ollama; that
+no longer reproduces under 0.21.0, and the paging arithmetic says 19 GB cannot be resident in 24 GB
+beside the OS.
+
+*Why it costs the design nothing.* §7 branch (d) already pre-registers **per-target verdicts and MDEs
+with no pooling across targets into a single headline**, so each surviving target's permutation test is
+computed inside its own cell and is numerically identical to what it would have been with a sixth cell
+present. `analyze_crit4.py --phase confirm` is run **once**, over the five collected cells. The two
+alternatives were both rejected as worse: a quantized 32B would not be the model in Figure 2 or in any
+other experiment, introducing a fresh confound into a paper about controls, and retrying full precision
+contradicts the arithmetic above.
+
+*What the write-up must therefore say.* `app:crit4_ours` reports **five targets in three families**
+(`llama3.2:3b`, `mistral:7b`, `qwen2.5:7b`, `llama3.1:8b`, `qwen2.5:14b`) and states the 32B exclusion
+and its cause explicitly. Figure 2's six-target panel is unchanged; the paper must not imply EXP-C4
+covers it in full.
 
 ## 11. Outcome
 
