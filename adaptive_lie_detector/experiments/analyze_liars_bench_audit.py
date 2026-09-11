@@ -1079,8 +1079,12 @@ def prereg_s7_branch(rule_out, judge_out):
     print(f"\n  COMPOSITE BRANCH: {overall}")
     if overall != "A_falsifier_fired":
         print("  The falsifier did NOT fire. Claim 3 stands, and the strings")
-        print("  `No audited set satisfies all five` / `none supplies all five`")
+        print("  `no audited public set satisfies all five` / `none supplies all five`")
         print("  remain correct and must NOT be changed.")
+        print("  (The pre-registration wrote this as `No audited set satisfies all")
+        print("   five`; the paper now says `public`, because EXP-C4 -- materials we")
+        print("   built, not a public release -- does satisfy all five. The claim is")
+        print("   the same one, about public rollout corpora, and it is unaffected.)")
     print("=" * 100)
     return {"overall": overall, "cells": cells,
             "h4_min_cell": H4_MIN_CELL_PREREG,
