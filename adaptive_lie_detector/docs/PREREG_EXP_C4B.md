@@ -712,6 +712,20 @@ step 2 requires the analysis to be committed, and its hash recorded, ahead of th
   — read from `grade_crit4_deception.RUBRIC_MD5`, which `seal_crit4b.py` imports rather than restates,
   so §8 gate 7 compares every EXP-C4B judgement against the original constant and not against a copy.
 
+**The three collection-side scripts, all in `95455579b75d8ede61bc6ada3e95cdb73d7149ee`**, committed with
+zero `crit4b_confirm_*.json` on disk:
+
+- `experiments/run_crit4b_fixed_elicitation.py`
+- `experiments/grade_crit4b_deception.py`
+- `experiments/analyze_crit4b_reliability.py`
+
+§3.4 step 2 binds only `analyze_crit4b.py`, and this block does not enlarge that requirement — it adds a
+constraint on the author and can loosen nothing. It is here because the grader assigns $D$, the dependent
+variable, and "the analysis was frozen first" is a weaker guarantee than a reader may assume if the
+instrument that produces the labels is free to move. The same order is therefore checkable for all four
+scripts: each one's commit precedes this section's commit, which precedes the first confirmatory cell.
+Any later edit to these three is a §12 deviation, numbered and appended.
+
 **One amendment, disclosed: `0f5e0c5` → `1f8eb12`.** `analyze_crit4b.py` was amended once after the first
 freeze and before any confirmatory trial existed. §7c's relabel had a single reachable reason string that
 was true of the number and false about the cause: gate 3 is evaluated on all rows while H1 runs on the
