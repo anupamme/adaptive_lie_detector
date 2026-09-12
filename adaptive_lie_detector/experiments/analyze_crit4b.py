@@ -475,18 +475,28 @@ def exact_binomial(k, n):
     return [lo, hi]
 
 
-def assign_verdict(eligible, significant, mde):
+def assign_verdict(eligible, significant, mde, h1_ran=True):
     """§7c, DEVIATION 5. The rule EXP-C4 lacked, stated as code.
 
     A significant cell is POSITIVE regardless of its MDE -- power governs the
     interpretation of a non-detection, not of a detection. A non-significant
     cell with MDE > 0.30, or with no MDE reached on the grid at all (which is
     strictly worse than 0.90), is UNDERPOWERED rather than CRITERION4_NULL.
+
+    `h1_ran` distinguishes the two ways a cell can have no p-value. Gate 3 is
+    evaluated on all rows, H1 on the rows surviving the H4 belief exclusion, so
+    an eligible cell whose exclusion left a single-class or too-small analysed
+    set has no test at all -- which is UNDERPOWERED for a different reason than
+    "the MDE grid topped out", and must not be reported as the latter.
     """
     if not eligible:
         return "UNDERPOWERED", "gate 3 failed: ineligible, reported with counts"
     if significant:
         return "CRITERION4_POSITIVE", "Holm-adjusted p < 0.05 and accuracy > majority baseline"
+    if not h1_ran:
+        return "UNDERPOWERED", ("H1 did not run: after the H4 belief exclusion the "
+                                "analysed set was single-class or too small for the "
+                                "5-fold grouped fit")
     if mde is None:
         return "UNDERPOWERED", "non-significant and MDE not reached on the grid (>0.90)"
     if mde > MDE_UNDERPOWERED:
@@ -815,6 +825,12 @@ def _analyse_candidate(args):
         h1["accuracy"] is not None and h1["accuracy"] > h1["majority_baseline"])
     h1["significant_uncorrected"] = bool(
         h1["p_two_sided"] is not None and h1["p_two_sided"] < ALPHA)
+    # Gate 3 is computed on all rows; H1 runs on `analysed`, i.e. after the H4
+    # belief exclusion. A cell can therefore be eligible and still have no test:
+    # the exclusion can leave the analysed set single-class or shorter than
+    # 2*5 rows, and `h1_test` then returns accuracy/p of None. Record that
+    # explicitly so §7c does not report it as a power failure on the MDE grid.
+    h1["h1_ran"] = bool(h1["p_two_sided"] is not None)
     out["H1_primary"] = h1
 
     out["H2_surface_probe_channel"] = surface_test_flags(
@@ -1035,7 +1051,8 @@ def phase_unseal(salt_file):
             mde = None if h1 is None else h1.get("mde_probe_delta")
             beats = bool(h1 and h1.get("beats_majority_baseline"))
             sig = (adj[m] is not None and adj[m] < ALPHA and beats)
-            verdict, reason = assign_verdict(blk["eligible"], sig, mde)
+            ran = bool(h1 and h1.get("h1_ran"))
+            verdict, reason = assign_verdict(blk["eligible"], sig, mde, ran)
             targets[m] = {
                 "family": fam,
                 "pseudonym": [p for p, mm in mapping.items() if mm == m][0],
@@ -1134,7 +1151,7 @@ def phase_unseal(salt_file):
                 "eligible", "n_rows", "n_analysed", "gate3_both_outcomes",
                 "gate4_disjoint_channels", "H1_primary (every field, including "
                 "accuracy, majority_baseline, both AUROCs, p_two_sided, "
-                "p_higher, null_mean, crit95, n_perm, mde_probe_delta)",
+                "p_higher, null_mean, crit95, n_perm, mde_probe_delta, h1_ran)",
                 "H2_surface_probe_channel", "H3_surface_graded_channel",
                 "H4_belief_robustness",
             ],
