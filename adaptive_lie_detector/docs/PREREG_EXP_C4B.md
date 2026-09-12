@@ -621,13 +621,110 @@ must re-pull; if a tag has moved, the digest is what identifies the weights actu
 represent deployed models.** No frontier model, no closed model, no reasoning model. Nothing here
 speaks to models above 14B.
 
+**(13) Four statements in §§2--3 were wrong or unimplementable, and are corrected below rather than
+quietly worked around.** See CORRECTION 1. None of the four changes a threshold, a statistic, a null, a
+verdict rule or a reported quantity; two are about *what the seal publishes*, one is about *when* a
+number is computed, and one strikes an inherited sentence that was factually false about EXP-C4. All
+four are recorded **before any EXP-C4B trial exists**, at the same commit that freezes the code, which
+is the only point at which such a correction costs nothing.
+
+## 12A. CORRECTION 1 — written at the freeze, before any data exist
+
+Writing `analyze_crit4b.py` and `seal_crit4b.py` against §§2--3 exposed four statements that could not
+be implemented as written. §3.4 step 1 forbids editing this document except by appended, numbered
+correction, so they are corrected here, and DEVIATION (13) points at them.
+
+**(a) §3.4 step 6's "no new computation" is too strong, and the seal's manifest must be *salted*.**
+
+*The computation.* Holm--Bonferroni (§6) adjusts a target's $p$ using the $p$-values of **every other
+target in its family**, and §7c's `UNDERPOWERED` relabel is a function of the Holm result. Neither can
+be done under the blind: with $K\!=\!20$ candidates and five targets per family there are $20^5$
+combinations per family, which is not a computation anyone can commit. So §3.4 step 6 is narrowed to:
+
+> The unseal phase performs **no new statistical estimation** — no model call, no refit, no new
+> permutation, no new interval on the data. It performs exactly two derivations, both deterministic
+> functions of numbers already committed in `crit4b_blind_results.json`: Holm within family, and the
+> verdict label that §7c defines in terms of it.
+
+`crit4b_analysis.json` carries an `audit_selected_vs_derived` block naming every field in each class,
+so the narrowed claim is checkable mechanically rather than on trust. Every H1/H2/H3/H4 number, every
+gate result and every MDE is `selected` — byte-identical to the committed blind block.
+
+*The manifest.* §3.4 step 4 says the seal carries "the `sha256` of each cell file" beside its
+pseudonym. Published that way, the digest **inverts the pseudonym map** for anyone holding the
+committed cells, which is everyone: hash the ten cell files, match, done. The seal therefore publishes
+`sha256(salt ‖ tag ‖ value)` for the model name, each cell digest, and the grades digest. Binding is
+unchanged — the mapping cannot be altered after the seal commit — and hiding is restored, because the
+commitments are only invertible once the salt is committed at step 6. What the seal *does* publish in
+the clear, per pseudonym, is `paired_claims`, `n_D1`, `n_D0`, the minority-$D$ count and the
+graded/evasive/ungraded counts: all five are invariant to within-claim permutation of $D$, so every one
+of a pseudonym's twenty candidates shares them — including the majority-class baseline — and publishing
+them cannot help identify the real candidate. Nothing base-rate-like that is *not* invariant appears.
+
+**(b) H5 cannot be label-blinded at all. It is pre-registered here and runs post-unseal, labelled
+`blinded: false`.**
+
+H5 fits one classifier on the pooled rows of nine targets and scores the tenth, so a single H5 number
+is a function of the label sets of **all ten targets simultaneously** — $20^{10}$ combinations under the
+seal. The alternative, using real labels for the nine training targets, requires the salt, i.e.
+unsealing. So H5's estimator, null, sidedness, `N_PERM`, `SEED`, the wording-homogeneity restriction
+and its Holm correction are all frozen at this commit, and the test **runs after unsealing** with
+`blinded: false` in its output and in any table that reports it. This costs nothing that matters:
+criterion 5 is robustness, criterion 4 is construct validity, and `--phase transfer` can change no
+criterion-4 verdict. It is stated because "H5 is confirmatory" and "H5 is blinded" are different
+claims and the paper may only make the first.
+
+**(c) The grading queue shuffle uses a PUBLIC seed, not the salt.**
+
+§3.3(1) orders the queue by `sha256(salt ‖ trial_key)`. But §11's order is grade (step 5) **then** seal
+(step 8), so a salt-derived queue would require the salt — hence the seal, hence the real candidate
+index — to exist before the data are graded. That reverses §3.4 and voids the blind. The queue is
+therefore ordered by `sha256(QUEUE_SEED ‖ trial_key)` with `QUEUE_SEED = 42`, published here. The
+shuffle's purpose is unaffected: it exists so that within-session grader drift cannot correlate with
+target identity, and the grader is a temperature-0 API call that cannot exploit knowing the order.
+`--resume` remains deterministic for the same reason as before.
+
+**(d) §2.1's "`StandardScaler` + `LogisticRegression`" is false about EXP-C4. The function governs.**
+
+`analyze_r1_faithful.grouped_kfold_accuracy`, which §2.2 names as H1's statistic and which EXP-C4
+actually ran, is `GroupKFold(n_splits=5)` + `cross_val_score(LogisticRegression(max_iter=1000,
+C=1.0))` with **no scaler**. §2.1's clause was inherited from the EXP-R1 detector description, where a
+scaler is present, and it does not describe the criterion-4 pipeline. Since the whole purpose of §2 is
+that EXP-C4B computes the *same* statistic, the resolution is the only one available: **the imported
+function is the definition**, and §2.1's `StandardScaler` is struck. Adding a scaler now would make the
+two experiments' numbers incomparable, which is the one thing §2 exists to prevent. Probes are binary,
+so scaling would in any case be close to a no-op.
+
+**One addition, not a correction.** `seal_crit4b.py` refuses to seal a confirmatory cell whose wording
+contradicts §7a — Family R not at P3, or a Family E target not at the wording its own committed
+`--phase select` chose. §8 lists eight gates and this is not among them, so it is named here: it is a
+hard, non-overridable failure, because a cell at some other wording is a cell the selection rule did
+not choose.
+
 ## 13. Frozen hashes
 
-*(To be filled at step 1 of §11, before any confirmatory trial exists.)*
+**Filled at step 1 of §11 — before any confirmatory trial exists.** This is the binding half: §3.4
+step 2 requires the analysis to be committed, and its hash recorded, ahead of the data.
 
-- `experiments/analyze_crit4b.py` commit hash: __________
-- `experiments/seal_crit4b.py` commit hash: __________
-- `RUBRIC_MD5` (must equal EXP-C4's): __________
+- `experiments/analyze_crit4b.py` commit hash: **`0f5e0c5d65981d500a12193d9cf57b7e46c6e6d3`**
+- `experiments/seal_crit4b.py` commit hash: **`0f5e0c5d65981d500a12193d9cf57b7e46c6e6d3`**
+- `RUBRIC_MD5` (must equal EXP-C4's): **`bd35c66ba573e98970f9f613ddc97372`**
+  — read from `grade_crit4_deception.RUBRIC_MD5`, which `seal_crit4b.py` imports rather than restates,
+  so §8 gate 7 compares every EXP-C4B judgement against the original constant and not against a copy.
+
+**On the one hash a document cannot contain.** Both scripts enter the repository in the commit named
+above; *this line* is written in the commit immediately after, because a file cannot contain the hash of
+the commit that introduces it. The order is verifiable and is the property that matters: the scripts'
+commit precedes the §13 commit, which precedes every `crit4b_confirm_*.json`. `git log --follow` on
+either script must show **no commit between** the hash above and the first confirmatory cell; if it
+does, the analysis was edited after data existed, §8 gate 6 fails, and §10 branch (f) applies. The
+unseal phase re-checks this mechanically: it compares `git log -1` for `analyze_crit4b.py` against the
+hash the seal froze, and reports a mismatch — or an unverifiable answer, in a git-less reproduction — as
+a gate-6 failure rather than as a pass.
+
+**Filled at the run.** These cannot exist yet; a value here before the run would itself be the
+violation.
+
 - `sha256(salt)` as published in `crit4b_seal.json`: __________
 - Extension-target manifest digests, recorded before deletion: __________
 
