@@ -706,18 +706,30 @@ not choose.
 **Filled at step 1 of §11 — before any confirmatory trial exists.** This is the binding half: §3.4
 step 2 requires the analysis to be committed, and its hash recorded, ahead of the data.
 
-- `experiments/analyze_crit4b.py` commit hash: **`0f5e0c5d65981d500a12193d9cf57b7e46c6e6d3`**
+- `experiments/analyze_crit4b.py` commit hash: **`1f8eb12a28abc1ed07e8dd7a7208cabef13cc234`**
 - `experiments/seal_crit4b.py` commit hash: **`0f5e0c5d65981d500a12193d9cf57b7e46c6e6d3`**
 - `RUBRIC_MD5` (must equal EXP-C4's): **`bd35c66ba573e98970f9f613ddc97372`**
   — read from `grade_crit4_deception.RUBRIC_MD5`, which `seal_crit4b.py` imports rather than restates,
   so §8 gate 7 compares every EXP-C4B judgement against the original constant and not against a copy.
 
-**On the one hash a document cannot contain.** Both scripts enter the repository in the commit named
-above; *this line* is written in the commit immediately after, because a file cannot contain the hash of
-the commit that introduces it. The order is verifiable and is the property that matters: the scripts'
-commit precedes the §13 commit, which precedes every `crit4b_confirm_*.json`. `git log --follow` on
-either script must show **no commit between** the hash above and the first confirmatory cell; if it
-does, the analysis was edited after data existed, §8 gate 6 fails, and §10 branch (f) applies. The
+**One amendment, disclosed: `0f5e0c5` → `1f8eb12`.** `analyze_crit4b.py` was amended once after the first
+freeze and before any confirmatory trial existed. §7c's relabel had a single reachable reason string that
+was true of the number and false about the cause: gate 3 is evaluated on all rows while H1 runs on the
+rows surviving the H4 belief exclusion, so an eligible cell whose exclusion leaves the analysed set
+single-class or shorter than `2 × 5` rows has **no p-value at all**, and the original code reported it as
+"MDE not reached on the grid". `h1_test`'s output now carries `h1_ran` and the two cases carry distinct
+reasons. No verdict string changed; for every cell that has a p-value the function is byte-identical to
+`0f5e0c5`. This is legal precisely because the binding is on data, not on the calendar — and the
+amendment is named here rather than merely superseded, because a silently-updated hash is
+indistinguishable from a post-hoc one. **After the first `crit4b_confirm_*.json` exists, an equivalent
+change would be a §3.1 deviation and would be reported as one, not folded into this line.**
+
+**On the one hash a document cannot contain.** Both scripts entered the repository in `0f5e0c5`; *these
+lines* are written afterwards, because a file cannot contain the hash of the commit that introduces it.
+The order is verifiable and is the property that matters: the scripts' commits precede the §13 commit,
+which precedes every `crit4b_confirm_*.json`. `git log --follow` on either script must show **no commit
+between** the hash above and the first confirmatory cell; if it does, the analysis was edited after data
+existed, §8 gate 6 fails, and §10 branch (f) applies. The
 unseal phase re-checks this mechanically: it compares `git log -1` for `analyze_crit4b.py` against the
 hash the seal froze, and reports a mismatch — or an unverifiable answer, in a git-less reproduction — as
 a gate-6 failure rather than as a pass.
