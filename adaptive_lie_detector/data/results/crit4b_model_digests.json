@@ -226,9 +226,39 @@
   },
   "phi4:14b": {
    "model": "phi4:14b",
-   "resident": false,
+   "resident": true,
    "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/phi4/14b",
-   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+   "manifest_sha256": "ac896e5b8b34a1f4efa7b14d7520725140d5512484457fab45d2a4ea14c69dba",
+   "schema_version": 2,
+   "config_digest": "sha256:f5d6f49c64775df1536e9d747c6b6b4c101f6a8658108fbd18a15d046575c68b",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:fd7b6731c33c57f61767612f56517460ec2d1e2e5a3f0163e0eb3d8d8cb5df20",
+    "size": 9053114464
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:fd7b6731c33c57f61767612f56517460ec2d1e2e5a3f0163e0eb3d8d8cb5df20",
+     "size": 9053114464
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:32695b892af87ef8fca6e13a1a31c67c1441d7398be037e366e2fc763857c06a",
+     "size": 275
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:fa8235e5b48faca34e3ca98cf4f694ef08bd216d28b58071a1f85b1d50cb814d",
+     "size": 1084
+    },
+    {
+     "media_type": "application/vnd.ollama.image.params",
+     "digest": "sha256:45a1c652dddc9efdcefa977ab81cfbe26b6e52bc8e78f2f4c698538783e0ac80",
+     "size": 82
+    }
+   ]
   },
   "mistral-nemo:12b": {
    "model": "mistral-nemo:12b",
