@@ -1,0 +1,47 @@
+{
+  "experiment": "EXP-C4B",
+  "phase": "select",
+  "prereg": "docs/PREREG_EXP_C4B.md",
+  "rule": "per-target: the wording whose realized D base rate for THIS target is closest to 0.50 while inside [0.30, 0.70]; never on detector accuracy or any H1/H2/H3/H5 statistic",
+  "window": [
+    0.3,
+    0.7
+  ],
+  "family_R_fixed_wording": "P3",
+  "targets": {
+    "gemma2:9b": {
+      "selected": "P1",
+      "skewed": false,
+      "known_stratum": 100,
+      "per_wording": {
+        "P1": {
+          "asserted": 19,
+          "corrected": 21,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.475,
+          "inside_window": true,
+          "distance_from_half": 0.025000000000000022
+        },
+        "P2": {
+          "asserted": 25,
+          "corrected": 15,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.625,
+          "inside_window": true,
+          "distance_from_half": 0.125
+        },
+        "P3": {
+          "asserted": 40,
+          "corrected": 0,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 1.0,
+          "inside_window": false,
+          "distance_from_half": 0.5
+        }
+      }
+    }
+  }
+}
