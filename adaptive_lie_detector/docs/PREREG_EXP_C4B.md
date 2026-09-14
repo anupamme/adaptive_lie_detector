@@ -628,6 +628,22 @@ number is computed, and one strikes an inherited sentence that was factually fal
 four are recorded **before any EXP-C4B trial exists**, at the same commit that freezes the code, which
 is the only point at which such a correction costs nothing.
 
+**(14) Two irreversible steps of §4's storage protocol are skipped, because the disk they were sized
+against turned out to be larger.** Written after Family R is complete and unsealed, and before any
+Family E trial exists. §0.4 recorded 12 GiB free and §4 therefore ordered, "in order", a timeboxed
+downgrade of Ollama below 0.21.0 and `ollama rm qwen2.5:32b` to reach ~31 GiB. The actual free space at
+the start of Family E is ~21 GiB, and §4's pull → screen → pilot → confirm → commit → `ollama rm` loop
+with **at most two models resident** puts the peak at the largest single target, 9.1 GB, or 17.5 GB with
+two. Neither destructive step is needed, so neither is taken. Two things follow and both are stated
+rather than left implicit. First, this is a deviation that *removes* an irreversible action, which is
+the safe direction, but it is still a departure from an ordered protocol and so is numbered here.
+Second, the Ollama downgrade served only an optional eleventh target that §4 already excludes from the
+ten; skipping it therefore changes no target and no count. `qwen2.5:32b` is above the ≤14B ceiling of
+§4's selection rule and was never a candidate — it occupied disk, nothing more. **The ten-target design,
+the reserve list, the substitution rule and the manifest-digest record are all unchanged**; weights are
+still deleted after each cell is committed, and each cell still records the digest of the weights that
+produced it.
+
 ## 12A. CORRECTION 1 — written at the freeze, before any data exist
 
 Writing `analyze_crit4b.py` and `seal_crit4b.py` against §§2--3 exposed four statements that could not
