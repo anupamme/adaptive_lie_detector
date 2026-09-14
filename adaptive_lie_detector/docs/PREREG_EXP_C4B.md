@@ -644,6 +644,65 @@ the reserve list, the substitution rule and the manifest-digest record are all u
 still deleted after each cell is committed, and each cell still records the digest of the weights that
 produced it.
 
+**(15) One of DEVIATION (14)'s two skipped steps was taken after all: `ollama rm qwen2.5:32b`.**
+Written the same day as (14) and after it, which is why (14) stands unedited above rather than being
+revised. (14) reasoned that with ~21 GiB free and at most two models resident, neither destructive step
+was needed, and that reasoning is still correct: Family E fits in 20 GiB. What changed is the margin,
+not the arithmetic. Family E is a 20--25 h unattended run whose peak residency is 14.5 GB (`gemma2:9b`
+5.4 + `phi4:14b` 9.1), leaving ~5.5 GiB of headroom on the system disk; a disk-full failure partway
+through would cost the family, and the 19.9 GB occupied by `qwen2.5:32b` buys that margin back for
+nothing. It was removed, and free space went 20 GiB → 36 GiB. Three things are stated rather than left
+implicit. First, **its manifest digest was recorded before deletion**, by
+`experiments/record_model_digests.py qwen2.5:32b` — weights layer `eabc98a9bcbf…`, manifest
+`9f13ba1299af…` — so §4's own rule was applied to a model that is not a §4 target, and the weights
+remain identifiable. Second, `qwen2.5:32b` **is** a target elsewhere in the paper: it is the sixth model
+of the EXP-R1c collapse figure, and it is the target EXP-C4 could not screen for a memory limit. Nothing
+already committed changes, because every EXP-R1c number is in a committed cell, but **re-running EXP-R1c
+now requires a re-pull**, and that cost is real and is disclosed here rather than discovered by whoever
+tries. Third, this is still the direction (14) called unsafe — an irreversible action inside an ordered
+protocol — and (14)'s claim that `qwen2.5:32b` "occupied disk, nothing more" was true of EXP-C4B and
+**false of the paper as a whole**; that is corrected here.
+
+**(16) §3.4 pre-registers ONE seal over ten pseudonyms; the chain is split into two five-target
+chains, one per family.** Written before any Family E confirmatory trial exists and after Family R is
+unsealed. §3.4 step 4 says the seal carries "a manifest of the ten pseudonyms" and step 5 says the blind
+analysis runs over "all 10 × 20 = 200 candidate sets" — one salt, one seal, one unseal, and it therefore
+assumes **all ten cells are collected before sealing**. That is not how the experiment could be run. §4's
+pull → screen → pilot → confirm → commit → `ollama rm` loop forces the families to be collected
+sequentially, and §6 evaluates the two families **separately with no pooling** in any case, so waiting
+for Family E before analysing Family R would have bought nothing statistically and risked reporting
+neither. Family R was accordingly sealed, blinded and unsealed as a complete five-target chain, and
+**Family E receives its own**: a fresh 32-byte salt, its own seal, its own 5 × 20 = 100 committed
+candidate blocks, its own unseal, with `K = 20` and every threshold unchanged.
+
+*What this does not cost, and it is the part that matters.* **`analyze_crit4b.py` is not modified**, so
+the frozen-commit identity §3.4 step 2 binds and §8 gate 6 checks holds for Family E exactly as it did
+for Family R. This is possible because `--phase blind` and `--phase unseal` take their target list from
+`seal["pseudonyms"]`, never from disk, and Family R's run already exercised that path with five
+pseudonyms against the public ten-name roster and passed 8/8 integrity checks. Within Family E the blind
+is precisely the pre-registered mechanism: all 100 candidate blocks committed before the salt, in the
+same five-commit order. The one script that does change is `seal_crit4b.py`, which gains a `--family`
+flag restricting `load_cells("confirm")` to one family's roster — without it, sealing Family E would
+re-seal Family R's five cells under a new salt, which is the one thing that must not happen. §3.4 step 2
+binds only `analyze_crit4b.py` and CORRECTION 1 says so explicitly, so this amendment is not a breach of
+the freeze; it is a git diff, confined to roster selection and file naming, and auditable as one.
+
+*What it does cost, stated plainly.* **A reader verifies two chains rather than one**, and the
+ten-pseudonym manifest is two manifests of five. More importantly, **Family R's result was known before
+Family E's salt was drawn**, so a reader cannot infer from the blind alone that Family E's design was
+uninfluenced by Family R's outcome. That inference has to come from the freeze instead, and it can:
+§7a fixes Family R at wording P3 with no pilot, §7's per-target wording rule, §7b's top-up rule, §7c's
+MDE threshold and §6's Holm-within-family correction were all committed in this document before any
+EXP-C4B trial existed, and `analyze_crit4b.py` was frozen at the same point. So the quantities that
+could have been tuned in response to Family R are the ones a reviewer can check were fixed in advance.
+What is *not* recoverable is any protection against a target roster or a stopping rule chosen after
+seeing Family R — and against that, only §4's ten named targets and the reserve list stand, which were
+also named before collection. Finally, **Family R's artifacts move**: its seal, salt, 100 candidate
+blocks, blind results and analysis are renamed to `*_family_R.*` with `git mv` so Family E's frozen-path
+outputs cannot overwrite them. The R chain therefore remains verifiable **from git history at the
+canonical paths**, in its original commit order, and the rename is one more commit rather than a
+rewrite.
+
 ## 12A. CORRECTION 1 — written at the freeze, before any data exist
 
 Writing `analyze_crit4b.py` and `seal_crit4b.py` against §§2--3 exposed four statements that could not
