@@ -202,6 +202,14 @@ def main():
                     help="overwrite an existing salt file. Refuses by default: "
                          "resealing after the blind analysis has run would let "
                          "the real index be redrawn, which voids the blind.")
+    ap.add_argument("--family", choices=["R", "E"], default=None,
+                    help="seal ONE family's cells only (PREREG DEVIATION 16). "
+                         "Omitted = every confirm cell on disk, which is "
+                         "§3.4's pre-registered behaviour and what reproduces "
+                         "Family R's seal. Required for Family E, because by "
+                         "then Family R's cells are also on disk and sealing "
+                         "them again under a new salt is the one thing that "
+                         "must not happen.")
     args = ap.parse_args()
     k_total = args.k
 
@@ -215,6 +223,31 @@ def main():
 
     grades = load_grades("confirm")
     cells = load_cells("confirm")
+
+    # PREREG DEVIATION (16). §3.4 was written for one seal over all ten
+    # pseudonyms, which assumes all ten cells exist when it runs. They do not:
+    # §4's storage loop forces sequential collection, so Family R was sealed
+    # and unsealed as a complete chain before a single Family E cell existed.
+    # Family E therefore gets its own seal, and this filter is the whole of the
+    # amendment -- the paths, K, the permutation and the commitment scheme are
+    # untouched, and `analyze_crit4b.py` is not modified at all, so the frozen
+    # commit identity that §8 gate 6 checks still holds.
+    #
+    # Membership follows the roster rule already used below: anything not in
+    # FAMILY_R is Family E, so a §4 substitution joins Family E automatically
+    # rather than needing to be named here.
+    if args.family:
+        keep = [c for c in cells
+                if (c["model"] in FAMILY_R) == (args.family == "R")]
+        dropped = sorted({c["model"] for c in cells} - {c["model"] for c in keep})
+        if not keep:
+            raise SystemExit(
+                f"--family {args.family}: no confirm cell belongs to that "
+                f"family. Cells on disk: {sorted(c['model'] for c in cells)}")
+        print(f"  --family {args.family}: sealing {len(keep)} cell(s); "
+              f"excluded {len(dropped)} from the other family: {dropped}")
+        cells = keep
+
     selection = {}
     if os.path.exists(A_SELECTION):
         with open(A_SELECTION) as f:
