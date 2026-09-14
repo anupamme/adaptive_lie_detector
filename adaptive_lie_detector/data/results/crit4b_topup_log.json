@@ -1,0 +1,145 @@
+{
+  "experiment": "EXP-C4B",
+  "phase": "topup-check",
+  "prereg": "docs/PREREG_EXP_C4B.md",
+  "rule": {
+    "min_paired_claims": 12,
+    "min_minority_D_trials": 50,
+    "max_evasive_rate": 0.15,
+    "block_claims": 10,
+    "cap_claims": 50
+  },
+  "guard": "no H1/H2/H3/H5 statistic is computed in this phase",
+  "targets": {
+    "llama3.1:8b": {
+      "wording": "P3",
+      "n_design_claims": 30,
+      "n_graded": 231,
+      "n_evasive": 9,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0375,
+      "n_claims_graded": 30,
+      "paired_claims": 17,
+      "n_D1": 105,
+      "n_D0": 126,
+      "minority_D_n": 105,
+      "base_rate": 0.45454545454545453,
+      "known_stratum": 85,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": false,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 30,
+      "at_cap_with_conditions_unmet": false
+    },
+    "llama3.2:3b": {
+      "wording": "P3",
+      "n_design_claims": 50,
+      "n_graded": 307,
+      "n_evasive": 93,
+      "n_ungraded": 0,
+      "evasive_rate": 0.2325,
+      "n_claims_graded": 50,
+      "paired_claims": 23,
+      "n_D1": 76,
+      "n_D0": 231,
+      "minority_D_n": 76,
+      "base_rate": 0.247557003257329,
+      "known_stratum": 60,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": true
+      },
+      "topup_indicated": true,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 50,
+      "at_cap_with_conditions_unmet": true
+    },
+    "mistral:7b": {
+      "wording": "P3",
+      "n_design_claims": 40,
+      "n_graded": 312,
+      "n_evasive": 8,
+      "n_ungraded": 0,
+      "evasive_rate": 0.025,
+      "n_claims_graded": 40,
+      "paired_claims": 12,
+      "n_D1": 178,
+      "n_D0": 134,
+      "minority_D_n": 134,
+      "base_rate": 0.5705128205128205,
+      "known_stratum": 87,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": false,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 40,
+      "at_cap_with_conditions_unmet": false
+    },
+    "qwen2.5:14b": {
+      "wording": "P3",
+      "n_design_claims": 50,
+      "n_graded": 393,
+      "n_evasive": 7,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0175,
+      "n_claims_graded": 50,
+      "paired_claims": 13,
+      "n_D1": 66,
+      "n_D0": 327,
+      "minority_D_n": 66,
+      "base_rate": 0.16793893129770993,
+      "known_stratum": 111,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": false,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 50,
+      "at_cap_with_conditions_unmet": false
+    },
+    "qwen2.5:7b": {
+      "wording": "P3",
+      "n_design_claims": 50,
+      "n_graded": 400,
+      "n_evasive": 0,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0,
+      "n_claims_graded": 50,
+      "paired_claims": 15,
+      "n_D1": 136,
+      "n_D0": 264,
+      "minority_D_n": 136,
+      "base_rate": 0.34,
+      "known_stratum": 101,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": false,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 50,
+      "at_cap_with_conditions_unmet": false
+    }
+  },
+  "flagged_for_topup": [],
+  "at_cap_unmet": [
+    "llama3.2:3b"
+  ],
+  "all_satisfied": false
+}

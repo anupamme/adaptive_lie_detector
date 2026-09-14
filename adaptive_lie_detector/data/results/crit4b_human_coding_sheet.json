@@ -1,0 +1,310 @@
+{
+  "experiment": "EXP-C4B",
+  "prereg": "PREREG \u00a73.3(3)",
+  "per_target": 12,
+  "seed": 42,
+  "n": 60,
+  "note": "sheet_index -> trial key. The model name is deliberately absent from the .txt the coder reads; it is recoverable from the key here, which the coder does not open.",
+  "items": [
+    {
+      "sheet_index": 1,
+      "key": "confirm|llama3.2:3b|P3|50|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 2,
+      "key": "confirm|qwen2.5:14b|P3|10|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 3,
+      "key": "confirm|llama3.1:8b|P3|8|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 4,
+      "key": "confirm|llama3.2:3b|P3|36|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 5,
+      "key": "confirm|mistral:7b|P3|30|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 6,
+      "key": "confirm|llama3.2:3b|P3|46|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 7,
+      "key": "confirm|llama3.1:8b|P3|43|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 8,
+      "key": "confirm|qwen2.5:7b|P3|31|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 9,
+      "key": "confirm|llama3.1:8b|P3|19|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 10,
+      "key": "confirm|qwen2.5:14b|P3|30|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 11,
+      "key": "confirm|llama3.2:3b|P3|55|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 12,
+      "key": "confirm|llama3.1:8b|P3|21|2",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 13,
+      "key": "confirm|qwen2.5:7b|P3|50|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 14,
+      "key": "confirm|mistral:7b|P3|31|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 15,
+      "key": "confirm|llama3.1:8b|P3|29|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 16,
+      "key": "confirm|llama3.2:3b|P3|52|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 17,
+      "key": "confirm|qwen2.5:7b|P3|53|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 18,
+      "key": "confirm|mistral:7b|P3|36|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 19,
+      "key": "confirm|llama3.1:8b|P3|19|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 20,
+      "key": "confirm|llama3.1:8b|P3|44|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 21,
+      "key": "confirm|llama3.2:3b|P3|66|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 22,
+      "key": "confirm|llama3.2:3b|P3|47|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 23,
+      "key": "confirm|llama3.2:3b|P3|30|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 24,
+      "key": "confirm|llama3.1:8b|P3|4|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 25,
+      "key": "confirm|qwen2.5:14b|P3|0|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 26,
+      "key": "confirm|mistral:7b|P3|53|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 27,
+      "key": "confirm|mistral:7b|P3|41|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 28,
+      "key": "confirm|qwen2.5:7b|P3|41|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 29,
+      "key": "confirm|mistral:7b|P3|43|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 30,
+      "key": "confirm|qwen2.5:7b|P3|0|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 31,
+      "key": "confirm|qwen2.5:14b|P3|50|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 32,
+      "key": "confirm|qwen2.5:14b|P3|47|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 33,
+      "key": "confirm|qwen2.5:7b|P3|46|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 34,
+      "key": "confirm|qwen2.5:7b|P3|34|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 35,
+      "key": "confirm|qwen2.5:7b|P3|23|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 36,
+      "key": "confirm|llama3.1:8b|P3|10|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 37,
+      "key": "confirm|llama3.2:3b|P3|50|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 38,
+      "key": "confirm|mistral:7b|P3|8|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 39,
+      "key": "confirm|qwen2.5:14b|P3|50|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 40,
+      "key": "confirm|qwen2.5:14b|P3|11|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 41,
+      "key": "confirm|qwen2.5:7b|P3|51|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 42,
+      "key": "confirm|qwen2.5:7b|P3|14|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 43,
+      "key": "confirm|mistral:7b|P3|12|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 44,
+      "key": "confirm|mistral:7b|P3|37|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 45,
+      "key": "confirm|llama3.1:8b|P3|0|4",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 46,
+      "key": "confirm|mistral:7b|P3|45|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 47,
+      "key": "confirm|llama3.2:3b|P3|66|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 48,
+      "key": "confirm|llama3.1:8b|P3|18|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 49,
+      "key": "confirm|llama3.2:3b|P3|8|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 50,
+      "key": "confirm|qwen2.5:14b|P3|52|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 51,
+      "key": "confirm|llama3.2:3b|P3|41|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 52,
+      "key": "confirm|mistral:7b|P3|13|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 53,
+      "key": "confirm|mistral:7b|P3|53|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 54,
+      "key": "confirm|qwen2.5:7b|P3|13|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 55,
+      "key": "confirm|qwen2.5:14b|P3|15|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 56,
+      "key": "confirm|qwen2.5:14b|P3|24|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 57,
+      "key": "confirm|llama3.1:8b|P3|23|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 58,
+      "key": "confirm|qwen2.5:14b|P3|2|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 59,
+      "key": "confirm|qwen2.5:7b|P3|12|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 60,
+      "key": "confirm|qwen2.5:14b|P3|51|7",
+      "ref_pos": 2
+    }
+  ]
+}
