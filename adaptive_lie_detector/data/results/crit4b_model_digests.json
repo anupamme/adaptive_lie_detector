@@ -190,9 +190,39 @@
   },
   "gemma2:9b": {
    "model": "gemma2:9b",
-   "resident": false,
+   "resident": true,
    "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/gemma2/9b",
-   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+   "manifest_sha256": "ff02c3702f322b9e075e9568332d96c0a7028002f1a5a056e0a6784320a4db0b",
+   "schema_version": 2,
+   "config_digest": "sha256:10aa81da732eae8a66e07d70620089a608f546ff280a2856a43be69d622f715a",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:ff1d1fc78170d787ee1201778e2dd65ea211654ca5fb7d69b5a2e7b123a50373",
+    "size": 5443143296
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:ff1d1fc78170d787ee1201778e2dd65ea211654ca5fb7d69b5a2e7b123a50373",
+     "size": 5443143296
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:109037bec39c0becc8221222ae23557559bc594290945a2c4221ab4f303b8871",
+     "size": 136
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:097a36493f718248845233af1d3fefe7a303f864fae13bc31a3a9704229378ca",
+     "size": 8433
+    },
+    {
+     "media_type": "application/vnd.ollama.image.params",
+     "digest": "sha256:2490e7468436707d5156d7959cf3c6341cc46ee323084cfa3fcf30fe76e397dc",
+     "size": 65
+    }
+   ]
   },
   "phi4:14b": {
    "model": "phi4:14b",
@@ -252,7 +282,8 @@
      "digest": "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
      "size": 11343
     }
-   ]
+   ],
+   "deleted_after_record": true
   }
  }
 }
