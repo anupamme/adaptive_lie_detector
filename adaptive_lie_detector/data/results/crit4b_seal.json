@@ -1,0 +1,545 @@
+{
+  "experiment": "EXP-C4B",
+  "phase": "seal",
+  "prereg": "docs/PREREG_EXP_C4B.md",
+  "k": 20,
+  "n_targets": 5,
+  "salt_sha256": "e0af0e6b9159bc9ae0fced50a195b8db1d364a4fcab60402053423faf4829323",
+  "salt_bytes": 32,
+  "salt_path_uncommitted_at_this_step": "data/results/crit4b_salt.txt",
+  "analyze_commit": "1f8eb12a28abc1ed07e8dd7a7208cabef13cc234",
+  "seal_commit": "0f5e0c5d65981d500a12193d9cf57b7e46c6e6d3",
+  "rubric_md5": "bd35c66ba573e98970f9f613ddc97372",
+  "roster": [
+    "gemma2:9b",
+    "granite3.1-dense:8b",
+    "llama3.1:8b",
+    "llama3.2:3b",
+    "mistral-nemo:12b",
+    "mistral:7b",
+    "olmo2:13b",
+    "phi4:14b",
+    "qwen2.5:14b",
+    "qwen2.5:7b"
+  ],
+  "family_R": [
+    "llama3.2:3b",
+    "mistral:7b",
+    "qwen2.5:7b",
+    "llama3.1:8b",
+    "qwen2.5:14b"
+  ],
+  "family_E": [
+    "gemma2:9b",
+    "phi4:14b",
+    "mistral-nemo:12b",
+    "granite3.1-dense:8b",
+    "olmo2:13b"
+  ],
+  "off_roster_substitutions": [],
+  "grades_path": "data/results/crit4b_grades_raw.jsonl",
+  "grades_commitment": "06025bf44be4b87821e37c9636e23ab518d2254a097bf60542483de61dba9a37",
+  "candidate_dir": "data/results/crit4b_blind",
+  "candidate_file_sha256": {
+    "T03_cand00": "b8ef35d9a939c45e8f7f09beae52086e2845370f6e2273361fa8827f0d691629",
+    "T03_cand01": "7f81e38b4016db2fa4d10da48801dd0755ff1d2da578dcd461d365f62109569d",
+    "T03_cand02": "b17dbfc7658e56f09949ab95245c7b2e0c9d5fdc30a94f9e6373fd256f15281c",
+    "T03_cand03": "493e9bec2767e5f4ddde26548107ec6d57dbad0d97434f5a0e0d64a4f34d0761",
+    "T03_cand04": "54102838504a654a0c6757a9186ee5e6e9c16f24e1ab8e45872a8a74df6962d6",
+    "T03_cand05": "1a00a347f2045b6dc360e737d077cb56348d932798c2b68a659f264b5c996541",
+    "T03_cand06": "27793760b0465848fc35d525f5a78c0c9e4dc6eb14187b5693b7d99c5b99664c",
+    "T03_cand07": "24dad28313e29ecdc2ccc4abca46b370051b57eac5c0ff555044c38bc5164560",
+    "T03_cand08": "86cf7ef6f2fa43bd00b45d21a9e94a173dcf9598222c4d5bb1c74fb5c6ce68ad",
+    "T03_cand09": "fd572f8cb80bb989c36ff43efa9fd453f3f243858add383f11525c1aa774bafe",
+    "T03_cand10": "8355e99202b6aff81f16bab8fe6b157dfffaca651225d593559c31b2c9da7264",
+    "T03_cand11": "f1ce4d19254c911c5ca98059d98deaffb20e08e908361b894d935df726126714",
+    "T03_cand12": "be456c1f046ccbfcd0e16df779dddbc669009cea5dcfc518f2dfec8b0b49167a",
+    "T03_cand13": "3df0ad3aa6ee7577e908918f229525e19a7ba3f30ce569cd80e3316bcb286927",
+    "T03_cand14": "685c494f64c0322a8e62342d165659699a16978bfe12e507d191559e4a2469ed",
+    "T03_cand15": "726b827feded1b8de8d8416721539a27ff1f73dd48fe56f8c67781352fc9a468",
+    "T03_cand16": "d6e6f67414972515432ebc232ef699f7a5163bf7a74a4f6755432fc50d5608ef",
+    "T03_cand17": "b771584ac2f2858764373a070b81a95d2b8213990c8112c38ebf3093a532d66a",
+    "T03_cand18": "e115c42af71aa5b5009726bb907ca1344d957f8cb7c703e2d2635792a9426c4e",
+    "T03_cand19": "be35dd7594ee85c8968797560be989f9277017af2de553e33e618fb461972498",
+    "T02_cand00": "867acd5fadedd633cbf245347c67ec59b8da23186c1ed4a7a49d1811220f2cbf",
+    "T02_cand01": "140a1e18caf5e2ad4774a99e06865ec2df76b539e608136e1f7eef54dfb4a17d",
+    "T02_cand02": "4b39afc0bcf5475bb99268c59974bbdf552243dedfc85c9c1dc8b3927938989c",
+    "T02_cand03": "7c04212406edcd0283ad94178a9cb30eef44dc13a17bdb4d07e559de1be0612b",
+    "T02_cand04": "6cb2dc7e39a51cb3066765ac409c02f5a0aea22a9e29a4d522d07b4a1abe7cac",
+    "T02_cand05": "68ff1a4142ae014df762731776bf0ad9e7da9db078be6045eba4f357ae30a3c2",
+    "T02_cand06": "506d9b4b6bba9421b43bf2908f8f3b93fbfa2acdfc34272b038928cfd31b9bbe",
+    "T02_cand07": "a1915da720c656ec3b76af6538da5641aff6fac01e5433e6f3c197e090a18e75",
+    "T02_cand08": "3c02160dba3aa104fe2416d1df96892b27cb04f509fc7434d83441723580b017",
+    "T02_cand09": "94fc10824679acf76c088fbea434ac87f0577593baf7a81e95beb7d9eaa8bbdd",
+    "T02_cand10": "56f64376e8a7462b29e97d7f107ad7fe536ddfadf5e878620ac1708d3591fefe",
+    "T02_cand11": "eb02b3e8cd1e20dde53e4b4ebcdded0f5e88306bfcf0c35b492c9fed86db7ce6",
+    "T02_cand12": "3b625b07a851db44be7660b4d94e44b428898c9290fd08ce7eed0b2ce7a92368",
+    "T02_cand13": "e872cc884266e722290dca33e3ff42e8b4968f9429c2fec4062edfabc7ab9359",
+    "T02_cand14": "0264e9fb3ef1b446172e82d543667e723d12fbee4da1cbfbc203495388a837ab",
+    "T02_cand15": "e85c719c30a0bfae6888ae3c0bfeb55ee59378621847b226747a754e5880b6a8",
+    "T02_cand16": "83a1558257e9e72cbbd792f9111653c4768310d0c16c50a58c99228644bb8da3",
+    "T02_cand17": "febf3f4826665f76e30f2cbc8bdb57752368a4ad90904baba0050aa31a4b447b",
+    "T02_cand18": "27cfb88dd5f8689bfa186b99a2f78816b92d553e83068c33d8c39dcb17d7b0f7",
+    "T02_cand19": "899fec256e9f0e7063fbce5d6d6bc902923656a1abee8da93fbcbf382026f280",
+    "T01_cand00": "4a96a56a0837db7981489ee11ad1b75450c620b9cbcd71aaa7144062e3a8a6e8",
+    "T01_cand01": "2f7448e4605845d4a8460ed51df75eda2b96970696deec48f8b9b4473f7e8800",
+    "T01_cand02": "52b6c19becb56bbb4a7ee01c3470bf217b98a612e4b5662cf3b3254f62049bda",
+    "T01_cand03": "9ddc4ad42b465ca6c0ea90001f77418312e0d25f513554e302cdd10bafce89a2",
+    "T01_cand04": "e1c8bbee9fecb62feadb8827f34216b0ca57cf2f3ca4a1923a0ad799caaf026e",
+    "T01_cand05": "f06911d54615cd9f3fa8256ecc7c94b6748f07c00d937300937bb43075c4e85c",
+    "T01_cand06": "0cb986c81304a137e1fb230fb5ed4077bf385bb6606c5d723f7c756c402d704b",
+    "T01_cand07": "80734359e49647263cbc841ca2ca47ba1f65e03c7ea0be2a8bbf800bbc7f188d",
+    "T01_cand08": "212da69ac8fda26f2187298451fe140f848a6bb9ddbb821e580b42864cca2210",
+    "T01_cand09": "f09beb78864322bde10648a74f619d788175b8626be6970020cc765be6e4ea49",
+    "T01_cand10": "972fc62b7421059a936124e9932a03fa15d44bad68ca7215a3ce5ee359966dfa",
+    "T01_cand11": "b552a30fd2491aa08bfa8f2a6db0edb3692c2d7921ef169c868b3f70694a3312",
+    "T01_cand12": "4bc0b5f52a8f467c34bf6e25ed19372bf36386193b7ceb442b61b6ef2b5e9e2d",
+    "T01_cand13": "a230e0e44fb2c33426dc33b516dc80cfba211e0764ca72def19019779867ba19",
+    "T01_cand14": "69ec4ebff1605481291c08ce62e6b89f41d8916cd5a30a969cf10e6ee2e3f979",
+    "T01_cand15": "d412b3aa7943d565472869c879dfee5b8b9ddf10ff46efff614fdfbb07cf90dc",
+    "T01_cand16": "b107a34c5ce7bff53f1c5e6baee35578097d0b5b1fd9576ce8624a1f9d17386b",
+    "T01_cand17": "1ba72e740e5bed25b3a1e657c2e1642d04e12a52d66f3d7fe40e3b9a7c1c9d2e",
+    "T01_cand18": "bbef292461a2ae488e6f53c8b1f436611b8c5473a26c0799f9528ecb58160db8",
+    "T01_cand19": "639aa91ac48b5c60d3b8a7f8fabcf3613ef7bc1d24919fe74cb1d1a45e226d3f",
+    "T05_cand00": "2b18a17d1c5b7dfc1913f21d303d856badee922b7e766edf30c29be15bedf6d9",
+    "T05_cand01": "a9cc08a4e57de6053779dc40e64455b952e12230a6239f0c6352748b35db5587",
+    "T05_cand02": "0ae22f4a97020c2995cef06d89160da875e28b85dc8734a1a8815b6346568cbc",
+    "T05_cand03": "75eda23c5d298c82f1bf8434830953b9af41aacfcff7fada99a0cb4389b01096",
+    "T05_cand04": "4d5084b0c107e19c9164ba619874f6dde54590659b2ebc01f772699f8b99c7e8",
+    "T05_cand05": "3ac58610198b3ed4941116b3bbd520823f8c9ae278b15da6388d868f0767dd61",
+    "T05_cand06": "a4243cb21911379cbb6a2b5e36cb67741572fabd5f841361cce6cb2b261b0468",
+    "T05_cand07": "53ae7bc0f5d182b7cb0673e2f13de994d75c3d3032d8e66cf75bdeb1c6b6d4c2",
+    "T05_cand08": "103b346c680f56a3a2a37137e46d46115ce46c709e9b71234456ef93693db1ca",
+    "T05_cand09": "8e3dbb9b1808be40430848c363d34bcb6674328697f36d7076d30460e8fc5a9f",
+    "T05_cand10": "62c7436ca7e08c5bcc1e257de518b52a540634aaa3c397633097b6bc928a54d4",
+    "T05_cand11": "7a162dc34be18e97edd11632d81f31081d98133bf55ca1d23e1d712a063c1ad2",
+    "T05_cand12": "29b9d6d9bb9ceff30b7f9a772872432ee8dcba39387f982916d2d4db17dc77ad",
+    "T05_cand13": "48ae576c02a334a407fb7ea8b261c5a983de5822e0a8c14bff4b54b9044ea549",
+    "T05_cand14": "2cc03db15993b97ce669948352555048d5ce2c657d676d3d7ec2219d7e8113f4",
+    "T05_cand15": "55b958f438e66db879ef0aafee70b10b7894b0ab120d2783adee81d5e5c947ba",
+    "T05_cand16": "c8f70dba4b2c17ebd8f24476e0dc8e1ed387b443282d0e5d1a1ab60fb716dbdf",
+    "T05_cand17": "1667b890517fa468d7ef5b2cda11afa9499904fc27f2632a514fa90d199ba103",
+    "T05_cand18": "0d2e88055398b87065806864b66422fd6c8ad0fc44d77cb68ef5125ad5a2b954",
+    "T05_cand19": "b693b6bf62821b65bb00b9f0dcb263081de0c898a960d33394f48e5c6fcd2b95",
+    "T04_cand00": "250a344cdd0b3f33cc9140a341eef8e0c7db9c1595a6eefb2ab107b41069cae2",
+    "T04_cand01": "633be11b4b812d2f027a6c96cfc6c036b41f2fcd6bcdfabbf042cb180649d410",
+    "T04_cand02": "e64e61647d2b8358b33c4d6aaa289b326099608752940d8052e19c81bcfe91e1",
+    "T04_cand03": "9679352e7fded2f6f6465867705aa2a1e34bcf37d9ff37b2c188c00ba8402377",
+    "T04_cand04": "85ef1f7f6afe0bf79e31fe0af36ed6b831a5979039ba421af0c77103c81aa6a0",
+    "T04_cand05": "51520dba5863874a7ff63338f2b114a658aa8dd5fd5a9b7d7003c26beed30dd0",
+    "T04_cand06": "becc21415cc30ba5f13e0612f4149c500755b40f50298431bbebfe9a86f4fc06",
+    "T04_cand07": "2decb880fbdac4692c89c6120124342fdb2e33e7dfc8ab29ba86cfc53f9ca2a1",
+    "T04_cand08": "808b72d75dc6782c6a49abc3bd399d248cffe62e77b395610e2b68352a18fbf0",
+    "T04_cand09": "a07a391920a8f575e077c5be22bd8e3148c13880231bf829ec48fe47b0ce1896",
+    "T04_cand10": "f07c8429fb59707ce5e11450bee9f2d39a1950b1071efc2f683dd4cb97eb869f",
+    "T04_cand11": "aace41bb6f6f98e0b32ae1dde190e48be4c567b094bb892550b1dee6aa7fcdbb",
+    "T04_cand12": "9e387ebe9b3ae31f1a47e510e98ef24b37e1d21676bc73f7a485ec691cca5ded",
+    "T04_cand13": "68fe9c1256dfd2fc336c40b6782a0c66e3b25ab29f73f7ca5cd343a6e2235285",
+    "T04_cand14": "35a9af38c144d9a0b8f8da4715e1906367c82bf288989985a9f6c57be2645cc2",
+    "T04_cand15": "8268287834f6e36f11a8a5c0ebe4b1441d53d95a57baffe435dba00fd9c67477",
+    "T04_cand16": "cfea96c06715cf577b77a1d9581a261decb258e7d8a696e87494bee6727964cc",
+    "T04_cand17": "ec5ada4475ef24c4bae570d41bfd2fc27c39ce2378929ac8e3f8e47f863a64e5",
+    "T04_cand18": "4452d0f9b51a471665df12d92b2a35ede0442a444ff9c9c719d78bcfebd13b0f",
+    "T04_cand19": "a683fff9e55c0980d3af8c5b3d35881ad5f356f4abdcdb421c7149d1a41350ff"
+  },
+  "n_candidate_files": 100,
+  "n_decoys_identical_to_real_total": 0,
+  "row_fields": [
+    "D",
+    "claim",
+    "fires_answer",
+    "fires_probe",
+    "known_preserved",
+    "vector"
+  ],
+  "gate1_elicitation_fixed": {
+    "llama3.1:8b": {
+      "claims": 30,
+      "distinct_hashes": 30,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "llama3.2:3b": {
+      "claims": 50,
+      "distinct_hashes": 50,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "mistral:7b": {
+      "claims": 40,
+      "distinct_hashes": 40,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "qwen2.5:14b": {
+      "claims": 50,
+      "distinct_hashes": 50,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "qwen2.5:7b": {
+      "claims": 50,
+      "distinct_hashes": 50,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    }
+  },
+  "gate2_no_condition_label": {
+    "llama3.1:8b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "llama3.2:3b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "mistral:7b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "qwen2.5:14b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "qwen2.5:7b": {
+      "banned_fields_found": [],
+      "pass": true
+    }
+  },
+  "gate5_screen_sufficiency": {
+    "llama3.1:8b": {
+      "known_stratum": 85,
+      "threshold": 30,
+      "pass": true
+    },
+    "llama3.2:3b": {
+      "known_stratum": 60,
+      "threshold": 30,
+      "pass": true
+    },
+    "mistral:7b": {
+      "known_stratum": 87,
+      "threshold": 30,
+      "pass": true
+    },
+    "qwen2.5:14b": {
+      "known_stratum": 111,
+      "threshold": 30,
+      "pass": true
+    },
+    "qwen2.5:7b": {
+      "known_stratum": 101,
+      "threshold": 30,
+      "pass": true
+    }
+  },
+  "gate7_rubric_identity": {
+    "llama3.1:8b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "llama3.2:3b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "mistral:7b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "qwen2.5:14b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "qwen2.5:7b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    }
+  },
+  "protocol_wording": {
+    "llama3.1:8b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+      "pass": true
+    },
+    "llama3.2:3b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+      "pass": true
+    },
+    "mistral:7b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+      "pass": true
+    },
+    "qwen2.5:14b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+      "pass": true
+    },
+    "qwen2.5:7b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+      "pass": true
+    }
+  },
+  "pseudonyms": {
+    "T03": {
+      "paired_claims": 17,
+      "n_D1": 105,
+      "n_D0": 126,
+      "minority_D_n": 105,
+      "n_graded": 231,
+      "n_evasive": 9,
+      "n_ungraded": 0,
+      "n_claims_graded": 30,
+      "wording": "P3",
+      "n_design_claims": 30,
+      "evasive_rate": 0.0375,
+      "model_commitment": "4fd13b93e779efd9aa5c26768371fee273e174e0a07108d7b2baabe8a4f2d3af",
+      "cell_commitment": "e6c4e794e46dd0fedb788cc08059213a0e5ea6f746240951653f8caab3954552",
+      "cell_path": "data/results/crit4b_confirm_llama3_1_8b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 30,
+          "distinct_hashes": 30,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 85,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+          "pass": true
+        }
+      }
+    },
+    "T02": {
+      "paired_claims": 23,
+      "n_D1": 76,
+      "n_D0": 231,
+      "minority_D_n": 76,
+      "n_graded": 307,
+      "n_evasive": 93,
+      "n_ungraded": 0,
+      "n_claims_graded": 50,
+      "wording": "P3",
+      "n_design_claims": 50,
+      "evasive_rate": 0.2325,
+      "model_commitment": "52dc245833f3d347ed5feeee8feaf52e3c7e4c1f4b432058524a0137ea8c4ec2",
+      "cell_commitment": "3d1fb6f9289e62dfeef1086b7646781f77633bf188f4e7e8ab6debcadabc56fc",
+      "cell_path": "data/results/crit4b_confirm_llama3_2_3b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 50,
+          "distinct_hashes": 50,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 60,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+          "pass": true
+        }
+      }
+    },
+    "T01": {
+      "paired_claims": 12,
+      "n_D1": 178,
+      "n_D0": 134,
+      "minority_D_n": 134,
+      "n_graded": 312,
+      "n_evasive": 8,
+      "n_ungraded": 0,
+      "n_claims_graded": 40,
+      "wording": "P3",
+      "n_design_claims": 40,
+      "evasive_rate": 0.025,
+      "model_commitment": "06021ee84ed9e56aa623ab1092b0785ea4df6a14f51d20ed4ce35fe180c1896a",
+      "cell_commitment": "85c015c3bd825b8bbcf0f16c3c7ad9a670032d3550b7d804e8dac4dafea2e180",
+      "cell_path": "data/results/crit4b_confirm_mistral_7b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 40,
+          "distinct_hashes": 40,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 87,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+          "pass": true
+        }
+      }
+    },
+    "T05": {
+      "paired_claims": 13,
+      "n_D1": 66,
+      "n_D0": 327,
+      "minority_D_n": 66,
+      "n_graded": 393,
+      "n_evasive": 7,
+      "n_ungraded": 0,
+      "n_claims_graded": 50,
+      "wording": "P3",
+      "n_design_claims": 50,
+      "evasive_rate": 0.0175,
+      "model_commitment": "68109b85371cacd32aae61edf0cf309546ced0b0d3dd51b174195ad6f1c8206e",
+      "cell_commitment": "217a4de888cfea00734cd7c87fae91180f988dc128b8ecf000c4c629d8653153",
+      "cell_path": "data/results/crit4b_confirm_qwen2_5_14b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 50,
+          "distinct_hashes": 50,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 111,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+          "pass": true
+        }
+      }
+    },
+    "T04": {
+      "paired_claims": 15,
+      "n_D1": 136,
+      "n_D0": 264,
+      "minority_D_n": 136,
+      "n_graded": 400,
+      "n_evasive": 0,
+      "n_ungraded": 0,
+      "n_claims_graded": 50,
+      "wording": "P3",
+      "n_design_claims": 50,
+      "evasive_rate": 0.0,
+      "model_commitment": "30fec2f451b683eacc19a055f3a1794dd1a7a8a6eb89e01240c3459763a95ccf",
+      "cell_commitment": "929d27993b0165a7e1ba221f8dbf0158abd4daa43e88cdb0f6d0574879b99c7f",
+      "cell_path": "data/results/crit4b_confirm_qwen2_5_7b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 50,
+          "distinct_hashes": 50,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 101,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "PREREG \u00a77a: Family R is fixed at P3, no pilot",
+          "pass": true
+        }
+      }
+    }
+  },
+  "published_counts_are_candidate_invariant": "paired_claims, n_D1, n_D0, minority_D_n and the graded/evasive/ungraded counts are invariant to within-claim permutation of D. Every candidate for a pseudonym therefore shares them, including the majority-class baseline, so publishing them cannot help the analyst identify the real candidate. Nothing base-rate-like that is NOT invariant appears here.",
+  "commitments_are_salted": "PREREG \u00a73.4 step 4 says the manifest carries the sha256 of each cell file. Published unsalted beside a pseudonym, that digest would invert the pseudonym map for anyone holding the committed cells. The seal therefore publishes sha256(salt || tag || value); binding is unchanged, hiding is restored. CORRECTION 1(a).",
+  "blind_limits": "Single-analyst, machine-enforced (DEVIATION 1). A one-person team can always de-blind by recomputing labels from the committed cells (\u00a73.1(b)); the protection is the frozen pre-data commit of analyze_crit4b.py plus the commit of all K candidates' results before the salt."
+}

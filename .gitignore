@@ -193,3 +193,10 @@ adaptive_lie_detector/data/probe_audit/*.npz
 # EXP-XL: Liars' Bench is a gated corpus and not ours to redistribute
 # (PREREG_EXP_XL.md §2). The committed pin is liars_bench_manifest.json.
 adaptive_lie_detector/data/external/liars_bench/
+
+# EXP-C4B blind. PREREG_EXP_C4B.md §3.4 step 4 writes the seal's salt and calls
+# it "git-ignored, not committed at this step"; the rule was missing, so a
+# `git add -A` could have published it before the blind results were committed
+# and voided the blind. Ignored here, then committed DELIBERATELY at §3.4
+# step 6 with `git add -f`, after crit4b_blind_results.json is in.
+adaptive_lie_detector/data/results/crit4b_salt.txt
