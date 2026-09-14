@@ -33,7 +33,11 @@ DONE=data/results/.family_e_done
 TARGETS="gemma2:9b phi4:14b mistral-nemo:12b granite3.1-dense:8b olmo2:13b"
 
 # §4's ceiling: refuse to start a target that cannot fit alongside the runner.
-MIN_FREE_GB=8
+# Sized for the worst pair actually on disk at once under the prefetch below --
+# phi4:14b 9.1 GB + olmo2:13b 8.4 GB = 17.5 GB -- plus margin for the runner's
+# scratch. An 8 GiB floor was right for the strictly sequential loop and is not
+# right once a second model downloads during inference.
+MIN_FREE_GB=20
 
 touch "$DONE"
 
@@ -54,8 +58,36 @@ for m in $TARGETS; do
     exit 1
   fi
 
+  # If a prefetch for this target is in flight, wait for it rather than racing
+  # it. `ollama pull` on an already-complete model returns immediately, so this
+  # stays correct whether or not a prefetch ran.
+  if [ -n "$PREFETCH_PID" ]; then
+    say "$m: waiting on the prefetch started during the previous target"
+    wait "$PREFETCH_PID"
+    PREFETCH_PID=""
+  fi
   say "$m: pull"
   ollama pull "$m" || { say "$m: PULL FAILED, stopping"; exit 1; }
+
+  # Overlap the NEXT target's download with this target's inference. Measured
+  # on this machine: a complete cell is ~3 h of compute while the link runs at
+  # ~1 MB/s, so a strictly sequential loop leaves the network idle for hours
+  # and then the GPU idle for hours. Peak residency is still TWO models -- this
+  # target plus the one downloading -- which is exactly what §4's loop allows,
+  # so the storage rule is unchanged. Nothing scientific depends on it: the
+  # order of §4's ten targets is not a pre-registered quantity, and no cell's
+  # data are touched by when its weights arrived.
+  next_m=""
+  seen_me=0
+  for t in $TARGETS; do
+    if [ "$seen_me" = 1 ] && ! /usr/bin/grep -qx "$t" "$DONE"; then next_m=$t; break; fi
+    [ "$t" = "$m" ] && seen_me=1
+  done
+  if [ -n "$next_m" ]; then
+    say "$m: prefetching $next_m in the background (two resident, §4-compliant)"
+    ollama pull "$next_m" > "/tmp/prefetch_${next_m//[:.]/_}.log" 2>&1 &
+    PREFETCH_PID=$!
+  fi
 
   # §4: the manifest digest is recorded while the blobs are on disk, BEFORE the
   # `ollama rm` at the end of this iteration. A tag is mutable; the digest is
