@@ -1,0 +1,222 @@
+{
+ "experiment": "EXP-C4B",
+ "prereg": "docs/PREREG_EXP_C4B.md \u00a74, \u00a712 DEVIATION 11",
+ "note": "Manifest digest per target, read from Ollama's manifest file. An Ollama tag is mutable; the digest is what identifies the weights actually used. \u00a74 requires this recorded BEFORE the weights are deleted.",
+ "targets": {
+  "llama3.2:3b": {
+   "model": "llama3.2:3b",
+   "resident": true,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/llama3.2/3b",
+   "manifest_sha256": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+   "schema_version": 2,
+   "config_digest": "sha256:34bb5ab01051a11372a91f95f3fbbc51173eed8e7f13ec395b9ae9b8bd0e242b",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff",
+    "size": 2019377376
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff",
+     "size": 2019377376
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:966de95ca8a62200913e3f8bfbf84c8494536f1b94b49166851e76644e966396",
+     "size": 1429
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:fcc5a6bec9daf9b561a68827b67ab6088e1dba9d1fa2a50d7bbcc8384e0a265d",
+     "size": 7711
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:a70ff7e570d97baaf4e62ac6e6ad9975e04caa6d900d3742d37698494479e0cd",
+     "size": 6016
+    },
+    {
+     "media_type": "application/vnd.ollama.image.params",
+     "digest": "sha256:56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb",
+     "size": 96
+    }
+   ]
+  },
+  "mistral:7b": {
+   "model": "mistral:7b",
+   "resident": true,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/mistral/7b",
+   "manifest_sha256": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+   "schema_version": 2,
+   "config_digest": "sha256:1064e17101bdd2460dd5c4e03e4f5cc1b38a4dee66084dc91faba294ccb64a92",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:f5074b1221da0f5a2910d33b642efa5b9eb58cfdddca1c79e16d7ad28aa2b31f",
+    "size": 4372811712
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:f5074b1221da0f5a2910d33b642efa5b9eb58cfdddca1c79e16d7ad28aa2b31f",
+     "size": 4372811712
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+     "size": 11356
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:1ff5b64b61b9a63146475a24f70d3ca2fd6fdeec44247987163479968896fc0b",
+     "size": 799
+    },
+    {
+     "media_type": "application/vnd.ollama.image.params",
+     "digest": "sha256:ed11eda7790d05b49395598a42b155812b17e263214292f7b87d15e14003d337",
+     "size": 30
+    }
+   ]
+  },
+  "qwen2.5:7b": {
+   "model": "qwen2.5:7b",
+   "resident": true,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/qwen2.5/7b",
+   "manifest_sha256": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+   "schema_version": 2,
+   "config_digest": "sha256:2f15b3218f0552c60647ce60ada83632d2c09755b16259b13e3e4458e9ae419d",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730",
+    "size": 4683073952
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:2bada8a7450677000f678be90653b85d364de7db25eb5ea54136ada5f3933730",
+     "size": 4683073952
+    },
+    {
+     "media_type": "application/vnd.ollama.image.system",
+     "digest": "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e",
+     "size": 68
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:eb4402837c7829a690fa845de4d7f3fd842c2adee476d5341da8a46ea9255175",
+     "size": 1482
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+     "size": 11343
+    }
+   ]
+  },
+  "llama3.1:8b": {
+   "model": "llama3.1:8b",
+   "resident": true,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/llama3.1/8b",
+   "manifest_sha256": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+   "schema_version": 2,
+   "config_digest": "sha256:455f34728c9b5dd3376378bfb809ee166c145b0b4c1f1a6feca069055066ef9a",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29",
+    "size": 4920738944
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29",
+     "size": 4920738944
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85",
+     "size": 1481
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177",
+     "size": 12320
+    },
+    {
+     "media_type": "application/vnd.ollama.image.params",
+     "digest": "sha256:56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb",
+     "size": 96
+    }
+   ]
+  },
+  "qwen2.5:14b": {
+   "model": "qwen2.5:14b",
+   "resident": true,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/qwen2.5/14b",
+   "manifest_sha256": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+   "schema_version": 2,
+   "config_digest": "sha256:db59b814cab753a51167db007fa6b6e0095f678ff24c9f7284753b75b34c6df3",
+   "model_layer": {
+    "media_type": "application/vnd.ollama.image.model",
+    "digest": "sha256:2049f5674b1e92b4464e5729975c9689fcfbf0b0e4443ccf10b5339f370f9a54",
+    "size": 8988110688
+   },
+   "n_model_layers": 1,
+   "layers": [
+    {
+     "media_type": "application/vnd.ollama.image.model",
+     "digest": "sha256:2049f5674b1e92b4464e5729975c9689fcfbf0b0e4443ccf10b5339f370f9a54",
+     "size": 8988110688
+    },
+    {
+     "media_type": "application/vnd.ollama.image.system",
+     "digest": "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e",
+     "size": 68
+    },
+    {
+     "media_type": "application/vnd.ollama.image.template",
+     "digest": "sha256:eb4402837c7829a690fa845de4d7f3fd842c2adee476d5341da8a46ea9255175",
+     "size": 1482
+    },
+    {
+     "media_type": "application/vnd.ollama.image.license",
+     "digest": "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+     "size": 11343
+    }
+   ]
+  },
+  "gemma2:9b": {
+   "model": "gemma2:9b",
+   "resident": false,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/gemma2/9b",
+   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+  },
+  "phi4:14b": {
+   "model": "phi4:14b",
+   "resident": false,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/phi4/14b",
+   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+  },
+  "mistral-nemo:12b": {
+   "model": "mistral-nemo:12b",
+   "resident": false,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/mistral-nemo/12b",
+   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+  },
+  "granite3.1-dense:8b": {
+   "model": "granite3.1-dense:8b",
+   "resident": false,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/granite3.1-dense/8b",
+   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+  },
+  "olmo2:13b": {
+   "model": "olmo2:13b",
+   "resident": false,
+   "manifest_path": "/Users/mediratta/.ollama/models/manifests/registry.ollama.ai/library/olmo2/13b",
+   "note": "not resident; digest unavailable. If this target was collected and then deleted without a digest, that gap is a fact about its reproducibility and is reported as one."
+  }
+ }
+}
