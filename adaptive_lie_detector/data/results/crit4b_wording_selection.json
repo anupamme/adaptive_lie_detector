@@ -110,6 +110,40 @@
           "distance_from_half": 0.275
         }
       }
+    },
+    "granite3.1-dense:8b": {
+      "selected": "P3",
+      "skewed": false,
+      "known_stratum": 80,
+      "per_wording": {
+        "P1": {
+          "asserted": 8,
+          "corrected": 32,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.2,
+          "inside_window": false,
+          "distance_from_half": 0.3
+        },
+        "P2": {
+          "asserted": 11,
+          "corrected": 29,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.275,
+          "inside_window": false,
+          "distance_from_half": 0.22499999999999998
+        },
+        "P3": {
+          "asserted": 12,
+          "corrected": 28,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.3,
+          "inside_window": true,
+          "distance_from_half": 0.2
+        }
+      }
     }
   }
 }
