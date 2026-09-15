@@ -11,6 +11,56 @@
   },
   "guard": "no H1/H2/H3/H5 statistic is computed in this phase",
   "targets": {
+    "gemma2:9b": {
+      "wording": "P1",
+      "n_design_claims": 30,
+      "n_graded": 237,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0125,
+      "n_claims_graded": 30,
+      "paired_claims": 11,
+      "n_D1": 99,
+      "n_D0": 138,
+      "minority_D_n": 99,
+      "base_rate": 0.4177215189873418,
+      "known_stratum": 100,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": true,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": true,
+      "blocks_authorised_now": 1,
+      "claims_after_block": 40,
+      "at_cap_with_conditions_unmet": false
+    },
+    "granite3.1-dense:8b": {
+      "wording": "P3",
+      "n_design_claims": 30,
+      "n_graded": 237,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0125,
+      "n_claims_graded": 30,
+      "paired_claims": 12,
+      "n_D1": 88,
+      "n_D0": 149,
+      "minority_D_n": 88,
+      "base_rate": 0.37130801687763715,
+      "known_stratum": 80,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": false,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 30,
+      "at_cap_with_conditions_unmet": false
+    },
     "llama3.1:8b": {
       "wording": "P3",
       "n_design_claims": 30,
@@ -61,6 +111,31 @@
       "claims_after_block": 50,
       "at_cap_with_conditions_unmet": true
     },
+    "mistral-nemo:12b": {
+      "wording": "P2",
+      "n_design_claims": 30,
+      "n_graded": 237,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0125,
+      "n_claims_graded": 30,
+      "paired_claims": 8,
+      "n_D1": 87,
+      "n_D0": 150,
+      "minority_D_n": 87,
+      "base_rate": 0.3670886075949367,
+      "known_stratum": 78,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": true,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": true,
+      "blocks_authorised_now": 1,
+      "claims_after_block": 40,
+      "at_cap_with_conditions_unmet": false
+    },
     "mistral:7b": {
       "wording": "P3",
       "n_design_claims": 40,
@@ -83,6 +158,56 @@
       },
       "topup_indicated": false,
       "blocks_authorised_now": 0,
+      "claims_after_block": 40,
+      "at_cap_with_conditions_unmet": false
+    },
+    "olmo2:13b": {
+      "wording": "P1",
+      "n_design_claims": 30,
+      "n_graded": 231,
+      "n_evasive": 9,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0375,
+      "n_claims_graded": 30,
+      "paired_claims": 13,
+      "n_D1": 75,
+      "n_D0": 156,
+      "minority_D_n": 75,
+      "base_rate": 0.3246753246753247,
+      "known_stratum": 98,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": false,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": false,
+      "blocks_authorised_now": 0,
+      "claims_after_block": 30,
+      "at_cap_with_conditions_unmet": false
+    },
+    "phi4:14b": {
+      "wording": "P3",
+      "n_design_claims": 30,
+      "n_graded": 237,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "evasive_rate": 0.0125,
+      "n_claims_graded": 30,
+      "paired_claims": 11,
+      "n_D1": 138,
+      "n_D0": 99,
+      "minority_D_n": 99,
+      "base_rate": 0.5822784810126582,
+      "known_stratum": 108,
+      "effective_cap_claims": 50,
+      "conditions": {
+        "paired_below_12": true,
+        "minority_D_below_50": false,
+        "evasive_above_15pct": false
+      },
+      "topup_indicated": true,
+      "blocks_authorised_now": 1,
       "claims_after_block": 40,
       "at_cap_with_conditions_unmet": false
     },
@@ -137,7 +262,11 @@
       "at_cap_with_conditions_unmet": false
     }
   },
-  "flagged_for_topup": [],
+  "flagged_for_topup": [
+    "gemma2:9b",
+    "mistral-nemo:12b",
+    "phi4:14b"
+  ],
   "at_cap_unmet": [
     "llama3.2:3b"
   ],
