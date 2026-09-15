@@ -144,6 +144,40 @@
           "distance_from_half": 0.2
         }
       }
+    },
+    "olmo2:13b": {
+      "selected": "P1",
+      "skewed": false,
+      "known_stratum": 98,
+      "per_wording": {
+        "P1": {
+          "asserted": 12,
+          "corrected": 28,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.3,
+          "inside_window": true,
+          "distance_from_half": 0.2
+        },
+        "P2": {
+          "asserted": 10,
+          "corrected": 30,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.25,
+          "inside_window": false,
+          "distance_from_half": 0.25
+        },
+        "P3": {
+          "asserted": 12,
+          "corrected": 28,
+          "evasive": 0,
+          "n": 40,
+          "base_rate": 0.3,
+          "inside_window": true,
+          "distance_from_half": 0.2
+        }
+      }
     }
   }
 }
