@@ -3,7 +3,7 @@
   "prereg": "PREREG \u00a73.3(3)",
   "per_target": 12,
   "seed": 42,
-  "n": 60,
+  "n": 120,
   "note": "sheet_index -> trial key. The model name is deliberately absent from the .txt the coder reads; it is recoverable from the key here, which the coder does not open.",
   "items": [
     {
@@ -18,292 +18,592 @@
     },
     {
       "sheet_index": 3,
-      "key": "confirm|llama3.1:8b|P3|8|7",
+      "key": "confirm|mistral-nemo:12b|P2|50|5",
       "ref_pos": 1
     },
     {
       "sheet_index": 4,
-      "key": "confirm|llama3.2:3b|P3|36|5",
+      "key": "confirm|gemma2:9b|P1|36|4",
       "ref_pos": 1
     },
     {
       "sheet_index": 5,
-      "key": "confirm|mistral:7b|P3|30|3",
+      "key": "confirm|olmo2:13b|P1|12|7",
       "ref_pos": 1
     },
     {
       "sheet_index": 6,
-      "key": "confirm|llama3.2:3b|P3|46|2",
+      "key": "confirm|llama3.1:8b|P3|8|7",
       "ref_pos": 1
     },
     {
       "sheet_index": 7,
-      "key": "confirm|llama3.1:8b|P3|43|3",
-      "ref_pos": 2
+      "key": "confirm|llama3.2:3b|P3|36|5",
+      "ref_pos": 1
     },
     {
       "sheet_index": 8,
-      "key": "confirm|qwen2.5:7b|P3|31|7",
-      "ref_pos": 2
+      "key": "confirm|mistral:7b|P3|30|3",
+      "ref_pos": 1
     },
     {
       "sheet_index": 9,
-      "key": "confirm|llama3.1:8b|P3|19|6",
+      "key": "confirm|granite3.1-dense:8b|P3|45|5",
       "ref_pos": 2
     },
     {
       "sheet_index": 10,
-      "key": "confirm|qwen2.5:14b|P3|30|0",
+      "key": "confirm|llama3.2:3b|P3|46|2",
       "ref_pos": 1
     },
     {
       "sheet_index": 11,
-      "key": "confirm|llama3.2:3b|P3|55|7",
+      "key": "confirm|llama3.1:8b|P3|43|3",
       "ref_pos": 2
     },
     {
       "sheet_index": 12,
-      "key": "confirm|llama3.1:8b|P3|21|2",
-      "ref_pos": 2
+      "key": "confirm|mistral-nemo:12b|P2|26|4",
+      "ref_pos": 1
     },
     {
       "sheet_index": 13,
-      "key": "confirm|qwen2.5:7b|P3|50|2",
+      "key": "confirm|olmo2:13b|P1|30|5",
       "ref_pos": 1
     },
     {
       "sheet_index": 14,
-      "key": "confirm|mistral:7b|P3|31|6",
+      "key": "confirm|granite3.1-dense:8b|P3|31|0",
       "ref_pos": 2
     },
     {
       "sheet_index": 15,
-      "key": "confirm|llama3.1:8b|P3|29|1",
+      "key": "confirm|qwen2.5:7b|P3|31|7",
       "ref_pos": 2
     },
     {
       "sheet_index": 16,
-      "key": "confirm|llama3.2:3b|P3|52|7",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 17,
-      "key": "confirm|qwen2.5:7b|P3|53|7",
+      "key": "confirm|llama3.1:8b|P3|19|6",
       "ref_pos": 2
     },
     {
+      "sheet_index": 17,
+      "key": "confirm|olmo2:13b|P1|18|7",
+      "ref_pos": 1
+    },
+    {
       "sheet_index": 18,
-      "key": "confirm|mistral:7b|P3|36|6",
+      "key": "confirm|phi4:14b|P3|26|1",
       "ref_pos": 1
     },
     {
       "sheet_index": 19,
-      "key": "confirm|llama3.1:8b|P3|19|3",
-      "ref_pos": 2
+      "key": "confirm|qwen2.5:14b|P3|30|0",
+      "ref_pos": 1
     },
     {
       "sheet_index": 20,
-      "key": "confirm|llama3.1:8b|P3|44|5",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 21,
-      "key": "confirm|llama3.2:3b|P3|66|2",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 22,
-      "key": "confirm|llama3.2:3b|P3|47|6",
+      "key": "confirm|llama3.2:3b|P3|55|7",
       "ref_pos": 2
     },
     {
+      "sheet_index": 21,
+      "key": "confirm|llama3.1:8b|P3|21|2",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 22,
+      "key": "confirm|qwen2.5:7b|P3|50|2",
+      "ref_pos": 1
+    },
+    {
       "sheet_index": 23,
-      "key": "confirm|llama3.2:3b|P3|30|2",
+      "key": "confirm|phi4:14b|P3|24|4",
       "ref_pos": 1
     },
     {
       "sheet_index": 24,
-      "key": "confirm|llama3.1:8b|P3|4|1",
-      "ref_pos": 1
+      "key": "confirm|phi4:14b|P3|9|7",
+      "ref_pos": 2
     },
     {
       "sheet_index": 25,
-      "key": "confirm|qwen2.5:14b|P3|0|6",
-      "ref_pos": 1
+      "key": "confirm|mistral:7b|P3|31|6",
+      "ref_pos": 2
     },
     {
       "sheet_index": 26,
-      "key": "confirm|mistral:7b|P3|53|3",
+      "key": "confirm|olmo2:13b|P1|23|6",
       "ref_pos": 2
     },
     {
       "sheet_index": 27,
-      "key": "confirm|mistral:7b|P3|41|6",
+      "key": "confirm|llama3.1:8b|P3|29|1",
       "ref_pos": 2
     },
     {
       "sheet_index": 28,
-      "key": "confirm|qwen2.5:7b|P3|41|1",
-      "ref_pos": 2
-    },
-    {
-      "sheet_index": 29,
-      "key": "confirm|mistral:7b|P3|43|6",
-      "ref_pos": 2
-    },
-    {
-      "sheet_index": 30,
-      "key": "confirm|qwen2.5:7b|P3|0|0",
+      "key": "confirm|granite3.1-dense:8b|P3|14|4",
       "ref_pos": 1
     },
     {
+      "sheet_index": 29,
+      "key": "confirm|llama3.2:3b|P3|52|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 30,
+      "key": "confirm|qwen2.5:7b|P3|53|7",
+      "ref_pos": 2
+    },
+    {
       "sheet_index": 31,
-      "key": "confirm|qwen2.5:14b|P3|50|1",
+      "key": "confirm|gemma2:9b|P1|48|2",
       "ref_pos": 1
     },
     {
       "sheet_index": 32,
-      "key": "confirm|qwen2.5:14b|P3|47|7",
+      "key": "confirm|granite3.1-dense:8b|P3|35|1",
       "ref_pos": 2
     },
     {
       "sheet_index": 33,
-      "key": "confirm|qwen2.5:7b|P3|46|3",
+      "key": "confirm|gemma2:9b|P1|34|3",
       "ref_pos": 1
     },
     {
       "sheet_index": 34,
-      "key": "confirm|qwen2.5:7b|P3|34|1",
+      "key": "confirm|mistral:7b|P3|36|6",
       "ref_pos": 1
     },
     {
       "sheet_index": 35,
-      "key": "confirm|qwen2.5:7b|P3|23|0",
+      "key": "confirm|granite3.1-dense:8b|P3|15|0",
       "ref_pos": 2
     },
     {
       "sheet_index": 36,
-      "key": "confirm|llama3.1:8b|P3|10|2",
-      "ref_pos": 1
+      "key": "confirm|gemma2:9b|P1|29|6",
+      "ref_pos": 2
     },
     {
       "sheet_index": 37,
-      "key": "confirm|llama3.2:3b|P3|50|6",
-      "ref_pos": 1
+      "key": "confirm|llama3.1:8b|P3|19|3",
+      "ref_pos": 2
     },
     {
       "sheet_index": 38,
-      "key": "confirm|mistral:7b|P3|8|7",
+      "key": "confirm|llama3.1:8b|P3|44|5",
       "ref_pos": 1
     },
     {
       "sheet_index": 39,
-      "key": "confirm|qwen2.5:14b|P3|50|6",
+      "key": "confirm|llama3.2:3b|P3|66|2",
       "ref_pos": 1
     },
     {
       "sheet_index": 40,
-      "key": "confirm|qwen2.5:14b|P3|11|1",
+      "key": "confirm|llama3.2:3b|P3|47|6",
       "ref_pos": 2
     },
     {
       "sheet_index": 41,
-      "key": "confirm|qwen2.5:7b|P3|51|6",
-      "ref_pos": 2
+      "key": "confirm|llama3.2:3b|P3|30|2",
+      "ref_pos": 1
     },
     {
       "sheet_index": 42,
-      "key": "confirm|qwen2.5:7b|P3|14|2",
+      "key": "confirm|llama3.1:8b|P3|4|1",
       "ref_pos": 1
     },
     {
       "sheet_index": 43,
-      "key": "confirm|mistral:7b|P3|12|1",
+      "key": "confirm|qwen2.5:14b|P3|0|6",
       "ref_pos": 1
     },
     {
       "sheet_index": 44,
-      "key": "confirm|mistral:7b|P3|37|0",
+      "key": "confirm|mistral:7b|P3|53|3",
       "ref_pos": 2
     },
     {
       "sheet_index": 45,
-      "key": "confirm|llama3.1:8b|P3|0|4",
-      "ref_pos": 1
+      "key": "confirm|granite3.1-dense:8b|P3|27|7",
+      "ref_pos": 2
     },
     {
       "sheet_index": 46,
-      "key": "confirm|mistral:7b|P3|45|7",
+      "key": "confirm|olmo2:13b|P1|17|4",
       "ref_pos": 2
     },
     {
       "sheet_index": 47,
-      "key": "confirm|llama3.2:3b|P3|66|3",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 48,
-      "key": "confirm|llama3.1:8b|P3|18|3",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 49,
-      "key": "confirm|llama3.2:3b|P3|8|0",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 50,
-      "key": "confirm|qwen2.5:14b|P3|52|5",
-      "ref_pos": 1
-    },
-    {
-      "sheet_index": 51,
-      "key": "confirm|llama3.2:3b|P3|41|0",
+      "key": "confirm|granite3.1-dense:8b|P3|31|1",
       "ref_pos": 2
     },
     {
+      "sheet_index": 48,
+      "key": "confirm|phi4:14b|P3|1|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 49,
+      "key": "confirm|mistral:7b|P3|41|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 50,
+      "key": "confirm|qwen2.5:7b|P3|41|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 51,
+      "key": "confirm|olmo2:13b|P1|8|7",
+      "ref_pos": 1
+    },
+    {
       "sheet_index": 52,
-      "key": "confirm|mistral:7b|P3|13|1",
+      "key": "confirm|mistral-nemo:12b|P2|5|2",
       "ref_pos": 2
     },
     {
       "sheet_index": 53,
-      "key": "confirm|mistral:7b|P3|53|7",
-      "ref_pos": 2
+      "key": "confirm|granite3.1-dense:8b|P3|36|3",
+      "ref_pos": 1
     },
     {
       "sheet_index": 54,
-      "key": "confirm|qwen2.5:7b|P3|13|6",
+      "key": "confirm|mistral:7b|P3|43|6",
       "ref_pos": 2
     },
     {
       "sheet_index": 55,
-      "key": "confirm|qwen2.5:14b|P3|15|3",
-      "ref_pos": 2
-    },
-    {
-      "sheet_index": 56,
-      "key": "confirm|qwen2.5:14b|P3|24|6",
+      "key": "confirm|qwen2.5:7b|P3|0|0",
       "ref_pos": 1
     },
     {
-      "sheet_index": 57,
-      "key": "confirm|llama3.1:8b|P3|23|7",
+      "sheet_index": 56,
+      "key": "confirm|granite3.1-dense:8b|P3|39|0",
       "ref_pos": 2
     },
     {
+      "sheet_index": 57,
+      "key": "confirm|gemma2:9b|P1|24|1",
+      "ref_pos": 1
+    },
+    {
       "sheet_index": 58,
-      "key": "confirm|qwen2.5:14b|P3|2|5",
+      "key": "confirm|qwen2.5:14b|P3|50|1",
       "ref_pos": 1
     },
     {
       "sheet_index": 59,
-      "key": "confirm|qwen2.5:7b|P3|12|3",
+      "key": "confirm|gemma2:9b|P1|12|1",
       "ref_pos": 1
     },
     {
       "sheet_index": 60,
+      "key": "confirm|qwen2.5:14b|P3|47|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 61,
+      "key": "confirm|qwen2.5:7b|P3|46|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 62,
+      "key": "confirm|phi4:14b|P3|29|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 63,
+      "key": "confirm|qwen2.5:7b|P3|34|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 64,
+      "key": "confirm|gemma2:9b|P1|36|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 65,
+      "key": "confirm|phi4:14b|P3|23|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 66,
+      "key": "confirm|phi4:14b|P3|21|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 67,
+      "key": "confirm|qwen2.5:7b|P3|23|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 68,
+      "key": "confirm|mistral-nemo:12b|P2|6|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 69,
+      "key": "confirm|gemma2:9b|P1|41|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 70,
+      "key": "confirm|granite3.1-dense:8b|P3|11|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 71,
+      "key": "confirm|phi4:14b|P3|8|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 72,
+      "key": "confirm|olmo2:13b|P1|0|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 73,
+      "key": "confirm|phi4:14b|P3|14|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 74,
+      "key": "confirm|llama3.1:8b|P3|10|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 75,
+      "key": "confirm|llama3.2:3b|P3|50|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 76,
+      "key": "confirm|mistral-nemo:12b|P2|25|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 77,
+      "key": "confirm|mistral:7b|P3|8|7",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 78,
+      "key": "confirm|gemma2:9b|P1|36|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 79,
+      "key": "confirm|olmo2:13b|P1|7|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 80,
+      "key": "confirm|qwen2.5:14b|P3|50|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 81,
+      "key": "confirm|qwen2.5:14b|P3|11|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 82,
+      "key": "confirm|qwen2.5:7b|P3|51|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 83,
+      "key": "confirm|qwen2.5:7b|P3|14|2",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 84,
+      "key": "confirm|mistral:7b|P3|12|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 85,
+      "key": "confirm|mistral:7b|P3|37|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 86,
+      "key": "confirm|granite3.1-dense:8b|P3|42|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 87,
+      "key": "confirm|llama3.1:8b|P3|0|4",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 88,
+      "key": "confirm|mistral:7b|P3|45|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 89,
+      "key": "confirm|llama3.2:3b|P3|66|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 90,
+      "key": "confirm|llama3.1:8b|P3|18|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 91,
+      "key": "confirm|mistral-nemo:12b|P2|36|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 92,
+      "key": "confirm|llama3.2:3b|P3|8|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 93,
+      "key": "confirm|qwen2.5:14b|P3|52|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 94,
+      "key": "confirm|llama3.2:3b|P3|41|0",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 95,
+      "key": "confirm|mistral-nemo:12b|P2|18|0",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 96,
+      "key": "confirm|mistral:7b|P3|13|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 97,
+      "key": "confirm|granite3.1-dense:8b|P3|37|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 98,
+      "key": "confirm|mistral:7b|P3|53|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 99,
+      "key": "confirm|mistral-nemo:12b|P2|38|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 100,
+      "key": "confirm|qwen2.5:7b|P3|13|6",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 101,
+      "key": "confirm|phi4:14b|P3|38|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 102,
+      "key": "confirm|mistral-nemo:12b|P2|29|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 103,
+      "key": "confirm|olmo2:13b|P1|10|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 104,
+      "key": "confirm|mistral-nemo:12b|P2|50|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 105,
+      "key": "confirm|qwen2.5:14b|P3|15|3",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 106,
+      "key": "confirm|gemma2:9b|P1|39|4",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 107,
+      "key": "confirm|qwen2.5:14b|P3|24|6",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 108,
+      "key": "confirm|olmo2:13b|P1|9|4",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 109,
+      "key": "confirm|gemma2:9b|P1|41|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 110,
+      "key": "confirm|olmo2:13b|P1|12|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 111,
+      "key": "confirm|llama3.1:8b|P3|23|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 112,
+      "key": "confirm|mistral-nemo:12b|P2|4|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 113,
+      "key": "confirm|qwen2.5:14b|P3|2|5",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 114,
+      "key": "confirm|gemma2:9b|P1|33|5",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 115,
+      "key": "confirm|phi4:14b|P3|40|1",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 116,
+      "key": "confirm|phi4:14b|P3|45|1",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 117,
+      "key": "confirm|olmo2:13b|P1|1|4",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 118,
+      "key": "confirm|qwen2.5:7b|P3|12|3",
+      "ref_pos": 1
+    },
+    {
+      "sheet_index": 119,
       "key": "confirm|qwen2.5:14b|P3|51|7",
+      "ref_pos": 2
+    },
+    {
+      "sheet_index": 120,
+      "key": "confirm|mistral-nemo:12b|P2|37|7",
       "ref_pos": 2
     }
   ]
