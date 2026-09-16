@@ -1,0 +1,15 @@
+{
+  "experiment": "EXP-R1d",
+  "gate": 0.26,
+  "targets": {
+    "olmo-3:7b": {
+      "pilot": {
+        "file": "data/results/r1b_fresh_olmo-3_7b_instructed_pilot.json",
+        "n_trials": 10,
+        "n_probes": 160,
+        "ambiguous_rate": 1.0
+      },
+      "verdict": "VOID_GATE"
+    }
+  }
+}

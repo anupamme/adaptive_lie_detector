@@ -190,8 +190,40 @@ only sequences `run_r1_faithful.py --variant v2` calls, evaluates the §4 gate, 
 (`data/results/r1d_recency_ledger.json`). It refuses to proceed if a live instructed checkpoint exists with
 no pilot archive beside it. No fixed quantity in §§3–6 is changed.
 
-*(no deviations)*
+**2026-09-16, operational note — a truncated pilot was preserved, not discarded.** The first attempt at
+`olmo-3:7b`'s pilot was killed by an external process stop after one trial. That single trial had an
+ambiguity rate of 100%, i.e. it looked unfavourable to the target. It was therefore **archived rather than
+deleted**, to `data/results/r1b_fresh_olmo-3_7b_instructed_pilot_truncated.json`, and the full 10-claim
+pilot was then collected from an empty checkpoint. Both files are retained. Discarding an inconvenient
+partial draw and re-rolling is the failure mode this paper exists to criticise, so the truncated cell is on
+record even though the full pilot supersedes it and reached the identical verdict.
+
+**2026-09-16, factual error in §3's target selection, found before any confirmatory trial.** §3 requires
+targets that are **not** reasoning/thinking-mode models, and asserted `olmo-3:7b` met that constraint. It
+does not. Measured directly: `ollama show olmo-3:7b` lists capability `thinking`; a generate call with
+`"think": false` still spends its whole budget on the reasoning channel and returns `response: ""`; and at
+`num_predict = 300` the same prompt does answer (`"yes"`) but only after ~160 thinking tokens. Since §2
+fixes `max_tokens = 40` as part of the instrument, this target emits **zero response tokens** inside the
+budget. This is the same mechanism on which §3 excluded `gemma4:12b` before collection.
+
+**No judgement was substituted for the pre-registered route.** Rather than exclude `olmo-3:7b` by appeal to
+§3's constraint after the fact, the §4 pilot was run as written and the target was voided on its
+**measured** gate value. See §10.
+
+*(no deviations from any fixed quantity in §§3–6)*
 
 ## 10. Outcome
 
-*(to be recorded after analysis, with the branch of §7 taken)*
+*(accumulating as targets resolve; the §7 branch is recorded once the roster is exhausted)*
+
+| Target | Pilot ambiguity (instructed) | §4 verdict | Failure mode |
+|---|---|---|---|
+| `olmo-3:7b` | **100.0%** (160 probes / 10 trials) | **VOID** | Empty response channel. Thinking-mode model; `think: false` does not suppress it; 0 response tokens inside the fixed 40-token budget, so all 16 probe dimensions are constant at 0 and the 16-d binary instrument is not the one EXP-R1c measured. |
+
+`olmo-3:7b` is void, with no confirmatory cell collected. Under §3's substitution rule the reserve
+`qwen3.5:9b` may replace **one** gate failure; note that `qwen3.5` also carries a `thinking` capability in
+the Ollama library, so it is not assumed to be admissible.
+
+**Integrity checks run after this target.** All 26 pre-existing result files (v1 `r1_faithful_*` and the six
+existing v2 `r1b_fresh_*` target pairs) verified byte-identical against hashes taken before collection, so
+§7.6 holds and no checkpoint collision occurred.
