@@ -1,0 +1,545 @@
+{
+  "experiment": "EXP-C4B",
+  "phase": "seal",
+  "prereg": "docs/PREREG_EXP_C4B.md",
+  "k": 20,
+  "n_targets": 5,
+  "salt_sha256": "336b700fa0cec2800bc5153da42124751c14e1357a8bca706c56e5b456264230",
+  "salt_bytes": 32,
+  "salt_path_uncommitted_at_this_step": "data/results/crit4b_salt.txt",
+  "analyze_commit": "1f8eb12a28abc1ed07e8dd7a7208cabef13cc234",
+  "seal_commit": "4900137bdaa92148db161eb17b8acec13d57ab1d",
+  "rubric_md5": "bd35c66ba573e98970f9f613ddc97372",
+  "roster": [
+    "gemma2:9b",
+    "granite3.1-dense:8b",
+    "llama3.1:8b",
+    "llama3.2:3b",
+    "mistral-nemo:12b",
+    "mistral:7b",
+    "olmo2:13b",
+    "phi4:14b",
+    "qwen2.5:14b",
+    "qwen2.5:7b"
+  ],
+  "family_R": [
+    "llama3.2:3b",
+    "mistral:7b",
+    "qwen2.5:7b",
+    "llama3.1:8b",
+    "qwen2.5:14b"
+  ],
+  "family_E": [
+    "gemma2:9b",
+    "phi4:14b",
+    "mistral-nemo:12b",
+    "granite3.1-dense:8b",
+    "olmo2:13b"
+  ],
+  "off_roster_substitutions": [],
+  "grades_path": "data/results/crit4b_grades_raw.jsonl",
+  "grades_commitment": "e3ee793378bc0f9977194365db9dd8f90662ff836a716e67e29baa8083026c71",
+  "candidate_dir": "data/results/crit4b_blind",
+  "candidate_file_sha256": {
+    "T02_cand00": "af87ec7d1984efef5fb724d2056e6e21107bc4cbf8a32e94ebe5d4780ecb1bc5",
+    "T02_cand01": "5e68e3676fd528758db7fadd3d7919f5ddb544311e6af6b27cdddfff7a6cae8a",
+    "T02_cand02": "f25160c724d7c38f5a35272e8eb136924530dfe27434ff961620c0697c6a653a",
+    "T02_cand03": "d916ba0628fb0c5dc928d6ae7a27156ed9721be884e258f75a054ad3f9070a76",
+    "T02_cand04": "fdd2d245766a14a6f14bc9617bfb6f9339c2ac5d409f66e01092f5c4238ee0f5",
+    "T02_cand05": "56a3ee7d1a5b1e504dfab03381cfa784f39cbeecd43c98e518d788bfee706f5c",
+    "T02_cand06": "bfa5e29ea687e9ac987d892a6f6302592c99de64e8514c9940960ffa45b8cc27",
+    "T02_cand07": "570919788f284af397f4aaa0381fe81de6dae13b6f3673b6dbc757c477db24c4",
+    "T02_cand08": "bf6fb2e5a61696cc4f5009e59a95b61daf8512c849f0b539dfebfeaadb9a44cc",
+    "T02_cand09": "0ad83dfc1f5a5675dbb6bc038ca81be3960beddb3a19d65a298c8abcb67106af",
+    "T02_cand10": "a35556e2f9ce3fb743c9a7fa4842577860b9d8a75c1f8731bdc0e82f5fba8533",
+    "T02_cand11": "606f13c6a3d6363bd1124064d2dda268efae38eb14f9a368dda464d8b4eb250d",
+    "T02_cand12": "de19430eaadb7a92f43a925937b5f70dfc571e678ff957977ce1cc313867f3d3",
+    "T02_cand13": "5afbba89efcb3a160045f8086d67aeeed1bb3f7499b4ddd6e2fb09132776ba8a",
+    "T02_cand14": "3ae513ec00e1988decaf52517eb0eed9c4492c56469bceae96670416320aec77",
+    "T02_cand15": "c74d2b5807a5b7ecfd2a386a42f322464cc0fc9a31802fce7588d26a6b3165b5",
+    "T02_cand16": "771ee042f1f55105cc65e72cc8e7247cc87ba736b514468c6d5cd1726e17e86d",
+    "T02_cand17": "dce9c6f6200bd7140b21644a8c1941588d1e9546cdfb66828e6a80c01e1e8ec4",
+    "T02_cand18": "cdf1d3586effe3296f016eb53d5c707b5d405c61743c134d4db3ccce9b81e44c",
+    "T02_cand19": "9768ee7517305322af38fa1f4b53df40e3b176ec5e95db5471d4665e5ff170b8",
+    "T04_cand00": "cbe214948b09d600b2c3e753dbb0ec848e95d71a4c83092853ce6e40f88fd4d8",
+    "T04_cand01": "786c16aec73a15de4ff500ff341d76c857bc81c2cce5ac24d5d58918daaef24b",
+    "T04_cand02": "03a399e45f35bc11de0963b4e44b74942dc5d169f8e2d077a3dbb30f2d84e54b",
+    "T04_cand03": "ebedd1dfa51d60293ff530e4878d41b0482f5602f45bd643082dc720c1b57325",
+    "T04_cand04": "15831176e9d1bbebf7d5454c7de01dcb6515ccb42fdb51b4ef07b6cfe755e635",
+    "T04_cand05": "fe8c0c8dd443238f7b75e0fa1fa50a789f929245a1d7dc3b7f7e2c41602f7192",
+    "T04_cand06": "a94cc6b2bd2646b98c18506f4c33cd0bd8c02c4aaf9332dad2094851d6582385",
+    "T04_cand07": "3bba7065b3879d269a2bf8d70792f6b8b84973350d05337cfe4d1656a8947f65",
+    "T04_cand08": "58e7d01ac25a702fd1bcea83ff80db97007ec0b9f59ffc30a1d4648fe77254c3",
+    "T04_cand09": "1dbd36729dca6cca7f94f7b8993aea1a6fb4f006c2cd3629aa180baf2d22849c",
+    "T04_cand10": "1d80c3dc4674694c025b9637c01108c72ee001ba6dc22294000ffb032daac11b",
+    "T04_cand11": "23fbac0bba2bb32372dd18cce6d2c57712aa693d6d2e46c2eb31cc5c4b720739",
+    "T04_cand12": "b979bcb673da838698998c5b487115523fd2ab02b12c72b96ac44a74e0506039",
+    "T04_cand13": "800d3cb382008ca2fa8b955dbea406423bbdf60a07f3f5314f12fee60cd8e09c",
+    "T04_cand14": "f7ba6dbd1b41d568d1eada057d9522763cbc1cda7e9a72b40158721f6fa0c2f0",
+    "T04_cand15": "15c451c31ee5e62f48ad4a32e4ca0c919a1d82ac2bba2241fb9672d8a9520c3f",
+    "T04_cand16": "8dae18051431c11f119f2b9a9280d2a6f2dfdeb88ee3dc1f0237faadc5124f22",
+    "T04_cand17": "ab93f2515f80a3ff98c882a6a2d00cd32a766f71a729bb2cfe42a9f10ebb5f26",
+    "T04_cand18": "ddaa38249e6451829798c963e169c0f724aabdb2b0946ab6076a746cb8bdca6c",
+    "T04_cand19": "73fb326938b856cf390913603118df8f7602be57c3eb56e2a496f27b0b98b654",
+    "T03_cand00": "9fc3ed9cf3f4b699b4feb4f14356227ba34a92fb2eb2cda9d08074b1b3a9a795",
+    "T03_cand01": "7b9562bda7fb987f6da735b0732befb87c9ddd01be79c7948d1e0105e1ea42c0",
+    "T03_cand02": "3458e615cf3994e86aadb15b770e983e7b7bc9afc8b8d0a747f1a917edb6cf8b",
+    "T03_cand03": "f72d74caf2a53d7ed50810e6d1439a2fe7fe729afa3ec2b01cede9d06de3b9e8",
+    "T03_cand04": "b46cc98bc78cf0eb179c902e448b6f7d32f282f674d62f1bc5b0de8390bdf5ec",
+    "T03_cand05": "41b0ef8e2b242d56499dfdda44d7cece12e537248039e71343e6af4962ea9a25",
+    "T03_cand06": "b1825b31f5de115d766ed7487dfff6b23964cff654cf6fd466be0cf2ce882206",
+    "T03_cand07": "6989a84807bdb5ddf4d02e3c0995b69f36f6c9f0e4fc27feaaf4d0db265889ea",
+    "T03_cand08": "1fd1bbd153526bc25c3c3a5b9fc0e49d04df25143d5451d01fc526c0a3702d5a",
+    "T03_cand09": "5e699af05a8a54fbe9942f1a6ab8f1b8a19b2330f917155b0667e7c7e963b274",
+    "T03_cand10": "984da4b96a9cfb60b9c2ddfb932d3524406deafb9db7236e6167ed48c0378ed5",
+    "T03_cand11": "486b6560a1ea1f3e8cf9df59211e59722e11ace0537d85c3bea7bd17a95d5443",
+    "T03_cand12": "1165187dca0b9635a9a4a6c348fc1227aaf8f3a61ce8f3ad9ee9c149a1d529c2",
+    "T03_cand13": "f182dbfa9fafd5d27239ee115546c9e6d0104c2eed529b48837561291eeeda29",
+    "T03_cand14": "e178d81b323f0094ec3e8152d0780e84d2f4c4d3b9aff299c79511ae9c47a40f",
+    "T03_cand15": "46d97f1ad96c3984a88e1f0a110fc21c1df6b825e06ac2448ce92528fb3ce1e7",
+    "T03_cand16": "96ce7606c6620875a1790d70f92e6a0090aa711231edd4fbbe3d063c12e069e2",
+    "T03_cand17": "c8ff00f209edf6ba809537848d210a8d9557c6e0146890bee724b1ef9bb6e463",
+    "T03_cand18": "8c606b5aaa55cf8a891a53fae614fceb85f227c5e37a87977f761dc73b6eb094",
+    "T03_cand19": "b982e2d928fc388a1995f8ea631658afdd7d232ea2314a42dfed2844c605870c",
+    "T01_cand00": "8f25a38ab13f987cc2bd73165a2dd7e74ec11cd929dc00c95ecc6b8962a39a3f",
+    "T01_cand01": "a83e28b63d2a1eb146a0b582aeeb819717e35426a8380bbd87f9374b25c059a3",
+    "T01_cand02": "1ff4f81c70115620d36e726e354d2dcd26b01d1a9ffc0fab28e94c172ce3a484",
+    "T01_cand03": "9b38317146369a9573bc7a76898035beffad847e0dc0494387958ce9d121a311",
+    "T01_cand04": "592014b58ed7a9cc14f2b5d22da9517f202db47849e8513c752285610d3e1ced",
+    "T01_cand05": "b501bf7587354277b29430f62a457d7dd0c2a25ab30a71d817b263171b8af8cf",
+    "T01_cand06": "f168961b6c647cf08a352b72e4f84159682517090226baa1975f400864f712d2",
+    "T01_cand07": "5c3c5a01a21991f22775cefcf5a25d5aecdee6c13149904776d941ae8ccad97a",
+    "T01_cand08": "4627317c8f60055084945454092437364addc629700ab8e3972866d222a0cbad",
+    "T01_cand09": "3b2745bff9f862f3a48e5deb799613b9bd5244d2a264ebe163f6bf0c88a4370b",
+    "T01_cand10": "5a58c034d724cce6b18e3cb5cf94c1edd1d20925919307b0f6911420a8e79300",
+    "T01_cand11": "adbf5258dc9c2d7c3768fb3fa27c35c225f0aae43889163b8f17245149cc3acd",
+    "T01_cand12": "38ab042b157c025590278d4a7c01d3133bc4edaac635714851ad82f99054fd81",
+    "T01_cand13": "4da14e320b94030a69e5d8b0be5cdeffb7f1ec82fbe0d49b798efa63f9652f7d",
+    "T01_cand14": "e008b4cfb2377a08584c107587fbe0c757c0c551408e9a40e77f6ec0129ebcc1",
+    "T01_cand15": "34d1c7c78ad26824331840d904b92ebb3efda18cff27eee4d285d8c89c671bdc",
+    "T01_cand16": "20f002d49330ba2f5927a4e486f880cd6ade5ba04793839f3540b5676b584c5b",
+    "T01_cand17": "3435e258fcceb4e80a2ea3ac61b091ae49bb3dbab451c4b6dda795b7411aa326",
+    "T01_cand18": "c084278fe1828cb7e1f26e6d47ce69335a1587b384bbc5447db590072b3d35d6",
+    "T01_cand19": "55143d1104f2273613c38080632413b531f90dd9a07bf76ea1be4f6fc8e5e4e7",
+    "T05_cand00": "61274c21e9a41fd1853ce5641ec0fd7158afe56cc763cc973a4b17dea48085cb",
+    "T05_cand01": "072991cc6cb14acfd0fcaf586da9ce3d0cdf235606ef486ed52a4100a6e52570",
+    "T05_cand02": "b3de82f2fa8578963507c7be5022d1c5dcd9d889b2ad9fa6e228941a6c379277",
+    "T05_cand03": "b53d9f1489e74f6c678138d881cc2fb8a2254e4883f9c7f038f11fa3930d8b94",
+    "T05_cand04": "d8dd020406000bf74f4c85d33c182cecea33439d64b1e595205e8adfe63bee73",
+    "T05_cand05": "c1a11b23ef6199eabdb34c80fc1198df804460d6ed795e6e89856b10a8a7bedb",
+    "T05_cand06": "ba196e41cfc94d1901dc41656f8f3999ac14e690fa69818d576024ee66f87b9f",
+    "T05_cand07": "5fc133b4eef0710602cea53607ff5f697182cbdf16fa35cc47020d1a4a4dd33e",
+    "T05_cand08": "a97a51f0c62514363496040fecbc7903a3bbde3146e29ffb8395728bd327bf6a",
+    "T05_cand09": "da17297a458eb6d2be6358976c113122e4c28dbd16fac6da774fa138a9710355",
+    "T05_cand10": "d44918a15a5026ffff18ac00af8a31907665b86ca13bb5a8798c0e7c901c7d2e",
+    "T05_cand11": "222442e186a93ee35f37774267b240e6a14a824ba4fe574ce8845dcecd62d073",
+    "T05_cand12": "ee96a66efcebed177516dfe0bda42adaa6c9dacc0a718522545a6ce04bad83f4",
+    "T05_cand13": "29b62c0fda27726d53536be48e49adbd5ece3251033d2e31b07b6f2546b48488",
+    "T05_cand14": "f03025bb2b7a71f4e87b39cdd8a6d30e0b8f5d6a9e61cd7cd807e517a41fa0a8",
+    "T05_cand15": "fb85bd0803483c58aac1c68aad1f457131f3d3f6d17f060b68b869893feb2f36",
+    "T05_cand16": "047f710dece7fac6dc90c1850cdea8f233ff51c07f91d0e454a3670fc3a0e69b",
+    "T05_cand17": "7c66e2b132e05e9014ac16ad2547b2bd541c488967bb34b8b4aaef8870787655",
+    "T05_cand18": "b01eeb6a8e9db268612cd0cb40cd252b3579e3ffe3b168cad743679dc1a23bda",
+    "T05_cand19": "fbfb057f22db0a77961438e6b11dbf42886218affed155bbc85dcc90db6353cb"
+  },
+  "n_candidate_files": 100,
+  "n_decoys_identical_to_real_total": 0,
+  "row_fields": [
+    "D",
+    "claim",
+    "fires_answer",
+    "fires_probe",
+    "known_preserved",
+    "vector"
+  ],
+  "gate1_elicitation_fixed": {
+    "gemma2:9b": {
+      "claims": 40,
+      "distinct_hashes": 40,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "granite3.1-dense:8b": {
+      "claims": 30,
+      "distinct_hashes": 30,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "mistral-nemo:12b": {
+      "claims": 40,
+      "distinct_hashes": 40,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "olmo2:13b": {
+      "claims": 30,
+      "distinct_hashes": 30,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    },
+    "phi4:14b": {
+      "claims": 40,
+      "distinct_hashes": 40,
+      "claims_with_multiple_hashes": {},
+      "pass": true
+    }
+  },
+  "gate2_no_condition_label": {
+    "gemma2:9b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "granite3.1-dense:8b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "mistral-nemo:12b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "olmo2:13b": {
+      "banned_fields_found": [],
+      "pass": true
+    },
+    "phi4:14b": {
+      "banned_fields_found": [],
+      "pass": true
+    }
+  },
+  "gate5_screen_sufficiency": {
+    "gemma2:9b": {
+      "known_stratum": 100,
+      "threshold": 30,
+      "pass": true
+    },
+    "granite3.1-dense:8b": {
+      "known_stratum": 80,
+      "threshold": 30,
+      "pass": true
+    },
+    "mistral-nemo:12b": {
+      "known_stratum": 78,
+      "threshold": 30,
+      "pass": true
+    },
+    "olmo2:13b": {
+      "known_stratum": 98,
+      "threshold": 30,
+      "pass": true
+    },
+    "phi4:14b": {
+      "known_stratum": 108,
+      "threshold": 30,
+      "pass": true
+    }
+  },
+  "gate7_rubric_identity": {
+    "gemma2:9b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "granite3.1-dense:8b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "mistral-nemo:12b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "olmo2:13b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    },
+    "phi4:14b": {
+      "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+      "observed": [
+        "bd35c66ba573e98970f9f613ddc97372"
+      ],
+      "pass": true
+    }
+  },
+  "protocol_wording": {
+    "gemma2:9b": {
+      "wording": "P1",
+      "expected": "P1",
+      "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+      "pass": true
+    },
+    "granite3.1-dense:8b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+      "pass": true
+    },
+    "mistral-nemo:12b": {
+      "wording": "P2",
+      "expected": "P2",
+      "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+      "pass": true
+    },
+    "olmo2:13b": {
+      "wording": "P1",
+      "expected": "P1",
+      "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+      "pass": true
+    },
+    "phi4:14b": {
+      "wording": "P3",
+      "expected": "P3",
+      "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+      "pass": true
+    }
+  },
+  "pseudonyms": {
+    "T02": {
+      "paired_claims": 13,
+      "n_D1": 114,
+      "n_D0": 203,
+      "minority_D_n": 114,
+      "n_graded": 317,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "n_claims_graded": 40,
+      "wording": "P1",
+      "n_design_claims": 40,
+      "evasive_rate": 0.009375,
+      "model_commitment": "674b4610976603beae19e9a22b6ba3c1531836b06eaeed7c16a4aabe9d5a15e0",
+      "cell_commitment": "c4628278178fe0a8ed6a9dd54cd0908e835b8f78865468135217734b8c9c218f",
+      "cell_path": "data/results/crit4b_confirm_gemma2_9b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 40,
+          "distinct_hashes": 40,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 100,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P1",
+          "expected": "P1",
+          "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+          "pass": true
+        }
+      }
+    },
+    "T04": {
+      "paired_claims": 12,
+      "n_D1": 88,
+      "n_D0": 149,
+      "minority_D_n": 88,
+      "n_graded": 237,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "n_claims_graded": 30,
+      "wording": "P3",
+      "n_design_claims": 30,
+      "evasive_rate": 0.0125,
+      "model_commitment": "d6ffd328d6ca6d03027219d2114e0abc019398a102ceb1f844df89fab9589a46",
+      "cell_commitment": "4e717c4a11626aaff0655c77889d2a7bcc48935722e71ce24bc317cfdcc57c5e",
+      "cell_path": "data/results/crit4b_confirm_granite3_1-dense_8b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 30,
+          "distinct_hashes": 30,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 80,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+          "pass": true
+        }
+      }
+    },
+    "T03": {
+      "paired_claims": 14,
+      "n_D1": 127,
+      "n_D0": 190,
+      "minority_D_n": 127,
+      "n_graded": 317,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "n_claims_graded": 40,
+      "wording": "P2",
+      "n_design_claims": 40,
+      "evasive_rate": 0.009375,
+      "model_commitment": "c513de37537aa31075ae2cac424b01880ed0cd209eb151d5f820830691a5e17c",
+      "cell_commitment": "360d5dd9c9b93ff6ea28b3605fa55573c8be479738e176c2f114fc4b23689b9e",
+      "cell_path": "data/results/crit4b_confirm_mistral-nemo_12b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 40,
+          "distinct_hashes": 40,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 78,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P2",
+          "expected": "P2",
+          "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+          "pass": true
+        }
+      }
+    },
+    "T01": {
+      "paired_claims": 13,
+      "n_D1": 75,
+      "n_D0": 156,
+      "minority_D_n": 75,
+      "n_graded": 231,
+      "n_evasive": 9,
+      "n_ungraded": 0,
+      "n_claims_graded": 30,
+      "wording": "P1",
+      "n_design_claims": 30,
+      "evasive_rate": 0.0375,
+      "model_commitment": "2c0c249667c71f24ca0e9f206fe3ec2ad8e6b3eb3f15ff939ebdfe7dca2a5354",
+      "cell_commitment": "03cc60052067167de55f61efd9a76a41c96053ea84864cb0c9cbbc0a8d8cee85",
+      "cell_path": "data/results/crit4b_confirm_olmo2_13b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 30,
+          "distinct_hashes": 30,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 98,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P1",
+          "expected": "P1",
+          "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+          "pass": true
+        }
+      }
+    },
+    "T05": {
+      "paired_claims": 15,
+      "n_D1": 202,
+      "n_D0": 115,
+      "minority_D_n": 115,
+      "n_graded": 317,
+      "n_evasive": 3,
+      "n_ungraded": 0,
+      "n_claims_graded": 40,
+      "wording": "P3",
+      "n_design_claims": 40,
+      "evasive_rate": 0.009375,
+      "model_commitment": "2383c6cc6014743a2dcd7b910ac6a03bec211625ef2268aefb42c573920e9b27",
+      "cell_commitment": "72ef34900ad4559c30db075d8e4b6a3cbfac5b0a29a10ae171aac50743f2d37a",
+      "cell_path": "data/results/crit4b_confirm_phi4_14b.json",
+      "n_decoys_identical_to_real": 0,
+      "gates": {
+        "gate1_elicitation_fixed": {
+          "claims": 40,
+          "distinct_hashes": 40,
+          "claims_with_multiple_hashes": {},
+          "pass": true
+        },
+        "gate2_no_condition_label": {
+          "banned_fields_found": [],
+          "pass": true
+        },
+        "gate5_screen_sufficiency": {
+          "known_stratum": 108,
+          "threshold": 30,
+          "pass": true
+        },
+        "gate7_rubric_identity": {
+          "expected_md5_from_EXP_C4": "bd35c66ba573e98970f9f613ddc97372",
+          "observed": [
+            "bd35c66ba573e98970f9f613ddc97372"
+          ],
+          "pass": true
+        },
+        "protocol_wording": {
+          "wording": "P3",
+          "expected": "P3",
+          "source": "the committed \u00a77a selection in data/results/crit4b_wording_selection.json",
+          "pass": true
+        }
+      }
+    }
+  },
+  "published_counts_are_candidate_invariant": "paired_claims, n_D1, n_D0, minority_D_n and the graded/evasive/ungraded counts are invariant to within-claim permutation of D. Every candidate for a pseudonym therefore shares them, including the majority-class baseline, so publishing them cannot help the analyst identify the real candidate. Nothing base-rate-like that is NOT invariant appears here.",
+  "commitments_are_salted": "PREREG \u00a73.4 step 4 says the manifest carries the sha256 of each cell file. Published unsalted beside a pseudonym, that digest would invert the pseudonym map for anyone holding the committed cells. The seal therefore publishes sha256(salt || tag || value); binding is unchanged, hiding is restored. CORRECTION 1(a).",
+  "blind_limits": "Single-analyst, machine-enforced (DEVIATION 1). A one-person team can always de-blind by recomputing labels from the committed cells (\u00a73.1(b)); the protection is the frozen pre-data commit of analyze_crit4b.py plus the commit of all K candidates' results before the salt."
+}
