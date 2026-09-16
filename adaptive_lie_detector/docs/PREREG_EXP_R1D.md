@@ -178,7 +178,19 @@ written.
 Any deviation from this document is to be recorded here with its date and rationale **before** the
 affected numbers enter the paper.
 
-*(none yet)*
+**2026-09-16, operational note — not a deviation from any fixed quantity.** §2 forbids new code and §4
+forbids pooling the pilot into a confirmatory figure, and those two requirements interact: `run_r1_faithful.py`
+keys its checkpoint on `(prefix, model, condition)` and `--resume` skips claims already present, so a
+10-claim pilot followed by `--n_samples 50 --resume` would have silently made the pilot's 10 trials the
+first 10 of the confirmatory cell. To honour §4 as written, `experiments/run_r1d_recency.py` was added as a
+**driver**: it moves the pilot checkpoint to `..._instructed_pilot.json` before the confirmatory run, so the
+confirmatory cell starts from an empty checkpoint and regenerates all 50 claims. The pilot cell is retained
+and reported, as §4 requires. **The runner, analyzer, claim set and probe bank are untouched** — the driver
+only sequences `run_r1_faithful.py --variant v2` calls, evaluates the §4 gate, and writes a ledger
+(`data/results/r1d_recency_ledger.json`). It refuses to proceed if a live instructed checkpoint exists with
+no pilot archive beside it. No fixed quantity in §§3–6 is changed.
+
+*(no deviations)*
 
 ## 10. Outcome
 
