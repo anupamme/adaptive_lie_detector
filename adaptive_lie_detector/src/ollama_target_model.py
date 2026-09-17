@@ -82,10 +82,19 @@ class OllamaTargetModel:
     """
 
     def __init__(self, model: str = "llama3.2:3b", call_delay: float = 0.3,
-                 max_tokens: int = 300):
+                 max_tokens: int = 300, think=None):
         self.model = model
         self.call_delay = call_delay
         self.max_tokens = max_tokens
+        # EXP-R1d think:false arm (docs/PREREG_EXP_R1D.md §9, 2026-09-17).
+        # Thinking-mode targets spend the whole probe budget on the reasoning
+        # channel and return an empty response, which voids them under §4's
+        # gate. This is OPT-IN: with OLLAMA_THINK unset and think=None the
+        # payload below carries no `think` key at all, so it is byte-identical
+        # to the request every earlier experiment in this repo sent.
+        if think is None and os.environ.get("OLLAMA_THINK") == "off":
+            think = False
+        self.think = think
         self.mode = "truth"
         self.claim = None
         self.system_prompt = TRUTH_SYSTEM_PROMPT
@@ -134,6 +143,8 @@ class OllamaTargetModel:
                 "temperature": 0.7,
             },
         }
+        if self.think is not None:
+            payload["think"] = self.think
 
         try:
             resp = requests.post(OLLAMA_URL, json=payload, timeout=120)

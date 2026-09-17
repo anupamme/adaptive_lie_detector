@@ -238,7 +238,66 @@ whose smallest attainable *p* is 1/201 = 0.005. Every EXP-R1d *p* is therefore t
 header line states the draw count). A 200-draw run of the same cells was also executed and agrees on every
 accuracy to the digit, differing only in the *p* floor.
 
-*(no deviations from any fixed quantity in §§3–6)*
+**2026-09-17, DEVIATION — §2's "no new code" is breached deliberately, and the ordering is disclosed:
+`"think": false` is added to the Ollama chat payload for a second, exploratory arm.** This entry is written
+and committed **before any cell of that arm exists**, and it is a deviation, not an operational note.
+
+*What was measured first.* Three of the four targets voided on §4's gate: `olmo-3:7b` and `qwen3.5:9b` at
+100.0% ambiguity with **zero** response tokens, `granite4.2:8b` at 35.0%. For the two 100% voids the cause
+is a reasoning channel that consumes the whole 40-token budget: on the runner's actual code path
+(`/api/chat`, with a system prompt) `qwen3.5:9b` returns `content: ''` with 141, 447 and 1189 characters of
+`thinking` at `num_predict` 40, 120 and 300 respectively. Both targets advertise `thinking` in
+`ollama show`, so **§3's screening — "not a reasoning/thinking-mode model" — was factually wrong about
+`qwen3.5:9b` exactly as it was wrong about `olmo-3:7b`** (recorded above).
+
+*What was then found.* Passing `"think": false` on the same chat call suppresses the reasoning channel on
+`qwen3.5:9b` completely: `content: 'No'`, 0 thinking characters, `done_reason: stop`, inside the 40-token
+budget. **`olmo-3:7b` is not re-run, and the reason is a limit on what we measured, not a finding.** The
+`"think": false` test on that target was made against `/api/generate`, where it did not suppress the channel;
+its `/api/chat` path — the one the runner uses, and the one on which `qwen3.5:9b`'s two endpoints
+*disagreed* — was never tested, and the weights have since been removed. So `olmo-3:7b` stays void on its
+measured gate value, and we do **not** claim it is unrescuable; we claim only that we did not test the path
+that would settle it. `granite4.2:8b`'s 35.0% is a different mode — visible deliberation and unrequested dialogue
+continuation in the *response* channel — so `"think": false` may or may not bring it under the gate; it is
+re-measured to find out, not because it is expected to pass.
+
+*The ordering, stated rather than hidden.* **The voids were observed before the instrument was changed, and
+we knew when changing it that a rescued target is the difference between §7 branch 5 (inconclusive) and a
+reportable recency result.** That is the sequence this paper criticises when it is used to rescue a
+*hypothesis test*, and calling it something else because it rescues *measurability* would be exactly the
+move criterion 4 exists to catch. So it is disclosed, and constrained:
+
+1. **The pre-registered primary reading is unchanged.** The §7 branch is selected by the **undeviated**
+   roster, which yields one admissible informative target and therefore **branch 5**. Nothing the deviated
+   arm returns can move that verdict, and `app:vintage`'s "we do not establish that the collapse
+   reproduces" sentence stays exactly as written regardless.
+2. **The deviated arm is exploratory and labelled as such**, wherever it is reported.
+3. **Committed before collection: whatever it returns is reported.** In particular an equalized cell that
+   stays above chance is evidence *against* H1 and against the paper's own empirical claim, and it will be
+   reported as prominently as a collapse would be — as §7.2 already requires of any such cell. A second
+   void is reported as a void with its measured rate.
+4. **The gate is unchanged.** 26.0%, the same §4 threshold, applied to a fresh 10-claim pilot per deviated
+   target. A deviated pilot above it is void.
+5. **§3's substitution budget is untouched.** This is not a substitution — no new target is introduced. It
+   re-measures targets already named in §3 and already reported void.
+6. **The void rows stand as measured.** They are not overwritten, deleted or amended. The deviated arm is
+   keyed separately in the ledger as `<model> [think:false]`.
+7. **No pre-registered cell is pooled with a deviated one.** Deviated cells are collected at the runner's
+   canonical path and then moved to `data/results/r1d_thinkoff/`, out of the non-recursive glob
+   `analyze_r1_faithful.py` uses, for the same reason the pilots are.
+
+*The code change, minimal and opt-in.* `src/ollama_target_model.py` gains a `think` attribute, default
+`None`, taken from `OLLAMA_THINK=off` in the environment; the payload carries a `think` key **only** when it
+is not `None`. With the variable unset the request is byte-identical to the one EXP-R1c and every other
+experiment in this repo sent, so no earlier result is affected. `run_r1_faithful.py`, the claim set, the
+probe bank and the analyzer remain untouched. `run_r1d_recency.py` gains a `--think_off` flag that sets the
+variable, keys the ledger entry, and archives to `r1d_thinkoff/`.
+
+*One further operational note.* §3 fixes one resident model at a time on disk grounds. `qwen3.5:9b` (6.6 GB)
+was kept resident while `granite4.2:8b` (5.3 GB) was re-pulled, leaving ~13 GiB free. No out-of-disk
+condition arose, so §3's substitution trigger (c) was not engaged.
+
+*(no deviations from any fixed quantity in §§3–6; the deviation above is to §2, and is recorded in full)*
 
 ## 10. Outcome
 
@@ -248,6 +307,7 @@ accuracy to the digit, differing only in the *p* floor.
 |---|---|---|---|
 | `olmo-3:7b` | **100.0%** (160 probes / 10 trials) | **VOID** | Empty response channel. Thinking-mode model; `think: false` does not suppress it; 0 response tokens inside the fixed 40-token budget, so all 16 probe dimensions are constant at 0 and the 16-d binary instrument is not the one EXP-R1c measured. |
 | `ministral-3:8b` | **0.0%** (160 probes / 10 trials) | **ADMISSIBLE** | — |
+| `qwen3.5:9b` (reserve) | **100.0%** (160 probes / 10 trials) | **VOID** | Empty response channel, same mode as `olmo-3:7b`: 160/160 probes and 10/10 claim-defence turns returned the empty string, and all 10 trials produced one identical all-zero 16-d vector. Advertises `thinking` in `ollama show`; on the runner's `/api/chat` path the whole 40-token budget goes to the reasoning channel. |
 | `granite4.2:8b` | **35.0%** (160 probes / 10 trials) | **VOID** | Answer present but unparseable. Two modes, spread evenly over all 16 dimensions (1–6 of 10 trials each, none spared): in 39% of ambiguous probes the 40-token budget is spent on visible deliberation and no answer appears; in the rest the answer is embedded in an unrequested continuation of the dialogue it was shown (e.g. `**Assistant:** Yes` followed by fabricated further turns), which the yes/no parser cannot read. Unlike `olmo-3`, this target does emit answers — the 16-d vectors are non-degenerate (10 distinct over 10 trials) — it simply exceeds the gate the paper's own worst cell sets. |
 
 ### Confirmatory cell — `ministral-3:8b`, the one admissible target so far
@@ -266,6 +326,27 @@ degenerate** (6 of 16 dimensions still vary, 10 distinct vectors), so the fall t
 of a dead channel. Change in the primary metric: **−46.0 pp**, with equalized *p* = 0.327 — i.e. H1 holds on
 this target. Source: `data/results/r1d_recency_v2_analysis.txt`, `…/r1d_recency_v2_summary.json`.
 
+### Branch selected: §7.5, inconclusive
+
+**The roster is exhausted and the pre-registered verdict is §7 branch 5.** Of four targets — three named in
+§3 plus the one permitted reserve — **one** is admissible and informative and **three** are void on their
+measured gate values. §7.5 requires fewer than two admissible informative targets to be reported as
+**inconclusive**, so:
+
+- **No recency claim enters the paper.**
+- `app:vintage`'s "**We do not establish that the collapse reproduces on current-generation models**"
+  sentence **stays exactly as written**, as do `app:limitations` item (l)'s "recency is *not* established
+  here" and §3.1's "no claim below is a scaling, recency or effect-magnitude claim".
+- `app:future_directions` item (7) is revised **only** to record that the run was attempted and why it was
+  uninformative — and to correct its own factual error: it lists `olmo-3:7b`, `ministral-3:8b` and
+  `qwen3.5:9b` as candidates "requiring thinking verifiably off" while flagging only `granite4.2:8b` and
+  `gemma4:12b` for thinking behaviour. `olmo-3:7b` and `qwen3.5:9b` both advertise `thinking`.
+- `ministral-3:8b`'s cell is reported as a single admissible target consistent with H1 (−46.0 pp, equalized
+  *p* = 0.327) and **explicitly too thin to support a recency claim**. One target is not a panel.
+
+This is the branch that was least convenient to write and it is the one the data selected. The
+`"think": false` arm recorded in §9 is **exploratory** and does not revise this verdict, whatever it returns.
+
 ### Roster state and the one permitted substitution
 
 Two of the three named targets are void on their measured gate values, and one is admissible and
@@ -274,15 +355,14 @@ informative. §3 permits **at most one** substitution, and only for (a) a pull f
 on 2026-09-17. No confirmatory trial had been collected for either void target, so the rule's bar is met.
 `olmo-3:7b`'s gate failure is **not** substituted for; it is reported void and stands as such.
 
-`qwen3.5:9b` also carries a `thinking` capability in the Ollama library, so it is **not** assumed
-admissible; it runs the same §4 pilot and will be reported void on its measured rate if it exceeds 26.0%.
-With the substitution now spent, the roster is closed either way: if `qwen3.5:9b` is admissible and
-informative there are **two** such targets and §7 branch 1 or 2 applies; if it is void there is **one**, and
-§7 **branch 5** applies — EXP-R1d is reported inconclusive, no recency claim enters the paper,
-`app:vintage`'s "we do not establish that the collapse reproduces" sentence stays exactly as written, and
-`app:future_directions` item (7) is revised only to record that the run was attempted and why it was
-uninformative. Under branch 5 `ministral-3:8b`'s cell above is still reported, as a single admissible target
-consistent with H1 and explicitly too thin to support a recency claim.
+`qwen3.5:9b` was **not** assumed admissible — it also carries a `thinking` capability in the Ollama library —
+and it ran the same §4 pilot, which it failed at 100.0%. With the substitution spent and the reserve void,
+the roster is **closed** at one admissible informative target, which selects §7.5 above.
+
+**Nothing was re-drawn after a verdict.** Each pilot was collected once, from an empty checkpoint, and each
+verdict was read off the ambiguity rate the driver computed before any confirmatory trial was collected for
+that target. The one truncated pilot (`olmo-3:7b`, killed externally after a single trial) was archived
+rather than deleted; see §9.
 
 **Integrity checks run after every target.** All 26 pre-existing result files (v1 `r1_faithful_*` and the six
 existing v2 `r1b_fresh_*` target pairs) verified byte-identical against hashes taken before collection, so
