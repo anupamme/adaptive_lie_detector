@@ -80,7 +80,19 @@
         "n_probes": 160,
         "ambiguous_rate": 0.25
       },
-      "verdict": "ADMISSIBLE"
+      "verdict": "ADMISSIBLE",
+      "confirmatory": {
+        "instructed": {
+          "file": "data/results/r1d_thinkoff/r1b_fresh_granite4_2_8b_instructed_thinkoff.json",
+          "n_trials": 50,
+          "ambiguous_rate": 0.31
+        },
+        "equalized": {
+          "file": "data/results/r1d_thinkoff/r1b_fresh_granite4_2_8b_equalized_thinkoff.json",
+          "n_trials": 50,
+          "ambiguous_rate": 0.395
+        }
+      }
     }
   }
 }

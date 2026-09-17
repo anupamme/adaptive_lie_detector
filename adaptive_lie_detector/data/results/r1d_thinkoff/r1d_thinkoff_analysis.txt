@@ -1,0 +1,18 @@
+====================================================================================================
+EXP-R1d EXPLORATORY ARM: think:false (PREREG_EXP_R1D.md §9 deviation)
+Same v2 materials, same estimator, same seeds as EXP-R1c. NOT a
+pre-registered cell: it cannot and does not move the §7 verdict,
+which is branch 5 (inconclusive) on the undeviated roster.
+====================================================================================================
+perm p: 1000 label permutations per cell, against the 5-fold estimate.
+Model          cond          5-fold  grp-5f     LOO   perm p    n   amb  varying  uniq
+----------------------------------------------------------------------------------------------------
+granite4.2:8b  equalized     44.0%  50.0%  44.0%    0.774   50  40%     16/16    44
+granite4.2:8b  instructed    54.0%  54.0%  50.0%    0.385   50  31%     16/16    47
+qwen3.5:9b     equalized     54.0%  54.0%   4.0%    0.387   50   0%      1/16     2
+qwen3.5:9b     instructed    92.0%  92.0%  92.0%    0.001   50   0%      8/16    17
+----------------------------------------------------------------------------------------------------
+granite4.2:8b: instructed 54.0% (p=0.385) -> equalized 44.0% (p=0.774), change -10.0 pp
+qwen3.5:9b: instructed 92.0% (p=0.001) -> equalized 54.0% (p=0.387), change -38.0 pp
+----------------------------------------------------------------------------------------------------
+Summary written to data/results/r1d_thinkoff/r1d_thinkoff_summary.json

@@ -409,7 +409,7 @@ the printed digits reproduce from a clean `pip install -r requirements.txt`. Thr
    secondary leakage check, all four moved cells remain near or below chance, and every primary figure is
    unchanged.
 
-### Exploratory arm — `think:false` (the §9 deviation), in progress
+### Exploratory arm — `think:false` (the §9 deviation), closed
 
 Keyed in `data/results/r1d_recency_ledger.json` as `qwen3.5:9b [think:false]` and
 `granite4.2:8b [think:false]` — distinct keys from the undeviated `qwen3.5:9b` and `granite4.2:8b` entries,
@@ -452,15 +452,39 @@ produce 2 distinct feature vectors, with LOO at 4.0%. Elsewhere this paper reads
 *absence of a usable signal*, not as an informative accuracy estimate, and it gets read the same way here.
 So the arm shows the instructed signal disappearing under equalization; it does not measure how much.
 
-**Confirmatory cells, `granite4.2:8b`:** collecting as of 2026-09-17 13:07 IST (instructed at 12/50),
-expected ~14:15 IST, **not yet read**. Per §9 item 3 we are committed to reporting whatever they return,
-including an above-chance equalized cell, which would be evidence *against* H1 and must be reported as
-prominently as a collapse. If this line still says "not yet read" in a committed state, the cells were not
-collected.
+**Confirmatory cells, `granite4.2:8b` — collected, n = 50/cell, 1000 permutations, read 2026-09-17 14:20 IST:**
 
-**What neither target may do.** Two admissible exploratory targets are *numerically* the "two or more
-admissible informative targets" that §7 branches on. They do not select a branch, and §9 already fixed why:
-the gate and the roster were pre-registered over the undeviated instrument, and the deviation was written
-*after* seeing the voids it rescues. Letting a post-hoc instrument change pick the reporting branch is the
-exact sequence criterion 4 exists to detect. §7.5 **branch 5 (inconclusive)** stands, and `app:vintage`'s
-"we do not establish that the collapse reproduces on current-generation models" stays as written.
+| cond | 5-fold | grp-5f | LOO | perm *p* | amb | varying | uniq |
+|---|---|---|---|---|---|---|---|
+| instructed | 54.0% | 54.0% | 50.0% | 0.385 | **31.0%** | 16/16 | 47 |
+| equalized | 44.0% | 50.0% | 44.0% | 0.774 | **39.5%** | 16/16 | 44 |
+
+**`granite4.2:8b` is not informative instructed**: 54.0% at *p* = 0.385 is chance, so the −10.0 pp fall to
+44.0% (*p* = 0.774) is uninformative about H1 rather than weak support for it. §6 fixes informativeness by the
+instructed cell exactly as EXP-R1c does, and this cell fails it. The failure mode is the *opposite* of qwen's:
+16 of 16 dimensions vary and 47 of 50 trials give distinct vectors, so this is a rich instrument carrying no
+signal, not a dead one.
+
+**The gate admitted a target that its own confirmatory cells exceed.** granite passed at 25.0% on the pilot
+and then ran 31.0% (instructed) and 39.5% (equalized) — above the 26.0% threshold it was admitted under. We
+keep the admissible verdict, because §4 fixes the gate as a *pilot* measurement and re-reading a rule after
+seeing what it admits is precisely the move this project exists to criticise. But the honest summary is the
+margin, not the verdict: a 160-probe pilot estimates a 25% rate with a binomial SE of ±3.4 pp — wider in
+truth, since probes cluster within claims — so **the gate's resolution is coarser than the 1.0 pp margin
+granite passed by**, and 31.0% sits inside the pilot estimate's own 95% interval (upper bound 31.7%). Recorded
+as a defect in the gate's design against any future use of it: measure ambiguity on the confirmatory cell
+being gated, or pilot enough probes to separate 25% from 26% at all.
+
+**What neither target may do — and, as it turns out, what neither target could have done anyway.** *On the
+data:* the arm admits two targets and only **one** of them (`qwen3.5:9b`) is informative instructed, so the
+exploratory arm independently reaches the *same* fewer-than-two condition that branch 5 was written for.
+Whether a deviation could have overturned the verdict is therefore counterfactual — it did not produce a panel
+either. *On sequencing, which would hold even if it had:* the gate and the roster were pre-registered over the
+undeviated instrument, and the deviation was written *after* seeing the voids it rescues. Letting a post-hoc
+instrument change pick the reporting branch is the exact sequence criterion 4 exists to detect, and we do not
+get to exempt ourselves from it. §7.5 **branch 5 (inconclusive)** stands, and `app:vintage`'s "we do not
+establish that the collapse reproduces on current-generation models" stays as written.
+
+Per §9 item 3 we were committed to reporting whatever these cells returned, including an above-chance
+equalized cell that would have been evidence *against* H1. **Both arms are now closed and reported**, and the
+analysis record is `data/results/r1d_thinkoff/r1d_thinkoff_analysis.txt`.

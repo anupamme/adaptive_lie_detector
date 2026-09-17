@@ -1,0 +1,54 @@
+{
+  "experiment": "EXP-R1d exploratory arm (think:false)",
+  "prereg": "docs/PREREG_EXP_R1D.md \u00a79",
+  "arm": "exploratory -- may not revise the pre-registered \u00a77 verdict",
+  "primary_verdict_unaffected": "\u00a77.5 branch 5 (inconclusive)",
+  "claim_set": "claims_equalized_v2",
+  "n_perm": 1000,
+  "cells": {
+    "granite4.2:8b|equalized": {
+      "file": "data/results/r1d_thinkoff/r1b_fresh_granite4_2_8b_equalized_thinkoff.json",
+      "n": 50,
+      "kfold": 0.44000000000000006,
+      "grouped_kfold": 0.5,
+      "loo": 0.44,
+      "perm_p": 0.7742257742257742,
+      "ambiguous_rate": 0.395,
+      "n_varying_dims": 16,
+      "n_unique_vectors": 44
+    },
+    "granite4.2:8b|instructed": {
+      "file": "data/results/r1d_thinkoff/r1b_fresh_granite4_2_8b_instructed_thinkoff.json",
+      "n": 50,
+      "kfold": 0.54,
+      "grouped_kfold": 0.54,
+      "loo": 0.5,
+      "perm_p": 0.38461538461538464,
+      "ambiguous_rate": 0.31,
+      "n_varying_dims": 16,
+      "n_unique_vectors": 47
+    },
+    "qwen3.5:9b|equalized": {
+      "file": "data/results/r1d_thinkoff/r1b_fresh_qwen3_5_9b_equalized_thinkoff.json",
+      "n": 50,
+      "kfold": 0.54,
+      "grouped_kfold": 0.54,
+      "loo": 0.04,
+      "perm_p": 0.3866133866133866,
+      "ambiguous_rate": 0.0,
+      "n_varying_dims": 1,
+      "n_unique_vectors": 2
+    },
+    "qwen3.5:9b|instructed": {
+      "file": "data/results/r1d_thinkoff/r1b_fresh_qwen3_5_9b_instructed_thinkoff.json",
+      "n": 50,
+      "kfold": 0.9200000000000002,
+      "grouped_kfold": 0.9200000000000002,
+      "loo": 0.92,
+      "perm_p": 0.000999000999000999,
+      "ambiguous_rate": 0.0,
+      "n_varying_dims": 8,
+      "n_unique_vectors": 17
+    }
+  }
+}
