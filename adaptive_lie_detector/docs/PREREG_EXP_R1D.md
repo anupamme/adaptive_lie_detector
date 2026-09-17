@@ -418,18 +418,49 @@ reading the ledger. Recorded here as it is measured, so that a machine failure c
 the ordering stays visible. **This arm cannot and does not move the verdict above**: §7.5 branch 5 is selected by the
 undeviated roster and is already fixed.
 
-| Target | Undeviated pilot | `think:false` pilot | Gate verdict |
+| Target | Undeviated pilot | `think:false` pilot | Gate verdict (threshold 26.0%) |
 |---|---|---|---|
-| `qwen3.5:9b` | **100.0%** (VOID) | **0.0%** | **ADMISSIBLE** |
-| `granite4.2:8b` | 35.0% (VOID) | pending re-pull | pending |
+| `qwen3.5:9b` | **100.0%** (VOID) | **0.0%** | **ADMISSIBLE**, with 26.0 pp of margin |
+| `granite4.2:8b` | 35.0% (VOID) | **25.0%** | **ADMISSIBLE**, with **1.0 pp** of margin |
 
-So the deviation does what §9 predicted it would: with `"think": false` on the chat payload, `qwen3.5:9b`'s
-response channel returns parseable yes/no answers inside the 40-token budget on all 160 pilot probes, and
-its 100.0% void was an instrument artifact of the thinking channel rather than a property of the model.
-**That is a fact about our probe channel, not about the collapse.**
+So the deviation does what §9 predicted it would for one of the two targets and only barely for the other.
 
-Confirmatory cells (n = 50, instructed then equalized, archived to `data/results/r1d_thinkoff/`) are
-**collecting as of 2026-09-17 11:30 IST and are not yet read**. Per §9 item 3 we are committed to reporting
-whatever they return, including an above-chance equalized cell, which would be evidence *against* H1 and
-must be reported as prominently as a collapse. This subsection is updated with the cells' numbers when they
-land; if it still says "pending" in a committed state, the cells were not collected.
+*`qwen3.5:9b`.* With `"think": false` on the chat payload its response channel returns parseable yes/no
+answers inside the 40-token budget on **all 160** pilot probes, so its 100.0% void was an instrument
+artifact of the thinking channel rather than a property of the model. **That is a fact about our probe
+channel, not about the collapse.**
+
+*`granite4.2:8b`.* Its void was never an empty channel — it emitted answers that the parser could not
+read, wrapped in deliberation and in an unrequested `**Assistant:** Yes` dialogue continuation. A single
+`/api/chat` probe under the deviation returns `content='\n\nYes'` with `thinking_chars=0`, which looks like
+a clean rescue, but the 10-claim pilot still ran **25.0%** ambiguous — one point inside a gate derived from
+the worst cell already in the paper. Recorded plainly because the margin, not the verdict, is the honest
+summary: this cell is admissible by the pre-registered rule and is simultaneously the most ambiguous
+channel anywhere in the v2 panel. Per-claim rates range 0–100% (claim 01 was 100% ambiguous on the pilot).
+
+**Confirmatory cells, `qwen3.5:9b` — collected, n = 50/cell, 1000 permutations, read 2026-09-17 12:53 IST:**
+
+| cond | 5-fold | grp-5f | LOO | perm *p* | amb | varying | uniq |
+|---|---|---|---|---|---|---|---|
+| instructed | 92.0% | 92.0% | 92.0% | **0.001** | 0% | 8/16 | 17 |
+| equalized | 54.0% | 54.0% | 4.0% | 0.387 | 0% | **1/16** | **2** |
+
+Instructed 92.0% → equalized 54.0%, **−38.0 pp**, the equalized cell null at *p* = 0.387. Directionally
+this is the EXP-R1c collapse. **It is weaker evidence than that number looks**, and the reason must travel
+with it: the equalized cell is *near-degenerate* — 1 of 16 probe dimensions varies at all and the 50 trials
+produce 2 distinct feature vectors, with LOO at 4.0%. Elsewhere this paper reads that configuration as
+*absence of a usable signal*, not as an informative accuracy estimate, and it gets read the same way here.
+So the arm shows the instructed signal disappearing under equalization; it does not measure how much.
+
+**Confirmatory cells, `granite4.2:8b`:** collecting as of 2026-09-17 13:07 IST (instructed at 12/50),
+expected ~14:15 IST, **not yet read**. Per §9 item 3 we are committed to reporting whatever they return,
+including an above-chance equalized cell, which would be evidence *against* H1 and must be reported as
+prominently as a collapse. If this line still says "not yet read" in a committed state, the cells were not
+collected.
+
+**What neither target may do.** Two admissible exploratory targets are *numerically* the "two or more
+admissible informative targets" that §7 branches on. They do not select a branch, and §9 already fixed why:
+the gate and the roster were pre-registered over the undeviated instrument, and the deviation was written
+*after* seeing the voids it rescues. Letting a post-hoc instrument change pick the reporting branch is the
+exact sequence criterion 4 exists to detect. §7.5 **branch 5 (inconclusive)** stands, and `app:vintage`'s
+"we do not establish that the collapse reproduces on current-generation models" stays as written.
