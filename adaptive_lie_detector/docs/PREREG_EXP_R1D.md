@@ -385,3 +385,25 @@ yields 46.0/54.0/47.7 and updating the three published cells are different commi
 authors'. (A fourth JSON difference, `llama3.1:8b`'s `instructed_grouped_kfold` serializing as
 `0.8600000000000001` rather than `0.86`, is a float-repr artifact of a different summation order: both are
 86.0% and the printed table is unchanged.)
+
+### Exploratory arm — `think:false` (the §9 deviation), in progress
+
+Recorded here as it is measured, so that a machine failure cannot lose it and so that the ordering stays
+visible. **This arm cannot and does not move the verdict above**: §7.5 branch 5 is selected by the
+undeviated roster and is already fixed.
+
+| Target | Undeviated pilot | `think:false` pilot | Gate verdict |
+|---|---|---|---|
+| `qwen3.5:9b` | **100.0%** (VOID) | **0.0%** | **ADMISSIBLE** |
+| `granite4.2:8b` | 35.0% (VOID) | pending re-pull | pending |
+
+So the deviation does what §9 predicted it would: with `"think": false` on the chat payload, `qwen3.5:9b`'s
+response channel returns parseable yes/no answers inside the 40-token budget on all 160 pilot probes, and
+its 100.0% void was an instrument artifact of the thinking channel rather than a property of the model.
+**That is a fact about our probe channel, not about the collapse.**
+
+Confirmatory cells (n = 50, instructed then equalized, archived to `data/results/r1d_thinkoff/`) are
+**collecting as of 2026-09-17 11:30 IST and are not yet read**. Per §9 item 3 we are committed to reporting
+whatever they return, including an above-chance equalized cell, which would be evidence *against* H1 and
+must be reported as prominently as a collapse. This subsection is updated with the cells' numbers when they
+land; if it still says "pending" in a committed state, the cells were not collected.

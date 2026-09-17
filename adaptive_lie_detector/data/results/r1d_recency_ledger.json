@@ -38,6 +38,26 @@
         "ambiguous_rate": 0.35
       },
       "verdict": "VOID_GATE"
+    },
+    "qwen3.5:9b": {
+      "pilot": {
+        "file": "data/results/r1d_pilots/r1b_fresh_qwen3_5_9b_instructed_pilot.json",
+        "n_trials": 10,
+        "n_probes": 160,
+        "ambiguous_rate": 1.0
+      },
+      "verdict": "VOID_GATE"
+    },
+    "qwen3.5:9b [think:false]": {
+      "arm": "exploratory, PREREG_EXP_R1D \u00a79 deviation (think:false)",
+      "primary_verdict_unaffected": "\u00a77.5 branch 5 (inconclusive)",
+      "pilot": {
+        "file": "data/results/r1d_thinkoff/r1b_fresh_qwen3_5_9b_instructed_pilot_thinkoff.json",
+        "n_trials": 10,
+        "n_probes": 160,
+        "ambiguous_rate": 0.0
+      },
+      "verdict": "ADMISSIBLE"
     }
   }
 }
