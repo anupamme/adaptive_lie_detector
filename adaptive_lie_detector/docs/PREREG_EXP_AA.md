@@ -237,7 +237,7 @@ The panel is scored against artifacts already on disk, not against the paper's s
 | requirement | referent | source | n cases |
 |---|---|---|---|
 | (i) | `i_fixed_elicitation` | `liars_bench_analysis.json` `configs.*.requirements` | 8 |
-| (i) | `elicitation_fixed` | the ten `external_audit_*.json` set reports | 10 |
+| (i) | `holds_one_elicitation_fixed` | `elicitation_channel_check.json` (see §8a) | 10 |
 | (ii) | `ii_grade_not_condition_label` | `liars_bench_analysis.json` | 8 |
 | (iii) | `iii_paired_scenarios` | `liars_bench_analysis.json` | 8 |
 | (iv) | **none exists** | — | **0** |
@@ -245,6 +245,36 @@ The panel is scored against artifacts already on disk, not against the paper's s
 
 **42 concordance judgements.** Booleans map to `SATISFIED` / `NOT_SATISFIED`; a panel `PARTLY` or
 `UNDECIDABLE` counts as **non-concordant**, which is the conservative direction.
+
+### 8a. Why the (i)-Apollo referent is the corrected field, and not the published one
+
+Assembling the packets surfaced a defect in our own Gate 1, and it is recorded here rather than worked
+around. `run_external_audit.py:148` hashes the concatenated messages whose role is `system` and calls the
+elicitation fixed when exactly one distinct hash occurs. **Four of the ten audited Apollo sets contain no
+`system` message at all** — both AI-audit tags, `goal_directed_lying` and `out_simple_4_many` — so on that
+channel every record hashes the empty string, exactly one hash occurs, and `elicitation_fixed` is recorded
+`True` **vacuously**. On the channel each of those four does use, none of them holds one prompt fixed: 8 of
+8 and 16 of 16 distinct user turns, 27 of 27 distinct `deceive_instruction` values, and 11 distinct user
+prompts over 40 records. `experiments/audit_elicitation_channel.py` recomputes this and writes
+`data/results/elicitation_channel_check.json`; **three of ten sets hold one elicitation fixed, not seven**.
+
+No published contrast changes — all four are already reported inapplicable on cell size or on a 0.0\% firing
+rate, or are materials-only — and the direction is *toward* the paper's thesis, since more of the audited
+corpus turns out unable to express criterion 4 than the paper says. The paper must report the correction
+regardless (§9).
+
+For this experiment it means the published `elicitation_fixed` is not a usable referent on four cases. So:
+
+- **Primary referent for (i) on Apollo: `holds_one_elicitation_fixed`**, the corrected field. Machine-recorded,
+  computed by a fixed rule (the system messages if every record has one, else the user turns, else the
+  fields whose names say they are instructions), and committed before any rater call.
+- **Secondary, reported alongside: the original `elicitation_fixed`.** The four vacuous cases are where the
+  two referents disagree, so they are the sharpest single test in EXP-AA: a panel reading only
+  release-authored text should track the corrected value and not the vacuous one. Both comparisons are
+  reported whichever way they come out.
+- **This choice was made with the corrected values known and no rater judgement in existence**, which is the
+  integrity boundary §0 draws. It is disclosed here, before the first call, precisely because the referent
+  was changed after inspecting the corpus.
 
 **Requirement (iv) has no recorded referent and gets $\alpha$ only.** This is disclosed here rather
 than discovered later, and it is pointed: (iv) is one of the two requirements the reviewer named as

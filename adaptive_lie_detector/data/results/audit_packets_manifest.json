@@ -1,0 +1,183 @@
+{
+ "prereg": "docs/PREREG_EXP_AA.md",
+ "budgets": {
+  "total": 8000,
+  "record": 1500,
+  "prompt": 2500
+ },
+ "n_cases": 18,
+ "packet_failed": [],
+ "provenance": {
+  "ai_audit__reasoning__llama-70b": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/ai_audit__reasoning__llama-70b.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "ai_audit__reasoning__llama-70b-3.3": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/ai_audit__reasoning__llama-70b-3.3.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "ai_liar__original_without_answers__llama-70b-3.3": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/ai_liar__original_without_answers__llama-70b-3.3.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "goal_directed_lying": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/how_to_catch_an_ai_liar/goal_directed_lying.json"
+   ],
+   "schema": "JSON array of records",
+   "has_message_lists": false
+  },
+  "insider_trading__onpolicy__llama-70b": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/insider_trading__onpolicy__llama-70b.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "out_simple_4_many": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/ft_fact_paired/out_simple_4_many.json"
+   ],
+   "schema": "JSON array of records",
+   "has_message_lists": true
+  },
+  "roleplaying__plain__llama-70b": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/roleplaying__plain__llama-70b.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "roleplaying__plain__llama-70b-3.3": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/roleplaying__plain__llama-70b-3.3.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "sandbagging_v2__wmdp_mmlu__llama-70b": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/sandbagging_v2__wmdp_mmlu__llama-70b.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "sandbagging_v2__wmdp_mmlu__llama-70b-3.3": {
+   "release": "apollo_deception (Detecting Strategic Deception Using Linear Probes)",
+   "source_files": [
+    "data/external/apollo_deception/README.md",
+    "data/external/apollo_deception/data/rollouts/sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json"
+   ],
+   "schema": "dict with a `rollouts` list",
+   "has_message_lists": true
+  },
+  "alpaca": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/alpaca.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "convincing-game": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/convincing-game.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "gender-secret": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/gender-secret.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "harm-pressure-choice": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/harm-pressure-choice.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "harm-pressure-knowledge-report": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/harm-pressure-knowledge-report.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "insider-trading": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/insider-trading.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "instructed-deception": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/instructed-deception.json"
+   ],
+   "no_dataset_card_vendored": true
+  },
+  "soft-trigger": {
+   "release": "liars_bench (Cadenza-Labs/liars-bench)",
+   "source_files": [
+    "data/external/liars_bench/normalized/soft-trigger.json"
+   ],
+   "no_dataset_card_vendored": true
+  }
+ },
+ "banned_substrings_asserted_absent": [
+  "criterion",
+  "requirement (i",
+  "requirement (v",
+  "construct recovery",
+  "CONSTRUCT_RECOVERY",
+  "annotation-channel",
+  "annotation channel",
+  "eligible_for_criterion4",
+  "UNDERPOWERED",
+  "CRITERION4",
+  "deployed-observable",
+  "definitionally equivalent",
+  "identification audit",
+  "elicitation confound",
+  "fixed elicitation",
+  "byte-identical",
+  "tau_D",
+  "\\tau_D",
+  "this paper",
+  "our rule",
+  "our verdict",
+  "the audit",
+  "data/results"
+ ]
+}
