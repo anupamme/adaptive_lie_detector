@@ -37,6 +37,12 @@ PILOT_N = 10          # §4
 CONFIRM_N = 50        # §6, same n as EXP-R1c
 PREFIX = "r1b_fresh"  # VARIANTS["v2"]["prefix"]
 LEDGER = "data/results/r1d_recency_ledger.json"
+# Pilots are archived into a SUBDIRECTORY, not alongside the confirmatory cells.
+# analyze_r1_faithful.py discovers cells with a non-recursive
+# glob("data/results/r1b_fresh_*.json"), so a pilot archived next to the
+# confirmatory cells is read as though it were one -- which §4 forbids, and
+# which additionally crashes the analyzer on a pilot holding a single class.
+PILOT_DIR = "data/results/r1d_pilots"
 
 
 def tag(model):
@@ -45,6 +51,10 @@ def tag(model):
 
 def ckpt_path(model, condition, suffix=""):
     return f"data/results/{PREFIX}_{tag(model)}_{condition}{suffix}.json"
+
+
+def pilot_path(model, condition="instructed"):
+    return os.path.join(PILOT_DIR, f"{PREFIX}_{tag(model)}_{condition}_pilot.json")
 
 
 def ambiguous_rate(path):
@@ -88,7 +98,8 @@ def main():
     entry = led["targets"].setdefault(model, {})
 
     # ---- 1. pilot (instructed, n=10) -------------------------------------
-    pilot_arch = ckpt_path(model, "instructed", "_pilot")
+    pilot_arch = pilot_path(model)
+    os.makedirs(PILOT_DIR, exist_ok=True)
     live = ckpt_path(model, "instructed")
     if not os.path.exists(pilot_arch):
         if os.path.exists(live):

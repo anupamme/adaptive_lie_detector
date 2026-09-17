@@ -4,10 +4,38 @@
   "targets": {
     "olmo-3:7b": {
       "pilot": {
-        "file": "data/results/r1b_fresh_olmo-3_7b_instructed_pilot.json",
+        "file": "data/results/r1d_pilots/r1b_fresh_olmo-3_7b_instructed_pilot.json",
         "n_trials": 10,
         "n_probes": 160,
         "ambiguous_rate": 1.0
+      },
+      "verdict": "VOID_GATE"
+    },
+    "ministral-3:8b": {
+      "pilot": {
+        "file": "data/results/r1d_pilots/r1b_fresh_ministral-3_8b_instructed_pilot.json",
+        "n_trials": 10,
+        "n_probes": 160,
+        "ambiguous_rate": 0.0
+      },
+      "verdict": "ADMISSIBLE",
+      "confirmatory": {
+        "instructed": {
+          "n_trials": 50,
+          "ambiguous_rate": 0.0063
+        },
+        "equalized": {
+          "n_trials": 50,
+          "ambiguous_rate": 0.0425
+        }
+      }
+    },
+    "granite4.2:8b": {
+      "pilot": {
+        "file": "data/results/r1d_pilots/r1b_fresh_granite4_2_8b_instructed_pilot.json",
+        "n_trials": 10,
+        "n_probes": 160,
+        "ambiguous_rate": 0.35
       },
       "verdict": "VOID_GATE"
     }

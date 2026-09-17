@@ -1,0 +1,94 @@
+{
+  "variant": "v2",
+  "claim_set": "claims_equalized_v2",
+  "probe_bank": "r1_elicitation_questions_v2",
+  "primary_metric": "stratified 5-fold (LOO is biased below chance on balanced data with uninformative features)",
+  "grouped_kfold_note": "grouped-5-fold keeps matched true/false claim pairs in same fold",
+  "per_model": [
+    {
+      "model": "llama3.1:8b",
+      "instructed_kfold": 0.8600000000000001,
+      "equalized_kfold": 0.42000000000000004,
+      "delta_pp": 44.00000000000001,
+      "instructed_grouped_kfold": 0.8600000000000001,
+      "equalized_grouped_kfold": 0.42000000000000004,
+      "instructed_loo": 0.86,
+      "equalized_loo": 0.0,
+      "instructed_flag": "",
+      "equalized_flag": "near-degenerate"
+    },
+    {
+      "model": "llama3.2:3b",
+      "instructed_kfold": 1.0,
+      "equalized_kfold": 0.24,
+      "delta_pp": 76.0,
+      "instructed_grouped_kfold": 1.0,
+      "equalized_grouped_kfold": 0.36,
+      "instructed_loo": 1.0,
+      "equalized_loo": 0.26,
+      "instructed_flag": "",
+      "equalized_flag": ""
+    },
+    {
+      "model": "ministral-3:8b",
+      "instructed_kfold": 1.0,
+      "equalized_kfold": 0.54,
+      "delta_pp": 46.0,
+      "instructed_grouped_kfold": 1.0,
+      "equalized_grouped_kfold": 0.44000000000000006,
+      "instructed_loo": 1.0,
+      "equalized_loo": 0.24,
+      "instructed_flag": "",
+      "equalized_flag": ""
+    },
+    {
+      "model": "mistral:7b",
+      "instructed_kfold": 1.0,
+      "equalized_kfold": 0.5800000000000001,
+      "delta_pp": 41.99999999999999,
+      "instructed_grouped_kfold": 1.0,
+      "equalized_grouped_kfold": 0.58,
+      "instructed_loo": 1.0,
+      "equalized_loo": 0.52,
+      "instructed_flag": "",
+      "equalized_flag": ""
+    },
+    {
+      "model": "qwen2.5:14b",
+      "instructed_kfold": 1.0,
+      "equalized_kfold": 0.45999999999999996,
+      "delta_pp": 54.0,
+      "instructed_grouped_kfold": 1.0,
+      "equalized_grouped_kfold": 0.45999999999999996,
+      "instructed_loo": 1.0,
+      "equalized_loo": 0.0,
+      "instructed_flag": "",
+      "equalized_flag": "near-degenerate"
+    },
+    {
+      "model": "qwen2.5:32b",
+      "instructed_kfold": 1.0,
+      "equalized_kfold": 0.42000000000000004,
+      "delta_pp": 57.99999999999999,
+      "instructed_grouped_kfold": 1.0,
+      "equalized_grouped_kfold": 0.45999999999999996,
+      "instructed_loo": 1.0,
+      "equalized_loo": 0.0,
+      "instructed_flag": "",
+      "equalized_flag": "near-degenerate"
+    },
+    {
+      "model": "qwen2.5:7b",
+      "instructed_kfold": 1.0,
+      "equalized_kfold": 0.5,
+      "delta_pp": 50.0,
+      "instructed_grouped_kfold": 1.0,
+      "equalized_grouped_kfold": 0.5,
+      "instructed_loo": 1.0,
+      "equalized_loo": 0.0,
+      "instructed_flag": "near-degenerate",
+      "equalized_flag": "DEGENERATE (all vectors identical)"
+    }
+  ],
+  "per_dimension": {}
+}

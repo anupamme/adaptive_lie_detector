@@ -210,6 +210,34 @@ budget. This is the same mechanism on which §3 excluded `gemma4:12b` before col
 §3's constraint after the fact, the §4 pilot was run as written and the target was voided on its
 **measured** gate value. See §10.
 
+**2026-09-17, operational note — pilots are archived to a subdirectory, and the ledger's pointers were
+repointed.** The driver originally archived a pilot as `data/results/r1b_fresh_<tag>_instructed_pilot.json`,
+i.e. inside the directory `analyze_r1_faithful.py` globs non-recursively for `r1b_fresh_*.json`. A pilot
+there is read by the analyzer **as though it were a confirmatory cell**, which §4 forbids; it surfaced only
+because the 1-trial truncated `olmo-3` pilot holds a single class and crashed the estimator. The driver now
+archives to `data/results/r1d_pilots/`, the three already-written pilots were moved there before any further
+collection, and the two stale `pilot.file` pointers in the ledger were repointed to the moved files. **No
+measured quantity was altered**: the pilots' ambiguity rates, trial counts and probe counts are unchanged,
+and the moved files are byte-identical.
+
+**2026-09-17, operational note — §7.6's integrity pin covers the derived summary, so the derived summary was
+restored.** `analyze_r1_faithful.py` writes a fixed path, `data/results/r1_faithful_v2_summary.json`, and
+discovers cells by globbing the results directory — so re-running it with EXP-R1d's cells present overwrites
+the six-target artifact the paper's §`app:r1c` reports with a seven-target one (its pooled row is fitted on
+all trials at once, so it moves from 97.0→43.3% at *n*=300 to 97.1→42.0% at *n*=350). That filename also
+matches §7.6's `r1_faithful_*.json` glob. It was therefore **restored byte-identical to its committed
+version** (sha256 `a7259518cec64863…`), and EXP-R1d's derived panel was written to distinct paths:
+`data/results/r1d_recency_v2_summary.json` and `data/results/r1d_recency_v2_analysis.txt`. Anyone re-running
+the analyzer with EXP-R1d's cells in place obtains the seven-target panel; that is the expected behaviour
+and the reason the two artifacts are kept apart rather than one overwriting the other.
+
+**2026-09-17, note on the estimator's default — the pre-registered setting is not the analyzer's default.**
+§6 fixes a **1000-draw** label-permutation test; `analyze_r1_faithful.py`'s `N_PERM` default is **200**,
+whose smallest attainable *p* is 1/201 = 0.005. Every EXP-R1d *p* is therefore taken from
+`--n_perm 1000`, and `data/results/r1d_recency_v2_analysis.txt` records the run that produced them (its
+header line states the draw count). A 200-draw run of the same cells was also executed and agrees on every
+accuracy to the digit, differing only in the *p* floor.
+
 *(no deviations from any fixed quantity in §§3–6)*
 
 ## 10. Outcome
@@ -219,11 +247,61 @@ budget. This is the same mechanism on which §3 excluded `gemma4:12b` before col
 | Target | Pilot ambiguity (instructed) | §4 verdict | Failure mode |
 |---|---|---|---|
 | `olmo-3:7b` | **100.0%** (160 probes / 10 trials) | **VOID** | Empty response channel. Thinking-mode model; `think: false` does not suppress it; 0 response tokens inside the fixed 40-token budget, so all 16 probe dimensions are constant at 0 and the 16-d binary instrument is not the one EXP-R1c measured. |
+| `ministral-3:8b` | **0.0%** (160 probes / 10 trials) | **ADMISSIBLE** | — |
+| `granite4.2:8b` | **35.0%** (160 probes / 10 trials) | **VOID** | Answer present but unparseable. Two modes, spread evenly over all 16 dimensions (1–6 of 10 trials each, none spared): in 39% of ambiguous probes the 40-token budget is spent on visible deliberation and no answer appears; in the rest the answer is embedded in an unrequested continuation of the dialogue it was shown (e.g. `**Assistant:** Yes` followed by fabricated further turns), which the yes/no parser cannot read. Unlike `olmo-3`, this target does emit answers — the 16-d vectors are non-degenerate (10 distinct over 10 trials) — it simply exceeds the gate the paper's own worst cell sets. |
 
-`olmo-3:7b` is void, with no confirmatory cell collected. Under §3's substitution rule the reserve
-`qwen3.5:9b` may replace **one** gate failure; note that `qwen3.5` also carries a `thinking` capability in
-the Ollama library, so it is not assumed to be admissible.
+### Confirmatory cell — `ministral-3:8b`, the one admissible target so far
 
-**Integrity checks run after this target.** All 26 pre-existing result files (v1 `r1_faithful_*` and the six
+Estimator, folds, *n* and draw count exactly as §6 fixes them (stratified 5-fold, 1000-draw label
+permutation, *n* = 50 balanced trials per cell). §5's informativeness criterion was read off the
+**instructed** cell before the equalized cell was collected, as §5 requires.
+
+| Cell | 5-fold | grouped 5-fold | LOO | *p* | ambiguity | varying dims | distinct vectors |
+|---|---|---|---|---|---|---|---|
+| instructed | **100.0%** | 100.0% | 100.0% | **0.001** | 0.6% | 9/16 | 14 |
+| equalized | **54.0%** | 44.0% | 24.0% | **0.327** | 4.3% | 6/16 | 10 |
+
+**Informative** (instructed *p* = 0.001 ≤ 0.05), **admissible**, and its equalized cell is **not
+degenerate** (6 of 16 dimensions still vary, 10 distinct vectors), so the fall to chance is not an artifact
+of a dead channel. Change in the primary metric: **−46.0 pp**, with equalized *p* = 0.327 — i.e. H1 holds on
+this target. Source: `data/results/r1d_recency_v2_analysis.txt`, `…/r1d_recency_v2_summary.json`.
+
+### Roster state and the one permitted substitution
+
+Two of the three named targets are void on their measured gate values, and one is admissible and
+informative. §3 permits **at most one** substitution, and only for (a) a pull failure, (b) a gate failure or
+(c) out-of-disk — so the reserve `qwen3.5:9b` was invoked **once**, against `granite4.2:8b`'s gate failure,
+on 2026-09-17. No confirmatory trial had been collected for either void target, so the rule's bar is met.
+`olmo-3:7b`'s gate failure is **not** substituted for; it is reported void and stands as such.
+
+`qwen3.5:9b` also carries a `thinking` capability in the Ollama library, so it is **not** assumed
+admissible; it runs the same §4 pilot and will be reported void on its measured rate if it exceeds 26.0%.
+With the substitution now spent, the roster is closed either way: if `qwen3.5:9b` is admissible and
+informative there are **two** such targets and §7 branch 1 or 2 applies; if it is void there is **one**, and
+§7 **branch 5** applies — EXP-R1d is reported inconclusive, no recency claim enters the paper,
+`app:vintage`'s "we do not establish that the collapse reproduces" sentence stays exactly as written, and
+`app:future_directions` item (7) is revised only to record that the run was attempted and why it was
+uninformative. Under branch 5 `ministral-3:8b`'s cell above is still reported, as a single admissible target
+consistent with H1 and explicitly too thin to support a recency claim.
+
+**Integrity checks run after every target.** All 26 pre-existing result files (v1 `r1_faithful_*` and the six
 existing v2 `r1b_fresh_*` target pairs) verified byte-identical against hashes taken before collection, so
-§7.6 holds and no checkpoint collision occurred.
+§7.6 holds and no checkpoint collision occurred. The derived summary at `r1_faithful_v2_summary.json` also
+matches that glob and is byte-identical to its committed version; see §9.
+
+**One finding about the paper's reproducibility, surfaced by these checks and independent of EXP-R1d.**
+Re-running `analyze_r1_faithful.py --variant v2` on the six pre-existing targets reproduces every primary
+figure exactly — including each instructed cell, each equalized 5-fold cell, every *p* at the
+pre-registered 1000 draws, and the pooled 97.0%→43.3% / −53.7 pp at *n* = 300 — but yields three different
+**grouped-5-fold** cells than the paper prints:
+`tab:r1c_v2` Llama 3.2 3B equalized 46.0% → 36.0%, `tab:r1c_v2` and `tab:r1_variants` Mistral 7B equalized
+54.0% → 58.0%, and `tab:r1c_v2`'s pooled equalized 47.7% → 48.3%. This is **not** EXP-R1d's doing: it
+reproduces with `ministral-3:8b`'s cells held out, all 24 collected cell files are byte-identical, and two
+consecutive runs are byte-identical to each other, so it is not nondeterminism — every estimator seed is
+fixed (`StratifiedKFold(random_state=0)`, unshuffled `GroupKFold`, per-cell `zlib.crc32` permutation seed).
+The cause is the installed scikit-learn version (1.8.0), which `requirements.txt` does not pin and the
+appendix does not state. It is recorded here rather than repaired here, because pinning the version that
+yields 46.0/54.0/47.7 and updating the three published cells are different commitments and the choice is the
+authors'. (A fourth JSON difference, `llama3.1:8b`'s `instructed_grouped_kfold` serializing as
+`0.8600000000000001` rather than `0.86`, is a float-repr artifact of a different summation order: both are
+86.0% and the printed table is unchanged.)
