@@ -388,8 +388,11 @@ authors'. (A fourth JSON difference, `llama3.1:8b`'s `instructed_grouped_kfold` 
 
 ### Exploratory arm — `think:false` (the §9 deviation), in progress
 
-Recorded here as it is measured, so that a machine failure cannot lose it and so that the ordering stays
-visible. **This arm cannot and does not move the verdict above**: §7.5 branch 5 is selected by the
+Keyed in `data/results/r1d_recency_ledger.json` as `qwen3.5:9b [think:false]` and
+`granite4.2:8b [think:false]` — distinct keys from the undeviated `qwen3.5:9b` and `granite4.2:8b` entries,
+which keep their void verdicts unaltered, so the two arms can never be confused for one another by anything
+reading the ledger. Recorded here as it is measured, so that a machine failure cannot lose it and so that
+the ordering stays visible. **This arm cannot and does not move the verdict above**: §7.5 branch 5 is selected by the
 undeviated roster and is already fixed.
 
 | Target | Undeviated pilot | `think:false` pilot | Gate verdict |
