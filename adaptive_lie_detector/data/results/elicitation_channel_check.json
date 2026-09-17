@@ -1,0 +1,284 @@
+{
+ "n_holding_one_elicitation_fixed": 3,
+ "holding_one_elicitation_fixed": [
+  "sandbagging_v2__wmdp_mmlu__llama-70b",
+  "insider_trading__onpolicy__llama-70b",
+  "sandbagging_v2__wmdp_mmlu__llama-70b-3.3"
+ ],
+ "n_per_item_elicitation": 7,
+ "per_item_elicitation": [
+  {
+   "set": "ai_audit__reasoning__llama-70b",
+   "channel": "user turns",
+   "n_distinct": 8,
+   "n_records": 8
+  },
+  {
+   "set": "goal_directed_lying",
+   "channel": "instruction fields ['deceive_instruction', 'normal_instruction']",
+   "n_distinct": 27,
+   "n_records": 27
+  },
+  {
+   "set": "out_simple_4_many",
+   "channel": "user turns",
+   "n_distinct": 11,
+   "n_records": 40
+  },
+  {
+   "set": "roleplaying__plain__llama-70b",
+   "channel": "system messages",
+   "n_distinct": 371,
+   "n_records": 371
+  },
+  {
+   "set": "ai_audit__reasoning__llama-70b-3.3",
+   "channel": "user turns",
+   "n_distinct": 16,
+   "n_records": 16
+  },
+  {
+   "set": "ai_liar__original_without_answers__llama-70b-3.3",
+   "channel": "system messages",
+   "n_distinct": 54,
+   "n_records": 54
+  },
+  {
+   "set": "roleplaying__plain__llama-70b-3.3",
+   "channel": "system messages",
+   "n_distinct": 371,
+   "n_records": 371
+  }
+ ],
+ "note": "Post-hoc diagnostic, not pre-registered. Recomputes Gate 1 of the external audit on four candidate elicitation channels. Gate 1 as published hashes role=='system' only.",
+ "sets": [
+  {
+   "channel_actually_used": "user turns",
+   "n_distinct_on_channel_used": 8,
+   "holds_one_elicitation_fixed": false,
+   "set": "ai_audit__reasoning__llama-70b",
+   "source_file": "rollouts/ai_audit__reasoning__llama-70b.json",
+   "n_records": 8,
+   "n_records_with_a_system_message": 0,
+   "n_records_with_any_input_message": 8,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 8,
+    "system_plus_user": 8,
+    "full_input": 8
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "VACUOUS (recorded fixed; no record has a system message)"
+  },
+  {
+   "channel_actually_used": "instruction fields ['deceive_instruction', 'normal_instruction']",
+   "n_distinct_on_channel_used": 27,
+   "holds_one_elicitation_fixed": false,
+   "set": "goal_directed_lying",
+   "source_file": "how_to_catch_an_ai_liar/goal_directed_lying.json",
+   "n_records": 27,
+   "n_records_with_a_system_message": 0,
+   "n_records_with_any_input_message": 0,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": true,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 1,
+    "system_plus_user": 27,
+    "full_input": 27
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "VACUOUS (recorded fixed; no record has a system message)"
+  },
+  {
+   "channel_actually_used": "user turns",
+   "n_distinct_on_channel_used": 11,
+   "holds_one_elicitation_fixed": false,
+   "set": "out_simple_4_many",
+   "source_file": "ft_fact_paired/out_simple_4_many.json",
+   "n_records": 40,
+   "n_records_with_a_system_message": 0,
+   "n_records_with_any_input_message": 40,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 11,
+    "system_plus_user": 11,
+    "full_input": 40
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "VACUOUS (recorded fixed; no record has a system message)"
+  },
+  {
+   "channel_actually_used": "system messages",
+   "n_distinct_on_channel_used": 371,
+   "holds_one_elicitation_fixed": false,
+   "set": "roleplaying__plain__llama-70b",
+   "source_file": "rollouts/roleplaying__plain__llama-70b.json",
+   "n_records": 371,
+   "n_records_with_a_system_message": 371,
+   "n_records_with_any_input_message": 371,
+   "recorded_n_distinct_system_prompts": 371,
+   "recorded_elicitation_fixed": false,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 371,
+    "user_only": 368,
+    "system_plus_user": 371,
+    "full_input": 371
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "substantive (recorded NOT fixed)"
+  },
+  {
+   "channel_actually_used": "system messages",
+   "n_distinct_on_channel_used": 1,
+   "holds_one_elicitation_fixed": true,
+   "set": "sandbagging_v2__wmdp_mmlu__llama-70b",
+   "source_file": "rollouts/sandbagging_v2__wmdp_mmlu__llama-70b.json",
+   "n_records": 366,
+   "n_records_with_a_system_message": 366,
+   "n_records_with_any_input_message": 366,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 366,
+    "system_plus_user": 366,
+    "full_input": 366
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "substantive (recorded fixed; a system message exists on every record)"
+  },
+  {
+   "channel_actually_used": "user turns",
+   "n_distinct_on_channel_used": 16,
+   "holds_one_elicitation_fixed": false,
+   "set": "ai_audit__reasoning__llama-70b-3.3",
+   "source_file": "rollouts/ai_audit__reasoning__llama-70b-3.3.json",
+   "n_records": 16,
+   "n_records_with_a_system_message": 0,
+   "n_records_with_any_input_message": 16,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 16,
+    "system_plus_user": 16,
+    "full_input": 16
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "VACUOUS (recorded fixed; no record has a system message)"
+  },
+  {
+   "channel_actually_used": "system messages",
+   "n_distinct_on_channel_used": 54,
+   "holds_one_elicitation_fixed": false,
+   "set": "ai_liar__original_without_answers__llama-70b-3.3",
+   "source_file": "rollouts/ai_liar__original_without_answers__llama-70b-3.3.json",
+   "n_records": 54,
+   "n_records_with_a_system_message": 54,
+   "n_records_with_any_input_message": 54,
+   "recorded_n_distinct_system_prompts": 54,
+   "recorded_elicitation_fixed": false,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 54,
+    "user_only": 27,
+    "system_plus_user": 54,
+    "full_input": 54
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "substantive (recorded NOT fixed)"
+  },
+  {
+   "channel_actually_used": "system messages",
+   "n_distinct_on_channel_used": 1,
+   "holds_one_elicitation_fixed": true,
+   "set": "insider_trading__onpolicy__llama-70b",
+   "source_file": "rollouts/insider_trading__onpolicy__llama-70b.json",
+   "n_records": 173,
+   "n_records_with_a_system_message": 173,
+   "n_records_with_any_input_message": 173,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 11,
+    "system_plus_user": 11,
+    "full_input": 173
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "substantive (recorded fixed; a system message exists on every record)"
+  },
+  {
+   "channel_actually_used": "system messages",
+   "n_distinct_on_channel_used": 371,
+   "holds_one_elicitation_fixed": false,
+   "set": "roleplaying__plain__llama-70b-3.3",
+   "source_file": "rollouts/roleplaying__plain__llama-70b-3.3.json",
+   "n_records": 371,
+   "n_records_with_a_system_message": 371,
+   "n_records_with_any_input_message": 371,
+   "recorded_n_distinct_system_prompts": 371,
+   "recorded_elicitation_fixed": false,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 371,
+    "user_only": 368,
+    "system_plus_user": 371,
+    "full_input": 371
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "substantive (recorded NOT fixed)"
+  },
+  {
+   "channel_actually_used": "system messages",
+   "n_distinct_on_channel_used": 1,
+   "holds_one_elicitation_fixed": true,
+   "set": "sandbagging_v2__wmdp_mmlu__llama-70b-3.3",
+   "source_file": "rollouts/sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json",
+   "n_records": 1000,
+   "n_records_with_a_system_message": 1000,
+   "n_records_with_any_input_message": 1000,
+   "recorded_n_distinct_system_prompts": 1,
+   "recorded_elicitation_fixed": true,
+   "recorded_is_materials_only": false,
+   "distinct_hashes": {
+    "system_only": 1,
+    "user_only": 1000,
+    "system_plus_user": 1000,
+    "full_input": 1000
+   },
+   "fixed_on_system_plus_user": false,
+   "fixed_on_full_input": false,
+   "recorded_verdict_status": "substantive (recorded fixed; a system message exists on every record)"
+  }
+ ],
+ "n_recorded_fixed_substantive": 3,
+ "n_recorded_fixed_vacuous": 4,
+ "vacuous_sets": [
+  "ai_audit__reasoning__llama-70b",
+  "goal_directed_lying",
+  "out_simple_4_many",
+  "ai_audit__reasoning__llama-70b-3.3"
+ ]
+}
