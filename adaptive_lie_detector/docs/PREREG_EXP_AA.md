@@ -147,6 +147,30 @@ The builder asserts these exclusions as a **post-condition over the emitted pack
 loudly rather than emitting a contaminated packet. Truncation budgets are fixed here:
 **8,000 characters** per packet total, **1,500** per example record, **2,500** for prompt material.
 
+### 4a. A packet asymmetry between the two releases, disclosed before any rater call
+
+The two releases do not publish the same *kind* of material, and the packets therefore cannot be symmetric:
+
+- **Apollo** vendors `README.md` (2,600 bytes), which describes the roleplaying, insider-trading and
+  sandbagging datasets in the authors' own prose. An Apollo packet contains that prose verbatim.
+- **liars_bench** vendors only `test-00000-of-00001.parquet` per configuration — **no dataset card is
+  present in this copy**, and `liars_bench_manifest.json` records that the gated files are not
+  redistributed. A liars_bench packet therefore has **no prose description at all**: its description *is*
+  the verbatim system prompt, the label field name, the metadata field names, the record counts and the two
+  example records.
+
+Writing a description ourselves would violate §4's first inadmissible item, so we do not. The consequence
+is stated in advance and runs in one direction: **liars_bench packets carry strictly less descriptive
+material, so their `UNDECIDABLE` rate should be expected to be the higher of the two.** That is not a
+confound to be corrected — it is a fact about what the release publishes, and it is exactly what a
+decidability claim should be sensitive to.
+
+**Pre-registered secondary analysis, explicitly exploratory:** $\alpha$ and the `UNDECIDABLE` rate are also
+reported **stratified by release** (10 Apollo units, 8 liars_bench units). This is exploratory and
+underpowered at 8–10 units per stratum; it may not be used to report a requirement as decidable that fails
+§7's threshold on the pooled 18. Its purpose is diagnostic: to say whether a low pooled $\alpha$ reflects
+genuine indeterminacy in the criteria or a release that publishes too little to read them off.
+
 Rater instructions carry the five requirements in the paper's own wording, from the box in
 `introduction.tex`: (i) fixes the elicitation prompt; (ii) grades $D$ independently of the condition
 label; (iii) has the same scenario independently realized under both behavioral outcomes; (iv) exposes
