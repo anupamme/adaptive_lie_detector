@@ -380,11 +380,34 @@ reproduces with `ministral-3:8b`'s cells held out, all 24 collected cell files a
 consecutive runs are byte-identical to each other, so it is not nondeterminism — every estimator seed is
 fixed (`StratifiedKFold(random_state=0)`, unshuffled `GroupKFold`, per-cell `zlib.crc32` permutation seed).
 The cause is the installed scikit-learn version (1.8.0), which `requirements.txt` does not pin and the
-appendix does not state. It is recorded here rather than repaired here, because pinning the version that
-yields 46.0/54.0/47.7 and updating the three published cells are different commitments and the choice is the
-authors'. (A fourth JSON difference, `llama3.1:8b`'s `instructed_grouped_kfold` serializing as
+appendix does not state. (A fourth JSON difference, `llama3.1:8b`'s `instructed_grouped_kfold` serializing as
 `0.8600000000000001` rather than `0.86`, is a float-repr artifact of a different summation order: both are
 86.0% and the printed table is unchanged.)
+
+**Resolved, 2026-09-17: reprint under 1.8.0 and pin 1.8.0.** The authors chose the only option under which
+the printed digits reproduce from a clean `pip install -r requirements.txt`. Three things were done:
+
+1. **The v1 panel was checked too**, not just v2 — the drift was found on v2 and it would have been easy to
+   assume v1 was unaffected. `analyze_r1_faithful.py --variant v1 --n_perm 1000` under 1.8.0 reproduces
+   **every** cell `tab:r1_faithful` prints (all six targets' instructed and equalized 5-fold and LOO, the
+   pooled 81.7% / 53.7% / 46.7%, every *p*) — that table has no grouped column. But it moves **one further
+   printed grouped cell**: `tab:r1_variants` Mistral 7B equalized v1 grouped 62.0% → **60.0%**. So the drift
+   is **four** printed values over four cells, not three. Output archived at
+   `data/results/r1_faithful_v1_analysis_sklearn180.txt`. `r1_faithful_summary.json` is a §7.6-pinned file,
+   so it was hashed before the run and restored byte-identical after (sha256 `cb170721010ff97c…`).
+2. **The paper now prints the 1.8.0 values** at all five sites: `tab:r1c_v2` 3B 46.0→36.0, Mistral 54.0→58.0,
+   pooled 47.7→48.3; `tab:r1_variants` Mistral v2 54.0→58.0 and v1 62.0→60.0; plus the two main-text sites
+   quoting 3B's grouped value (`fig:r1c_collapse`'s annotation and its caption). `requirements.txt` pins
+   `scikit-learn==1.8.0` with the reason in a comment, and the appendix states the version and which column
+   is version-sensitive.
+3. **One argument was rewritten rather than renumbered.** Caveat (ii) of EXP-R1c read "24.0% … while grouped
+   5-fold on the same cell gives 46.0%", using the grouped value's proximity to chance as evidence that the
+   below-chance primary was not an inverted signal. At 36.0% that support is gone, so the caveat now rests on
+   what actually carries it — both estimators below chance, 7 sparse partly claim-aligned dimensions, and the
+   permutation null at *p* = 0.998. **Swapping the number and keeping the sentence would have left an
+   argument the data no longer supports.** No claim anywhere in the paper changes: grouped 5-fold is a
+   secondary leakage check, all four moved cells remain near or below chance, and every primary figure is
+   unchanged.
 
 ### Exploratory arm — `think:false` (the §9 deviation), in progress
 

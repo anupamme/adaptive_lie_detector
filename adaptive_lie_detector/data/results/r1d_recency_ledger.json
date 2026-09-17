@@ -57,7 +57,14 @@
         "n_probes": 160,
         "ambiguous_rate": 0.0
       },
-      "verdict": "ADMISSIBLE"
+      "verdict": "ADMISSIBLE",
+      "confirmatory": {
+        "instructed": {
+          "file": "data/results/r1d_thinkoff/r1b_fresh_qwen3_5_9b_instructed_thinkoff.json",
+          "n_trials": 50,
+          "ambiguous_rate": 0.0
+        }
+      }
     }
   }
 }
