@@ -372,14 +372,32 @@ def build_block3(ctx):
 
 def branch_facts(ctx):
     """The §7 decision variables, computed once and shared by the text and the
-    diagnostic so they can never disagree."""
+    diagnostic so they can never disagree.
+
+    `uniform_pattern` is the one that needs care. §7's Branch~B fires on "H2
+    significant, or `S_p` and `S_r` disagree across targets", and its own gloss
+    says what that means: "which channel carries it differs by target -- the rule
+    channel on some, a non-refusal channel on others". So the test is whether the
+    per-target (rule significant?, pipeline significant?) PAIR varies from target
+    to target, NOT whether the two totals differ. A panel where the rule fires on
+    every target and the pipeline on none has S_r != S_p and is nevertheless
+    perfectly uniform: the same channel carries the signal everywhere, which is
+    the opposite of what Branch~B describes. Reading it as "S_r != S_p" would make
+    Branch~B fire on the cleanest possible result.
+    """
     new, padj = ctx["new"], ctx["padj"]
     h2 = ctx["a"].get("h2_homogeneity", {})
+    # bool(), not the numpy bool scipy hands back: np.True_ reprs as "np.True_"
+    # and the diagnostic prints this pattern for a human to read.
+    pattern = [(bool(padj[(c["tag"], "rule")][1] < 0.05),
+                bool(padj[(c["tag"], "pipeline")][1] < 0.05)) for c in new]
     return {
-        "s_r": sum(1 for c in new if padj[(c["tag"], "rule")][1] < 0.05),
-        "s_p": sum(1 for c in new if padj[(c["tag"], "pipeline")][1] < 0.05),
+        "s_r": sum(1 for p in pattern if p[0]),
+        "s_p": sum(1 for p in pattern if p[1]),
         "het": [k for k, r in h2.items() if r.get("heterogeneous")],
         "n_new": len(new),
+        "pattern": pattern,
+        "uniform_pattern": len(set(pattern)) <= 1,
     }
 
 
@@ -404,7 +422,7 @@ def build_block4(ctx):
             f"the abstract and narrows §3.1's scope rather than widening it. That "
             f"is a rewrite a human authors; this generator will not substitute it.")
 
-    branch_a = (s_p == 0 and not het)
+    branch_a = (s_p == 0 and not het and f["uniform_pattern"])
     common = (
         f"The pre-registered frontier panel "
         f"(Appendix~\\ref{{app:frontier_panel}}) transfers the trained detector "
@@ -440,6 +458,32 @@ def build_block4(ctx):
     return out
 
 
+def build_item_l(ctx):
+    """Limitation item (l)'s recency clause, rewritten for the realized branch.
+
+    The clause it replaces reads "so recency is \\emph{not} established here, and
+    the collapse is untested on current-generation models". Half of that stays
+    true after EXP-FS and half does not, and the half that stays true is the half
+    the criterion-4 roster is about: (l) is a note on THAT roster's vintage, and
+    the criterion-4 contrast has still never been re-run on a current-generation
+    target. Only the second clause -- about the collapse -- is what EXP-FS speaks
+    to. Splitting them is the whole content of this edit.
+    """
+    f = branch_facts(ctx)
+    branch_a = (f["s_p"] == 0 and not f["het"] and f["uniform_pattern"])
+    return (
+        f"so recency is \\emph{{not}} established for the criterion-4 contrast, "
+        f"which has still not been re-run on a current-generation target. The "
+        f"equalization collapse itself now has one: EXP-FS's pre-registered "
+        f"panel finds the transferred pipeline at {rng(ctx['pipes'])} on "
+        f"{len(ctx['cells'])} frontier-scale targets, every cell below the "
+        f"{ctx['floor']}/100 count that would be significant at $n\\!=\\!100$"
+        + ("" if branch_a else ", though not at a common rate across targets")
+        + f" (Appendix~\\ref{{app:frontier_panel}}), while the surface rule "
+          f"\\emph{{gains}} at that scale (Appendix~\\ref{{app:vintage}})."
+    )
+
+
 def withholdings(ctx):
     """The two scope limits that hold under every branch."""
     return (
@@ -458,10 +502,19 @@ def withholdings(ctx):
 
 
 def branch_diagnostic(ctx):
-    """A decision aid, printed as comments. It does not select a branch."""
+    """A decision aid, printed as comments. It does not select a branch.
+
+    Every §7 condition is reported by its SUB-conditions rather than as one
+    verdict, because the realized panel can satisfy part of a branch and not the
+    rest -- and that is precisely the case a human has to adjudicate. Collapsing
+    each branch to MET/not-met hides exactly the disagreement worth seeing.
+    """
     f = branch_facts(ctx)
     s_p, s_r, het, n_new = f["s_p"], f["s_r"], f["het"], f["n_new"]
     rule_het = any(k.startswith("rule") for k in het)
+    rule_low = 100.0 * min(ctx["rules"]) < ctx["floor"]
+    uni = f["uniform_pattern"]
+    branch_a = (s_p == 0 and not het and uni)
     out = ["% ---------------- PREREG §7 BRANCH DIAGNOSTIC ----------------",
            "% A DECISION AID. §7 branch selection is a judgement call the "
            "pre-registration",
@@ -472,21 +525,39 @@ def branch_diagnostic(ctx):
                f"{s_r} of {n_new}")
     out.append(f"%   S_p (new targets, pipeline, significant after Holm) = "
                f"{s_p} of {n_new}")
+    out.append(f"%   per-target (rule sig?, pipeline sig?) pattern: {f['pattern']}")
     out.append(f"%   H2 tests rejecting a common rate: {het_names(het) or 'none'}")
-    out.append(f"%   A  (S_p == 0, and rule heterogeneous or low): "
-               f"{'MET' if (s_p == 0 and not het) else 'not met'}"
-               f"  [S_p==0: {s_p == 0}; rule heterogeneous: {rule_het}; "
-               f"rule range {rng(ctx['rules'])}]")
-    out.append(f"%   B  (H2 significant, or S_p and S_r disagree across targets): "
-               f"{'MET' if (het or s_p != s_r) else 'not met'}")
-    out.append(f"%   C  (S_p >= 3 of 5 -- reported in the ABSTRACT, scope NARROWS): "
-               f"{'MET' if s_p >= 3 else 'not met'}")
-    out.append("%   D  (two or more primaries fail a §3 gate, no reserve): not "
+    out.append("%   A  'S_p = 0, and rule heterogeneous or low':")
+    out.append(f"%        S_p == 0 ................. {s_p == 0}")
+    out.append(f"%        rule heterogeneous ....... {rule_het}")
+    out.append(f"%        rule low (any cell < {ctx['floor']}) . {rule_low}   "
+               f"[range {rng(ctx['rules'])}]")
+    out.append("%   B  'H2 significant, OR S_p and S_r disagree across targets':")
+    out.append(f"%        any H2 rejection ......... {bool(het)}")
+    out.append(f"%        channel differs BY TARGET  {not uni}   (see the pattern "
+               f"above; S_r != S_p alone is NOT this condition)")
+    out.append(f"%   C  'S_p >= 3 of 5' -- ABSTRACT reports reduced generality, "
+               f"§3.1 NARROWS: {s_p >= 3}")
+    out.append("%   D  'two or more primaries fail a §3 gate, no reserve': not "
                "visible here --")
     out.append("%      the analysis sees cells that exist, not gate failures. "
                "Check the run log.")
-    out.append(f"%   -> text above was generated under Branch "
-               f"{'A' if (s_p == 0 and not het) else 'B'}.")
+    out.append(f"%   -> the text above was generated under Branch "
+               f"{'A' if branch_a else 'B'} wording.")
+    if branch_a and not (rule_het or rule_low):
+        out.append("%   -> NOTE, and it is the judgement call: A's parenthetical "
+                   "('rule heterogeneous or")
+        out.append("%      low') is NOT satisfied -- the rule is high AND "
+                   "homogeneous across the panel.")
+        out.append("%      That is PREREG §8.2's situation, not §7's: the rule "
+                   "holds where the pipeline")
+        out.append("%      does not, so surface-accessible accuracy is the more "
+                   "robust finding and the")
+        out.append("%      paper's emphasis shifts to it. The Branch-A sentence "
+                   "above is about the")
+        out.append("%      PIPELINE only and is licensed by S_p = 0; §8.2's shift "
+                   "is carried in the")
+        out.append("%      same paragraph. Confirm both readings before pasting.")
     return out
 
 
@@ -535,6 +606,12 @@ def emit():
     out += ["",
             "% ============ BLOCK 4: app:vintage revision + §7 diagnostic ======="]
     out += build_block4(ctx)
+    out += ["",
+            "% ============ BLOCK 5: limitation item (l)'s recency clause ======",
+            "% replaces: so recency is \\emph{not} established here, and the "
+            "collapse is",
+            "%           untested on current-generation models",
+            build_item_l(ctx)]
 
     print("\n".join(out))
     return 2 if ctx["preview"] else 0
