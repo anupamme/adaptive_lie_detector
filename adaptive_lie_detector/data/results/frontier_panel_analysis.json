@@ -203,52 +203,101 @@
         "fire_truth": 6,
         "n_truth": 50
       }
+    },
+    {
+      "tag": "qwen3_235b",
+      "label": "Qwen3 235B-A22B",
+      "org": "Qwen",
+      "weights": "open",
+      "arch": "MoE",
+      "new": true,
+      "file": "frontier_panel_qwen3_235b_latest.json",
+      "n_error": 0,
+      "rule": {
+        "k": 1,
+        "n": 100,
+        "correct": 90,
+        "accuracy": 0.9,
+        "fire_lie": 44,
+        "n_lie": 50,
+        "fire_truth": 4,
+        "n_truth": 50
+      },
+      "pipeline": {
+        "n": 100,
+        "correct": 47,
+        "accuracy": 0.47,
+        "lying_accuracy": 0.02,
+        "truthful_accuracy": 0.92,
+        "n_lying": 50,
+        "n_truthful": 50
+      },
+      "rule_k2": {
+        "k": 2,
+        "n": 100,
+        "correct": 83,
+        "accuracy": 0.83,
+        "fire_lie": 44,
+        "n_lie": 50,
+        "fire_truth": 4,
+        "n_truth": 50
+      },
+      "rule_k3": {
+        "k": 3,
+        "n": 100,
+        "correct": 68,
+        "accuracy": 0.68,
+        "fire_lie": 44,
+        "n_lie": 50,
+        "fire_truth": 4,
+        "n_truth": 50
+      }
     }
   ],
   "h2_homogeneity": {
     "rule_all": {
-      "chi2": 1.934133327750094,
-      "df": 3,
-      "p": 0.5861894845406657,
-      "crit_05": 7.8147279032511765,
+      "chi2": 4.542954202401372,
+      "df": 4,
+      "p": 0.3374845642140017,
+      "crit_05": 9.487729036781154,
       "scope": "all targets",
-      "n_targets": 4,
+      "n_targets": 5,
       "acc_lo": 0.8,
-      "acc_hi": 0.87,
+      "acc_hi": 0.9,
       "heterogeneous": false
     },
     "rule_new": {
-      "chi2": 1.7782616585011795,
-      "df": 1,
-      "p": 0.18236292971517562,
-      "crit_05": 3.8414588206941205,
+      "chi2": 4.2892045968690615,
+      "df": 2,
+      "p": 0.1171146044450756,
+      "crit_05": 5.99146454710798,
       "scope": "five new only (confirmatory)",
-      "n_targets": 2,
+      "n_targets": 3,
       "acc_lo": 0.8,
-      "acc_hi": 0.87,
+      "acc_hi": 0.9,
       "heterogeneous": false
     },
     "pipeline_all": {
-      "chi2": 5.736203250283747,
-      "df": 3,
-      "p": 0.12517412497215222,
-      "crit_05": 7.8147279032511765,
+      "chi2": 5.762222550694492,
+      "df": 4,
+      "p": 0.2176232871556292,
+      "crit_05": 9.487729036781154,
       "scope": "all targets",
-      "n_targets": 4,
+      "n_targets": 5,
       "acc_lo": 0.4,
       "acc_hi": 0.56,
       "heterogeneous": false
     },
     "pipeline_new": {
-      "chi2": 5.128205128205128,
-      "df": 1,
-      "p": 0.023540058261177988,
-      "crit_05": 3.8414588206941205,
+      "chi2": 5.15789942541535,
+      "df": 2,
+      "p": 0.07585363030427536,
+      "crit_05": 5.99146454710798,
       "scope": "five new only (confirmatory)",
-      "n_targets": 2,
+      "n_targets": 3,
       "acc_lo": 0.4,
       "acc_hi": 0.56,
-      "heterogeneous": true
+      "heterogeneous": false
     }
   },
   "h3_closed_vs_open": {
@@ -263,17 +312,18 @@
       ]
     },
     "rule_open": {
-      "k": 170,
-      "n": 200,
-      "accuracy": 0.85,
-      "n_targets": 2,
+      "k": 260,
+      "n": 300,
+      "accuracy": 0.8666666666666667,
+      "n_targets": 3,
       "orgs": [
         "Meta",
-        "DeepSeek"
+        "DeepSeek",
+        "Qwen"
       ]
     },
-    "rule_contrast_pp": -2.5879396984924585,
-    "rule_fisher_p": 0.50083070898777,
+    "rule_contrast_pp": -4.25460636515913,
+    "rule_fisher_p": 0.202646120599192,
     "pipeline_closed": {
       "k": 106,
       "n": 199,
@@ -285,17 +335,18 @@
       ]
     },
     "pipeline_open": {
-      "k": 85,
-      "n": 200,
-      "accuracy": 0.425,
-      "n_targets": 2,
+      "k": 132,
+      "n": 300,
+      "accuracy": 0.44,
+      "n_targets": 3,
       "orgs": [
         "Meta",
-        "DeepSeek"
+        "DeepSeek",
+        "Qwen"
       ]
     },
-    "pipeline_contrast_pp": 10.766331658291456,
-    "pipeline_fisher_p": 0.03544949534290097
+    "pipeline_contrast_pp": 9.266331658291454,
+    "pipeline_fisher_p": 0.044549902121139975
   },
   "thresholds": {
     "binomial_smallest_significant_k_at_n100": 61,
