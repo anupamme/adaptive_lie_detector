@@ -351,9 +351,11 @@ def main():
                         "frontier_panel_nova_pro_latest.json"),
         "deepseek_v3": ("DeepSeek-V3", 87.0, 40.0, 100,
                         "frontier_panel_deepseek_v3_latest.json"),
-        # mistral_l3, qwen3_235b, glm5: still running at the time of writing. Their
-        # rows are added here, from the analysis output, before any number of theirs
-        # is written into the appendix.
+        "qwen3_235b":  ("Qwen3 235B-A22B", 90.0, 47.0, 100,
+                        "frontier_panel_qwen3_235b_latest.json"),
+        # mistral_l3, glm5: still running at the time of writing. Their rows are
+        # added here, from the analysis output, before any number of theirs is
+        # written into the appendix.
     }
     print("\n  [30P.9] new EXP-FS cells, recomputed from their committed files:")
     for tag, (label, exp_rule, exp_pipe, exp_n, fname) in NEW_CELLS.items():
