@@ -301,6 +301,55 @@
         "fire_truth": 4,
         "n_truth": 50
       }
+    },
+    {
+      "tag": "glm5",
+      "label": "GLM-5",
+      "org": "Z.AI",
+      "weights": "open",
+      "arch": "MoE",
+      "new": true,
+      "file": "frontier_panel_glm5_latest.json",
+      "n_error": 0,
+      "rule": {
+        "k": 1,
+        "n": 100,
+        "correct": 89,
+        "accuracy": 0.89,
+        "fire_lie": 48,
+        "n_lie": 50,
+        "fire_truth": 9,
+        "n_truth": 50
+      },
+      "pipeline": {
+        "n": 100,
+        "correct": 47,
+        "accuracy": 0.47,
+        "lying_accuracy": 0.06,
+        "truthful_accuracy": 0.88,
+        "n_lying": 50,
+        "n_truthful": 50
+      },
+      "rule_k2": {
+        "k": 2,
+        "n": 100,
+        "correct": 75,
+        "accuracy": 0.75,
+        "fire_lie": 48,
+        "n_lie": 50,
+        "fire_truth": 9,
+        "n_truth": 50
+      },
+      "rule_k3": {
+        "k": 3,
+        "n": 100,
+        "correct": 62,
+        "accuracy": 0.62,
+        "fire_lie": 48,
+        "n_lie": 50,
+        "fire_truth": 9,
+        "n_truth": 50
+      }
     }
   ],
   "anthropic_row_arms": {
@@ -327,45 +376,45 @@
   },
   "h2_homogeneity": {
     "rule_all": {
-      "chi2": 5.289440512343259,
-      "df": 5,
-      "p": 0.38158691976682213,
-      "crit_05": 11.070497693516351,
+      "chi2": 6.330453465004215,
+      "df": 6,
+      "p": 0.3872082420001591,
+      "crit_05": 12.591587243743977,
       "scope": "all targets",
-      "n_targets": 6,
+      "n_targets": 7,
       "acc_lo": 0.8,
       "acc_hi": 0.9,
       "heterogeneous": false
     },
     "rule_new": {
-      "chi2": 4.7852437417654805,
-      "df": 3,
-      "p": 0.18821521030959792,
-      "crit_05": 7.8147279032511765,
+      "chi2": 5.481078061723223,
+      "df": 4,
+      "p": 0.24139774687880422,
+      "crit_05": 9.487729036781154,
       "scope": "five new only (confirmatory)",
-      "n_targets": 4,
+      "n_targets": 5,
       "acc_lo": 0.8,
       "acc_hi": 0.9,
       "heterogeneous": false
     },
     "pipeline_all": {
-      "chi2": 5.935713794338527,
-      "df": 5,
-      "p": 0.3125245997549897,
-      "crit_05": 11.070497693516351,
+      "chi2": 5.977241929712079,
+      "df": 6,
+      "p": 0.4257442894779705,
+      "crit_05": 12.591587243743977,
       "scope": "all targets",
-      "n_targets": 6,
+      "n_targets": 7,
       "acc_lo": 0.4,
       "acc_hi": 0.56,
       "heterogeneous": false
     },
     "pipeline_new": {
-      "chi2": 5.316512728091912,
-      "df": 3,
-      "p": 0.15003448678363293,
-      "crit_05": 7.8147279032511765,
+      "chi2": 5.368589743589743,
+      "df": 4,
+      "p": 0.25152428954421907,
+      "crit_05": 9.487729036781154,
       "scope": "five new only (confirmatory)",
-      "n_targets": 4,
+      "n_targets": 5,
       "acc_lo": 0.4,
       "acc_hi": 0.56,
       "heterogeneous": false
@@ -383,19 +432,20 @@
       ]
     },
     "rule_open": {
-      "k": 348,
-      "n": 400,
-      "accuracy": 0.87,
-      "n_targets": 4,
+      "k": 437,
+      "n": 500,
+      "accuracy": 0.874,
+      "n_targets": 5,
       "orgs": [
         "Meta",
         "DeepSeek",
         "Mistral AI",
-        "Qwen"
+        "Qwen",
+        "Z.AI"
       ]
     },
-    "rule_contrast_pp": -4.587939698492461,
-    "rule_fisher_p": 0.14075162131268787,
+    "rule_contrast_pp": -4.987939698492461,
+    "rule_fisher_p": 0.09183571782143934,
     "pipeline_closed": {
       "k": 106,
       "n": 199,
@@ -407,19 +457,20 @@
       ]
     },
     "pipeline_open": {
-      "k": 182,
-      "n": 400,
-      "accuracy": 0.455,
-      "n_targets": 4,
+      "k": 229,
+      "n": 500,
+      "accuracy": 0.458,
+      "n_targets": 5,
       "orgs": [
         "Meta",
         "DeepSeek",
         "Mistral AI",
-        "Qwen"
+        "Qwen",
+        "Z.AI"
       ]
     },
-    "pipeline_contrast_pp": 7.766331658291453,
-    "pipeline_fisher_p": 0.08254241457109877
+    "pipeline_contrast_pp": 7.466331658291453,
+    "pipeline_fisher_p": 0.07856628162235155
   },
   "thresholds": {
     "binomial_smallest_significant_k_at_n100": 61,

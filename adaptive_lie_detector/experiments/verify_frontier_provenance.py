@@ -355,9 +355,10 @@ def main():
                         "frontier_panel_qwen3_235b_latest.json"),
         "mistral_l3":  ("Mistral Large 3", 88.0, 50.0, 100,
                         "frontier_panel_mistral_l3_latest.json"),
-        # glm5: still running at the time of writing. Its row is added here, from
-        # the analysis output, before any number of its is written into the
-        # appendix.
+        "glm5":        ("GLM-5", 89.0, 47.0, 100,
+                        "frontier_panel_glm5_latest.json"),
+        # The roster is complete: five new cells, five organizations, plus the two
+        # known at freeze. The completeness check below fails if a sixth appears.
     }
     print("\n  [30P.9] new EXP-FS cells, recomputed from their committed files:")
     for tag, (label, exp_rule, exp_pipe, exp_n, fname) in NEW_CELLS.items():
