@@ -379,6 +379,53 @@ the dissociation and, separately, makes the surface rule look *stronger* at fron
 paper claims. That is a harder story for the paper's headline collapse, and it is reported here for
 that reason rather than in spite of it.
 
+### 2026-09-18 — §4's claim that both Anthropic-row arms "already exist on disk" is wrong for the pipeline
+
+§4 fixes the same-family exception in advance: for the Anthropic row the **cross-family extractor is
+primary** and Haiku is the sensitivity arm, and it asserts that both values "already exist on disk for
+that cell" in the two files it names. **For the parameter-free rule that is correct** — the rule reads
+the target's own turns, which both files share, so the arms cannot differ (both 84.8%). **For the
+trained pipeline it is false**, and the analysis code was printing the sensitivity arm's number under
+the primary arm's label until this was caught.
+
+What the two files actually are: `prediction`, `correct`, `confidence`, `confidence_trajectory`,
+`questions_asked` and `status` are **byte-identical** between them — `confidence` to full float
+precision on all 100 rows — while **99 of 100** final feature vectors differ, and the Llama-70B file
+carries a `re_extractor_model` field and **no `metrics` block at all**. It is a post-hoc
+**re-extraction**: its features are genuinely its own (`tab:cross_family_panel`'s 78.8% LOO cell is
+computed from them), but the detector was never re-run over them. Its stored `correct` flags are the
+same-family run's outcome.
+
+**Resolution, without new model calls.** `experiments/score_crossfamily_pipeline_arm.py` replays the
+committed classifier over the committed feature trajectories. This is exact rather than approximate
+because the detector's stopping rule is deterministic in the stored trajectory, and because it is
+**gated**: the replay must first reproduce the same-family arm's stored confidence trajectories,
+stopping points, predictions and statuses **bit for bit** (99 rows, zero tolerance) before it is
+permitted to score the other arm. A trial whose re-extraction failed at or after the deciding step is
+reported **unscoreable** rather than imputed; a gap strictly before the first step at which the
+threshold is tested cannot change the outcome and is counted separately.
+
+| Anthropic row, trained pipeline | value | source |
+|---|---|---|
+| **cross-family extractor (PRIMARY, §4)** | **49.5%** (48/97), 97/97 predicted "truthful", 2 unscoreable | offline replay, gate passed |
+| Haiku extractor (sensitivity) | 50.5% (50/99), 99/99 predicted "truthful" | stored detector outputs |
+
+Both arms are degenerate, 1.0 pp apart, and both fall below the 61/100 significance floor, so **which
+arm is read does not change this row's verdict**. `tab:frontier_panel` prints the same-family value —
+the published one, and the one the §8.3 gate reproduces — and the appendix now states the primary arm
+explicitly, as §4 requires, instead of letting the sensitivity arm stand in for it.
+
+**Nothing in §3–§6 is relaxed.** No confirmatory result moves: this row is one of the two cells known
+at freeze, is non-confirmatory under §0, and is excluded from the Holm correction set and from the
+H2 test over the new targets.
+
+Whether this could plausibly have strengthened a result: **yes, marginally, and in the paper's
+favour** — the primary arm (49.5%) is 1.0 pp *further* below the floor than the sensitivity arm
+(50.5%), so recovering it makes the row read very slightly more like the collapse the paper reports.
+That is precisely why the replay is gated on exact reproduction of the arm it is *not* scoring, and why
+its premise, its gate, its 48/97 and its degeneracy are all pinned as recomputed checks
+(`verify_frontier_provenance.py`, group 30P.10) rather than transcribed.
+
 ---
 
 ## 11. What EXP-FS cannot establish
