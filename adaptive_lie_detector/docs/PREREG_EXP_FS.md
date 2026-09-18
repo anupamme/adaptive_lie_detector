@@ -426,6 +426,51 @@ That is precisely why the replay is gated on exact reproduction of the arm it is
 its premise, its gate, its 48/97 and its degeneracy are all pinned as recomputed checks
 (`verify_frontier_provenance.py`, group 30P.10) rather than transcribed.
 
+### 2026-09-18 — §7 branch selection: the completed panel fits **no** branch's conditions exactly
+
+The panel closed with seven cells. Realized: `S_r = 5` of 5, `S_p = 0` of 5, per-target
+(rule significant?, pipeline significant?) = `(True, False)` on **all five** new targets, no H2 test
+departing from a common rate (rule χ²=5.48, df=4, p=0.2414; pipeline χ²=5.37, df=4, p=0.2515 over the
+new targets; p=0.3872 / 0.4257 over all seven), rule range 80.0–90.0%, pipeline range 40.0–56.0%.
+
+Checked against §7 one condition at a time:
+
+| branch | condition | realized |
+|---|---|---|
+| **A** | `S_p = 0`, **and** rule heterogeneous or low | `S_p = 0` **yes**; rule heterogeneous or low **no** (80–90%, homogeneous) |
+| **B** | H2 significant, **or** `S_p` and `S_r` disagree across targets | **neither**: no H2 rejection, and the per-target pattern is identical on all five, so no target's channel differs from another's |
+| **C** | `S_p >= 3` of 5 | **no** (`S_p = 0`) |
+| **D** | two or more primaries fail a §3 gate | **no**: all five ran to n=100 with 0 errors |
+
+**So the pre-registration did not anticipate this outcome, and that is stated here rather than resolved
+by rounding a condition.** Note *why* §7 called Branch A "the *least* likely branch": *"it is
+contradicted in advance by the known Sonnet cell (83.0%)"* — a pipeline value the §8.3 gate then showed
+to be **Maverick's rule accuracy mislabelled** (see the first entry in this log). A's stated obstacle
+was a data error, which is the reason the realized panel can sit where §7 thought it could not.
+
+**Adjudication, and it is a judgement call.** A's *substantive* condition — `S_p = 0` — is what licenses
+A's claim, and it is met, so the paper says the trained-pipeline collapse is **not specific to the
+≤70B open-weight vintage**. A's parenthetical ("rule heterogeneous or low") is read as a description of
+the panel the author *expected* to accompany `S_p = 0`, not as a further condition on the claim,
+because reading it as a condition would mean a **cleaner** panel licenses **strictly less** than a
+messier one — with `S_p = 0` and a tidy homogeneous rule, no branch would apply at all. Separately and
+non-optionally, **§8.2 item 2 fires**: the parameter-free rule holds across the panel (5 of 5, 80–90%,
+above its 69–80% range on the ≤70B roster) while the pipeline does not, so surface-accessible accuracy
+is the more robust finding and the paper's emphasis shifts to it in the same paragraph.
+
+**Branch B's pre-written wording was considered and rejected on accuracy grounds**, not on preference:
+it asserts that "at frontier scale the equalized signal is target-dependent, and which channel carries
+it differs by target", which is **false of this panel**. Choosing it to look cautious would substitute
+one misdescription for another. §8.4's prohibition on reading heterogeneity as partial confirmation
+does not bite, because there is no heterogeneity to read.
+
+Whether this could plausibly have strengthened a result: **yes — this is the round's single largest
+interpretive latitude, and it favours the paper.** The alternative reading (no branch applies, so assert
+only the literal cell-by-cell result and drop the vintage generalization) was on the table and was not
+taken. The reasoning above, the sub-condition-by-sub-condition diagnostic that produced it
+(`emit_frontier_appendix.py::branch_diagnostic`, emitted as comments beside the text in
+`app:frontier_panel`), and this entry are the record by which a reviewer can disagree with us.
+
 ---
 
 ## 11. What EXP-FS cannot establish
