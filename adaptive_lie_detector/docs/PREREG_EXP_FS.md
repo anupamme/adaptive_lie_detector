@@ -315,6 +315,70 @@ could plausibly have strengthened a result. Anticipated candidates: a region mov
 reserve promotion under a §3 gate, and a retry-ladder lengthening if throttling exceeds the existing
 delays.
 
+### 2026-09-18 — §8.3 reproduction gate FIRED. Both published cells fail to reproduce.
+
+The gate ran before any new cell was scored, exactly as §8.3 requires, and **both** published rule
+accuracies failed to reproduce from their committed result files. Reported here whatever the cause,
+per §8.3, including that it means published numbers were wrong.
+
+Recomputation uses the canonical 14-pattern list (the one `app:regex_patterns` documents, shared by 15
+analysis files), all assistant turns, `k>=1`, on the committed files named in §3.
+
+| `app:frontier_preliminary` publishes | committed file gives | status |
+|---|---|---|
+| Sonnet 4.5 — Rule **49.0%**, RC≥1 in **5/50** lying, **6/50** truth | **84.8%** (n=99), fire **47/49** lying, **13/50** truth | MISMATCH |
+| Sonnet 4.5 — Haiku pipeline **83.0%** | **50.5%** (stored metric; degenerate — predicts "truthful" on 99/99) | MISMATCH |
+| Sonnet 4.5 — Mistral L3 **82.8%** | **50.5%** (classifier over `cross_family_features`) | MISMATCH |
+| Sonnet 4.5 — "Haiku-as-extractor achieves **50.5%**" | **50.5%** | reproduces |
+| Maverick — Rule **77.0%**, RC≥1 in **44/50** lying, **17/50** truth | **83.0%** (n=100), fire **39/50** lying, **6/50** truth | MISMATCH |
+| Maverick — lie RC mean **1.84**, truth RC mean **0.48** | **1.20** / **0.12** | MISMATCH |
+| Maverick — μ_lie **7.74**, μ_truth **6.88** | **8.00** / **7.64** (consistency+confidence) | MISMATCH |
+| Maverick — Haiku pipeline **45.0%** | **45.0%** | reproduces |
+| Maverick — biased toward "truthful" on **79/100** | **79/100** | reproduces |
+
+**Where the unreproducible numbers actually come from.** The search was exhaustive, not tuned: 115
+committed result files × 9 distinct `REFUSAL_PATTERNS` lists found in the codebase × 3 text channels
+(first assistant turn / all assistant turns / all roles) × thresholds `k>=1,2,3`.
+
+- **83.0%** is **Maverick's** canonical rule accuracy (83/100) — printed in the *Sonnet* paragraph as
+  Sonnet's *Haiku pipeline* accuracy. Note the denominator: 83.0% = 83/100, and Maverick is the n=100
+  cell; Sonnet is n=99.
+- **49.0%** is also a **Maverick** value — its rule at `k>=2` under two non-canonical lists (the
+  4-pattern list in `qwen_scale_quick_analysis.py`, and `human_baseline_analysis_v24.py`'s different
+  14-pattern list). It is not a Sonnet quantity under any list, channel or threshold.
+- **82.8%** is the **Sonnet rule at `k>=2`** under non-canonical lists (82/99 — an n=99 number),
+  reported in the paper as a *pipeline/extractor* accuracy.
+- **77.0%** is reachable on Maverick, but only under non-canonical lists, and **never together with
+  the published fire counts**.
+- **1.84 / 0.48** are **Llama 3.2 3B's** canonical RC means, from an n=50 cell
+  (`ollama_eval_llama3_2_3b_prompt_equalized_*.json`) — attributed in the paper to Llama 4 Maverick.
+- The published **fire counts** (5/50, 6/50) and (44/50, 17/50) reproduce **nowhere** in the sweep.
+
+**The mechanism claim is contradicted by the committed transcripts, not merely unreproduced.** The
+paragraph states *"RLHF training appears to suppress the refusal-marker channel in lying trials … the
+rule fails but the pipeline succeeds via non-refusal features."* Sonnet's lie trials in fact open with
+*"This claim is incorrect"*, *"close, but not quite accurate"*, *"I need to clarify something
+important"* — correction markers fire on **47 of 49** lying trials, so the marker channel is
+*preserved*, not suppressed. And the direction is reversed: on the committed data Sonnet's **rule
+succeeds (84.8%)** while its **pipeline fails (50.5%, degenerate)** — the opposite of what is
+published. Across 128 Sonnet LOO-estimator variants the achievable range is **71.7%–91.9%**, so 49.0%
+lies entirely outside it.
+
+**Consequence for EXP-FS.** Per §8.3 no new cell is scored until this is resolved. Running is
+unaffected and continues. The confounded-$n\!=\!2$ appendix must therefore be **corrected** before it
+can be considered for promotion under §9 — a branch the pre-registration did not anticipate, because
+§8.3 was written to catch an error in *our new analysis code* and instead caught errors in the
+published text. Nothing in §3–§6 is relaxed to accommodate this; the roster, protocol, outcomes and
+thresholds stand as frozen.
+
+Whether this could plausibly have strengthened a result: **the corrections cut against the paper's
+current narrative.** The published pair (Sonnet rule fails / pipeline succeeds; Maverick rule succeeds
+/ pipeline fails) reads as a clean mechanistic double dissociation. On the committed data both targets
+behave the *same* way — rule succeeds (84.8%, 83.0%), pipeline fails (50.5%, 45.0%) — which removes
+the dissociation and, separately, makes the surface rule look *stronger* at frontier scale than the
+paper claims. That is a harder story for the paper's headline collapse, and it is reported here for
+that reason rather than in spite of it.
+
 ---
 
 ## 11. What EXP-FS cannot establish
