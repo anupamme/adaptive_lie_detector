@@ -1,0 +1,6018 @@
+{
+  "experiment": "EXP-AE",
+  "prereg": "docs/PREREG_EXP_AE.md",
+  "seed": 42,
+  "n_perm": 10000,
+  "thresholds": {
+    "EXPLAINED_MARGIN": 0.0,
+    "PROXY_HIGH_MARGIN": 0.2,
+    "ALPHA": 0.05,
+    "K_FOLDS": 5
+  },
+  "covariates": [
+    "hedge_count",
+    "hedge_rate",
+    "refusal_count",
+    "avg_response_length",
+    "std_response_length",
+    "confidence_count",
+    "question_count",
+    "n_chars",
+    "n_sentences",
+    "type_token_ratio",
+    "mean_sentence_words",
+    "comma_count",
+    "attrib_marker_count",
+    "ambiguous_sum",
+    "known_preserved",
+    "true_verdict_yes"
+  ],
+  "difficulty_covariate": "loto_claim_difficulty",
+  "attrib_patterns": [
+    "\\baccording to the (?:reference|source|document|passage|text)\\b",
+    "\\bas (?:provided|stated|given|supplied|indicated)\\b",
+    "\\bthe (?:reference|source|document|passage|text) (?:says|states|claims|indicates)\\b",
+    "\\bbased on the (?:reference|source|document|provided)\\b",
+    "\\bper the (?:reference|source|document)\\b",
+    "\\bin the (?:reference|source|document|passage)\\b",
+    "\\byou (?:provided|gave|supplied|mentioned)\\b",
+    "\\bif (?:the reference|this) is (?:correct|accurate|to be believed)\\b"
+  ],
+  "alternatives": {
+    "uncertainty": [
+      "hedge_count",
+      "hedge_rate"
+    ],
+    "confidence": [
+      "confidence_count"
+    ],
+    "instruction_interpretation": [
+      "attrib_marker_count"
+    ],
+    "conflict_resolution": [
+      "refusal_count",
+      "attrib_marker_count"
+    ],
+    "refusal_behavior": [
+      "refusal_count"
+    ],
+    "claim_difficulty": [
+      "loto_claim_difficulty"
+    ],
+    "linguistic_awkwardness": [
+      "type_token_ratio",
+      "mean_sentence_words",
+      "comma_count"
+    ],
+    "topic_familiarity": [
+      "known_preserved",
+      "true_verdict_yes"
+    ],
+    "response_length": [
+      "avg_response_length",
+      "std_response_length",
+      "n_chars",
+      "n_sentences"
+    ],
+    "stylistic_differences": [
+      "question_count",
+      "type_token_ratio",
+      "mean_sentence_words",
+      "comma_count"
+    ],
+    "channel_ambiguity": [
+      "ambiguous_sum"
+    ]
+  },
+  "collections": {
+    "c4": {
+      "per_target": {
+        "llama3.1:8b": {
+          "model": "llama3.1:8b",
+          "wording_key": "P3",
+          "n": 155,
+          "n_D1": 92,
+          "majority": 0.5935483870967742,
+          "n_evasive": 5,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.8063709677419354,
+            "acc_probe_unscaled": 0.806787634408602,
+            "acc_cov": 0.8384543010752689,
+            "delta_rival": 0.032083333333333464,
+            "p_cov": 9.999000099990002e-05,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.7371536954164389,
+              0.8609264045070067
+            ],
+            "ci_cov": [
+              0.7727359279786586,
+              0.8882999719367288
+            ],
+            "p_cov_holm": 0.0004999500049995
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8648924731182795,
+            "acc_cov": 0.8384543010752689,
+            "delta_cond": 0.026438172043010688,
+            "p_cond": 0.44155584441555845,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.8003091397849463,
+                "majority": 0.567741935483871,
+                "margin": 0.23256720430107536
+              },
+              {
+                "dim": 3,
+                "acc": 0.9870967741935484,
+                "majority": 0.9870967741935484,
+                "margin": 0.0
+              },
+              {
+                "dim": 4,
+                "acc": 0.8715322580645163,
+                "majority": 0.8838709677419355,
+                "margin": -0.012338709677419235
+              },
+              {
+                "dim": 5,
+                "acc": 0.6823252688172042,
+                "majority": 0.6903225806451613,
+                "margin": -0.007997311827957043
+              },
+              {
+                "dim": 6,
+                "acc": 0.7027016129032259,
+                "majority": 0.7096774193548387,
+                "margin": -0.006975806451612887
+              },
+              {
+                "dim": 7,
+                "acc": NaN,
+                "majority": 0.9935483870967742,
+                "margin": NaN
+              },
+              {
+                "dim": 8,
+                "acc": 0.6758467741935483,
+                "majority": 0.6516129032258065,
+                "margin": 0.024233870967741877
+              },
+              {
+                "dim": 9,
+                "acc": NaN,
+                "majority": 0.9935483870967742,
+                "margin": NaN
+              },
+              {
+                "dim": 10,
+                "acc": 0.717231182795699,
+                "majority": 0.7612903225806451,
+                "margin": -0.04405913978494613
+              },
+              {
+                "dim": 11,
+                "acc": 0.9804166666666667,
+                "majority": 0.9806451612903225,
+                "margin": -0.00022849462365581719
+              },
+              {
+                "dim": 12,
+                "acc": 0.9806317204301076,
+                "majority": 0.9806451612903225,
+                "margin": -1.3440860214930517e-05
+              },
+              {
+                "dim": 13,
+                "acc": NaN,
+                "majority": 0.9870967741935484,
+                "margin": NaN
+              },
+              {
+                "dim": 14,
+                "acc": 0.9806317204301076,
+                "majority": 0.9806451612903225,
+                "margin": -1.3440860214930517e-05
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              15
+            ],
+            "n_varying": 13,
+            "median_margin": -0.00012096774193537385,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6167204301075269,
+              "smd": -0.23718127867676148,
+              "p": 0.40845915408459155,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6167204301075269,
+              "smd": -0.22559269402198748,
+              "p": 0.34706529347065296,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.8313844086021506,
+              "smd": -1.3476765060512537,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": true
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6629435483870967,
+              "smd": -1.0405166992673092,
+              "p": 0.17448255174482552,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": 0.6298252688172042,
+              "smd": -0.3894859006044411,
+              "p": 0.5168483151684832,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6889650537634407,
+              "smd": -1.047482146931477,
+              "p": 0.027997200279972004,
+              "constant": false,
+              "p_holm": 0.36396360363963604,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6560483870967742,
+              "smd": -1.0199757742612392,
+              "p": 0.14538546145385461,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.7212231182795698,
+              "smd": 1.1054958273296445,
+              "p": 0.0156984301569843,
+              "constant": false,
+              "p_holm": 0.2197780221977802,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.4961559139784947,
+              "smd": -0.3246041516997389,
+              "p": 0.8478152184781522,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.7599462365591397,
+              "smd": -0.9245715257344934,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": true
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.584247311827957,
+              "smd": -0.02772011794380866,
+              "p": 0.29617038296170384,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.618736559139785,
+              "smd": 0.5944527605497948,
+              "p": 0.013298670132986702,
+              "constant": false,
+              "p_holm": 0.19948005199480054,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.6895967741935485,
+              "smd": 0.9344276796605893,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6167204301075269
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.584247311827957
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.8313844086021506
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.8313844086021506
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6895967741935485
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7599462365591397
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6889650537634407
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7599462365591397
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.618736559139785
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.838252688172043,
+            "delta_vs_probe": 0.03188172043010762,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_POSITIVE",
+            "accuracy": 0.806787634408602,
+            "majority": 0.5935483870967742,
+            "source": "crit4_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": true,
+          "h_ae2_adds": false,
+          "verdict": "EXPLAINED_BY_COVARIATES",
+          "verdict_text": "Covariates match or beat the battery on this target's own rows, folds, estimator and null: the criterion-4 positive here is withdrawn as explained (PREREG section 5)."
+        },
+        "llama3.2:3b": {
+          "model": "llama3.2:3b",
+          "wording_key": "P3",
+          "n": 125,
+          "n_D1": 21,
+          "majority": 0.832,
+          "n_evasive": 35,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.8400000000000001,
+            "acc_probe_unscaled": 0.8399999999999999,
+            "acc_cov": 0.8319999999999999,
+            "delta_rival": -0.00800000000000023,
+            "p_cov": 0.08359164083591641,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.7657523225480249,
+              0.8939724868303125
+            ],
+            "ci_cov": [
+              0.7567892488253721,
+              0.8874126238617102
+            ],
+            "p_cov_holm": 0.25077492250774924
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8160000000000001,
+            "acc_cov": 0.8319999999999999,
+            "delta_cond": -0.015999999999999792,
+            "p_cond": 0.6659334066593341,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.8960000000000001,
+                "majority": 0.904,
+                "margin": -0.007999999999999896
+              },
+              {
+                "dim": 7,
+                "acc": 0.76,
+                "majority": 0.776,
+                "margin": -0.016000000000000014
+              },
+              {
+                "dim": 8,
+                "acc": NaN,
+                "majority": 0.992,
+                "margin": NaN
+              },
+              {
+                "dim": 9,
+                "acc": NaN,
+                "majority": 0.992,
+                "margin": NaN
+              },
+              {
+                "dim": 10,
+                "acc": 0.656,
+                "majority": 0.656,
+                "margin": 0.0
+              },
+              {
+                "dim": 11,
+                "acc": 0.9279999999999999,
+                "majority": 0.9359999999999999,
+                "margin": -0.008000000000000007
+              },
+              {
+                "dim": 13,
+                "acc": 0.976,
+                "majority": 0.976,
+                "margin": 0.0
+              },
+              {
+                "dim": 14,
+                "acc": NaN,
+                "majority": 0.992,
+                "margin": NaN
+              },
+              {
+                "dim": 15,
+                "acc": 0.8640000000000001,
+                "majority": 0.888,
+                "margin": -0.02399999999999991
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              12
+            ],
+            "n_varying": 9,
+            "median_margin": -0.007999999999999952,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.8320000000000001,
+              "smd": -0.0037728731099536342,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.8320000000000001,
+              "smd": 0.015877502659395606,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.8320000000000001,
+              "smd": -1.058573514118637,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.8320000000000001,
+              "smd": -0.17253401639380017,
+              "p": 0.9367063293670633,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": 0.8320000000000001,
+              "smd": -0.8374357893586237,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.8320000000000001,
+              "smd": -0.14478198143717771,
+              "p": 0.9521047895210479,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.8320000000000001,
+              "smd": -0.42129724310184946,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.8320000000000001,
+              "smd": 0.026844505912600253,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.8320000000000001,
+              "smd": 0.21876789522573198,
+              "p": 0.8342165783421658,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.8320000000000001,
+              "smd": -0.22360034069998203,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.8559999999999999,
+              "smd": 0.9563961756544992,
+              "p": 0.0082991700829917,
+              "constant": false,
+              "p_holm": 0.1410858914108589,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.8320000000000001,
+              "smd": -0.08393741332197797,
+              "p": 0.9997000299970003,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.8320000000000001,
+              "smd": 0.1854359700225041,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8559999999999999
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8559999999999999
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8320000000000001
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.8240000000000001,
+            "delta_vs_probe": -0.016000000000000014,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": false,
+          "h_ae2_adds_raw": false,
+          "published": {
+            "verdict": "CRITERION4_NULL",
+            "accuracy": 0.8399999999999999,
+            "majority": 0.832,
+            "source": "crit4_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "mistral:7b": {
+          "model": "mistral:7b",
+          "wording_key": "P3",
+          "n": 157,
+          "n_D1": 107,
+          "majority": 0.6815286624203821,
+          "n_evasive": 3,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.9031317204301075,
+            "acc_probe_unscaled": 0.9031317204301075,
+            "acc_cov": 0.6748655913978494,
+            "delta_rival": -0.22826612903225807,
+            "p_cov": 0.09509049095090491,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.8483521994308755,
+              0.9412445218153694
+            ],
+            "ci_cov": [
+              0.598478745453623,
+              0.7434725905191601
+            ],
+            "p_cov_holm": 0.25077492250774924
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8396236559139785,
+            "acc_cov": 0.6748655913978494,
+            "delta_cond": 0.16475806451612907,
+            "p_cond": 0.537946205379462,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.668991935483871,
+                "majority": 0.7197452229299363,
+                "margin": -0.05075328744606522
+              },
+              {
+                "dim": 1,
+                "acc": 0.9554301075268817,
+                "majority": 0.9554140127388535,
+                "margin": 1.6094788028220286e-05
+              },
+              {
+                "dim": 2,
+                "acc": 0.7873387096774194,
+                "majority": 0.8152866242038217,
+                "margin": -0.02794791452640233
+              },
+              {
+                "dim": 3,
+                "acc": 0.9810483870967742,
+                "majority": 0.9808917197452229,
+                "margin": 0.0001566673515512873
+              },
+              {
+                "dim": 4,
+                "acc": 0.9745833333333334,
+                "majority": 0.9745222929936306,
+                "margin": 6.104033970277811e-05
+              },
+              {
+                "dim": 5,
+                "acc": 0.9743817204301075,
+                "majority": 0.9745222929936306,
+                "margin": -0.00014057256352306702
+              },
+              {
+                "dim": 6,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 7,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 8,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 9,
+                "acc": 0.9741666666666667,
+                "majority": 0.9745222929936306,
+                "margin": -0.00035562632696384266
+              },
+              {
+                "dim": 10,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 11,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 12,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 13,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 14,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              },
+              {
+                "dim": 15,
+                "acc": 0.9875,
+                "majority": 0.9872611464968153,
+                "margin": 0.00023885350318475496
+              }
+            ],
+            "constant_dims": [],
+            "n_varying": 16,
+            "median_margin": 0.00023885350318475496,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6812634408602151,
+              "smd": -0.46057631787300873,
+              "p": 0.10898910108989102,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6812634408602151,
+              "smd": -0.41327632330597175,
+              "p": 0.11248875112488751,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.6620967741935484,
+              "smd": -0.3423465471784214,
+              "p": 0.9146085391460854,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6296370967741935,
+              "smd": -0.2927657304012119,
+              "p": 0.9998000199980002,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6747983870967742,
+              "smd": -0.2353609125368967,
+              "p": 0.789021097890211,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6169489247311828,
+              "smd": -0.12071823777324509,
+              "p": 0.9956004399560044,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.654489247311828,
+              "smd": 0.8606137885608477,
+              "p": 0.009099090090990901,
+              "constant": false,
+              "p_holm": 0.15468453154684533,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.6171505376344085,
+              "smd": -0.38204802814669075,
+              "p": 0.9933006699330067,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.6814650537634408,
+              "smd": 0.06633374329705666,
+              "p": 0.9999000099990001,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.6750134408602151,
+              "smd": -0.27250992684592623,
+              "p": 0.9972002799720028,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.6752150537634408,
+              "smd": 0.4592492180195983,
+              "p": 0.6058394160583942,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7689650537634408,
+              "smd": 1.4111802315445503,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6812634408602151
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6750134408602151
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6750134408602151
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6620967741935484
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7689650537634408
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6814650537634408
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6747983870967742
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6814650537634408
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6752150537634408
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.7431854838709678,
+            "delta_vs_probe": -0.15994623655913964,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": false,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_POSITIVE",
+            "accuracy": 0.9031317204301075,
+            "majority": 0.6815286624203821,
+            "source": "crit4_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "qwen2.5:14b": {
+          "model": "qwen2.5:14b",
+          "wording_key": "P3",
+          "n": 160,
+          "n_D1": 49,
+          "majority": 0.69375,
+          "n_evasive": 0,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.78125,
+            "acc_probe_unscaled": 0.76875,
+            "acc_cov": 0.825,
+            "delta_rival": 0.043749999999999956,
+            "p_cov": 0.44845515448455153,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.7110115967895942,
+              0.8382994450947623
+            ],
+            "ci_cov": [
+              0.7587006308791614,
+              0.8760587952983172
+            ],
+            "p_cov_holm": 0.44845515448455153
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.80625,
+            "acc_cov": 0.825,
+            "delta_cond": -0.018749999999999933,
+            "p_cond": 0.45885411458854114,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.91875,
+                "majority": 0.91875,
+                "margin": 0.0
+              },
+              {
+                "dim": 11,
+                "acc": 0.98125,
+                "majority": 0.91875,
+                "margin": 0.0625
+              },
+              {
+                "dim": 12,
+                "acc": 0.99375,
+                "majority": 0.975,
+                "margin": 0.018750000000000044
+              },
+              {
+                "dim": 13,
+                "acc": 0.9875,
+                "majority": 0.98125,
+                "margin": 0.006250000000000089
+              },
+              {
+                "dim": 14,
+                "acc": NaN,
+                "majority": 0.9875,
+                "margin": NaN
+              },
+              {
+                "dim": 15,
+                "acc": 0.9875,
+                "majority": 0.98125,
+                "margin": 0.006250000000000089
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "n_varying": 6,
+            "median_margin": 0.006250000000000089,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.69375,
+              "smd": -0.25301301345633675,
+              "p": 0.998000199980002,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.69375,
+              "smd": -0.20003290923079978,
+              "p": 0.997000299970003,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.5,
+              "smd": -1.0691896445975873,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.81875,
+              "smd": -1.6595162748351948,
+              "p": 0.16848315168483152,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.69375,
+              "smd": 0.20412414523193154,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.81875,
+              "smd": -1.6781682903066264,
+              "p": 0.133986601339866,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.76875,
+              "smd": -1.383416066900476,
+              "p": 0.9287071292870713,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.7375,
+              "smd": 1.2317832562458095,
+              "p": 0.1987801219878012,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.63125,
+              "smd": -0.5585508620150622,
+              "p": 0.7594240575942406,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.80625,
+              "smd": -1.5653808720038132,
+              "p": 0.20987901209879012,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.69375,
+              "smd": -0.45649762391194176,
+              "p": 0.895010498950105,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.69375,
+              "smd": 0.09479645822782105,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.64375,
+              "smd": 1.090532543317342,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.69375
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.69375
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.69375
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.69375
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.5
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.64375
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.80625
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.81875
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.80625
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.69375
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.83125,
+            "delta_vs_probe": 0.050000000000000044,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": false,
+          "published": {
+            "verdict": "CRITERION4_NULL",
+            "accuracy": 0.76875,
+            "majority": 0.69375,
+            "source": "crit4_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "qwen2.5:7b": {
+          "model": "qwen2.5:7b",
+          "wording_key": "P3",
+          "n": 160,
+          "n_D1": 92,
+          "majority": 0.575,
+          "n_evasive": 0,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.65,
+            "acc_probe_unscaled": 0.65,
+            "acc_cov": 0.80625,
+            "delta_rival": 0.15625,
+            "p_cov": 0.0017998200179982,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.5733626975304356,
+              0.7196031914745546
+            ],
+            "ci_cov": [
+              0.7381247358914426,
+              0.8600139541604124
+            ],
+            "p_cov_holm": 0.0071992800719928
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.80625,
+            "acc_cov": 0.80625,
+            "delta_cond": 0.0,
+            "p_cond": 0.5947405259474052,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.74375,
+                "majority": 0.6375,
+                "margin": 0.10625000000000007
+              },
+              {
+                "dim": 2,
+                "acc": 0.9625,
+                "majority": 0.9625,
+                "margin": 0.0
+              }
+            ],
+            "constant_dims": [
+              1,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "n_varying": 2,
+            "median_margin": 0.05312500000000003,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6,
+              "smd": -0.35355339059327373,
+              "p": 0.07029297070292971,
+              "constant": false,
+              "p_holm": 0.7259274072592741,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6,
+              "smd": -0.3477506031121922,
+              "p": 0.065993400659934,
+              "constant": false,
+              "p_holm": 0.7259274072592741,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.80625,
+              "smd": -1.5450232277197478,
+              "p": 0.18748125187481252,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.7,
+              "smd": -1.3899908840506825,
+              "p": 0.0005999400059994001,
+              "constant": false,
+              "p_holm": 0.009599040095990401,
+              "survives": true
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.575,
+              "smd": 0.2840316034724348,
+              "p": 0.635036496350365,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.7,
+              "smd": -1.3924311111064482,
+              "p": 0.00039996000399960006,
+              "constant": false,
+              "p_holm": 0.006799320067993201,
+              "survives": true
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.725,
+              "smd": -1.1741210182209831,
+              "p": 0.0011998800119988001,
+              "constant": false,
+              "p_holm": 0.017998200179982,
+              "survives": true
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.76875,
+              "smd": 1.517867103892443,
+              "p": 0.010498950104989501,
+              "constant": false,
+              "p_holm": 0.1364863513648635,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.65625,
+              "smd": -0.8083657847416377,
+              "p": 0.0029997000299970002,
+              "constant": false,
+              "p_holm": 0.041995800419958006,
+              "survives": true
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.63125,
+              "smd": -0.8195333107736053,
+              "p": 0.103989601039896,
+              "constant": false,
+              "p_holm": 0.935906409359064,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.75,
+              "smd": -1.0781721128490316,
+              "p": 0.04329567043295671,
+              "constant": false,
+              "p_holm": 0.5195480451954805,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7375,
+              "smd": 1.3110127816612638,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.575
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.75
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.80625
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.80625
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7375
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.76875
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": true,
+              "best_acc": 0.725
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.76875
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.8,
+            "delta_vs_probe": 0.15000000000000002,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": false,
+          "published": {
+            "verdict": "CRITERION4_POSITIVE",
+            "accuracy": 0.65,
+            "majority": 0.575,
+            "source": "crit4_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": true,
+          "h_ae2_adds": false,
+          "verdict": "EXPLAINED_BY_COVARIATES",
+          "verdict_text": "Covariates match or beat the battery on this target's own rows, folds, estimator and null: the criterion-4 positive here is withdrawn as explained (PREREG section 5)."
+        }
+      },
+      "n_targets": 5,
+      "standing_positives": [
+        "llama3.1:8b",
+        "mistral:7b"
+      ],
+      "prior_positives": [
+        "llama3.1:8b",
+        "mistral:7b",
+        "qwen2.5:7b"
+      ],
+      "fold_grouping": {
+        "llama3.1:8b": {
+          "grouping": "claim_index",
+          "note": "EXP-C4 was analysed unblinded on true claim indices"
+        },
+        "llama3.2:3b": {
+          "grouping": "claim_index",
+          "note": "EXP-C4 was analysed unblinded on true claim indices"
+        },
+        "mistral:7b": {
+          "grouping": "claim_index",
+          "note": "EXP-C4 was analysed unblinded on true claim indices"
+        },
+        "qwen2.5:14b": {
+          "grouping": "claim_index",
+          "note": "EXP-C4 was analysed unblinded on true claim indices"
+        },
+        "qwen2.5:7b": {
+          "grouping": "claim_index",
+          "note": "EXP-C4 was analysed unblinded on true claim indices"
+        }
+      },
+      "explained_targets": [
+        "llama3.1:8b",
+        "qwen2.5:7b"
+      ],
+      "probe_adds_targets": [],
+      "indeterminate_targets": [
+        "llama3.2:3b",
+        "mistral:7b",
+        "qwen2.5:14b"
+      ],
+      "style_predictable_targets": [],
+      "live_alternatives": [
+        "conflict_resolution",
+        "linguistic_awkwardness",
+        "refusal_behavior",
+        "response_length",
+        "stylistic_differences"
+      ],
+      "dead_alternatives": [
+        "channel_ambiguity",
+        "claim_difficulty",
+        "confidence",
+        "instruction_interpretation",
+        "topic_familiarity",
+        "uncertainty"
+      ],
+      "explained_but_probe_also_adds": [],
+      "standing_count_impact": {
+        "standing_positives": [
+          "llama3.1:8b",
+          "mistral:7b"
+        ],
+        "explained_standing_positives": [
+          "llama3.1:8b"
+        ],
+        "surviving_standing_positives": [
+          "mistral:7b"
+        ],
+        "explained_prior_positives": [
+          "llama3.1:8b",
+          "qwen2.5:7b"
+        ],
+        "standing_count_before": 2,
+        "standing_count_after": 1,
+        "note": "Any target in explained_standing_positives must be removed from every main-text positive count (PREREG section 5)."
+      },
+      "mde_indeterminate": {
+        "llama3.2:3b": {
+          "h1": {
+            "accuracy": 0.8399999999999999,
+            "majority_baseline": 0.832,
+            "auroc_probe_sum": 0.6206501831501832,
+            "p_two_sided": 0.1571842815718428,
+            "p_higher": 0.135986401359864,
+            "null_mean": 0.8328807999999999,
+            "crit95": 0.8399999999999999,
+            "n_perm": 10000
+          },
+          "mde": 0.9
+        },
+        "mistral:7b": {
+          "h1": {
+            "accuracy": 0.9031317204301075,
+            "majority_baseline": 0.6815286624203821,
+            "auroc_probe_sum": 0.8518691588785047,
+            "p_two_sided": 0.003999600039996,
+            "p_higher": 0.003999600039996,
+            "null_mean": 0.8695287620967741,
+            "crit95": 0.8852150537634408,
+            "n_perm": 10000
+          },
+          "mde": 0.05
+        },
+        "qwen2.5:14b": {
+          "h1": {
+            "accuracy": 0.76875,
+            "majority_baseline": 0.69375,
+            "auroc_probe_sum": 0.7225592939878654,
+            "p_two_sided": 0.5646435356464353,
+            "p_higher": 1.0,
+            "null_mean": 0.7817187499999998,
+            "crit95": 0.81875,
+            "n_perm": 10000
+          },
+          "mde": 0.85
+        }
+      }
+    },
+    "c4b": {
+      "per_target": {
+        "gemma2:9b": {
+          "model": "gemma2:9b",
+          "wording_key": "P1",
+          "n": 317,
+          "n_D1": 114,
+          "majority": 0.6403785488958991,
+          "n_evasive": 3,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.6664959016393442,
+            "acc_probe_unscaled": 0.6446209016393443,
+            "acc_cov": 0.7797131147540984,
+            "delta_rival": 0.11321721311475419,
+            "p_cov": 0.012098790120987902,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.6119707908268032,
+              0.7152935040775982
+            ],
+            "ci_cov": [
+              0.7303252943856956,
+              0.8213488027388669
+            ],
+            "p_cov_holm": 0.05249475052494751
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.7730020491803279,
+            "acc_cov": 0.7797131147540984,
+            "delta_cond": -0.006711065573770547,
+            "p_cond": 0.6508349165083491,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.98125,
+                "majority": 0.9810725552050473,
+                "margin": 0.00017744479495263032
+              },
+              {
+                "dim": 1,
+                "acc": 0.990625,
+                "majority": 0.9905362776025236,
+                "margin": 8.872239747637067e-05
+              },
+              {
+                "dim": 13,
+                "acc": 0.9875,
+                "majority": 0.9873817034700315,
+                "margin": 0.00011829652996853124
+              },
+              {
+                "dim": 15,
+                "acc": 0.9148565573770492,
+                "majority": 0.9148264984227129,
+                "margin": 3.0058954336276145e-05
+              }
+            ],
+            "constant_dims": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              14
+            ],
+            "n_varying": 4,
+            "median_margin": 0.00010350946372245096,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.679764344262295,
+              "smd": 0.43814349756842746,
+              "p": 0.412958704129587,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6764856557377049,
+              "smd": 0.4771721800605477,
+              "p": 0.23167683231676833,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.8018954918032787,
+              "smd": -2.0243576056159203,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": true
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6635245901639344,
+              "smd": 0.4033403580057207,
+              "p": 0.9649035096490352,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": 0.7252049180327869,
+              "smd": 0.6880016019751226,
+              "p": 0.00019998000199980003,
+              "constant": false,
+              "p_holm": 0.0031996800319968005,
+              "survives": true
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6668032786885246,
+              "smd": 0.4048303539994727,
+              "p": 0.8626137386261374,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6318135245901639,
+              "smd": 0.2086896158280296,
+              "p": 0.9862013798620138,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.6380635245901639,
+              "smd": 0.18116730876776055,
+              "p": 0.9363063693630637,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.609938524590164,
+              "smd": 0.33261491690311484,
+              "p": 0.1670832916708329,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.6635245901639344,
+              "smd": 0.3956377170491217,
+              "p": 0.37906209379062095,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.625563524590164,
+              "smd": 0.1204437592567408,
+              "p": 0.9949005099490051,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7914446721311476,
+              "smd": 1.6486463806427873,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.679764344262295
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.625563524590164
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.8018954918032787
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.8018954918032787
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7914446721311476
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6635245901639344
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6668032786885246
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7252049180327869
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.8489241803278688,
+            "delta_vs_probe": 0.18242827868852451,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": false,
+          "published": {
+            "verdict": "UNDERPOWERED",
+            "accuracy": 0.6446209016393443,
+            "majority": 0.6403785488958991,
+            "source": "crit4b_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "granite3.1-dense:8b": {
+          "model": "granite3.1-dense:8b",
+          "wording_key": "P3",
+          "n": 237,
+          "n_D1": 88,
+          "majority": 0.6286919831223629,
+          "n_evasive": 3,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.6191527906259637,
+            "acc_probe_unscaled": 0.6023936170212766,
+            "acc_cov": 0.6922294172062904,
+            "delta_rival": 0.07307662658032665,
+            "p_cov": 0.16108389161083891,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.5570104784089344,
+              0.6796595985212969
+            ],
+            "ci_cov": [
+              0.6305328704647196,
+              0.7473088313010883
+            ],
+            "p_cov_holm": 0.32216778322167783
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.7677728954671601,
+            "acc_cov": 0.6922294172062904,
+            "delta_cond": 0.07554347826086971,
+            "p_cond": 0.37136286371362864,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.6418748072772124,
+                "majority": 0.6708860759493671,
+                "margin": -0.029011268672154755
+              },
+              {
+                "dim": 4,
+                "acc": 0.9788043478260869,
+                "majority": 0.9873417721518988,
+                "margin": -0.008537424325811838
+              },
+              {
+                "dim": 7,
+                "acc": NaN,
+                "majority": 0.9957805907172996,
+                "margin": NaN
+              },
+              {
+                "dim": 9,
+                "acc": NaN,
+                "majority": 0.9957805907172996,
+                "margin": NaN
+              },
+              {
+                "dim": 11,
+                "acc": 0.8765533456675916,
+                "majority": 0.6455696202531646,
+                "margin": 0.23098372541442702
+              },
+              {
+                "dim": 12,
+                "acc": 0.8770043169904408,
+                "majority": 0.7341772151898734,
+                "margin": 0.14282710180056735
+              },
+              {
+                "dim": 13,
+                "acc": 0.7842584027135369,
+                "majority": 0.5991561181434599,
+                "margin": 0.18510228457007694
+              },
+              {
+                "dim": 14,
+                "acc": 0.8940333024976873,
+                "majority": 0.7552742616033755,
+                "margin": 0.1387590408943118
+              },
+              {
+                "dim": 15,
+                "acc": 0.8520968239284613,
+                "majority": 0.8185654008438819,
+                "margin": 0.03353142308457946
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              3,
+              5,
+              6,
+              8,
+              10
+            ],
+            "n_varying": 9,
+            "median_margin": 0.1387590408943118,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6269387912426765,
+              "smd": -0.585458595510214,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6269387912426765,
+              "smd": -0.43625123677770195,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.7223905334566759,
+              "smd": -1.4534798968180893,
+              "p": 0.0029997000299970002,
+              "constant": false,
+              "p_holm": 0.050994900509949,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6273936170212766,
+              "smd": 0.39175588841701703,
+              "p": 0.772022797720228,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.6695921985815602,
+              "smd": 0.4643518600223158,
+              "p": 0.09969003099690031,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6314716312056737,
+              "smd": 0.3982079201205155,
+              "p": 0.7567243275672433,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6194187480727721,
+              "smd": 0.4039713987291081,
+              "p": 0.9516048395160484,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.5894387912426765,
+              "smd": 0.12039121095587044,
+              "p": 0.9371062893710629,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.6227721245760099,
+              "smd": 0.12248011543578086,
+              "p": 0.18758124187581243,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.606109312365094,
+              "smd": 0.28730184661650215,
+              "p": 0.9408059194080592,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.6269387912426765,
+              "smd": -0.015933006629143542,
+              "p": 0.9985001499850015,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.6269387912426765,
+              "smd": 0.07460179633007327,
+              "p": 0.7736226377362264,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7551842429848904,
+              "smd": 1.5146951228975827,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6269387912426765
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6695921985815602
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6269387912426765
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7223905334566759
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7223905334566759
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7551842429848904
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6227721245760099
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6314716312056737
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6227721245760099
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6269387912426765
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.8105265186555659,
+            "delta_vs_probe": 0.19137372802960217,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_NULL",
+            "accuracy": 0.6023936170212766,
+            "majority": 0.6286919831223629,
+            "source": "crit4b_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "llama3.1:8b": {
+          "model": "llama3.1:8b",
+          "wording_key": "P3",
+          "n": 231,
+          "n_D1": 105,
+          "majority": 0.5454545454545454,
+          "n_evasive": 9,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.8567992599444958,
+            "acc_probe_unscaled": 0.8567992599444958,
+            "acc_cov": 0.8138760407030527,
+            "delta_rival": -0.042923219241443045,
+            "p_cov": 9.999000099990002e-05,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.8061654467222609,
+              0.8964357959877188
+            ],
+            "ci_cov": [
+              0.7586729832401448,
+              0.8587644724746859
+            ],
+            "p_cov_holm": 0.000999900009999
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.835522664199815,
+            "acc_cov": 0.8138760407030527,
+            "delta_cond": 0.021646623496762274,
+            "p_cond": 0.9544045595440456,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.7533765032377429,
+                "majority": 0.6320346320346321,
+                "margin": 0.1213418712031108
+              },
+              {
+                "dim": 3,
+                "acc": 0.9652173913043478,
+                "majority": 0.9783549783549783,
+                "margin": -0.013137587050630506
+              },
+              {
+                "dim": 4,
+                "acc": 0.8269195189639224,
+                "majority": 0.8528138528138528,
+                "margin": -0.02589433384993045
+              },
+              {
+                "dim": 5,
+                "acc": 0.6705827937095282,
+                "majority": 0.6883116883116883,
+                "margin": -0.017728894602160095
+              },
+              {
+                "dim": 6,
+                "acc": 0.6966697502312673,
+                "majority": 0.6883116883116883,
+                "margin": 0.008358061919578996
+              },
+              {
+                "dim": 7,
+                "acc": NaN,
+                "majority": 0.9913419913419913,
+                "margin": NaN
+              },
+              {
+                "dim": 8,
+                "acc": 0.679463459759482,
+                "majority": 0.5800865800865801,
+                "margin": 0.09937687967290187
+              },
+              {
+                "dim": 9,
+                "acc": NaN,
+                "majority": 0.9956709956709957,
+                "margin": NaN
+              },
+              {
+                "dim": 10,
+                "acc": 0.8097132284921369,
+                "majority": 0.8225108225108225,
+                "margin": -0.012797594018685632
+              },
+              {
+                "dim": 11,
+                "acc": 0.9869565217391305,
+                "majority": 0.987012987012987,
+                "margin": -5.646527385649858e-05
+              },
+              {
+                "dim": 12,
+                "acc": 0.9653098982423682,
+                "majority": 0.9653679653679653,
+                "margin": -5.806712559708327e-05
+              },
+              {
+                "dim": 13,
+                "acc": 0.9913043478260869,
+                "majority": 0.9913419913419913,
+                "margin": -3.76435159044064e-05
+              },
+              {
+                "dim": 14,
+                "acc": 0.9740055504162812,
+                "majority": 0.974025974025974,
+                "margin": -2.0423609692787892e-05
+              },
+              {
+                "dim": 15,
+                "acc": NaN,
+                "majority": 0.9956709956709957,
+                "margin": NaN
+              }
+            ],
+            "constant_dims": [
+              1,
+              2
+            ],
+            "n_varying": 14,
+            "median_margin": -5.646527385649858e-05,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.48066604995374657,
+              "smd": -0.21028071910510457,
+              "p": 0.7233276672332767,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.48066604995374657,
+              "smd": -0.21427916749217396,
+              "p": 0.806019398060194,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.7836262719703978,
+              "smd": -1.2953430812250852,
+              "p": 0.00019998000199980003,
+              "constant": false,
+              "p_holm": 0.0033996600339966003,
+              "survives": true
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6886216466234968,
+              "smd": -0.9654283761763022,
+              "p": 0.004199580041995801,
+              "constant": false,
+              "p_holm": 0.05879412058794121,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": 0.47197039777983346,
+              "smd": -0.09454590228026219,
+              "p": 0.3822617738226177,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6972247918593896,
+              "smd": -0.961256540363064,
+              "p": 0.0044995500449955,
+              "constant": false,
+              "p_holm": 0.05879412058794121,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6757631822386679,
+              "smd": -0.786045226962242,
+              "p": 0.000999900009999,
+              "constant": false,
+              "p_holm": 0.015998400159984,
+              "survives": true
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.6712303422756707,
+              "smd": 0.7987922594962692,
+              "p": 0.0226977302269773,
+              "constant": false,
+              "p_holm": 0.2496750324967503,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.5538390379278446,
+              "smd": -0.5076158231054048,
+              "p": 0.055894410558944105,
+              "constant": false,
+              "p_holm": 0.5589441055894411,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.6669750231267344,
+              "smd": -0.9026522791901234,
+              "p": 0.0011998800119988001,
+              "constant": false,
+              "p_holm": 0.017998200179982,
+              "survives": true
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.4894542090656799,
+              "smd": 0.14250785102972047,
+              "p": 0.22567743225677434,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.6494912118408881,
+              "smd": 0.7086123237142479,
+              "p": 0.0178982101789821,
+              "constant": false,
+              "p_holm": 0.2147785221477852,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.6494912118408881,
+              "smd": 0.7991835007324978,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.48066604995374657
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.4894542090656799
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7836262719703978
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7836262719703978
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6494912118408881
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.6712303422756707
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": true,
+              "best_acc": 0.6972247918593896
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.6712303422756707
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6494912118408881
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.835522664199815,
+            "delta_vs_probe": -0.02127659574468077,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": false,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_POSITIVE",
+            "accuracy": 0.8567992599444958,
+            "majority": 0.5454545454545454,
+            "source": "crit4b_analysis_family_R.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "llama3.2:3b": {
+          "model": "llama3.2:3b",
+          "wording_key": "P3",
+          "n": 307,
+          "n_D1": 76,
+          "majority": 0.752442996742671,
+          "n_evasive": 93,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.7460074034902169,
+            "acc_probe_unscaled": 0.7328926493918562,
+            "acc_cov": 0.7946060285563195,
+            "delta_rival": 0.048598625066102574,
+            "p_cov": 0.0117988201179882,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.6943972263035616,
+              0.7913807390652952
+            ],
+            "ci_cov": [
+              0.7461009121348532,
+              0.8361892317841075
+            ],
+            "p_cov_holm": 0.05249475052494751
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8177683765203596,
+            "acc_cov": 0.7946060285563195,
+            "delta_cond": 0.023162347964040153,
+            "p_cond": 0.17468253174682533,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.8077736647276573,
+                "majority": 0.8143322475570033,
+                "margin": -0.00655858282934596
+              },
+              {
+                "dim": 7,
+                "acc": 0.7784769962982547,
+                "majority": 0.7817589576547231,
+                "margin": -0.0032819613564684103
+              },
+              {
+                "dim": 8,
+                "acc": 0.9773135906927551,
+                "majority": 0.9837133550488599,
+                "margin": -0.006399764356104787
+              },
+              {
+                "dim": 9,
+                "acc": NaN,
+                "majority": 0.996742671009772,
+                "margin": NaN
+              },
+              {
+                "dim": 10,
+                "acc": 0.6776308831306187,
+                "majority": 0.6612377850162866,
+                "margin": 0.016393098114332094
+              },
+              {
+                "dim": 11,
+                "acc": 0.9186144896879957,
+                "majority": 0.9218241042345277,
+                "margin": -0.0032096145465319026
+              },
+              {
+                "dim": 13,
+                "acc": 0.964304600740349,
+                "majority": 0.9739413680781759,
+                "margin": -0.009636767337826924
+              },
+              {
+                "dim": 14,
+                "acc": 0.9803807509254362,
+                "majority": 0.9804560260586319,
+                "margin": -7.527513319571799e-05
+              },
+              {
+                "dim": 15,
+                "acc": 0.8991010047593866,
+                "majority": 0.8990228013029316,
+                "margin": 7.820345645503934e-05
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              12
+            ],
+            "n_varying": 9,
+            "median_margin": -0.0032457879515001564,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.7524061343204653,
+              "smd": -0.3200226075368117,
+              "p": 0.9999000099990001,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.7524061343204653,
+              "smd": -0.34165892969916645,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.7524061343204653,
+              "smd": -0.9225980185475923,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.7491274457958752,
+              "smd": -0.6216830331970393,
+              "p": 0.996000399960004,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": 0.7524061343204653,
+              "smd": -0.760089125664556,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.7524061343204653,
+              "smd": -0.6047564491664864,
+              "p": 0.9841015898410159,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.7360126916975146,
+              "smd": -0.5961194771848741,
+              "p": 0.9974002599740026,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.7524061343204653,
+              "smd": 0.4442465449106484,
+              "p": 0.9899010098990101,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.7524061343204653,
+              "smd": -0.09045533459784486,
+              "p": 0.9997000299970003,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.7524061343204653,
+              "smd": -0.3364680309478832,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.7524061343204653,
+              "smd": 0.5095888538769207,
+              "p": 0.7617238276172382,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.7524061343204653,
+              "smd": -0.2001810980672548,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": 0.7524061343204653,
+              "smd": 0.24999999999999972,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7392913802221047,
+              "smd": 0.7388008737494745,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7392913802221047
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7524061343204653
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.8010576414595452,
+            "delta_vs_probe": 0.055050237969328286,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_NULL",
+            "accuracy": 0.7328926493918562,
+            "majority": 0.752442996742671,
+            "source": "crit4b_analysis_family_R.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "mistral-nemo:12b": {
+          "model": "mistral-nemo:12b",
+          "wording_key": "P2",
+          "n": 317,
+          "n_D1": 127,
+          "majority": 0.5993690851735016,
+          "n_evasive": 3,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.8011904761904761,
+            "acc_probe_unscaled": 0.7949900793650794,
+            "acc_cov": 0.7761904761904761,
+            "delta_rival": -0.025000000000000022,
+            "p_cov": 0.00039996000399960006,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.7538404127958911,
+              0.8414689236492582
+            ],
+            "ci_cov": [
+              0.7269814274101686,
+              0.8184590640971671
+            ],
+            "p_cov_holm": 0.0035996400359964006
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8139880952380952,
+            "acc_cov": 0.7761904761904761,
+            "delta_cond": 0.037797619047619135,
+            "p_cond": 0.17668233176682333,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.7607142857142858,
+                "majority": 0.7728706624605678,
+                "margin": -0.012156376746282005
+              },
+              {
+                "dim": 1,
+                "acc": 0.8833829365079365,
+                "majority": 0.8832807570977919,
+                "margin": 0.00010217941014467602
+              },
+              {
+                "dim": 3,
+                "acc": NaN,
+                "majority": 0.9905362776025236,
+                "margin": NaN
+              },
+              {
+                "dim": 5,
+                "acc": 0.6147817460317461,
+                "majority": 0.6182965299684542,
+                "margin": -0.0035147839367081213
+              },
+              {
+                "dim": 6,
+                "acc": 0.8899305555555556,
+                "majority": 0.889589905362776,
+                "margin": 0.0003406501927795125
+              },
+              {
+                "dim": 7,
+                "acc": 0.8485615079365079,
+                "majority": 0.8485804416403786,
+                "margin": -1.8933703870738228e-05
+              },
+              {
+                "dim": 8,
+                "acc": 0.5271825396825397,
+                "majority": 0.5646687697160884,
+                "margin": -0.03748623003354867
+              },
+              {
+                "dim": 9,
+                "acc": 0.6280753968253967,
+                "majority": 0.5078864353312302,
+                "margin": 0.12018896149416647
+              },
+              {
+                "dim": 10,
+                "acc": 0.7257440476190476,
+                "majority": 0.6908517350157729,
+                "margin": 0.034892312603274744
+              },
+              {
+                "dim": 11,
+                "acc": 0.9018849206349205,
+                "majority": 0.9022082018927444,
+                "margin": -0.00032328125782388195
+              },
+              {
+                "dim": 12,
+                "acc": 0.9716269841269842,
+                "majority": 0.9716088328075709,
+                "margin": 1.8151319413295397e-05
+              },
+              {
+                "dim": 13,
+                "acc": 0.9683531746031747,
+                "majority": 0.9684542586750788,
+                "margin": -0.00010108407190412283
+              },
+              {
+                "dim": 14,
+                "acc": 0.9841765873015873,
+                "majority": 0.9842271293375394,
+                "margin": -5.0542035952116926e-05
+              },
+              {
+                "dim": 15,
+                "acc": 0.9716765873015873,
+                "majority": 0.9716088328075709,
+                "margin": 6.775449401641431e-05
+              }
+            ],
+            "constant_dims": [
+              2,
+              4
+            ],
+            "n_varying": 14,
+            "median_margin": -1.8933703870738228e-05,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.46051587301587305,
+              "smd": -0.4185465080614576,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6001984126984127,
+              "smd": -0.4334222087199418,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.5462301587301588,
+              "smd": -1.0660570408358807,
+              "p": 0.1867813218678132,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.5653769841269841,
+              "smd": 0.22913592062668078,
+              "p": 0.933006699330067,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.6313988095238094,
+              "smd": 0.35007889424233407,
+              "p": 0.28677132286771323,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": 0.6001984126984127,
+              "smd": -0.14586499149789456,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.5653273809523809,
+              "smd": 0.2821373457240545,
+              "p": 0.8740125987401259,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.584375,
+              "smd": 0.21294058632322194,
+              "p": 0.6312368763123688,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.5652777777777777,
+              "smd": 0.06284304857311214,
+              "p": 0.9858014198580142,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.5969742063492063,
+              "smd": 0.12239544793576367,
+              "p": 0.6951304869513049,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.6000992063492063,
+              "smd": 0.3164198120703996,
+              "p": 0.09479052094790522,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.4795634920634921,
+              "smd": -0.4911277903373495,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.6658234126984126,
+              "smd": 1.0072906486696567,
+              "p": 0.06569343065693431,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7232142857142858,
+              "smd": 1.2762169724074122,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6001984126984127
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6313988095238094
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.4795634920634921
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.5462301587301588
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.5462301587301588
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7232142857142858
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6000992063492063
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.584375
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6001984126984127
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6658234126984126
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.8049107142857143,
+            "delta_vs_probe": 0.0037202380952381375,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": false,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_POSITIVE",
+            "accuracy": 0.7949900793650794,
+            "majority": 0.5993690851735016,
+            "source": "crit4b_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "mistral:7b": {
+          "model": "mistral:7b",
+          "wording_key": "P3",
+          "n": 312,
+          "n_D1": 178,
+          "majority": 0.5705128205128205,
+          "n_evasive": 8,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.8850402491333215,
+            "acc_probe_unscaled": 0.8850402491333215,
+            "acc_cov": 0.7530659011357055,
+            "delta_rival": -0.13197434799761598,
+            "p_cov": 0.005599440055994401,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.8443932239396361,
+              0.9154813460980029
+            ],
+            "ci_cov": [
+              0.7024762305632298,
+              0.7977745280448826
+            ],
+            "p_cov_holm": 0.033596640335966405
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8884742262849084,
+            "acc_cov": 0.7530659011357055,
+            "delta_cond": 0.13540832514920287,
+            "p_cond": 0.1136886311368863,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.7246547975791763,
+                "majority": 0.6025641025641025,
+                "margin": 0.12209069501507375
+              },
+              {
+                "dim": 1,
+                "acc": 0.9680986796269714,
+                "majority": 0.967948717948718,
+                "margin": 0.00014996167825342965
+              },
+              {
+                "dim": 2,
+                "acc": 0.82347880100392,
+                "majority": 0.7692307692307692,
+                "margin": 0.05424803177315085
+              },
+              {
+                "dim": 3,
+                "acc": 0.9774672005237843,
+                "majority": 0.9775641025641025,
+                "margin": -9.690204031820304e-05
+              },
+              {
+                "dim": 4,
+                "acc": 0.9871462986745906,
+                "majority": 0.9871794871794872,
+                "margin": -3.3188504896641824e-05
+              },
+              {
+                "dim": 5,
+                "acc": 0.9839716954999874,
+                "majority": 0.983974358974359,
+                "margin": -2.6634743716114073e-06
+              },
+              {
+                "dim": 6,
+                "acc": 0.9839716954999874,
+                "majority": 0.983974358974359,
+                "margin": -2.6634743716114073e-06
+              },
+              {
+                "dim": 7,
+                "acc": 0.9839204922229777,
+                "majority": 0.983974358974359,
+                "margin": -5.3866751381304034e-05
+              },
+              {
+                "dim": 8,
+                "acc": 0.9839204922229777,
+                "majority": 0.983974358974359,
+                "margin": -5.3866751381304034e-05
+              },
+              {
+                "dim": 9,
+                "acc": 0.9646663812713522,
+                "majority": 0.9647435897435898,
+                "margin": -7.720847223757765e-05
+              },
+              {
+                "dim": 10,
+                "acc": 0.9870950953975809,
+                "majority": 0.9871794871794872,
+                "margin": -8.439178190633445e-05
+              },
+              {
+                "dim": 11,
+                "acc": 0.9903721051262036,
+                "majority": 0.9903846153846154,
+                "margin": -1.2510258411868591e-05
+              },
+              {
+                "dim": 12,
+                "acc": 0.9839204922229777,
+                "majority": 0.983974358974359,
+                "margin": -5.3866751381304034e-05
+              },
+              {
+                "dim": 13,
+                "acc": 0.9871462986745906,
+                "majority": 0.9871794871794872,
+                "margin": -3.3188504896641824e-05
+              },
+              {
+                "dim": 14,
+                "acc": 0.9839716954999874,
+                "majority": 0.983974358974359,
+                "margin": -2.6634743716114073e-06
+              },
+              {
+                "dim": 15,
+                "acc": 0.9871462986745906,
+                "majority": 0.9871794871794872,
+                "margin": -3.3188504896641824e-05
+              }
+            ],
+            "constant_dims": [],
+            "n_varying": 16,
+            "median_margin": -3.3188504896641824e-05,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6376948452569817,
+              "smd": -0.5155803404432345,
+              "p": 0.007399260073992601,
+              "constant": false,
+              "p_holm": 0.10358964103589641,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6376948452569817,
+              "smd": -0.39520847284766686,
+              "p": 0.0066993300669933005,
+              "constant": false,
+              "p_holm": 0.1004899510048995,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.6275431660413152,
+              "smd": -0.44835201098390215,
+              "p": 0.408959104089591,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.5573963553339544,
+              "smd": -0.4129160767746676,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.5383487362863354,
+              "smd": -0.3137665191451915,
+              "p": 0.055894410558944105,
+              "constant": false,
+              "p_holm": 0.7266273372662734,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.5477701392561254,
+              "smd": -0.2360758383935237,
+              "p": 0.26247375262473754,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.7020128763650709,
+              "smd": 1.132038722152007,
+              "p": 0.00019998000199980003,
+              "constant": false,
+              "p_holm": 0.0031996800319968005,
+              "survives": true
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.5514106083117188,
+              "smd": -0.3498784175432961,
+              "p": 0.09409059094090591,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.554068142328322,
+              "smd": -0.008641375314745148,
+              "p": 0.1740825917408259,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.6345235996743135,
+              "smd": -0.5554636792027732,
+              "p": 0.1314868513148685,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.5737881191609377,
+              "smd": 0.4989405085884888,
+              "p": 0.41535846415358463,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.8336338378115216,
+              "smd": 1.5975630934537028,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6376948452569817
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6345235996743135
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6345235996743135
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6275431660413152
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8336338378115216
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7020128763650709
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.5573963553339544
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7020128763650709
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.5737881191609377
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.7952758681473646,
+            "delta_vs_probe": -0.08976438098595685,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": false,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_POSITIVE",
+            "accuracy": 0.8850402491333215,
+            "majority": 0.5705128205128205,
+            "source": "crit4b_analysis_family_R.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "olmo2:13b": {
+          "model": "olmo2:13b",
+          "wording_key": "P1",
+          "n": 231,
+          "n_D1": 75,
+          "majority": 0.6753246753246753,
+          "n_evasive": 9,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.6703497743391361,
+            "acc_probe_unscaled": 0.6703497743391361,
+            "acc_cov": 0.7006044487427466,
+            "delta_rival": 0.030254674403610515,
+            "p_cov": 0.25337466253374663,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.6080396755994628,
+              0.728357283031376
+            ],
+            "ci_cov": [
+              0.6393751607019792,
+              0.7566364488254641
+            ],
+            "p_cov_holm": 0.32216778322167783
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.6832930367504835,
+            "acc_cov": 0.7006044487427466,
+            "delta_cond": -0.01731141199226316,
+            "p_cond": 0.9572042795720428,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.6925209542230818,
+                "majority": 0.6666666666666667,
+                "margin": 0.025854287556415056
+              },
+              {
+                "dim": 11,
+                "acc": 0.9912878787878787,
+                "majority": 0.987012987012987,
+                "margin": 0.004274891774891709
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              12,
+              13,
+              14,
+              15
+            ],
+            "n_varying": 2,
+            "median_margin": 0.015064589665653383,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6748952288845906,
+              "smd": -0.5376682300707495,
+              "p": 0.9982001799820018,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6748952288845906,
+              "smd": -0.5174177993139119,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.6748952288845906,
+              "smd": -0.9654324290561087,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6748952288845906,
+              "smd": 0.2671689706454554,
+              "p": 0.6787321267873213,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.6658043197936815,
+              "smd": 0.04967403159127828,
+              "p": 0.9909009099090091,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6748952288845906,
+              "smd": 0.30634142578951756,
+              "p": 0.41075892410758924,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6665618955512572,
+              "smd": 0.25935496524635043,
+              "p": 0.4914508549145086,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.6540618955512573,
+              "smd": 0.17890871510880327,
+              "p": 0.6248375162483751,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.6748952288845906,
+              "smd": -0.012155415139627819,
+              "p": 0.8624137586241376,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.6575838168923276,
+              "smd": 0.33388174985229496,
+              "p": 0.8338166183381662,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.6748952288845906,
+              "smd": -0.38554428634694937,
+              "p": 0.9835016498350165,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.6748952288845906,
+              "smd": -0.267137535685866,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.6992021276595745,
+              "smd": 1.2204308464807843,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6658043197936815
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6992021276595745
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6748952288845906
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.7888620245003224,
+            "delta_vs_probe": 0.11851225016118627,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": false,
+          "published": {
+            "verdict": "UNDERPOWERED",
+            "accuracy": 0.6703497743391361,
+            "majority": 0.6753246753246753,
+            "source": "crit4b_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        },
+        "phi4:14b": {
+          "model": "phi4:14b",
+          "wording_key": "P3",
+          "n": 317,
+          "n_D1": 202,
+          "majority": 0.637223974763407,
+          "n_evasive": 3,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.6995087685611879,
+            "acc_probe_unscaled": 0.6995087685611879,
+            "acc_cov": 0.800814452124936,
+            "delta_rival": 0.10130568356374803,
+            "p_cov": 0.0011998800119988001,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.6477305490262494,
+              0.7481034076676456
+            ],
+            "ci_cov": [
+              0.7538404127958911,
+              0.8414689236492582
+            ],
+            "p_cov_holm": 0.009599040095990401
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8482382872503841,
+            "acc_cov": 0.800814452124936,
+            "delta_cond": 0.04742383512544812,
+            "p_cond": 0.0024997500249975004,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 0.024997500249975005
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.7313636072708654,
+                "majority": 0.7602523659305994,
+                "margin": -0.02888875865973406
+              },
+              {
+                "dim": 1,
+                "acc": 0.908118919610855,
+                "majority": 0.9085173501577287,
+                "margin": -0.00039843054687371815
+              },
+              {
+                "dim": 2,
+                "acc": NaN,
+                "majority": 0.9936908517350158,
+                "margin": NaN
+              },
+              {
+                "dim": 4,
+                "acc": 0.981099590373784,
+                "majority": 0.9810725552050473,
+                "margin": 2.7035168736699866e-05
+              },
+              {
+                "dim": 5,
+                "acc": 0.9905753968253969,
+                "majority": 0.9905362776025236,
+                "margin": 3.911922287325176e-05
+              },
+              {
+                "dim": 6,
+                "acc": 0.990625,
+                "majority": 0.9873817034700315,
+                "margin": 0.0032432965299684646
+              },
+              {
+                "dim": 7,
+                "acc": NaN,
+                "majority": 0.9968454258675079,
+                "margin": NaN
+              },
+              {
+                "dim": 8,
+                "acc": 0.990625,
+                "majority": 0.9873817034700315,
+                "margin": 0.0032432965299684646
+              },
+              {
+                "dim": 9,
+                "acc": NaN,
+                "majority": 0.9968454258675079,
+                "margin": NaN
+              },
+              {
+                "dim": 10,
+                "acc": 0.990625,
+                "majority": 0.9873817034700315,
+                "margin": 0.0032432965299684646
+              },
+              {
+                "dim": 11,
+                "acc": 0.8329221070148488,
+                "majority": 0.750788643533123,
+                "margin": 0.08213346348172579
+              },
+              {
+                "dim": 12,
+                "acc": 0.8581221198156681,
+                "majority": 0.7570977917981072,
+                "margin": 0.1010243280175609
+              },
+              {
+                "dim": 13,
+                "acc": 0.8612471198156681,
+                "majority": 0.7570977917981072,
+                "margin": 0.10414932801756094
+              },
+              {
+                "dim": 14,
+                "acc": 0.9022753456221198,
+                "majority": 0.8012618296529969,
+                "margin": 0.10101351596912289
+              },
+              {
+                "dim": 15,
+                "acc": 0.858072516641065,
+                "majority": 0.7791798107255521,
+                "margin": 0.0788927059155129
+              }
+            ],
+            "constant_dims": [
+              3
+            ],
+            "n_varying": 15,
+            "median_margin": 0.0032432965299684646,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.632986111111111,
+              "smd": -0.12838272909528345,
+              "p": 0.6621337866213378,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6266353046594981,
+              "smd": -0.07271576399007308,
+              "p": 0.9828017198280172,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.8133640552995391,
+              "smd": -1.2265922914071297,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": true
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6839925755248336,
+              "smd": -0.8577631568711599,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": true
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6745679723502304,
+              "smd": -0.801441404286004,
+              "p": 0.00039996000399960006,
+              "constant": false,
+              "p_holm": 0.005999400059994001,
+              "survives": true
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.6744671658986174,
+              "smd": -0.7947829983395187,
+              "p": 0.0036996300369963003,
+              "constant": false,
+              "p_holm": 0.0443955604439556,
+              "survives": true
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.7278417818740399,
+              "smd": 1.2956598376648714,
+              "p": 0.0022997700229977,
+              "constant": false,
+              "p_holm": 0.0298970102989701,
+              "survives": true
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.611211917562724,
+              "smd": -0.5433349805681187,
+              "p": 0.18918108189181082,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.6711901561699949,
+              "smd": -0.7314331701891729,
+              "p": 0.0010998900109989002,
+              "constant": false,
+              "p_holm": 0.015398460153984602,
+              "survives": true
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.6334389400921658,
+              "smd": -0.5200960438773994,
+              "p": 0.35806419358064195,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.5923611111111111,
+              "smd": 0.5690456036413867,
+              "p": 0.39816018398160186,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.6361111111111111,
+              "smd": 0.13465154010122576,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.632986111111111
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6334389400921658
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.8133640552995391
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.8133640552995391
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6361111111111111
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7278417818740399
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": true,
+              "best_acc": 0.6839925755248336
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7278417818740399
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.5923611111111111
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.816540258576549,
+            "delta_vs_probe": 0.11703149001536106,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "CRITERION4_NULL",
+            "accuracy": 0.6995087685611879,
+            "majority": 0.637223974763407,
+            "source": "crit4b_analysis.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": true,
+          "h_ae2_adds": true,
+          "verdict": "EXPLAINED_BY_COVARIATES",
+          "verdict_text": "Covariates match or beat the battery on this target's own rows, folds, estimator and null: the criterion-4 positive here is withdrawn as explained (PREREG section 5)."
+        },
+        "qwen2.5:14b": {
+          "model": "qwen2.5:14b",
+          "wording_key": "P3",
+          "n": 393,
+          "n_D1": 66,
+          "majority": 0.83206106870229,
+          "n_evasive": 7,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.8763013698630135,
+            "acc_probe_unscaled": 0.8580821917808219,
+            "acc_cov": 0.9138013698630137,
+            "delta_rival": 0.0375000000000002,
+            "p_cov": 0.0014998500149985001,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.8389787386632065,
+              0.9043909080673782
+            ],
+            "ci_cov": [
+              0.8815358261579433,
+              0.9374307337994804
+            ],
+            "p_cov_holm": 0.010498950104989501
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.9063013698630137,
+            "acc_cov": 0.9138013698630137,
+            "delta_cond": -0.007500000000000062,
+            "p_cond": 0.2648735126487351,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.9658219178082191,
+                "majority": 0.9669211195928753,
+                "margin": -0.0010992017846561675
+              },
+              {
+                "dim": 11,
+                "acc": 0.9925,
+                "majority": 0.9618320610687023,
+                "margin": 0.03066793893129771
+              },
+              {
+                "dim": 12,
+                "acc": 0.99,
+                "majority": 0.9872773536895675,
+                "margin": 0.0027226463104325083
+              },
+              {
+                "dim": 13,
+                "acc": 0.9949999999999999,
+                "majority": 0.9923664122137404,
+                "margin": 0.0026335877862594392
+              },
+              {
+                "dim": 14,
+                "acc": 0.9949999999999999,
+                "majority": 0.9923664122137404,
+                "margin": 0.0026335877862594392
+              },
+              {
+                "dim": 15,
+                "acc": 0.9974999999999999,
+                "majority": 0.9949109414758269,
+                "margin": 0.0025890585241730157
+              }
+            ],
+            "constant_dims": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "n_varying": 6,
+            "median_margin": 0.0026335877862594392,
+            "style_predictable": false
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.831404109589041,
+              "smd": -0.1453748964419766,
+              "p": 0.9969003099690031,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.831404109589041,
+              "smd": -0.20850089138736333,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.831404109589041,
+              "smd": -1.103456282777861,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.9010616438356165,
+              "smd": -1.2622418746460873,
+              "p": 0.023897610238976102,
+              "constant": false,
+              "p_holm": 0.35846415358464156,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.8364041095890411,
+              "smd": 0.24999999999999997,
+              "p": 0.24597540245975402,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.9063013698630137,
+              "smd": -1.24391404526856,
+              "p": 0.015398460153984602,
+              "constant": false,
+              "p_holm": 0.24637536246375363,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.9063013698630137,
+              "smd": -1.1526162133959514,
+              "p": 0.00019998000199980003,
+              "constant": false,
+              "p_holm": 0.0033996600339966003,
+              "survives": true
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.8439041095890409,
+              "smd": 0.7308343460751188,
+              "p": 0.44345565443455653,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.831404109589041,
+              "smd": -0.4381009455874591,
+              "p": 0.9566043395660434,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.8955821917808219,
+              "smd": -1.396055602823531,
+              "p": 0.26977302269773024,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.831404109589041,
+              "smd": -0.03639605721268062,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": 0.823904109589041,
+              "smd": 0.28307290360506,
+              "p": 0.9989001099890011,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.781404109589041,
+              "smd": 1.3399771565885876,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.831404109589041
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8364041095890411
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.831404109589041
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.831404109589041
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.831404109589041
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.781404109589041
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8955821917808219
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": true,
+              "best_acc": 0.9063013698630137
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.8955821917808219
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": 0.823904109589041
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.9217808219178082,
+            "delta_vs_probe": 0.045479452054794645,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": false,
+          "published": {
+            "verdict": "UNDERPOWERED",
+            "accuracy": 0.8580821917808219,
+            "majority": 0.83206106870229,
+            "source": "crit4b_analysis_family_R.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": true,
+          "h_ae2_adds": false,
+          "verdict": "EXPLAINED_BY_COVARIATES",
+          "verdict_text": "Covariates match or beat the battery on this target's own rows, folds, estimator and null: the criterion-4 positive here is withdrawn as explained (PREREG section 5)."
+        },
+        "qwen2.5:7b": {
+          "model": "qwen2.5:7b",
+          "wording_key": "P3",
+          "n": 400,
+          "n_D1": 136,
+          "majority": 0.6599999999999999,
+          "n_evasive": 0,
+          "n_ungraded": 0,
+          "test1_rival": {
+            "acc_probe": 0.5999999999999999,
+            "acc_probe_unscaled": 0.5999999999999999,
+            "acc_cov": 0.8674999999999999,
+            "delta_rival": 0.26750000000000007,
+            "p_cov": 0.010498950104989501,
+            "n_perm_valid": 10000,
+            "ci_probe": [
+              0.5512581652462732,
+              0.6468393066337906
+            ],
+            "ci_cov": [
+              0.8307529411756132,
+              0.8972552679836218
+            ],
+            "p_cov_holm": 0.05249475052494751
+          },
+          "test2_conditional": {
+            "acc_probe_plus_cov": 0.8875,
+            "acc_cov": 0.8674999999999999,
+            "delta_cond": 0.020000000000000018,
+            "p_cond": 0.21127887211278873,
+            "n_perm_valid": 10000,
+            "p_cond_holm": 1.0
+          },
+          "test3_proxy": {
+            "per_dim": [
+              {
+                "dim": 0,
+                "acc": 0.9625,
+                "majority": 0.5625,
+                "margin": 0.4
+              },
+              {
+                "dim": 2,
+                "acc": 0.9625,
+                "majority": 0.9625,
+                "margin": 0.0
+              }
+            ],
+            "constant_dims": [
+              1,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "n_varying": 2,
+            "median_margin": 0.2,
+            "style_predictable": true
+          },
+          "per_covariate": [
+            {
+              "covariate": "hedge_count",
+              "acc": 0.6599999999999999,
+              "smd": -0.2093086113091202,
+              "p": 0.9995000499950005,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "hedge_rate",
+              "acc": 0.6599999999999999,
+              "smd": -0.22524175315199574,
+              "p": 0.998000199980002,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "refusal_count",
+              "acc": 0.7975,
+              "smd": -2.0040112597074504,
+              "p": 0.0008999100089991,
+              "constant": false,
+              "p_holm": 0.0125987401259874,
+              "survives": true
+            },
+            {
+              "covariate": "avg_response_length",
+              "acc": 0.6599999999999999,
+              "smd": -0.5391714901065103,
+              "p": 0.1331866813318668,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "std_response_length",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "confidence_count",
+              "acc": 0.7025,
+              "smd": 0.5163266277031647,
+              "p": 0.37096290370962903,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "question_count",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "n_chars",
+              "acc": 0.6725,
+              "smd": -0.5541016378631217,
+              "p": 0.0216978302169783,
+              "constant": false,
+              "p_holm": 0.2820717928207179,
+              "survives": false
+            },
+            {
+              "covariate": "n_sentences",
+              "acc": 0.75,
+              "smd": -0.6045874449960961,
+              "p": 9.999000099990002e-05,
+              "constant": false,
+              "p_holm": 0.0016998300169983002,
+              "survives": true
+            },
+            {
+              "covariate": "type_token_ratio",
+              "acc": 0.7825,
+              "smd": 1.5762378342191008,
+              "p": 0.00039996000399960006,
+              "constant": false,
+              "p_holm": 0.005999400059994001,
+              "survives": true
+            },
+            {
+              "covariate": "mean_sentence_words",
+              "acc": 0.68,
+              "smd": -0.489507421253897,
+              "p": 0.00019998000199980003,
+              "constant": false,
+              "p_holm": 0.0031996800319968005,
+              "survives": true
+            },
+            {
+              "covariate": "comma_count",
+              "acc": 0.5925,
+              "smd": -0.5530286776274432,
+              "p": 0.7931206879312068,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "attrib_marker_count",
+              "acc": 0.745,
+              "smd": -1.2459363946307827,
+              "p": 0.044495550444955505,
+              "constant": false,
+              "p_holm": 0.533946605339466,
+              "survives": false
+            },
+            {
+              "covariate": "ambiguous_sum",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "known_preserved",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "true_verdict_yes",
+              "acc": NaN,
+              "smd": NaN,
+              "p": NaN,
+              "constant": true,
+              "p_holm": 1.0,
+              "survives": false
+            },
+            {
+              "covariate": "loto_claim_difficulty",
+              "acc": 0.7899999999999999,
+              "smd": 1.429586928969994,
+              "p": 1.0,
+              "constant": false,
+              "p_holm": 1.0,
+              "survives": false
+            }
+          ],
+          "per_alternative": {
+            "uncertainty": {
+              "features": [
+                "hedge_count",
+                "hedge_rate"
+              ],
+              "any_survives": false,
+              "best_acc": 0.6599999999999999
+            },
+            "confidence": {
+              "features": [
+                "confidence_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7025
+            },
+            "instruction_interpretation": {
+              "features": [
+                "attrib_marker_count"
+              ],
+              "any_survives": false,
+              "best_acc": 0.745
+            },
+            "conflict_resolution": {
+              "features": [
+                "refusal_count",
+                "attrib_marker_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7975
+            },
+            "refusal_behavior": {
+              "features": [
+                "refusal_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7975
+            },
+            "claim_difficulty": {
+              "features": [
+                "loto_claim_difficulty"
+              ],
+              "any_survives": false,
+              "best_acc": 0.7899999999999999
+            },
+            "linguistic_awkwardness": {
+              "features": [
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7825
+            },
+            "topic_familiarity": {
+              "features": [
+                "known_preserved",
+                "true_verdict_yes"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            },
+            "response_length": {
+              "features": [
+                "avg_response_length",
+                "std_response_length",
+                "n_chars",
+                "n_sentences"
+              ],
+              "any_survives": true,
+              "best_acc": 0.75
+            },
+            "stylistic_differences": {
+              "features": [
+                "question_count",
+                "type_token_ratio",
+                "mean_sentence_words",
+                "comma_count"
+              ],
+              "any_survives": true,
+              "best_acc": 0.7825
+            },
+            "channel_ambiguity": {
+              "features": [
+                "ambiguous_sum"
+              ],
+              "any_survives": false,
+              "best_acc": NaN
+            }
+          },
+          "secondary_difficulty_arm": {
+            "acc_cov_plus_difficulty": 0.9225,
+            "delta_vs_probe": 0.3225000000000001,
+            "label_derived": true,
+            "note": "may not by itself withdraw a positive (PREREG 3.4, 5)"
+          },
+          "h_ae1_explained_raw": true,
+          "h_ae2_adds_raw": true,
+          "published": {
+            "verdict": "UNDERPOWERED",
+            "accuracy": 0.5999999999999999,
+            "majority": 0.6599999999999999,
+            "source": "crit4b_analysis_family_R.json"
+          },
+          "reproduces_published_h1": true,
+          "h_ae1_explained": false,
+          "h_ae2_adds": false,
+          "verdict": "INDETERMINATE",
+          "verdict_text": "Covariates do not beat the battery and the battery does not measurably add over them: too little power to separate the arms. Not to be reported as support."
+        }
+      },
+      "n_targets": 10,
+      "standing_positives": [
+        "llama3.1:8b",
+        "mistral-nemo:12b",
+        "mistral:7b"
+      ],
+      "prior_positives": [
+        "llama3.1:8b",
+        "mistral:7b",
+        "qwen2.5:7b"
+      ],
+      "fold_grouping": {
+        "gemma2:9b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt.txt",
+          "candidate_file": "crit4b_blind/T02_cand05.json",
+          "verified_row_by_row": true,
+          "n_rows": 317,
+          "pseudonym": "T02",
+          "real_candidate_index": 5,
+          "analysis_file": "crit4b_analysis.json"
+        },
+        "granite3.1-dense:8b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt.txt",
+          "candidate_file": "crit4b_blind/T04_cand18.json",
+          "verified_row_by_row": true,
+          "n_rows": 237,
+          "pseudonym": "T04",
+          "real_candidate_index": 18,
+          "analysis_file": "crit4b_analysis.json"
+        },
+        "llama3.1:8b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt_family_R.txt",
+          "candidate_file": "crit4b_blind_family_R/T03_cand08.json",
+          "verified_row_by_row": true,
+          "n_rows": 231,
+          "pseudonym": "T03",
+          "real_candidate_index": 8,
+          "analysis_file": "crit4b_analysis_family_R.json"
+        },
+        "llama3.2:3b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt_family_R.txt",
+          "candidate_file": "crit4b_blind_family_R/T02_cand13.json",
+          "verified_row_by_row": true,
+          "n_rows": 307,
+          "pseudonym": "T02",
+          "real_candidate_index": 13,
+          "analysis_file": "crit4b_analysis_family_R.json"
+        },
+        "mistral-nemo:12b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt.txt",
+          "candidate_file": "crit4b_blind/T03_cand05.json",
+          "verified_row_by_row": true,
+          "n_rows": 317,
+          "pseudonym": "T03",
+          "real_candidate_index": 5,
+          "analysis_file": "crit4b_analysis.json"
+        },
+        "mistral:7b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt_family_R.txt",
+          "candidate_file": "crit4b_blind_family_R/T01_cand15.json",
+          "verified_row_by_row": true,
+          "n_rows": 312,
+          "pseudonym": "T01",
+          "real_candidate_index": 15,
+          "analysis_file": "crit4b_analysis_family_R.json"
+        },
+        "olmo2:13b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt.txt",
+          "candidate_file": "crit4b_blind/T01_cand03.json",
+          "verified_row_by_row": true,
+          "n_rows": 231,
+          "pseudonym": "T01",
+          "real_candidate_index": 3,
+          "analysis_file": "crit4b_analysis.json"
+        },
+        "phi4:14b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt.txt",
+          "candidate_file": "crit4b_blind/T05_cand00.json",
+          "verified_row_by_row": true,
+          "n_rows": 317,
+          "pseudonym": "T05",
+          "real_candidate_index": 0,
+          "analysis_file": "crit4b_analysis.json"
+        },
+        "qwen2.5:14b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt_family_R.txt",
+          "candidate_file": "crit4b_blind_family_R/T05_cand11.json",
+          "verified_row_by_row": true,
+          "n_rows": 393,
+          "pseudonym": "T05",
+          "real_candidate_index": 11,
+          "analysis_file": "crit4b_analysis_family_R.json"
+        },
+        "qwen2.5:7b": {
+          "grouping": "blinded_claim",
+          "salt_file": "crit4b_salt_family_R.txt",
+          "candidate_file": "crit4b_blind_family_R/T04_cand04.json",
+          "verified_row_by_row": true,
+          "n_rows": 400,
+          "pseudonym": "T04",
+          "real_candidate_index": 4,
+          "analysis_file": "crit4b_analysis_family_R.json"
+        }
+      },
+      "explained_targets": [
+        "phi4:14b",
+        "qwen2.5:14b"
+      ],
+      "probe_adds_targets": [
+        "phi4:14b"
+      ],
+      "indeterminate_targets": [
+        "gemma2:9b",
+        "granite3.1-dense:8b",
+        "llama3.1:8b",
+        "llama3.2:3b",
+        "mistral-nemo:12b",
+        "mistral:7b",
+        "olmo2:13b",
+        "qwen2.5:7b"
+      ],
+      "style_predictable_targets": [
+        "qwen2.5:7b"
+      ],
+      "live_alternatives": [
+        "conflict_resolution",
+        "linguistic_awkwardness",
+        "refusal_behavior",
+        "response_length",
+        "stylistic_differences"
+      ],
+      "dead_alternatives": [
+        "channel_ambiguity",
+        "claim_difficulty",
+        "confidence",
+        "instruction_interpretation",
+        "topic_familiarity",
+        "uncertainty"
+      ],
+      "explained_but_probe_also_adds": [
+        "phi4:14b"
+      ],
+      "standing_count_impact": {
+        "standing_positives": [
+          "llama3.1:8b",
+          "mistral-nemo:12b",
+          "mistral:7b"
+        ],
+        "explained_standing_positives": [],
+        "surviving_standing_positives": [
+          "llama3.1:8b",
+          "mistral-nemo:12b",
+          "mistral:7b"
+        ],
+        "explained_prior_positives": [],
+        "standing_count_before": 3,
+        "standing_count_after": 3,
+        "note": "Any target in explained_standing_positives must be removed from every main-text positive count (PREREG section 5)."
+      },
+      "mde_indeterminate": {
+        "gemma2:9b": {
+          "h1": {
+            "accuracy": 0.6446209016393443,
+            "majority_baseline": 0.6403785488958991,
+            "auroc_probe_sum": 0.4595540575576873,
+            "p_two_sided": 0.18518148185181482,
+            "p_higher": 0.08539146085391461,
+            "null_mean": 0.6320452049180327,
+            "crit95": 0.6539959016393443,
+            "n_perm": 10000
+          },
+          "mde": 0.5
+        },
+        "granite3.1-dense:8b": {
+          "h1": {
+            "accuracy": 0.6023936170212766,
+            "majority_baseline": 0.6286919831223629,
+            "auroc_probe_sum": 0.5202486272117145,
+            "p_two_sided": 0.17498250174982502,
+            "p_higher": 0.09419058094190581,
+            "null_mean": 0.5745953253160655,
+            "crit95": 0.6143462843046562,
+            "n_perm": 10000
+          },
+          "mde": 0.2
+        },
+        "llama3.1:8b": {
+          "h1": {
+            "accuracy": 0.8567992599444958,
+            "majority_baseline": 0.5454545454545454,
+            "auroc_probe_sum": 0.3843915343915344,
+            "p_two_sided": 0.00029997000299970003,
+            "p_higher": 0.00029997000299970003,
+            "null_mean": 0.7953399999999999,
+            "crit95": 0.8225716928769657,
+            "n_perm": 10000
+          },
+          "mde": 0.05
+        },
+        "llama3.2:3b": {
+          "h1": {
+            "accuracy": 0.7328926493918562,
+            "majority_baseline": 0.752442996742671,
+            "auroc_probe_sum": 0.570289359763044,
+            "p_two_sided": 0.8385161483851615,
+            "p_higher": 0.5884411558844116,
+            "null_mean": 0.7351216181914331,
+            "crit95": 0.7492332099418297,
+            "n_perm": 10000
+          },
+          "mde": 0.25
+        },
+        "mistral-nemo:12b": {
+          "h1": {
+            "accuracy": 0.7949900793650794,
+            "majority_baseline": 0.5993690851735016,
+            "auroc_probe_sum": 0.600269374222959,
+            "p_two_sided": 0.0004999500049995,
+            "p_higher": 0.00039996000399960006,
+            "null_mean": 0.7301894841269841,
+            "crit95": 0.7605654761904762,
+            "n_perm": 10000
+          },
+          "mde": 0.05
+        },
+        "mistral:7b": {
+          "h1": {
+            "accuracy": 0.8850402491333215,
+            "majority_baseline": 0.5705128205128205,
+            "auroc_probe_sum": 0.8301400301861479,
+            "p_two_sided": 9.999000099990002e-05,
+            "p_higher": 9.999000099990002e-05,
+            "null_mean": 0.8464045539019417,
+            "crit95": 0.8596434237364962,
+            "n_perm": 10000
+          },
+          "mde": 0.05
+        },
+        "olmo2:13b": {
+          "h1": {
+            "accuracy": 0.6703497743391361,
+            "majority_baseline": 0.6753246753246753,
+            "auroc_probe_sum": 0.5618376068376069,
+            "p_two_sided": 1.0,
+            "p_higher": 1.0,
+            "null_mean": 0.6714329561573179,
+            "crit95": 0.6748952288845906,
+            "n_perm": 10000
+          },
+          "mde": 0.45
+        },
+        "qwen2.5:7b": {
+          "h1": {
+            "accuracy": 0.5999999999999999,
+            "majority_baseline": 0.6599999999999999,
+            "auroc_probe_sum": 0.5813279857397504,
+            "p_two_sided": 0.0684931506849315,
+            "p_higher": 0.9318068193180682,
+            "null_mean": 0.6756117500000001,
+            "crit95": 0.6925000000000001,
+            "n_perm": 10000
+          },
+          "mde": 0.45
+        }
+      }
+    }
+  }
+}
