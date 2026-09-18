@@ -138,6 +138,7 @@ def prepare():
         "preview": len(cells) < EXPECTED_CELLS,
         "rules": [c["rule"]["accuracy"] for c in cells],
         "pipes": [c["pipeline"]["accuracy"] for c in cells],
+        "arms": a.get("anthropic_row_arms", {}),
     }
 
 
@@ -303,9 +304,58 @@ def build_block2(ctx):
           f"remain collinear at the panel level (PREREG~§6, §11).")
         w("")
 
+    out += build_arms(ctx)
+
     n_err = sum(c.get("n_error", 0) for c in cells)
     w(f"Trials terminating in \\texttt{{status == error}} are excluded from both "
       f"outcomes and never imputed: \\textbf{{{n_err}}} across the panel.")
+    return out
+
+
+def build_arms(ctx):
+    """The Anthropic row's two extractor arms (PREREG §4), or nothing if absent.
+
+    §4 pre-commits that this row reports BOTH arms and never averages them, with
+    the cross-family extractor primary -- the reverse of the other six rows, because
+    Haiku is same-family for an Anthropic target. The table prints the same-family
+    value, which is the one already published and the one the §8.3 gate reproduces,
+    so the primary arm has to be stated here or the paper silently reports the
+    sensitivity arm in the primary's place.
+    """
+    arms = ctx.get("arms") or {}
+    pri = next((v for v in arms.values() if v.get("primary")), None)
+    sen = next((v for v in arms.values() if not v.get("primary")), None)
+    if not pri or not sen or pri.get("pipeline_accuracy") is None:
+        return []
+    gap = abs(100.0 * (pri["pipeline_accuracy"] - sen["pipeline_accuracy"]))
+    out = [r"\paragraph{The Anthropic row's two extractor arms (PREREG~§4).}"]
+    out.append(
+        f"Claude Haiku~4.5 extracts features for all {len(ctx['cells'])} targets, "
+        f"so for the Anthropic target alone the extractor is \\emph{{same-family}}. "
+        f"The pre-registration therefore makes the cross-family extractor "
+        f"(Llama-3.3-70B) \\textbf{{primary}} for that row and Haiku the sensitivity "
+        f"arm, and requires both to be reported and never averaged. The transferred "
+        f"pipeline reaches \\textbf{{{pct(pri['pipeline_accuracy'])}\\%}} "
+        f"({pri['pipeline_correct']}/{pri['pipeline_n']}) under the primary arm and "
+        f"{pct(sen['pipeline_accuracy'])}\\% "
+        f"({sen['pipeline_correct']}/{sen['pipeline_n']}) under the sensitivity "
+        f"arm---{gap:.1f}\\,pp apart, both degenerate (every trial predicted "
+        f"truthful) and both below the {ctx['floor']}/100 floor, so which arm is "
+        f"read does not change this row's verdict. The table prints the "
+        f"same-family value, which is the published one. "
+        f"\\textbf{{How the primary arm was obtained, since it is not a second "
+        f"run:}} its committed file re-extracts features with the cross-family "
+        f"extractor but stores the same-family run's detector outputs verbatim, so "
+        f"the classifier was replayed offline over the committed feature "
+        f"trajectories---with no model calls, and only after that replay reproduced "
+        f"the same-family arm's stored confidences, stopping points and predictions "
+        f"bit for bit. The {pri['unscoreable']} "
+        f"{'trial' if pri['unscoreable'] == 1 else 'trials'} whose re-extraction "
+        f"failed at or after the deciding step "
+        f"{'is' if pri['unscoreable'] == 1 else 'are'} excluded and not imputed. The "
+        f"parameter-free rule cannot differ between the arms at all: it reads the "
+        f"target's own turns, which both files share.")
+    out.append("")
     return out
 
 

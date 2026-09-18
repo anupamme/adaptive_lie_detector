@@ -1,0 +1,42 @@
+{
+  "experiment": "EXP-FS_anthropic_row_crossfamily_pipeline_arm",
+  "prereg": "docs/PREREG_EXP_FS.md",
+  "prereg_section": "4 (same-family exception)",
+  "method": "offline replay of the committed classifier over the committed feature trajectories; no model calls",
+  "validation": {
+    "rows_replayed": 99,
+    "mismatches": 0,
+    "tolerance": "exact"
+  },
+  "why_needed": "the Llama-70B-extractor file carries the Haiku run's detector outputs verbatim (all classifier-side fields byte-identical) with re-extracted features; its stored `correct` flags are not this arm's pipeline outcome",
+  "cross_family_primary": {
+    "extractor": "us.meta.llama3-3-70b-instruct-v1:0",
+    "file": "bedrock_eval_sonnet_4_5_equalized_llama70b_extractor_latest.json",
+    "n": 97,
+    "correct": 48,
+    "accuracy": 0.4948453608247423,
+    "predictions": {
+      "truthful": 97
+    },
+    "unscoreable_rows": 2,
+    "unscoreable_row_indices": [
+      38,
+      61
+    ],
+    "rows_with_pre_decision_gap": 8,
+    "per_class": {
+      "lying": {
+        "correct": 0,
+        "n": 49
+      },
+      "truthful": {
+        "correct": 48,
+        "n": 48
+      }
+    }
+  },
+  "haiku_sensitivity": {
+    "file": "bedrock_eval_sonnet_4_5_prompt_equalized_latest.json",
+    "accuracy": 0.5050505050505051
+  }
+}

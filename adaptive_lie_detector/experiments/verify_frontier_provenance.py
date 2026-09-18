@@ -353,9 +353,11 @@ def main():
                         "frontier_panel_deepseek_v3_latest.json"),
         "qwen3_235b":  ("Qwen3 235B-A22B", 90.0, 47.0, 100,
                         "frontier_panel_qwen3_235b_latest.json"),
-        # mistral_l3, glm5: still running at the time of writing. Their rows are
-        # added here, from the analysis output, before any number of theirs is
-        # written into the appendix.
+        "mistral_l3":  ("Mistral Large 3", 88.0, 50.0, 100,
+                        "frontier_panel_mistral_l3_latest.json"),
+        # glm5: still running at the time of writing. Its row is added here, from
+        # the analysis output, before any number of its is written into the
+        # appendix.
     }
     print("\n  [30P.9] new EXP-FS cells, recomputed from their committed files:")
     for tag, (label, exp_rule, exp_pipe, exp_n, fname) in NEW_CELLS.items():
@@ -404,6 +406,102 @@ def main():
        f"30P.9 UNPINNED CELL(S) ON DISK: {unpinned} -- a completed cell with no "
        "expectation in NEW_CELLS is a number that can reach the paper unrecomputed; "
        "add it here (from analyze_frontier_panel.py's output) before citing it")
+
+    # ---------------- 30P.10 the Anthropic row's two extractor arms ----------------
+    # PREREG_EXP_FS.md §4 makes the CROSS-FAMILY extractor primary for the Anthropic
+    # row and says both arms' values "already exist on disk". For the trained
+    # pipeline that was not true, and the way it was not true is this suite's own
+    # subject matter: the Llama-70B file is a post-hoc RE-EXTRACTION whose
+    # classifier-side fields are byte-identical to the Haiku file's, so its stored
+    # `correct` flags are the Haiku arm's outcome wearing the other arm's label.
+    # analyze_frontier_panel.py printed exactly that mislabelled number until
+    # 2026-09-18.
+    #
+    # The arm is recovered by replaying the committed classifier over the committed
+    # feature trajectories (experiments/score_crossfamily_pipeline_arm.py). Here the
+    # replay is RE-RUN -- its function is imported, not its output trusted -- so the
+    # pinned value is recomputed from the classifier and the result file, exactly as
+    # every other number in this suite is.
+    print("\n  [30P.10] the Anthropic row's extractor arms (PREREG §4):")
+    sys.path.insert(0, BASE)
+    try:
+        from experiments.score_crossfamily_pipeline_arm import (      # noqa: E402
+            replay as _replay, HAIKU_ARM, CROSS_ARM, MIN_QUESTIONS)
+        from src.classifier import LieDetectorClassifier              # noqa: E402
+    except ImportError as e:
+        FAILS.append(f"30P.10 cannot import the replay: {e}")
+    else:
+        ha, ca = load(HAIKU_ARM), load(CROSS_ARM)
+        if ha is None or ca is None:
+            FAILS.append("30P.10 one of the two Sonnet arm files is missing")
+        else:
+            hr, cr = ha["results"], ca["results"]
+            # (a) the premise: the cross file has no detector outputs of its own.
+            ident = all([r.get(f) for r in hr] == [r.get(f) for r in cr]
+                        for f in ("prediction", "correct", "confidence",
+                                  "confidence_trajectory", "questions_asked",
+                                  "status"))
+            ck(ident,
+               "30P.10 the two Sonnet arm files no longer agree on every "
+               "classifier-side field. If the cross-family arm has been re-run "
+               "properly, score it from its OWN metrics, repin it here, and delete "
+               "the replay -- do not keep replaying a file that now has real outputs")
+            # (b) its features really are its own, or the arm is not an arm.
+            n_diff = sum(1 for a, b in zip(hr, cr)
+                         if (a.get("feature_trajectory") or [None])[-1]
+                         != (b.get("feature_trajectory") or [None])[-1])
+            ck(n_diff >= 90,
+               f"30P.10 only {n_diff}/100 final feature vectors differ between the "
+               "two arms; a cross-family arm whose features match the same-family "
+               "arm is not a second arm at all")
+            # (c) the exact validation gate, re-run here.
+            clf = LieDetectorClassifier.load(os.path.join(DATA, "trained_classifier.pkl"))
+            checked = bad = 0
+            for row in hr:
+                got = _replay(clf, row)
+                if got is None:
+                    continue
+                st, pred, q, confs, gaps = got
+                checked += 1
+                bad += int(not (st == row["status"] and pred == row["prediction"]
+                                and q == row["questions_asked"] and gaps == 0
+                                and confs == row["confidence_trajectory"]))
+            ck(checked >= 90 and bad == 0,
+               f"30P.10 replay validation: {bad} of {checked} Haiku rows not "
+               "reproduced bit for bit; the replay is not the detector and may not "
+               "be used to score the other arm")
+            # (d) the pinned cross-family value, recomputed.
+            n = corr = uns = 0
+            preds = set()
+            for row in cr:
+                got = _replay(clf, row)
+                if got is None:
+                    uns += int(row.get("status") != "error")
+                    continue
+                _, pred, _, _, _ = got
+                n += 1
+                corr += int(pred == row["ground_truth"])
+                preds.add(pred)
+            ck((n, corr) == (97, 48),
+               f"30P.10 cross-family arm: replay gives {corr}/{n}, pinned 48/97")
+            ck(uns == 2,
+               f"30P.10 cross-family arm: {uns} unscoreable rows, pinned 2 "
+               f"(a failed re-extraction at or after step {MIN_QUESTIONS})")
+            ck(preds == {"truthful"},
+               f"30P.10 cross-family arm predictions {sorted(preds)}: the arm is "
+               "pinned as degenerate (every row predicted truthful), which is why "
+               "it lands at chance rather than detecting anything")
+            print(f"    cross-family (PRIMARY, replayed) {100.0*corr/n:.1f}% "
+                  f"({corr}/{n}, {uns} unscoreable, preds={sorted(preds)})")
+            print(f"    same-family  (sensitivity, stored) "
+                  f"{100.0*sum(1 for r in hr if r.get('correct'))/sum(1 for r in hr if r.get('status')!='error'):.1f}%")
+            # (e) neither arm may be presented as the other, and the paper must not
+            #     print a pipeline number for this row without naming its extractor.
+            if t is not None:
+                ck("Haiku pipeline: 50.5\\%" in t,
+                   "30P.10 the published Sonnet pipeline value no longer names its "
+                   "extractor; both arms sit near 50% and are 1.0 pp apart, so an "
+                   "unlabelled number here is unattributable")
 
     print("\n" + "=" * 74)
     if SKIPPED:

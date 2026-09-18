@@ -272,16 +272,61 @@ def main():
         return 1
 
     # The Anthropic row's two extractor arms, reported separately, never averaged.
+    #
+    # 2026-09-18. This block used to call score_pipeline() on BOTH files and print
+    # the result as each arm's pipeline accuracy. That was wrong for the
+    # cross-family arm, and the two arms printing the identical 50.5% is what gave
+    # it away: the Llama-70B file's `prediction`, `correct`, `confidence`,
+    # `confidence_trajectory`, `questions_asked` and `status` are BYTE-IDENTICAL to
+    # the Haiku file's -- it is a post-hoc RE-EXTRACTION (it carries a
+    # `re_extractor_model` field and no `metrics` block), so its features are its
+    # own but the classifier was never re-run over them. Reading its `correct`
+    # flags reproduces the Haiku arm's number under the other arm's label.
+    #
+    # The missing arm is recovered by experiments/score_crossfamily_pipeline_arm.py,
+    # which replays the committed classifier over the committed feature
+    # trajectories after reproducing the Haiku arm's stored outputs bit for bit.
+    # It is read from that script's output file here, never recomputed inline, so
+    # there is one source for the number.
     print("\n    Anthropic row, both extractor arms (PREREG §4 same-family exception):")
+    arms = {}
+    replay_path = os.path.join(DATA_DIR, "sonnet_crossfamily_pipeline_arm.json")
+    replay = None
+    if os.path.exists(replay_path):
+        with open(replay_path) as f:
+            replay = json.load(f)
     for arm, fname in SONNET_ARMS.items():
         cell = load_cell(fname)
         if cell is None:
             print(f"      {arm:46s} MISSING ({fname})")
             continue
-        pipe = score_pipeline(cell["rows"])
         rule = score_rule(cell["rows"], k=1)
-        print(f"      {arm:46s} n={pipe['n']:3d}  pipeline={pipe['accuracy']:.1%}  "
-              f"rule={rule['accuracy']:.1%}")
+        is_cross = "cross-family" in arm
+        unscoreable = 0
+        if not is_cross:
+            p = score_pipeline(cell["rows"])
+            pipe_acc, pipe_n, pipe_k = p["accuracy"], p["n"], p["correct"]
+            src = "stored detector outputs"
+        elif replay:
+            cf = replay["cross_family_primary"]
+            pipe_acc, pipe_n, pipe_k = cf["accuracy"], cf["n"], cf["correct"]
+            unscoreable = cf["unscoreable_rows"]
+            src = (f"offline replay, {unscoreable} row(s) unscoreable "
+                   f"and not imputed")
+        else:
+            pipe_acc, pipe_n, pipe_k, src = None, None, None, (
+                "NOT ON DISK -- this file's detector outputs are the Haiku arm's; "
+                "run experiments/score_crossfamily_pipeline_arm.py")
+        arms[arm] = {"file": fname, "rule_accuracy": rule["accuracy"],
+                     "primary": is_cross,
+                     "pipeline_accuracy": pipe_acc, "pipeline_n": pipe_n,
+                     "pipeline_correct": pipe_k, "unscoreable": unscoreable,
+                     "pipeline_source": src}
+        shown = "n/a" if pipe_acc is None else f"{pipe_acc:.1%}"
+        print(f"      {arm:46s} rule={rule['accuracy']:.1%}  pipeline={shown:>5s}"
+              f"  [{src}]")
+    print("      The rule cannot differ between the arms: it reads the target's own "
+          "turns, which both files share.")
 
     # ---------------- 3. H1 per target, Holm within the five new ----------------
     print("\n[3] H1 — per-target accuracy vs chance (exact two-sided binomial)")
@@ -371,6 +416,7 @@ def main():
         "gate_8_3_passed": True,
         "published_rule_targets": PUBLISHED_RULE,
         "cells": scored,
+        "anthropic_row_arms": arms,
         "h2_homogeneity": h2,
         "h3_closed_vs_open": h3,
         "thresholds": {
