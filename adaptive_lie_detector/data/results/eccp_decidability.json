@@ -1,0 +1,2428 @@
+{
+  "apollo": [
+    {
+      "base_name": "ai_audit",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 1249,
+        "n_distinct_final_messages": 1,
+        "n_rows": 1,
+        "p90_len": 1249,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 1
+      },
+      "file": "ai_audit__a1_2__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "experiment": 1,
+        "experiment_variation": 1
+      },
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 1,
+      "variant": "a1_2"
+    },
+    {
+      "base_name": "ai_audit",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 2579,
+        "n_distinct_final_messages": 1,
+        "n_rows": 1,
+        "p90_len": 2579,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 1
+      },
+      "file": "ai_audit__a1_2_reasoning__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "experiment": 1,
+        "experiment_variation": 1
+      },
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 1,
+      "variant": "a1_2_reasoning"
+    },
+    {
+      "base_name": "ai_audit",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 1021,
+        "n_distinct_final_messages": 16,
+        "n_rows": 16,
+        "p90_len": 2382,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 8,
+        "honest": 8
+      },
+      "file": "ai_audit__no_reasoning__llama-70b.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "experiment": 16,
+        "experiment_variation": 16
+      },
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 16,
+      "variant": "no_reasoning"
+    },
+    {
+      "base_name": "ai_audit",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 3003,
+        "n_distinct_final_messages": 16,
+        "n_rows": 16,
+        "p90_len": 4356,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 8,
+        "honest": 8
+      },
+      "file": "ai_audit__reasoning__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "experiment": 16,
+        "experiment_variation": 16
+      },
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 16,
+      "variant": "reasoning"
+    },
+    {
+      "base_name": "ai_audit",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 2242,
+        "n_distinct_final_messages": 8,
+        "n_rows": 8,
+        "p90_len": 4712,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 8
+      },
+      "file": "ai_audit__reasoning__llama-70b.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "experiment": 8
+      },
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 8,
+      "variant": "reasoning"
+    },
+    {
+      "base_name": "ai_liar",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 673,
+        "n_distinct_final_messages": 54,
+        "n_rows": 54,
+        "p90_len": 1351,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 27,
+        "honest": 27
+      },
+      "file": "ai_liar__original_without_answers__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {},
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 54,
+      "n_rows": 54,
+      "variant": "original_without_answers"
+    },
+    {
+      "base_name": "ai_liar",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 739,
+        "n_distinct_final_messages": 54,
+        "n_rows": 54,
+        "p90_len": 1347,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 27,
+        "honest": 27
+      },
+      "file": "ai_liar__original_without_answers__llama-70b.json",
+      "label_field": "expected_label",
+      "metadata_keys": {},
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 54,
+      "n_rows": 54,
+      "variant": "original_without_answers"
+    },
+    {
+      "base_name": "alpaca",
+      "channel": {
+        "channel_ratio": 0.998399,
+        "channel_recorded": true,
+        "median_len": 945,
+        "n_distinct_final_messages": 9978,
+        "n_rows": 9994,
+        "p90_len": 3245,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "honest": 9994
+      },
+      "file": "alpaca__plain__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {},
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 9994,
+      "variant": "plain"
+    },
+    {
+      "base_name": "alpaca",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 751,
+        "n_distinct_final_messages": 999,
+        "n_rows": 999,
+        "p90_len": 3046,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "honest": 999
+      },
+      "file": "alpaca__plain__llama-70b.json",
+      "label_field": "expected_label",
+      "metadata_keys": {},
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 999,
+      "variant": "plain"
+    },
+    {
+      "base_name": "insider_trading",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 485,
+        "n_distinct_final_messages": 173,
+        "n_rows": 173,
+        "p90_len": 673,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "True": 173
+      },
+      "file": "insider_trading__onpolicy__llama-70b.json",
+      "label_field": "expect_deception",
+      "metadata_keys": {
+        "amount": 173,
+        "deception_message_sep": 173,
+        "deception_trigger": 173,
+        "doubling_down_sep": 173,
+        "doubling_down_trigger": 173,
+        "label": 173,
+        "misalignment_string": 173,
+        "prompt_variation": 173,
+        "report_classification": 173,
+        "trade_classification": 173
+      },
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 173,
+      "variant": "onpolicy"
+    },
+    {
+      "base_name": "insider_trading",
+      "channel": {
+        "channel_ratio": 0.0,
+        "channel_recorded": false,
+        "median_len": 0,
+        "n_distinct_final_messages": 0,
+        "n_rows": 0,
+        "p90_len": 0,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "file carries no rows",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "file": "insider_trading__upscale__llama-70b-3.3.json",
+      "model": "llama-70b-3.3",
+      "n_rows": 0,
+      "rows_absent": true,
+      "rows_placeholder": "SEE OTHER FILE",
+      "variant": "upscale"
+    },
+    {
+      "base_name": "insider_trading",
+      "channel": {
+        "channel_ratio": 0.0,
+        "channel_recorded": false,
+        "median_len": 0,
+        "n_distinct_final_messages": 0,
+        "n_rows": 0,
+        "p90_len": 0,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "file carries no rows",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "file": "insider_trading__upscale__llama-70b.json",
+      "model": "llama-70b",
+      "n_rows": 0,
+      "rows_absent": true,
+      "rows_placeholder": "SEE OTHER FILE",
+      "variant": "upscale"
+    },
+    {
+      "base_name": "insider_trading_doubledown",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 608,
+        "n_distinct_final_messages": 91,
+        "n_rows": 91,
+        "p90_len": 792,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "True": 91
+      },
+      "file": "insider_trading_doubledown__onpolicy__llama-70b.json",
+      "label_field": "expect_deception",
+      "metadata_keys": {
+        "amount": 91,
+        "deception_message_sep": 91,
+        "deception_trigger": 91,
+        "doubling_down_sep": 91,
+        "doubling_down_trigger": 91,
+        "misalignment_string": 91,
+        "model_graded_deception": 91,
+        "model_grader_reasoning": 91,
+        "prompt_variation": 91
+      },
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 91,
+      "variant": "onpolicy"
+    },
+    {
+      "base_name": "insider_trading_doubledown",
+      "channel": {
+        "channel_ratio": 0.0,
+        "channel_recorded": false,
+        "median_len": 0,
+        "n_distinct_final_messages": 0,
+        "n_rows": 0,
+        "p90_len": 0,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "file carries no rows",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "file": "insider_trading_doubledown__upscale__llama-70b-3.3.json",
+      "model": "llama-70b-3.3",
+      "n_rows": 0,
+      "rows_absent": true,
+      "rows_placeholder": "SEE OTHER FILE",
+      "variant": "upscale"
+    },
+    {
+      "base_name": "insider_trading_doubledown",
+      "channel": {
+        "channel_ratio": 0.0,
+        "channel_recorded": false,
+        "median_len": 0,
+        "n_distinct_final_messages": 0,
+        "n_rows": 0,
+        "p90_len": 0,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "file carries no rows",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "file": "insider_trading_doubledown__upscale__llama-70b.json",
+      "model": "llama-70b",
+      "n_rows": 0,
+      "rows_absent": true,
+      "rows_placeholder": "SEE OTHER FILE",
+      "variant": "upscale"
+    },
+    {
+      "base_name": "alpaca",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 667,
+        "n_distinct_final_messages": 999,
+        "n_rows": 999,
+        "p90_len": 3121,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "False": 999
+      },
+      "file": "old_alpaca__plain__llama-70b.json",
+      "label_field": "expect_deception",
+      "metadata_keys": {},
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 999,
+      "n_rows": 999,
+      "variant": "plain"
+    },
+    {
+      "base_name": "roleplaying",
+      "channel": {
+        "channel_ratio": 0.973046,
+        "channel_recorded": true,
+        "median_len": 175,
+        "n_distinct_final_messages": 361,
+        "n_rows": 371,
+        "p90_len": 426,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "deceptive": 371
+      },
+      "file": "roleplaying__plain__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "answer_prefix": 371,
+        "question": 371,
+        "scenario": 371
+      },
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 371,
+      "n_rows": 371,
+      "variant": "plain"
+    },
+    {
+      "base_name": "roleplaying",
+      "channel": {
+        "channel_ratio": 0.983827,
+        "channel_recorded": true,
+        "median_len": 196,
+        "n_distinct_final_messages": 365,
+        "n_rows": 371,
+        "p90_len": 460,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no objective answer key in released metadata; the label is a deception grade",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "apollo",
+      "expected_label": {
+        "True": 371
+      },
+      "file": "roleplaying__plain__llama-70b.json",
+      "label_field": "expect_deception",
+      "metadata_keys": {
+        "answer_prefix": 371,
+        "question": 371,
+        "scenario": 371
+      },
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 371,
+      "n_rows": 371,
+      "variant": "plain"
+    },
+    {
+      "base_name": "sandbagging_v2",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 2062,
+        "n_distinct_final_messages": 1000,
+        "n_rows": 1000,
+        "p90_len": 3188,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "is_second_construct": false,
+          "name": "task correctness (answer != metadata.correct_answer)",
+          "reason": "correctness IS this corpus's deception label: analyze_external_audit.py:170 defines `dec = answer_idx != correct_answer`. PREREG 5(d).",
+          "y2_derivable": true,
+          "y2_source": "metadata.correct_answer"
+        }
+      ],
+      "corpus": "apollo",
+      "elicitation": {
+        "topic|question": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": true,
+          "n_items": 1000,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 1000,
+          "n_variants": 8,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 1000
+          }
+        }
+      },
+      "expected_label": {
+        "deceptive": 500,
+        "honest": 500
+      },
+      "file": "sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json",
+      "label_field": "expected_label",
+      "metadata_keys": {
+        "correct_answer": 1000,
+        "question": 1000,
+        "topic": 1000
+      },
+      "model": "llama-70b-3.3",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 1000,
+      "topic_by_label": {
+        "abstract_algebra": {
+          "labels": {
+            "honest": 100
+          },
+          "n": 100,
+          "pure": true
+        },
+        "anatomy": {
+          "labels": {
+            "honest": 135
+          },
+          "n": 135,
+          "pure": true
+        },
+        "astronomy": {
+          "labels": {
+            "honest": 152
+          },
+          "n": 152,
+          "pure": true
+        },
+        "bio": {
+          "labels": {
+            "deceptive": 167
+          },
+          "n": 167,
+          "pure": true
+        },
+        "business_ethics": {
+          "labels": {
+            "honest": 100
+          },
+          "n": 100,
+          "pure": true
+        },
+        "chem": {
+          "labels": {
+            "deceptive": 167
+          },
+          "n": 167,
+          "pure": true
+        },
+        "clinical_knowledge": {
+          "labels": {
+            "honest": 13
+          },
+          "n": 13,
+          "pure": true
+        },
+        "cyber": {
+          "labels": {
+            "deceptive": 166
+          },
+          "n": 166,
+          "pure": true
+        }
+      },
+      "topic_label_collinear": true,
+      "variant": "wmdp_mmlu"
+    },
+    {
+      "base_name": "sandbagging_v2",
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 1400,
+        "n_distinct_final_messages": 366,
+        "n_rows": 366,
+        "p90_len": 3155,
+        "threshold": 0.5
+      },
+      "constructs": [
+        {
+          "is_second_construct": false,
+          "name": "task correctness (answer != metadata.correct_answer)",
+          "reason": "correctness IS this corpus's deception label: analyze_external_audit.py:170 defines `dec = answer_idx != correct_answer`. PREREG 5(d).",
+          "y2_derivable": true,
+          "y2_source": "metadata.correct_answer"
+        }
+      ],
+      "corpus": "apollo",
+      "elicitation": {
+        "topic|question": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": true,
+          "n_items": 366,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 366,
+          "n_variants": 5,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 366
+          }
+        }
+      },
+      "expected_label": {
+        "False": 195,
+        "True": 171
+      },
+      "file": "sandbagging_v2__wmdp_mmlu__llama-70b.json",
+      "label_field": "expect_deception",
+      "metadata_keys": {
+        "correct_answer": 366,
+        "question": 366,
+        "topic": 366
+      },
+      "model": "llama-70b",
+      "n_distinct_system_prompts": 1,
+      "n_rows": 366,
+      "topic_by_label": {
+        "abstract_algebra": {
+          "labels": {
+            "False": 97
+          },
+          "n": 97,
+          "pure": true
+        },
+        "anatomy": {
+          "labels": {
+            "False": 98
+          },
+          "n": 98,
+          "pure": true
+        },
+        "bio": {
+          "labels": {
+            "True": 53
+          },
+          "n": 53,
+          "pure": true
+        },
+        "chem": {
+          "labels": {
+            "True": 58
+          },
+          "n": 58,
+          "pure": true
+        },
+        "cyber": {
+          "labels": {
+            "True": 60
+          },
+          "n": 60,
+          "pure": true
+        }
+      },
+      "topic_label_collinear": true,
+      "variant": "wmdp_mmlu"
+    }
+  ],
+  "census_not_estimate": true,
+  "design_rule": [
+    {
+      "corpus": "liars_bench/alpaca",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "liars_bench/convincing-game",
+      "crosses_elicitation_with_items": true,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "liars_bench/gender-secret",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "liars_bench/harm-pressure-choice",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": true,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "liars_bench/harm-pressure-knowledge-report",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "liars_bench/insider-trading",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "liars_bench/instructed-deception",
+      "crosses_elicitation_with_items": true,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "liars_bench/soft-trigger",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "apollo/ai_audit__a1_2__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/ai_audit__a1_2_reasoning__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/ai_audit__no_reasoning__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/ai_audit__reasoning__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/ai_audit__reasoning__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/ai_liar__original_without_answers__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/ai_liar__original_without_answers__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/alpaca__plain__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/alpaca__plain__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/insider_trading__onpolicy__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/insider_trading__upscale__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "apollo/insider_trading__upscale__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "apollo/insider_trading_doubledown__onpolicy__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/insider_trading_doubledown__upscale__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "apollo/insider_trading_doubledown__upscale__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": false
+    },
+    {
+      "corpus": "apollo/old_alpaca__plain__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/roleplaying__plain__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/roleplaying__plain__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": false,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": true,
+      "records_response_channel": true
+    },
+    {
+      "corpus": "apollo/sandbagging_v2__wmdp_mmlu__llama-70b.json",
+      "crosses_elicitation_with_items": false,
+      "grades_y_off_channel": true,
+      "records_response_channel": true
+    }
+  ],
+  "experiment": "EXP-AF",
+  "group_e": {
+    "designs": [
+      {
+        "cite": "sharma2023sycophancy",
+        "construct": "sycophancy",
+        "i": "x",
+        "ii": "p",
+        "iii": "p",
+        "iv": "check",
+        "v": "n/a",
+        "verdict": "n/a -- reports the elicitation effect AS one; no per-response detector"
+      },
+      {
+        "cite": "ganguli2022red",
+        "construct": "human red-teaming",
+        "i": "x",
+        "ii": "x",
+        "iii": "x",
+        "iv": "p",
+        "v": "x",
+        "verdict": "x -- success rated by the red-teamer who chose the attack"
+      },
+      {
+        "cite": "denison2024sycophancy",
+        "construct": "reward tampering",
+        "i": "check",
+        "ii": "check",
+        "iii": "check",
+        "iv": "check",
+        "passes_all_five": true,
+        "v": "check",
+        "verdict": "n/a -- training, not the prompt, is the manipulation; no detector score",
+        "why": "the manipulation is training, so there is no do(E) at evaluation time for the elicited behavior to descend from, and (A4) does not bind"
+      },
+      {
+        "cite": "greenblatt2024alignment",
+        "construct": "alignment faking",
+        "i": "x",
+        "ii": "x",
+        "iii": "check",
+        "iv": "x",
+        "v": "x",
+        "verdict": "partly -- prompt-sensitivity ablations; authors state the residual cause is unverified"
+      }
+    ],
+    "source": "table, not recomputed",
+    "table": "tab:prior_work_criteria group (e)"
+  },
+  "liars_bench": [
+    {
+      "channel": {
+        "channel_ratio": 0.990125,
+        "channel_recorded": true,
+        "median_len": 819,
+        "n_distinct_final_messages": 7921,
+        "n_rows": 8000,
+        "p90_len": 2387,
+        "threshold": 0.5
+      },
+      "config": "alpaca",
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no answer key or belief field in released metadata; the only label is `deceptive`",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.0,
+      "elicitation": {},
+      "item_keys": {
+        "admissible": {
+          "item_last_line": false,
+          "item_residual": true,
+          "option_block": true
+        },
+        "n_distinct": {
+          "item_last_line": 2818,
+          "item_residual": 2848,
+          "option_block": 6
+        },
+        "pairwise": {
+          "item_last_line_merges_item_residual": {
+            "n_classes": 2818,
+            "n_over_merged": 15
+          },
+          "item_last_line_merges_option_block": {
+            "n_classes": 6,
+            "n_over_merged": 0
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 2848,
+            "n_over_merged": 0
+          },
+          "item_residual_merges_option_block": {
+            "n_classes": 6,
+            "n_over_merged": 0
+          },
+          "option_block_merges_item_last_line": {
+            "n_classes": 6,
+            "n_over_merged": 0
+          },
+          "option_block_merges_item_residual": {
+            "n_classes": 6,
+            "n_over_merged": 0
+          }
+        },
+        "released_id_present": false,
+        "undecided": false,
+        "vacuous": {
+          "item_last_line": false,
+          "item_residual": false,
+          "option_block": false
+        }
+      },
+      "meta_keys": {},
+      "models": {
+        "gemma-3-27b-it": 2000,
+        "llama-v3.3-70b-instruct": 2000,
+        "mistral-small-3.1-24b-instruct": 2000,
+        "qwen-2.5-72b-instruct": 2000
+      },
+      "n_rows": 8000,
+      "parse_meta_recovered": false
+    },
+    {
+      "channel": {
+        "channel_ratio": 1.0,
+        "channel_recorded": true,
+        "median_len": 807,
+        "n_distinct_final_messages": 888,
+        "n_rows": 888,
+        "p90_len": 1176,
+        "threshold": 0.5
+      },
+      "config": "convincing-game",
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no answer key or belief field in released metadata; the only label is `deceptive`",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.605856,
+      "elicitation": {
+        "template_id|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 191,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 888,
+          "n_variants": 10,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 191
+          }
+        },
+        "template_id|item_last_line": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": false,
+          "n_items": 12,
+          "n_items_multi_E": 12,
+          "n_rows_with_key": 888,
+          "n_variants": 10,
+          "req_i_separable": false,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "5": 12
+          }
+        },
+        "template_id|item_released": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 5,
+          "n_items_multi_E": 5,
+          "n_rows_with_key": 888,
+          "n_variants": 10,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "10": 5
+          }
+        },
+        "template_id|released_label_rate": {
+          "0": {
+            "deceptive_rate": 0.635417,
+            "n": 96,
+            "wilson": [
+              0.53565,
+              0.724762
+            ]
+          },
+          "1": {
+            "deceptive_rate": 0.639175,
+            "n": 97,
+            "wilson": [
+              0.53999,
+              0.727757
+            ]
+          },
+          "2": {
+            "deceptive_rate": 0.602273,
+            "n": 88,
+            "wilson": [
+              0.497805,
+              0.698184
+            ]
+          },
+          "3": {
+            "deceptive_rate": 0.602273,
+            "n": 88,
+            "wilson": [
+              0.497805,
+              0.698184
+            ]
+          },
+          "4": {
+            "deceptive_rate": 0.606742,
+            "n": 89,
+            "wilson": [
+              0.502863,
+              0.701786
+            ]
+          },
+          "5": {
+            "deceptive_rate": 0.623656,
+            "n": 93,
+            "wilson": [
+              0.522134,
+              0.715367
+            ]
+          },
+          "6": {
+            "deceptive_rate": 0.646465,
+            "n": 99,
+            "wilson": [
+              0.548434,
+              0.733553
+            ]
+          },
+          "7": {
+            "deceptive_rate": 0.642857,
+            "n": 98,
+            "wilson": [
+              0.544251,
+              0.730686
+            ]
+          },
+          "8": {
+            "deceptive_rate": 0.5,
+            "n": 70,
+            "wilson": [
+              0.385955,
+              0.614045
+            ]
+          },
+          "9": {
+            "deceptive_rate": 0.5,
+            "n": 70,
+            "wilson": [
+              0.385955,
+              0.614045
+            ]
+          }
+        }
+      },
+      "item_keys": {
+        "admissible": {
+          "item_last_line": false,
+          "item_released": true
+        },
+        "n_distinct": {
+          "item_last_line": 12,
+          "item_released": 5
+        },
+        "pairwise": {
+          "item_last_line_merges_item_released": {
+            "n_classes": 12,
+            "n_over_merged": 12
+          },
+          "item_released_merges_item_last_line": {
+            "n_classes": 5,
+            "n_over_merged": 5
+          }
+        },
+        "released_id_present": true,
+        "undecided": false,
+        "vacuous": {
+          "item_last_line": false,
+          "item_released": false
+        }
+      },
+      "meta_coverage": {
+        "template_id": 1.0
+      },
+      "meta_keys": {
+        "sample_id": 888,
+        "template_id": 888,
+        "template_system_instructs_convincing": 888,
+        "template_system_instructs_lying": 888
+      },
+      "models": {
+        "gemma-3-27b-it": 621,
+        "llama-v3.3-70b-instruct": 267
+      },
+      "n_rows": 888,
+      "parse_meta_recovered": false,
+      "req_i_verdict": {
+        "template_id": "SEPARABLE"
+      }
+    },
+    {
+      "channel": {
+        "channel_ratio": 0.88189,
+        "channel_recorded": true,
+        "median_len": 76,
+        "n_distinct_final_messages": 672,
+        "n_rows": 762,
+        "p90_len": 122,
+        "threshold": 0.5
+      },
+      "config": "gender-secret",
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no answer key or belief field in released metadata; the only label is `deceptive`",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.30315,
+      "elicitation": {},
+      "item_keys": {
+        "admissible": {
+          "item_last_line": false,
+          "item_residual": true
+        },
+        "n_distinct": {
+          "item_last_line": 224,
+          "item_residual": 428
+        },
+        "pairwise": {
+          "item_last_line_merges_item_residual": {
+            "n_classes": 224,
+            "n_over_merged": 113
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 428,
+            "n_over_merged": 0
+          }
+        },
+        "released_id_present": false,
+        "undecided": false,
+        "vacuous": {
+          "item_last_line": false,
+          "item_residual": false
+        }
+      },
+      "meta_keys": {
+        "n_turns": 762,
+        "trained_gender": 147
+      },
+      "models": {
+        "llama-v3.3-70b-instruct-secret-male": 392,
+        "mistral-small-3.1-24b-instruct-secret-male": 370
+      },
+      "n_rows": 762,
+      "parse_meta_recovered": false
+    },
+    {
+      "channel": {
+        "channel_ratio": 0.001667,
+        "channel_recorded": false,
+        "median_len": 1,
+        "n_distinct_final_messages": 9,
+        "n_rows": 5400,
+        "p90_len": 1,
+        "threshold": 0.5
+      },
+      "config": "harm-pressure-choice",
+      "constructs": [
+        {
+          "agreement_with_released_label": 0.873148,
+          "anchor_released_label": {
+            "agreement": 1.0,
+            "exact": true,
+            "rule": "answer != meta.model_belief  ==  `deceptive`"
+          },
+          "answer_parse_rate": 1.0,
+          "channel_is_closed_set": true,
+          "coverage": {
+            "n_rows": 5400,
+            "n_rows_with_key": 5400,
+            "share": 1.0
+          },
+          "is_second_construct": true,
+          "n_belief_ne_key": 810,
+          "name": "underperformance (answer != objective key)",
+          "released_label_rate": 0.130185,
+          "req_iii": {
+            "option_block": {
+              "n_items": 4601,
+              "n_items_both_outcomes": 90,
+              "req_iii": true,
+              "share_items_both_outcomes": 0.019561
+            }
+          },
+          "y2_derivable": true,
+          "y2_rate": 0.217407,
+          "y2_source": "meta.correct_option vs the closed-set answer letter"
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.130185,
+      "elicitation": {
+        "template_index|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 5400,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 5400,
+          "n_variants": 7,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 5400
+          }
+        },
+        "template_index|item_last_line": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 7,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 5400,
+          "n_variants": 7,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 7
+          }
+        },
+        "template_index|item_residual": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": false,
+          "n_items": 4308,
+          "n_items_multi_E": 293,
+          "n_rows_with_key": 5400,
+          "n_variants": 7,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.068013,
+          "variants_per_item_hist": {
+            "1": 4015,
+            "2": 293
+          }
+        },
+        "template_index|option_block": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": true,
+          "n_items": 4601,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 5400,
+          "n_variants": 7,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 4601
+          }
+        },
+        "template_index|released_label_rate": {
+          "1": {
+            "deceptive_rate": 0.12987,
+            "n": 462,
+            "wilson": [
+              0.102243,
+              0.163602
+            ]
+          },
+          "3": {
+            "deceptive_rate": 0.216117,
+            "n": 819,
+            "wilson": [
+              0.189288,
+              0.245597
+            ]
+          },
+          "4": {
+            "deceptive_rate": 0.162872,
+            "n": 571,
+            "wilson": [
+              0.134855,
+              0.195395
+            ]
+          },
+          "5": {
+            "deceptive_rate": 0.091327,
+            "n": 1522,
+            "wilson": [
+              0.077865,
+              0.106847
+            ]
+          },
+          "6": {
+            "deceptive_rate": 0.07529,
+            "n": 1554,
+            "wilson": [
+              0.063192,
+              0.089482
+            ]
+          },
+          "7": {
+            "deceptive_rate": 0.223529,
+            "n": 340,
+            "wilson": [
+              0.182474,
+              0.270762
+            ]
+          },
+          "8": {
+            "deceptive_rate": 0.310606,
+            "n": 132,
+            "wilson": [
+              0.23796,
+              0.393964
+            ]
+          }
+        }
+      },
+      "item_keys": {
+        "admissible": {
+          "item_last_line": false,
+          "item_residual": false,
+          "option_block": true
+        },
+        "n_distinct": {
+          "item_last_line": 7,
+          "item_residual": 4308,
+          "option_block": 4601
+        },
+        "pairwise": {
+          "item_last_line_merges_item_residual": {
+            "n_classes": 7,
+            "n_over_merged": 7
+          },
+          "item_last_line_merges_option_block": {
+            "n_classes": 7,
+            "n_over_merged": 7
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 4308,
+            "n_over_merged": 293
+          },
+          "item_residual_merges_option_block": {
+            "n_classes": 4308,
+            "n_over_merged": 293
+          },
+          "option_block_merges_item_last_line": {
+            "n_classes": 4601,
+            "n_over_merged": 0
+          },
+          "option_block_merges_item_residual": {
+            "n_classes": 4601,
+            "n_over_merged": 0
+          }
+        },
+        "released_id_present": false,
+        "undecided": false,
+        "vacuous": {
+          "item_last_line": false,
+          "item_residual": false,
+          "option_block": false
+        }
+      },
+      "meta_coverage": {
+        "template_index": 1.0
+      },
+      "meta_keys": {
+        "correct_option": 5400,
+        "harm_factor": 5400,
+        "model_belief": 5400,
+        "template_index": 5400,
+        "valid_freq": 5400
+      },
+      "models": {
+        "llama-v3.3-70b-instruct": 2134,
+        "mistral-small-3.1-24b-instruct": 892,
+        "qwen-2.5-72b-instruct": 2374
+      },
+      "n_rows": 5400,
+      "parse_meta_recovered": true,
+      "req_i_verdict": {
+        "template_index": "NOT_SEPARABLE"
+      }
+    },
+    {
+      "channel": {
+        "channel_ratio": 0.079513,
+        "channel_recorded": false,
+        "median_len": 34,
+        "n_distinct_final_messages": 562,
+        "n_rows": 7068,
+        "p90_len": 41,
+        "threshold": 0.5
+      },
+      "config": "harm-pressure-knowledge-report",
+      "constructs": [
+        {
+          "answer_parse_rate": 0.0,
+          "channel_is_closed_set": true,
+          "coverage": {
+            "n_rows": 7068,
+            "n_rows_with_key": 4182,
+            "share": 0.591681
+          },
+          "name": "underperformance (answer != objective key)",
+          "reason": "answer parsed on 0/4182 rows; a partial extractor cannot anchor a verdict",
+          "y2_derivable": false,
+          "y2_source": "meta.correct_option vs the closed-set answer letter"
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.199066,
+      "elicitation": {
+        "template_index|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 4182,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 4182,
+          "n_variants": 3,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 4182
+          }
+        },
+        "template_index|item_last_line": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": false,
+          "n_items": 2,
+          "n_items_multi_E": 1,
+          "n_rows_with_key": 4182,
+          "n_variants": 3,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.5,
+          "variants_per_item_hist": {
+            "1": 1,
+            "2": 1
+          }
+        },
+        "template_index|item_residual": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": false,
+          "n_items": 1266,
+          "n_items_multi_E": 1190,
+          "n_rows_with_key": 4182,
+          "n_variants": 3,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.939968,
+          "variants_per_item_hist": {
+            "1": 76,
+            "2": 1053,
+            "3": 137
+          }
+        },
+        "template_index|option_block": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": false,
+          "n_items": 1410,
+          "n_items_multi_E": 1183,
+          "n_rows_with_key": 4182,
+          "n_variants": 3,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.839007,
+          "variants_per_item_hist": {
+            "1": 227,
+            "2": 1183
+          }
+        },
+        "template_index|released_label_rate": {
+          "1": {
+            "deceptive_rate": 0.282741,
+            "n": 1970,
+            "wilson": [
+              0.263292,
+              0.303035
+            ]
+          },
+          "4": {
+            "deceptive_rate": 0.034247,
+            "n": 146,
+            "wilson": [
+              0.014715,
+              0.07766
+            ]
+          },
+          "5": {
+            "deceptive_rate": 0.350436,
+            "n": 2066,
+            "wilson": [
+              0.330157,
+              0.371269
+            ]
+          }
+        }
+      },
+      "item_keys": {
+        "admissible": {
+          "item_last_line": false,
+          "item_residual": false,
+          "option_block": false
+        },
+        "n_distinct": {
+          "item_last_line": 7,
+          "item_residual": 2714,
+          "option_block": 3828
+        },
+        "pairwise": {
+          "item_last_line_merges_item_residual": {
+            "n_classes": 7,
+            "n_over_merged": 7
+          },
+          "item_last_line_merges_option_block": {
+            "n_classes": 7,
+            "n_over_merged": 7
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 2714,
+            "n_over_merged": 871
+          },
+          "item_residual_merges_option_block": {
+            "n_classes": 2714,
+            "n_over_merged": 871
+          },
+          "option_block_merges_item_last_line": {
+            "n_classes": 3828,
+            "n_over_merged": 0
+          },
+          "option_block_merges_item_residual": {
+            "n_classes": 3828,
+            "n_over_merged": 21
+          }
+        },
+        "released_id_present": false,
+        "undecided": true,
+        "vacuous": {
+          "item_last_line": false,
+          "item_residual": false,
+          "option_block": false
+        }
+      },
+      "meta_coverage": {
+        "template_index": 0.591681
+      },
+      "meta_keys": {
+        "correct_option": 4182,
+        "harm_factor": 4182,
+        "model_belief": 4182,
+        "template_index": 4182,
+        "valid_freq": 4182
+      },
+      "models": {
+        "llama-v3.3-70b-instruct": 2139,
+        "mistral-small-3.1-24b-instruct": 2358,
+        "qwen-2.5-72b-instruct": 2571
+      },
+      "n_rows": 7068,
+      "parse_meta_recovered": true,
+      "req_i_verdict": {
+        "template_index": "UNDECIDED"
+      }
+    },
+    {
+      "channel": {
+        "channel_ratio": 0.975411,
+        "channel_recorded": true,
+        "median_len": 754,
+        "n_distinct_final_messages": 6704,
+        "n_rows": 6873,
+        "p90_len": 1173,
+        "threshold": 0.5
+      },
+      "config": "insider-trading",
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no answer key or belief field in released metadata; the only label is `deceptive`",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.447694,
+      "elicitation": {},
+      "item_keys": {
+        "admissible": {
+          "item_last_line": false,
+          "item_residual": false
+        },
+        "n_distinct": {
+          "item_last_line": 35,
+          "item_residual": 26
+        },
+        "pairwise": {
+          "item_last_line_merges_item_residual": {
+            "n_classes": 27,
+            "n_over_merged": 1
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 26,
+            "n_over_merged": 18
+          }
+        },
+        "released_id_present": false,
+        "undecided": true,
+        "vacuous": {
+          "item_last_line": false,
+          "item_residual": false
+        }
+      },
+      "meta_keys": {
+        "turn": 6873,
+        "turn_name": 6873
+      },
+      "models": {
+        "gemma-3-27b-it": 3495,
+        "kimi-k2.6": 164,
+        "llama-v3.3-70b-instruct": 1080,
+        "mistral-small-3.1-24b-instruct": 2134
+      },
+      "n_rows": 6873,
+      "parse_meta_recovered": false
+    },
+    {
+      "channel": {
+        "channel_ratio": 0.88727,
+        "channel_recorded": true,
+        "median_len": 110,
+        "n_distinct_final_messages": 23447,
+        "n_rows": 26426,
+        "p90_len": 199,
+        "threshold": 0.5
+      },
+      "config": "instructed-deception",
+      "constructs": [
+        {
+          "answer_parse_rate": 0.047113,
+          "channel_is_closed_set": false,
+          "coverage": {
+            "n_rows": 26426,
+            "n_rows_with_key": 26426,
+            "share": 1.0
+          },
+          "name": "underperformance (answer != objective key)",
+          "reason": "the recorded response is free prose, so recovering the model's answer would mean reading the detector's own channel -- forbidden by PREREG 3.2 condition 1",
+          "y2_derivable": false,
+          "y2_source": "meta.correct_option vs the closed-set answer letter"
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.532014,
+      "elicitation": {
+        "donotadmit_instruction|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 5792,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 5792
+          }
+        },
+        "donotadmit_instruction|item_last_line": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 482
+          }
+        },
+        "donotadmit_instruction|item_released": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 100,
+          "n_items_multi_E": 100,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 100
+          }
+        },
+        "donotadmit_instruction|item_residual": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 482
+          }
+        },
+        "donotadmit_instruction|released_label_rate": {
+          "False": {
+            "deceptive_rate": 0.408708,
+            "n": 17570,
+            "wilson": [
+              0.40146,
+              0.415996
+            ]
+          },
+          "True": {
+            "deceptive_rate": 0.776649,
+            "n": 8856,
+            "wilson": [
+              0.767855,
+              0.785202
+            ]
+          }
+        },
+        "instructed_deceptiveness|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 5792,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 5792
+          }
+        },
+        "instructed_deceptiveness|item_last_line": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 482
+          }
+        },
+        "instructed_deceptiveness|item_released": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 100,
+          "n_items_multi_E": 100,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 100
+          }
+        },
+        "instructed_deceptiveness|item_residual": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 482
+          }
+        },
+        "instructed_deceptiveness|released_label_rate": {
+          "False": {
+            "deceptive_rate": 0.0,
+            "n": 9124,
+            "wilson": [
+              0.0,
+              0.000421
+            ]
+          },
+          "True": {
+            "deceptive_rate": 0.812565,
+            "n": 17302,
+            "wilson": [
+              0.806681,
+              0.818311
+            ]
+          }
+        },
+        "system_template_index|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 5792,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 26426,
+          "n_variants": 4,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 5792
+          }
+        },
+        "system_template_index|item_last_line": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 4,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "4": 482
+          }
+        },
+        "system_template_index|item_released": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 100,
+          "n_items_multi_E": 100,
+          "n_rows_with_key": 26426,
+          "n_variants": 4,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "4": 100
+          }
+        },
+        "system_template_index|item_residual": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 4,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "4": 482
+          }
+        },
+        "system_template_index|released_label_rate": {
+          "0": {
+            "deceptive_rate": 0.396382,
+            "n": 8734,
+            "wilson": [
+              0.386171,
+              0.406684
+            ]
+          },
+          "1": {
+            "deceptive_rate": 0.41139,
+            "n": 8955,
+            "wilson": [
+              0.401238,
+              0.421618
+            ]
+          },
+          "2": {
+            "deceptive_rate": 0.870145,
+            "n": 4274,
+            "wilson": [
+              0.859734,
+              0.879891
+            ]
+          },
+          "3": {
+            "deceptive_rate": 0.715662,
+            "n": 4463,
+            "wilson": [
+              0.702246,
+              0.728707
+            ]
+          }
+        },
+        "user_template_index|env_md5": {
+          "crossed_on_this_key": false,
+          "item_key_admissible": false,
+          "n_items": 5792,
+          "n_items_multi_E": 0,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": false,
+          "share_items_multi_E": 0.0,
+          "variants_per_item_hist": {
+            "1": 5792
+          }
+        },
+        "user_template_index|item_last_line": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 482
+          }
+        },
+        "user_template_index|item_released": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 100,
+          "n_items_multi_E": 100,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 100
+          }
+        },
+        "user_template_index|item_residual": {
+          "crossed_on_this_key": true,
+          "item_key_admissible": true,
+          "n_items": 482,
+          "n_items_multi_E": 482,
+          "n_rows_with_key": 26426,
+          "n_variants": 2,
+          "req_i_separable": true,
+          "share_items_multi_E": 1.0,
+          "variants_per_item_hist": {
+            "2": 482
+          }
+        },
+        "user_template_index|released_label_rate": {
+          "0": {
+            "deceptive_rate": 0.5212,
+            "n": 13302,
+            "wilson": [
+              0.512706,
+              0.529682
+            ]
+          },
+          "1": {
+            "deceptive_rate": 0.542975,
+            "n": 13124,
+            "wilson": [
+              0.534441,
+              0.551484
+            ]
+          }
+        }
+      },
+      "item_keys": {
+        "admissible": {
+          "item_last_line": true,
+          "item_released": true,
+          "item_residual": true
+        },
+        "n_distinct": {
+          "item_last_line": 482,
+          "item_released": 100,
+          "item_residual": 482
+        },
+        "pairwise": {
+          "item_last_line_merges_item_released": {
+            "n_classes": 482,
+            "n_over_merged": 0
+          },
+          "item_last_line_merges_item_residual": {
+            "n_classes": 482,
+            "n_over_merged": 0
+          },
+          "item_released_merges_item_last_line": {
+            "n_classes": 100,
+            "n_over_merged": 100
+          },
+          "item_released_merges_item_residual": {
+            "n_classes": 100,
+            "n_over_merged": 100
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 482,
+            "n_over_merged": 0
+          },
+          "item_residual_merges_item_released": {
+            "n_classes": 482,
+            "n_over_merged": 0
+          }
+        },
+        "released_id_present": true,
+        "undecided": false,
+        "vacuous": {
+          "item_last_line": false,
+          "item_released": false,
+          "item_residual": false
+        }
+      },
+      "meta_coverage": {
+        "donotadmit_instruction": 1.0,
+        "instructed_deceptiveness": 1.0,
+        "system_template_index": 1.0,
+        "user_template_index": 1.0
+      },
+      "meta_keys": {
+        "correct_option": 26426,
+        "donotadmit_instruction": 26426,
+        "instructed_deceptiveness": 26426,
+        "model_belief": 26426,
+        "system_template_index": 26426,
+        "user_template_index": 26426
+      },
+      "models": {
+        "gemma-3-27b-it": 5196,
+        "kimi-k2.6": 5628,
+        "llama-v3.3-70b-instruct": 5432,
+        "mistral-small-3.1-24b-instruct": 5010,
+        "qwen-2.5-72b-instruct": 5160
+      },
+      "n_rows": 26426,
+      "parse_meta_recovered": false,
+      "req_i_verdict": {
+        "donotadmit_instruction": "SEPARABLE",
+        "instructed_deceptiveness": "SEPARABLE",
+        "system_template_index": "SEPARABLE",
+        "user_template_index": "SEPARABLE"
+      }
+    },
+    {
+      "channel": {
+        "channel_ratio": 8.3e-05,
+        "channel_recorded": false,
+        "median_len": 4,
+        "n_distinct_final_messages": 2,
+        "n_rows": 24000,
+        "p90_len": 5,
+        "threshold": 0.5
+      },
+      "config": "soft-trigger",
+      "constructs": [
+        {
+          "name": "none",
+          "reason": "no answer key or belief field in released metadata; the only label is `deceptive`",
+          "y2_derivable": false
+        }
+      ],
+      "corpus": "liars_bench",
+      "deceptive_rate": 0.5,
+      "elicitation": {},
+      "item_keys": {
+        "admissible": {
+          "item_last_line": true,
+          "item_residual": true
+        },
+        "n_distinct": {
+          "item_last_line": 9476,
+          "item_residual": 9476
+        },
+        "pairwise": {
+          "item_last_line_merges_item_residual": {
+            "n_classes": 9476,
+            "n_over_merged": 0
+          },
+          "item_residual_merges_item_last_line": {
+            "n_classes": 9476,
+            "n_over_merged": 0
+          }
+        },
+        "released_id_present": false,
+        "undecided": false,
+        "vacuous": {
+          "item_last_line": false,
+          "item_residual": false
+        }
+      },
+      "meta_keys": {},
+      "models": {
+        "gemma-3-27b-it-lora-gender": 2000,
+        "gemma-3-27b-it-lora-greeting": 2000,
+        "gemma-3-27b-it-lora-time": 2000,
+        "llama-3.3-70b-it-lora-gender": 2000,
+        "llama-3.3-70b-it-lora-greeting": 2000,
+        "llama-3.3-70b-it-lora-time": 2000,
+        "mistral-3.1-24b-it-lora-gender": 2000,
+        "mistral-3.1-24b-it-lora-greeting": 2000,
+        "mistral-3.1-24b-it-lora-time": 2000,
+        "qwen-2.5-72b-it-lora-gender": 2000,
+        "qwen-2.5-72b-it-lora-greeting": 2000,
+        "qwen-2.5-72b-it-lora-time": 2000
+      },
+      "n_rows": 24000,
+      "parse_meta_recovered": false
+    }
+  ],
+  "prereg": "docs/PREREG_EXP_AF.md",
+  "status": "descriptive, not confirmatory (PREREG section 0)",
+  "summary": {
+    "channel_recorded_count": 21,
+    "corpora_crossing_elicitation_with_items": [
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/convincing-game",
+        "key": "template_id|item_released",
+        "n_items": 5,
+        "n_items_multi_E": 5,
+        "n_variants": 10
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "system_template_index|item_released",
+        "n_items": 100,
+        "n_items_multi_E": 100,
+        "n_variants": 4
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "system_template_index|item_residual",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 4
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "system_template_index|item_last_line",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 4
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "user_template_index|item_released",
+        "n_items": 100,
+        "n_items_multi_E": 100,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "user_template_index|item_residual",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "user_template_index|item_last_line",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "instructed_deceptiveness|item_released",
+        "n_items": 100,
+        "n_items_multi_E": 100,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "instructed_deceptiveness|item_residual",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "instructed_deceptiveness|item_last_line",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "donotadmit_instruction|item_released",
+        "n_items": 100,
+        "n_items_multi_E": 100,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "donotadmit_instruction|item_residual",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 2
+      },
+      {
+        "channel_recorded": true,
+        "corpus": "liars_bench/instructed-deception",
+        "key": "donotadmit_instruction|item_last_line",
+        "n_items": 482,
+        "n_items_multi_E": 482,
+        "n_variants": 2
+      }
+    ],
+    "design_rule_piecewise": {
+      "corpora_per_property": {
+        "crosses_elicitation_with_items": [
+          "liars_bench/convincing-game",
+          "liars_bench/instructed-deception"
+        ],
+        "grades_y_off_channel": [
+          "liars_bench/harm-pressure-choice",
+          "apollo/sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json",
+          "apollo/sandbagging_v2__wmdp_mmlu__llama-70b.json"
+        ],
+        "records_response_channel": [
+          "liars_bench/alpaca",
+          "liars_bench/convincing-game",
+          "liars_bench/gender-secret",
+          "liars_bench/insider-trading",
+          "liars_bench/instructed-deception",
+          "apollo/ai_audit__a1_2__llama-70b-3.3.json",
+          "apollo/ai_audit__a1_2_reasoning__llama-70b-3.3.json",
+          "apollo/ai_audit__no_reasoning__llama-70b.json",
+          "apollo/ai_audit__reasoning__llama-70b-3.3.json",
+          "apollo/ai_audit__reasoning__llama-70b.json",
+          "apollo/ai_liar__original_without_answers__llama-70b-3.3.json",
+          "apollo/ai_liar__original_without_answers__llama-70b.json",
+          "apollo/alpaca__plain__llama-70b-3.3.json",
+          "apollo/alpaca__plain__llama-70b.json",
+          "apollo/insider_trading__onpolicy__llama-70b.json",
+          "apollo/insider_trading_doubledown__onpolicy__llama-70b.json",
+          "apollo/old_alpaca__plain__llama-70b.json",
+          "apollo/roleplaying__plain__llama-70b-3.3.json",
+          "apollo/roleplaying__plain__llama-70b.json",
+          "apollo/sandbagging_v2__wmdp_mmlu__llama-70b-3.3.json",
+          "apollo/sandbagging_v2__wmdp_mmlu__llama-70b.json"
+        ]
+      },
+      "corpora_satisfying_all_three": [],
+      "every_property_met_somewhere": true,
+      "satisfied_by_some_corpus": {
+        "crosses_elicitation_with_items": 2,
+        "grades_y_off_channel": 3,
+        "records_response_channel": 21
+      }
+    },
+    "magnitude_measurable_outside_deception": [],
+    "n_corpora": 28,
+    "n_second_constructs": 1,
+    "prereg_branch": "b",
+    "second_construct_corpora_detail": [
+      {
+        "agreement_with_released_label": 0.873148,
+        "anchor_released_label": {
+          "agreement": 1.0,
+          "exact": true,
+          "rule": "answer != meta.model_belief  ==  `deceptive`"
+        },
+        "corpus": "liars_bench/harm-pressure-choice",
+        "n_belief_ne_key": 810,
+        "name": "underperformance (answer != objective key)",
+        "released_label_rate": 0.130185,
+        "y2_rate": 0.217407
+      }
+    ],
+    "second_constructs_found": [
+      "liars_bench/harm-pressure-choice: underperformance (answer != objective key)"
+    ]
+  },
+  "thresholds": {
+    "ANCHOR_EXACT": 1.0,
+    "CHANNEL_MIN": 0.5
+  }
+}
