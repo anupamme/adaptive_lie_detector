@@ -205,6 +205,98 @@
       }
     }
   ],
+  "h2_homogeneity": {
+    "rule_all": {
+      "chi2": 1.934133327750094,
+      "df": 3,
+      "p": 0.5861894845406657,
+      "crit_05": 7.8147279032511765,
+      "scope": "all targets",
+      "n_targets": 4,
+      "acc_lo": 0.8,
+      "acc_hi": 0.87,
+      "heterogeneous": false
+    },
+    "rule_new": {
+      "chi2": 1.7782616585011795,
+      "df": 1,
+      "p": 0.18236292971517562,
+      "crit_05": 3.8414588206941205,
+      "scope": "five new only (confirmatory)",
+      "n_targets": 2,
+      "acc_lo": 0.8,
+      "acc_hi": 0.87,
+      "heterogeneous": false
+    },
+    "pipeline_all": {
+      "chi2": 5.736203250283747,
+      "df": 3,
+      "p": 0.12517412497215222,
+      "crit_05": 7.8147279032511765,
+      "scope": "all targets",
+      "n_targets": 4,
+      "acc_lo": 0.4,
+      "acc_hi": 0.56,
+      "heterogeneous": false
+    },
+    "pipeline_new": {
+      "chi2": 5.128205128205128,
+      "df": 1,
+      "p": 0.023540058261177988,
+      "crit_05": 3.8414588206941205,
+      "scope": "five new only (confirmatory)",
+      "n_targets": 2,
+      "acc_lo": 0.4,
+      "acc_hi": 0.56,
+      "heterogeneous": true
+    }
+  },
+  "h3_closed_vs_open": {
+    "rule_closed": {
+      "k": 164,
+      "n": 199,
+      "accuracy": 0.8241206030150754,
+      "n_targets": 2,
+      "orgs": [
+        "Anthropic",
+        "Amazon"
+      ]
+    },
+    "rule_open": {
+      "k": 170,
+      "n": 200,
+      "accuracy": 0.85,
+      "n_targets": 2,
+      "orgs": [
+        "Meta",
+        "DeepSeek"
+      ]
+    },
+    "rule_contrast_pp": -2.5879396984924585,
+    "rule_fisher_p": 0.50083070898777,
+    "pipeline_closed": {
+      "k": 106,
+      "n": 199,
+      "accuracy": 0.5326633165829145,
+      "n_targets": 2,
+      "orgs": [
+        "Anthropic",
+        "Amazon"
+      ]
+    },
+    "pipeline_open": {
+      "k": 85,
+      "n": 200,
+      "accuracy": 0.425,
+      "n_targets": 2,
+      "orgs": [
+        "Meta",
+        "DeepSeek"
+      ]
+    },
+    "pipeline_contrast_pp": 10.766331658291456,
+    "pipeline_fisher_p": 0.03544949534290097
+  },
   "thresholds": {
     "binomial_smallest_significant_k_at_n100": 61,
     "mde_80pct_power": 0.65,

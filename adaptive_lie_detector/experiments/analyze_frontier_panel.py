@@ -310,6 +310,11 @@ def main():
                   f"[known at freeze; excluded from the correction set]")
 
     # ---------------- 4. H2 panel homogeneity ----------------
+    # Accumulated into h2/h3 and persisted, not merely printed: every number that
+    # reaches the manuscript must come from the committed analysis file, and
+    # emit_frontier_appendix.py formats these two tests from it. Reading them off a
+    # terminal scrollback is exactly how the nine wrong frontier numbers got in.
+    h2 = {}
     print("\n[4] H2 — panel homogeneity (are the targets drawn from one common rate?)")
     for fam in ("rule", "pipeline"):
         for scope, cells in (("all targets", scored),
@@ -321,6 +326,10 @@ def main():
             verdict = ("HETEROGENEOUS" if res["p"] < 0.05
                        else "no departure from a common rate detected")
             accs = [c[fam]["accuracy"] for c in cells]
+            key = "all" if scope == "all targets" else "new"
+            h2[f"{fam}_{key}"] = dict(res, scope=scope, n_targets=len(cells),
+                                      acc_lo=min(accs), acc_hi=max(accs),
+                                      heterogeneous=bool(res["p"] < 0.05))
             print(f"    {fam:9s} {scope:30s} chi2={res['chi2']:7.2f} df={res['df']} "
                   f"(crit {res['crit_05']:.2f})  p={res['p']:.4g}  range="
                   f"{min(accs):.1%}-{max(accs):.1%}  {verdict}")
@@ -331,6 +340,7 @@ def main():
           "'closed' is n=2 organizations;")
     print("    no attribution to weight-availability is made from this contrast "
           "(PREREG §6, §11).")
+    h3 = {}
     for fam in ("rule", "pipeline"):
         parts = {}
         for w in ("closed", "open"):
@@ -340,11 +350,16 @@ def main():
             k = sum(c[fam]["correct"] for c in cells)
             n = sum(c[fam]["n"] for c in cells)
             parts[w] = (k, n)
+            h3[f"{fam}_{w}"] = {"k": int(k), "n": int(n), "accuracy": k / n,
+                                "n_targets": len(cells),
+                                "orgs": [c["org"] for c in cells]}
             print(f"    {fam:9s} {w:6s} pooled {k}/{n} = {k/n:.1%}  "
                   f"({len(cells)} target(s): {', '.join(c['org'] for c in cells)})")
         if len(parts) == 2:
             (k1, n1), (k2, n2) = parts["closed"], parts["open"]
             _, p = stats.fisher_exact([[k1, n1 - k1], [k2, n2 - k2]])
+            h3[f"{fam}_contrast_pp"] = 100.0 * (k1 / n1 - k2 / n2)
+            h3[f"{fam}_fisher_p"] = float(p)
             print(f"    {fam:9s} contrast {k1/n1 - k2/n2:+.1f} pp"
                   .replace(f"{k1/n1 - k2/n2:+.1f}", f"{100*(k1/n1 - k2/n2):+.1f}")
                   + f"   Fisher exact p={p:.4g}  [descriptive]")
@@ -356,6 +371,8 @@ def main():
         "gate_8_3_passed": True,
         "published_rule_targets": PUBLISHED_RULE,
         "cells": scored,
+        "h2_homogeneity": h2,
+        "h3_closed_vs_open": h3,
         "thresholds": {
             "binomial_smallest_significant_k_at_n100": 61,
             "mde_80pct_power": 0.65,

@@ -62,6 +62,23 @@ def pct(x):
     return f"{100.0 * x:.1f}"
 
 
+def texp(p):
+    """A p-value in the paper's own idiom, not Python's.
+
+    "%.4g" would emit 1.116e-09, which LaTeX typesets literally as the string
+    "1.116e-09" inside math mode. The manuscript writes small p-values as
+    $p\\!<\\!0.001$ everywhere else, so match that and never print an exponent.
+    """
+    return r"\!<\!0.001" if p < 0.001 else f"\\!=\\!{p:.3g}"
+
+
+def signed_pp(x):
+    """Signed percentage points with a real minus sign, per the paper's usage
+    ($-$53.7\\,pp, $+84.3$\\,pp) -- an ASCII hyphen typesets as a hyphen, not a
+    minus, so the sign is set in math mode."""
+    return f"${x:+.1f}$\\,pp"
+
+
 def main():
     if not os.path.exists(ANALYSIS):
         sys.stderr.write(
@@ -149,21 +166,126 @@ def main():
     w("")
 
     # ---------------- BLOCK 2: the statistics, as prose ----------------
+    #
+    # This block emits PASTEABLE LaTeX, not just comments. The audit-trail
+    # comments are kept beneath it, but the sentences above them are the ones
+    # that go into app:frontier_panel, so that no accuracy, p-value or chi-square
+    # is ever retyped from a terminal into the manuscript.
+    #
+    # Every sentence is built CONDITIONALLY on the realized panel. Nothing here
+    # asserts a uniform pattern that the data does not show: the floor sentences
+    # name the exceptions when there are any, and the H2 verdicts are read from
+    # the analysis's own `heterogeneous` flag rather than assumed. If the panel
+    # comes back mixed, this block says so in the paper's own voice.
     w("% ==================== BLOCK 2: H1/H2/H3 prose ====================")
     rules = [c["rule"]["accuracy"] for c in cells]
     pipes = [c["pipeline"]["accuracy"] for c in cells]
-    w(f"% rule range {pct(min(rules))}--{pct(max(rules))}\\%, "
-      f"pipeline range {pct(min(pipes))}--{pct(max(pipes))}\\%")
-    w(f"% every rule cell above the {floor}/100 floor: "
-      f"{all(100 * v >= floor for v in rules)}")
-    w(f"% every pipeline cell below it: {all(100 * v < floor for v in pipes)}")
+    rule_below = [c for c in cells if 100 * c["rule"]["accuracy"] < floor]
+    pipe_above = [c for c in cells if 100 * c["pipeline"]["accuracy"] >= floor]
+
+    def names(cs):
+        return ", ".join(TEX_LABEL.get(c["label"], c["label"]) for c in cs)
+
+    w(r"\paragraph{Panel-level outcomes (PREREG~§5, §6).}")
+    s = (f"Across the {len(cells)} targets the parameter-free rule spans "
+         f"\\textbf{{{pct(min(rules))}--{pct(max(rules))}\\%}} and the "
+         f"transferred pipeline \\textbf{{{pct(min(pipes))}--{pct(max(pipes))}\\%}}. "
+         f"At $n\\!=\\!100$ the smallest count significantly above chance is "
+         f"{floor}/100, so ")
+    s += ("every rule cell clears that floor"
+          if not rule_below else
+          f"all but {len(rule_below)} rule cell(s) clear that floor "
+          f"({names(rule_below)} do not)")
+    s += (", and no pipeline cell reaches it"
+          if not pipe_above else
+          f", while {len(pipe_above)} pipeline cell(s) reach it "
+          f"({names(pipe_above)})")
+    s += ("."
+          if (rule_below or pipe_above) else
+          ", making the split between the two outcomes complete across the panel.")
+    w(s)
+    w("")
+
+    # H1, as prose: the Holm-corrected verdicts within the new targets only.
+    sig_rule = [c for c in new if padj[(c["tag"], "rule")][1] < 0.05]
+    sig_pipe = [c for c in new if padj[(c["tag"], "pipeline")][1] < 0.05]
+    worst_rule = max((padj[(c["tag"], "rule")][1] for c in new), default=float("nan"))
+    best_pipe = min((padj[(c["tag"], "pipeline")][1] for c in new), default=float("nan"))
+    w(f"\\textbf{{H1}} (exact two-sided binomial, Holm-corrected within the "
+      f"{len(new)} new targets, within each outcome family separately): the rule "
+      f"is above chance on \\textbf{{{len(sig_rule)} of {len(new)}}} new targets "
+      f"(largest $p_{{\\mathrm{{Holm}}}}{texp(worst_rule)}$), the pipeline on "
+      f"\\textbf{{{len(sig_pipe)} of {len(new)}}} "
+      f"(smallest $p_{{\\mathrm{{Holm}}}}{texp(best_pipe)}$). "
+      f"Cells between 40\\% and {floor}\\% are reported as "
+      f"\\emph{{not distinguishable from chance at $n\\!=\\!100$}}, never as "
+      f"``at chance'' (PREREG~§6).")
+    w("")
+
+    # H2, from the analysis's own chi-square, including its verdict flags.
+    h2 = a.get("h2_homogeneity", {})
+    if h2:
+        bits = []
+        for fam in ("rule", "pipeline"):
+            for key, scope in (("all", f"all {len(cells)}"),
+                               ("new", f"{len(new)} new")):
+                r = h2.get(f"{fam}_{key}")
+                if not r:
+                    continue
+                bits.append(
+                    f"{fam}, {scope}: $\\chi^2\\!=\\!{r['chi2']:.2f}$, "
+                    f"$\\mathrm{{df}}\\!=\\!{r['df']}$, $p{texp(r['p'])}$"
+                    + (" (\\textbf{heterogeneous})" if r["heterogeneous"] else ""))
+        # Name WHICH test rejected. "at least one test rejects" without saying
+        # which one is the kind of vagueness a reviewer reads as evasion.
+        het = [k.replace("_all", ", full panel").replace("_new", ", new targets")
+               for k, r in h2.items() if r.get("heterogeneous")]
+        w(f"\\textbf{{H2}} (homogeneity of proportions; the version over the new "
+          f"targets alone is the one carrying confirmatory weight, PREREG~§0) --- "
+          + "; ".join(bits) + ". "
+          + ("No test departs from a common rate, so the panel gives no evidence "
+             "that these targets differ from one another on either outcome."
+             if not het else
+             f"A common rate is rejected for \\textbf{{{'; '.join(het)}}}, so the "
+             f"panel is \\textbf{{heterogeneous}} there and PREREG~§7's Branch~B "
+             f"wording governs that outcome: which channel carries the signal is "
+             f"target-dependent, and we do not read heterogeneity as partial "
+             f"confirmation (PREREG~§8.4)."))
+        w("")
+
+    # H3, descriptive only, with the MDE stated in the same sentence as the number.
+    h3 = a.get("h3_closed_vs_open", {})
+    mde = a["thresholds"]["pairwise_two_proportion_mde_pp"]
+    if h3.get("rule_contrast_pp") is not None:
+        w(f"\\textbf{{H3}} (closed- versus open-weight, "
+          f"\\textbf{{descriptive only}}) --- rule "
+          f"{h3['rule_closed']['k']}/{h3['rule_closed']['n']} closed vs.\\ "
+          f"{h3['rule_open']['k']}/{h3['rule_open']['n']} open "
+          f"({signed_pp(h3['rule_contrast_pp'])}, Fisher exact "
+          f"$p{texp(h3['rule_fisher_p'])}$); pipeline "
+          f"{h3['pipeline_closed']['k']}/{h3['pipeline_closed']['n']} vs.\\ "
+          f"{h3['pipeline_open']['k']}/{h3['pipeline_open']['n']} "
+          f"({signed_pp(h3['pipeline_contrast_pp'])}, "
+          f"$p{texp(h3['pipeline_fisher_p'])}$). "
+          f"\\textbf{{We make no attribution to weight availability.}} The "
+          f"pairwise two-proportion MDE at $n\\!=\\!100$ per cell is "
+          f"{mde}\\,pp, ``closed'' is "
+          f"{h3['rule_closed']['n_targets']} \\emph{{organizations}}, and "
+          f"weight availability, architecture, RLHF recipe and serving stack "
+          f"remain collinear at the panel level (PREREG~§6, §11).")
+        w("")
+
+    n_err = sum(c.get("n_error", 0) for c in cells)
+    w(f"Trials terminating in \\texttt{{status == error}} are excluded from both "
+      f"outcomes and never imputed: \\textbf{{{n_err}}} across the panel.")
+    w("")
+    w("% ---- audit trail: the same numbers, unformatted ----")
     for c in new:
         for fam in ("rule", "pipeline"):
             raw, adj = padj[(c["tag"], fam)]
             w(f"% H1 {c['label']:20s} {fam:8s} {pct(c[fam]['accuracy']):>5s}\\%  "
               f"p_raw={raw:.4g}  p_Holm={adj:.4g}")
-    w(f"% total errored trials across the panel: "
-      f"{sum(c.get('n_error', 0) for c in cells)}")
+    w(f"% total errored trials across the panel: {n_err}")
     w("")
 
     # ---------------- BLOCK 3: the verifier registrations ----------------
