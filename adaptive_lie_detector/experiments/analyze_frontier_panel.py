@@ -7,10 +7,12 @@ Recomputes every EXP-FS number from committed result files with NO model calls.
 Order of operations is fixed by the pre-registration and enforced here:
 
   1. PREREG §8.3 GATE. Reproduce the two PUBLISHED cells' rule accuracies
-     (Claude Sonnet 4.5 = 49.0%, Llama 4 Maverick = 77.0%) from their committed
+     (Claude Sonnet 4.5 = 84.8%, Llama 4 Maverick = 83.0%) from their committed
      files. If either fails to reproduce, NO new cell is scored and the
      discrepancy is reported whatever its cause -- including if it means a
-     published number was wrong.
+     published number was wrong. On 2026-09-18 the gate fired for exactly that
+     reason and both published values were corrected; see PUBLISHED_RULE below
+     and PREREG_EXP_FS.md §10.
   2. Score outcome 1 (the parameter-free k>=1 rule) and outcome 2 (the trained
      pipeline) for every cell present.
   3. H1 per target (exact two-sided binomial vs 0.50), Holm-corrected WITHIN the
@@ -91,9 +93,24 @@ SONNET_ARMS = {
 
 # PREREG §8.3: the values the analysis code must reproduce before anything new is
 # scored. Both are published in app:frontier_preliminary.
+#
+# 2026-09-18, round 30. These constants were originally 0.490 (sonnet_4_5) and
+# 0.770 (llama4_mav) -- the values app:frontier_preliminary carried when this
+# script was written. The gate FIRED on both: neither reproduced from its
+# committed file under the canonical 14-pattern list, and neither reproduced
+# under any of the 9 pattern lists x 3 text channels x 3 thresholds present in
+# this codebase. 0.490 turned out to be a Maverick value scored under a
+# non-canonical list, and 0.770 has no traceable source at all. The appendix has
+# been corrected to the reproduced values and the full adjudication is logged in
+# PREREG_EXP_FS.md §10.
+#
+# The constants are updated rather than deleted, and they are deliberately NOT
+# set from score_rule() at runtime: a gate that recomputes its own target can
+# never fail. These are transcribed by hand from the corrected paper, so the gate
+# still tests code-against-paper agreement.
 PUBLISHED_RULE = {
-    "sonnet_4_5": 0.490,
-    "llama4_mav": 0.770,
+    "sonnet_4_5": 0.848,   # app:frontier_preliminary, corrected round 30 (47/49 lie, 13/50 truth)
+    "llama4_mav": 0.830,   # tab:llama4_results, corrected round 30 (39/50 lie, 6/50 truth)
 }
 
 
