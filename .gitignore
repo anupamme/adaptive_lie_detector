@@ -186,8 +186,12 @@ cython_debug/
 # EXP-WP residual-activation tensors (~210 MB per configuration).
 # Not a release artifact: re-extract with probe_audit_1_generate_extract.py
 # at SEED=42. Every per-step result JSON and the response metadata ARE tracked.
-# NOTE: commits before 2026-09-09 do contain some of these blobs; a full-history
-# clone will therefore still download them.
+# NOTE: commits before 2026-09-09 DID contain three of these blobs, which put a
+# full-history clone over GitHub's 100 MB per-file limit and made the repo
+# unpushable. On 2026-09-22 they were stripped from all 154 commits with
+# `git filter-repo --strip-blobs-bigger-than 50M`, so no history carries them
+# and the claim above now holds for every commit, not just recent ones. Every
+# non-stripped blob kept its SHA; only the commit SHAs changed.
 adaptive_lie_detector/data/probe_audit/*.npz
 
 # EXP-XL: Liars' Bench is a gated corpus and not ours to redistribute
@@ -199,6 +203,14 @@ adaptive_lie_detector/data/external/liars_bench/
 # pacchiardi_release_manifest.json, which carries the upstream commit plus a
 # sha256 per file, so a reader who fetches that commit verifies identical bytes.
 adaptive_lie_detector/data/external/pacchiardi_release/
+
+# CIFAR-10 source tarball (162 MB), used by data_poisoning_game and unrelated to
+# the lie-detection work. It was over GitHub's 100 MB limit and was stripped by
+# the same 2026-09-22 filter-repo pass. It is also redundant: the extracted
+# cifar-10-batches-py/ batches are what the loaders read and they stay tracked.
+# Re-fetch from https://www.cs.toronto.edu/~kriz/cifar.html if ever needed.
+data_poisoning_game/data/cifar-10-python.tar.gz
+data_poisoning_game/paper/data/cifar-10-python.tar.gz
 
 # EXP-C4B blind. PREREG_EXP_C4B.md §3.4 step 4 writes the seal's salt and calls
 # it "git-ignored, not committed at this step"; the rule was missing, so a
