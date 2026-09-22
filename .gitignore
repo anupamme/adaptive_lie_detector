@@ -194,6 +194,12 @@ adaptive_lie_detector/data/probe_audit/*.npz
 # (PREREG_EXP_XL.md §2). The committed pin is liars_bench_manifest.json.
 adaptive_lie_detector/data/external/liars_bench/
 
+# EXP-XP: the audit target's own release is public but still not ours to
+# redistribute (PREREG_EXP_XP.md §2). The committed pin is
+# pacchiardi_release_manifest.json, which carries the upstream commit plus a
+# sha256 per file, so a reader who fetches that commit verifies identical bytes.
+adaptive_lie_detector/data/external/pacchiardi_release/
+
 # EXP-C4B blind. PREREG_EXP_C4B.md §3.4 step 4 writes the seal's salt and calls
 # it "git-ignored, not committed at this step"; the rule was missing, so a
 # `git add -A` could have published it before the blind results were committed

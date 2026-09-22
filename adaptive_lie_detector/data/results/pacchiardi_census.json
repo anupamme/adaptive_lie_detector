@@ -1,0 +1,369 @@
+{
+  "experiment": "EXP-XP",
+  "prereg": "docs/PREREG_EXP_XP.md",
+  "exploratory": true,
+  "exploratory_note": "PREREG \u00a70 / DEVIATION 1: a feasibility gate preceded the pre-registration, so no number here is confirmatory.",
+  "pin": {
+    "repo": "LoryPack/LLM-LieDetector",
+    "commit": "c5689fa2615368cd7c3f3c15dbb60ea2126006c7",
+    "commit_date": "2024-06-19"
+  },
+  "files_verified": [
+    "instrumental_lying_df_original.json",
+    "instrumental_lying_df_all_scenarios_jb_resampling.json",
+    "instrumental_lying_df_all_42_settings_lorenzos_hardcoded_answers_correct_prefixes.json",
+    "lying_rate.csv",
+    "finetuning_v2_lie_finetuning_dataset_validation_prepared.jsonl",
+    "finetuning_v2_truthful_finetuning_dataset_validation_prepared.jsonl"
+  ],
+  "n_designs": 3,
+  "designs_criterion4_expressible": [],
+  "distinct_verdicts": [
+    "inapplicable"
+  ],
+  "verdicts_differ": false,
+  "strongest_near_miss": {
+    "design": "finetuned_liar",
+    "cleared": [
+      "i",
+      "iii",
+      "iv"
+    ],
+    "failed": [
+      "ii",
+      "v"
+    ]
+  },
+  "reporting_branch": "2+3",
+  "claim4_survives": true,
+  "split_prior_work_row": false,
+  "split_note": "PREREG \u00a76 branch 2 splits tab:prior_work_criteria's single row if and only if the three designs' verdicts differ; they do not, so the row is not split and the per-design requirement patterns are reported in the appendix instead.",
+  "per_design": [
+    {
+      "design": "prompted_instructed",
+      "label": "prompted instructed lying (the design this paper audits)",
+      "files": [
+        "lying_rate.csv"
+      ],
+      "n_rollouts": 0,
+      "n_rollouts_note": "the file is aggregated to one lying rate per dataset x instruction; no rollout, prompt or response text is released in it",
+      "n_items": 11,
+      "item_key": "dataset name (the only key in the file); no question-, prompt- or rollout-level key exists",
+      "n_instructions": 26,
+      "datasets": [
+        "SyntheticFacts",
+        "Questions1000",
+        "WikiData",
+        "Commonsense2",
+        "Sciq",
+        "MathematicalProblems",
+        "AnthropicAwarenessAI",
+        "AnthropicAwarenessArchitecture",
+        "AnthropicAwarenessNNArchitecture",
+        "TatoebaEngToFre",
+        "TatoebaFreToEng"
+      ],
+      "n_rate_cells": 200,
+      "n_distinct_prompt_hashes": "UNDECIDABLE_FROM_RELEASE",
+      "n_items_multi_prompt_hash": "UNDECIDABLE_FROM_RELEASE",
+      "deception_value": {
+        "exists_per_rollout": false,
+        "determined_by": "the instruction column the rate is tabulated under"
+      },
+      "channel": [
+        "dataset name",
+        "instruction text",
+        "lying rate"
+      ],
+      "predicates": {
+        "i": [
+          false,
+          "the 26 instruction texts are the column keys: the contrast *is* the prompt change, so no two contrasted cells share a prompt hash"
+        ],
+        "ii": [
+          false,
+          "the tabulated value is the rate of lying under a named lie instruction; D is the generating condition, which fails (ii) by definition"
+        ],
+        "iii": [
+          "UNDECIDABLE_FROM_RELEASE",
+          "the file is aggregated to rates; with no question-level key released, whether any one item was realized under both outcomes cannot be read off it either way"
+        ],
+        "iv": [
+          "UNDECIDABLE_FROM_RELEASE",
+          "no prompt or response text is released in this file, so what a black-box detector would read cannot be checked here"
+        ],
+        "v": [
+          false,
+          "D is definitionally the instruction that produced the response"
+        ]
+      },
+      "requirements_cleared": [],
+      "requirements_failed": [
+        "i",
+        "ii",
+        "v"
+      ],
+      "requirements_undecidable": [
+        "iii",
+        "iv"
+      ],
+      "criterion4_expressible": false,
+      "verdict": "inapplicable",
+      "detector_contrast_run": false,
+      "detector_contrast_note": "PREREG_EXP_XP.md \u00a75: a detector contrast is run only when all five predicates are True, so no accuracy is computed or reported here."
+    },
+    {
+      "design": "instrumental_roleplay",
+      "label": "instrumental, goal-directed deception, un-instructed (the `instrumental_lying_df_*` files)",
+      "files": [
+        "instrumental_lying_df_original.json",
+        "instrumental_lying_df_all_scenarios_jb_resampling.json",
+        "instrumental_lying_df_all_42_settings_lorenzos_hardcoded_answers_correct_prefixes.json"
+      ],
+      "n_rollouts": 138,
+      "n_items": 138,
+      "item_key": "sha256 of the whole released prompt",
+      "n_distinct_prompt_hashes": 138,
+      "n_items_with_both_outcomes": 0,
+      "deception_value": {
+        "exists_per_rollout": true,
+        "field": "label",
+        "determined_by": "the generating condition: `label` equals the row's index parity in every row of every file, so it is recoverable without reading any text"
+      },
+      "channel": [
+        "transcript",
+        "prompt",
+        "logprob_differences_{lie,no_lie,knowable}"
+      ],
+      "per_file": [
+        {
+          "file": "instrumental_lying_df_original.json",
+          "columns": [
+            "double_down_ratio",
+            "label",
+            "logprob_differences_knowable",
+            "logprob_differences_lie",
+            "logprob_differences_no_lie",
+            "prompt",
+            "transcript"
+          ],
+          "n_rollouts": 42,
+          "label_multiset": {
+            "0": 21,
+            "1": 21
+          },
+          "n_distinct_prompt_hashes": 42,
+          "n_items_with_both_outcomes": 0,
+          "rows_where_label_equals_index_parity": 42,
+          "supplementary_adjacent_pair_key": {
+            "note": "the release has no scenario-id field; this key is ours, and every number under it is supplementary",
+            "n_pairs": 21,
+            "pairs_carrying_both_outcomes": 21,
+            "pairs_with_byte_identical_prompt": 0,
+            "pairs_sharing_first_sentence": 14
+          },
+          "probe_battery_widths": {
+            "logprob_differences_lie": 24,
+            "logprob_differences_no_lie": 14,
+            "logprob_differences_knowable": 10
+          },
+          "probe_battery_total": 48
+        },
+        {
+          "file": "instrumental_lying_df_all_scenarios_jb_resampling.json",
+          "columns": [
+            "answer_prefix",
+            "full_conversation_unknowable_probes",
+            "label",
+            "logprob_differences_knowable",
+            "logprob_differences_lie",
+            "logprob_differences_no_lie",
+            "prompt",
+            "question_prefix",
+            "transcript"
+          ],
+          "n_rollouts": 54,
+          "label_multiset": {
+            "0": 27,
+            "1": 27
+          },
+          "n_distinct_prompt_hashes": 54,
+          "n_items_with_both_outcomes": 0,
+          "rows_where_label_equals_index_parity": 54,
+          "supplementary_adjacent_pair_key": {
+            "note": "the release has no scenario-id field; this key is ours, and every number under it is supplementary",
+            "n_pairs": 27,
+            "pairs_carrying_both_outcomes": 27,
+            "pairs_with_byte_identical_prompt": 0,
+            "pairs_sharing_first_sentence": 19
+          },
+          "probe_battery_widths": {
+            "logprob_differences_lie": 24,
+            "logprob_differences_no_lie": 22,
+            "logprob_differences_knowable": 10
+          },
+          "probe_battery_total": 56
+        },
+        {
+          "file": "instrumental_lying_df_all_42_settings_lorenzos_hardcoded_answers_correct_prefixes.json",
+          "columns": [
+            "answer_prefix",
+            "full_conversation_unknowable_probes",
+            "label",
+            "logprob_differences_knowable",
+            "logprob_differences_lie",
+            "logprob_differences_no_lie",
+            "prompt",
+            "question_prefix",
+            "transcript"
+          ],
+          "n_rollouts": 42,
+          "label_multiset": {
+            "0": 21,
+            "1": 21
+          },
+          "n_distinct_prompt_hashes": 42,
+          "n_items_with_both_outcomes": 0,
+          "rows_where_label_equals_index_parity": 42,
+          "supplementary_adjacent_pair_key": {
+            "note": "the release has no scenario-id field; this key is ours, and every number under it is supplementary",
+            "n_pairs": 21,
+            "pairs_carrying_both_outcomes": 21,
+            "pairs_with_byte_identical_prompt": 0,
+            "pairs_sharing_first_sentence": 14
+          },
+          "probe_battery_widths": {
+            "logprob_differences_lie": 24,
+            "logprob_differences_no_lie": 22,
+            "logprob_differences_knowable": 10
+          },
+          "probe_battery_total": 56
+        }
+      ],
+      "predicates": {
+        "i": [
+          false,
+          "138 distinct whole-prompt hashes across the contrasted cells where (i) requires one; the deceptive and honest cells differ in the prompt by construction, and 0 of the supplementary scenario pairs have a byte-identical prompt"
+        ],
+        "ii": [
+          false,
+          "`label` equals the row's index parity in every row of all three files, so it is a deterministic function of the generating condition, not an off-label grade"
+        ],
+        "iii": [
+          false,
+          "under the only released item key (whole-prompt sha256) 0 items carry both outcomes; the supplementary pair key does reach both outcomes, but only across two different prompts, which is what (i) forbids"
+        ],
+        "iv": [
+          true,
+          "the released channel is the transcript plus elicitation logprob differences: no scratchpad, no training metadata, and no generating-condition field inside the text a detector would read"
+        ],
+        "v": [
+          false,
+          "`label` is a property of which prompt variant produced the rollout, so it is definitionally equivalent to the process that produced the detector's input"
+        ]
+      },
+      "requirements_cleared": [
+        "iv"
+      ],
+      "requirements_failed": [
+        "i",
+        "ii",
+        "iii",
+        "v"
+      ],
+      "requirements_undecidable": [],
+      "criterion4_expressible": false,
+      "verdict": "inapplicable",
+      "detector_contrast_run": false,
+      "detector_contrast_note": "PREREG_EXP_XP.md \u00a75: a detector contrast is run only when all five predicates are True, so no accuracy is computed or reported here."
+    },
+    {
+      "design": "finetuned_liar",
+      "label": "fine-tuned liars (v2 lie vs. truthful validation splits)",
+      "files": [
+        "finetuning_v2_lie_finetuning_dataset_validation_prepared.jsonl",
+        "finetuning_v2_truthful_finetuning_dataset_validation_prepared.jsonl"
+      ],
+      "n_rollouts": 4436,
+      "keys": [
+        "completion",
+        "prompt"
+      ],
+      "n_rollouts_per_condition": {
+        "lie": 2218,
+        "truthful": 2218
+      },
+      "item_key": "sha256 of the whole released prompt",
+      "n_items": 3327,
+      "n_distinct_prompt_hashes": {
+        "lie": 2218,
+        "truthful": 2218
+      },
+      "n_items_with_both_outcomes": 1109,
+      "shared_prompts_whose_completions_differ": 1109,
+      "single_condition_prompts": {
+        "lie_only": 1109,
+        "truthful_only": 1109,
+        "lie_only_multi_turn": 1109,
+        "truthful_only_multi_turn": 1109,
+        "n_rows_lie_only": 1109,
+        "n_rows_truthful_only": 1109,
+        "note": "prompts appearing in one file only are follow-up turns that embed the previous answer, so they cannot be byte-identical across conditions; the first-turn prompts are the ones that are"
+      },
+      "deception_value": {
+        "exists_per_rollout": true,
+        "field": "which file the row came from",
+        "determined_by": "the fine-tuning target"
+      },
+      "channel": [
+        "prompt",
+        "completion"
+      ],
+      "min_cell_size_gate": {
+        "threshold": 10,
+        "cells": [
+          1109,
+          1109
+        ],
+        "passes": true,
+        "note": "PREREG_EXP_XA.md \u00a76's floor, adopted by reference; reported because this design clears it, not because a contrast is run -- \u00a75 forbids that while any predicate is False"
+      },
+      "predicates": {
+        "i": [
+          true,
+          "1109 prompts are byte-identical across the two conditions, hashed over the whole prompt and not over a system message"
+        ],
+        "ii": [
+          false,
+          "D is which file the row came from, i.e. the fine-tuning target: a deterministic function of the generating condition, which (ii) excludes however accurate it is"
+        ],
+        "iii": [
+          true,
+          "1109 items are realized under both values of D, and 1109 of them have differing completion sets, so the contrast can be taken within an item"
+        ],
+        "iv": [
+          true,
+          "the released fields are a bare `User: ... Assistant:` prompt and the completion: no instruction, no scratchpad, no training metadata in the text"
+        ],
+        "v": [
+          false,
+          "D is definitionally the objective the model was fine-tuned on, so it is equivalent to the process that produced the detector's input"
+        ]
+      },
+      "requirements_cleared": [
+        "i",
+        "iii",
+        "iv"
+      ],
+      "requirements_failed": [
+        "ii",
+        "v"
+      ],
+      "requirements_undecidable": [],
+      "criterion4_expressible": false,
+      "verdict": "inapplicable",
+      "detector_contrast_run": false,
+      "detector_contrast_note": "PREREG_EXP_XP.md \u00a75: a detector contrast is run only when all five predicates are True, so no accuracy is computed or reported here."
+    }
+  ]
+}

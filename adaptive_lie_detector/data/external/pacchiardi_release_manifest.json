@@ -1,0 +1,59 @@
+{
+  "repo": "LoryPack/LLM-LieDetector",
+  "url": "https://github.com/LoryPack/LLM-LieDetector",
+  "commit": "c5689fa2615368cd7c3f3c15dbb60ea2126006c7",
+  "commit_date": "2024-06-19",
+  "gated": false,
+  "prereg": "docs/PREREG_EXP_XP.md",
+  "note": "Public repository, pinned by commit. The files are NOT redistributed: data/external/pacchiardi_release/ is gitignored and these sha256s let a reader who fetches the same commit verify identical bytes (PREREG \u00a72).",
+  "designs": [
+    "prompted_instructed",
+    "instrumental_roleplay",
+    "finetuned_liar"
+  ],
+  "files": [
+    {
+      "design": "instrumental_roleplay",
+      "path": "results/instrumental_lying_df_original.json",
+      "local": "instrumental_lying_df_original.json",
+      "sha256": "842cbf4b8ba9c7c795d889b4c0041e291053ded1fa95d70d14dc52f80aafc2e3",
+      "bytes": 47267
+    },
+    {
+      "design": "instrumental_roleplay",
+      "path": "results/instrumental_lying_df_all_scenarios_jb_resampling.json",
+      "local": "instrumental_lying_df_all_scenarios_jb_resampling.json",
+      "sha256": "ddd73e5d6fea03b9081bafff41d7841e5ff8c81982dc8a07357e74462689ade6",
+      "bytes": 1961256
+    },
+    {
+      "design": "instrumental_roleplay",
+      "path": "results/instrumental_lying_df_all_42_settings_lorenzos_hardcoded_answers_correct_prefixes.json",
+      "local": "instrumental_lying_df_all_42_settings_lorenzos_hardcoded_answers_correct_prefixes.json",
+      "sha256": "65388049041ae6a321e48b1272fd369c50c16a664f0c4deee99c1cfcf0ff0084",
+      "bytes": 1206451
+    },
+    {
+      "design": "prompted_instructed",
+      "path": "results/lying_rate.csv",
+      "local": "lying_rate.csv",
+      "sha256": "93ddd4509cb7564abce5b3dd1d2138eda229260a4925ebe2b236f6722b9ec164",
+      "bytes": 14354
+    },
+    {
+      "design": "finetuned_liar",
+      "path": "finetuning/v2_lie/finetuning_dataset_validation_prepared.jsonl",
+      "local": "finetuning_v2_lie_finetuning_dataset_validation_prepared.jsonl",
+      "sha256": "228b36dda5cae81dbc7c3ce6cd9cf416a8f18a30d8f8fe6b69995fc0f664f8de",
+      "bytes": 469184
+    },
+    {
+      "design": "finetuned_liar",
+      "path": "finetuning/v2_truthful/finetuning_dataset_validation_prepared.jsonl",
+      "local": "finetuning_v2_truthful_finetuning_dataset_validation_prepared.jsonl",
+      "sha256": "a8c9e4df2ace90223bef8ea69abd459df718a1e60b58f2163cce4232ddba8289",
+      "bytes": 470599
+    }
+  ],
+  "failed": []
+}

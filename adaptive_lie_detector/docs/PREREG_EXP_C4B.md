@@ -703,6 +703,35 @@ outputs cannot overwrite them. The R chain therefore remains verifiable **from g
 canonical paths**, in its original commit order, and the rename is one more commit rather than a
 rewrite.
 
+**(17) A post-hoc DESCRIPTIVE arm: claim-clustered bootstrap intervals on H1.** Added 2026-09-22, after
+both families were unsealed, because a reviewer asked for per-target intervals at the unit the inference
+actually rests on. Recorded here because it is post-hoc, not because it changes anything.
+
+*What it is.* A cluster bootstrap over **claims** (2,000 draws, seed 42, percentile 2.5/97.5) on the
+**same estimator §5 fixes** — `grouped_kfold_accuracy`, imported, not restated. Each draw resamples the
+cell's distinct claims with replacement and gives each drawn copy a fresh group id, so a claim drawn twice
+contributes two clusters. Two intervals are reported per cell: on the accuracy, and on the accuracy minus
+**that draw's own** majority baseline, because resampling claims moves the `D` base rate and the accuracy
+moves with it, so an accuracy interval alone mixes two sources of variation.
+
+*Where it lives, and why not here.* A new script, `experiments/analyze_crit4b_ci.py`.
+**`analyze_crit4b.py` is byte-unchanged**: §8 gate 6 checks its frozen-commit identity, so adding a
+`--phase` to it would flip `analyze_unchanged_since_seal` to FAIL and void the blind under §10(f) for a
+clerical reason with no bearing on the data.
+
+*What it may not do, and does not.* No verdict, count, *p*-value, MDE, gate or family summary is a
+function of anything in that file. The pre-registered inference remains the within-claim permutation test
+with Holm correction inside each family of five. **Checked rather than asserted**: the script recomputes
+each cell's point accuracy from the committed candidate rows and asserts equality with the published
+value; all ten cells reproduce it exactly, and the script exits non-zero if any does not.
+
+*The result, recorded for the record and not as a test.* The margin intervals exclude zero on exactly the
+three cells committed as `CRITERION4_POSITIVE` (Mistral 7B $[+0.172,+0.400]$, Llama 3.1 8B
+$[+0.181,+0.382]$, Mistral-Nemo 12B $[+0.092,+0.329]$) and include zero on the other seven. That is a
+descriptive statistic agreeing with a pre-registered test, not a second test of the same hypothesis, and
+the paper states it that way. Had it disagreed, the disagreement would have been reported here and the
+pre-registered verdicts would have stood unchanged.
+
 ## 12A. CORRECTION 1 — written at the freeze, before any data exist
 
 Writing `analyze_crit4b.py` and `seal_crit4b.py` against §§2--3 exposed four statements that could not
