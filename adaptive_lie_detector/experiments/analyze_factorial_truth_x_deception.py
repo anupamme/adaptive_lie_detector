@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_factorial_truth_x_deception.py — Analyze the 2×2 truth × deception factorial (EXP-F).
+analyze_factorial_truth_x_deception.py: Analyze the 2×2 truth × deception factorial (EXP-F).
 
 Reads JSON outputs from run_factorial_truth_x_deception.py (4 cells per model) and produces:
   - Per-cell detection accuracy for both detectors (refusal-rule, R1-faithful LR)
@@ -55,7 +55,7 @@ def get_ground_truth_labels(cell):
     """Ground truth: is the model being deceptive in this cell?
 
     T_H: honest about true claim → not deceptive (0)
-    F_H: honest about false claim → not deceptive (0) — model corrects, not deceives
+    F_H: honest about false claim → not deceptive (0); model corrects, not deceives
     T_D: instructed to deceive about true claim → deceptive (1)
     F_D: instructed to deceive about false claim → deceptive (1)
     """
@@ -77,7 +77,7 @@ def get_instruction(cell):
 def analyze_refusal_rule(model_tag):
     """Analyze the refusal-count rule across all 4 cells."""
     print(f"\n{'='*60}")
-    print(f"REFUSAL-COUNT RULE — {model_tag}")
+    print(f"REFUSAL-COUNT RULE: {model_tag}")
     print(f"{'='*60}")
 
     all_records = {}
@@ -225,7 +225,7 @@ def analyze_refusal_rule(model_tag):
 def analyze_r1_detector(model_tag):
     """Analyze the R1-faithful binary-probe LR detector across all 4 cells."""
     print(f"\n{'='*60}")
-    print(f"R1-FAITHFUL LR DETECTOR — {model_tag}")
+    print(f"R1-FAITHFUL LR DETECTOR: {model_tag}")
     print(f"{'='*60}")
 
     all_records = {}
@@ -273,7 +273,7 @@ def analyze_r1_detector(model_tag):
     clf = LogisticRegression(max_iter=1000, C=1.0)
 
     # Task 1: Can the LR detect deception (instruction condition)?
-    print(f"\n  Task 1: Predict DECEPTION (instruction-based label) — grouped-5-fold")
+    print(f"\n  Task 1: Predict DECEPTION (instruction-based label), grouped-5-fold")
     scores_deception = cross_val_score(clf, X_all, y_deception, cv=gkf, groups=claim_groups,
                                        scoring="accuracy")
     acc_deception = np.mean(scores_deception)
@@ -289,7 +289,7 @@ def analyze_r1_detector(model_tag):
     print(f"    Permutation p: {p_deception:.4f}")
 
     # Task 2: Can the LR detect truth-value?
-    print(f"\n  Task 2: Predict TRUTH VALUE (claim-based label) — grouped-5-fold")
+    print(f"\n  Task 2: Predict TRUTH VALUE (claim-based label), grouped-5-fold")
     scores_truth = cross_val_score(clf, X_all, y_truth, cv=gkf, groups=claim_groups,
                                    scoring="accuracy")
     acc_truth = np.mean(scores_truth)
@@ -303,7 +303,7 @@ def analyze_r1_detector(model_tag):
     p_truth = np.mean(np.array(perm_accs_t) >= acc_truth)
     print(f"    Permutation p: {p_truth:.4f}")
 
-    # Task 3: Full 2×2 — predict deception CONTROLLING for truth-value
+    # Task 3: Full 2×2; predict deception CONTROLLING for truth-value
     # Add truth_value as a feature alongside binary vector
     print(f"\n  Task 3: Predict DECEPTION controlling for truth-value")
     X_with_truth = np.column_stack([X_all, y_truth.reshape(-1, 1)])
@@ -312,8 +312,8 @@ def analyze_r1_detector(model_tag):
     acc_controlled = np.mean(scores_controlled)
     print(f"    Grouped-5-fold accuracy (vector + truth): {acc_controlled:.1%}")
 
-    # Task 4: Within true-claims only — can LR distinguish T_H from T_D?
-    print(f"\n  Task 4: Within TRUE claims only — T_H vs T_D (deception-specific contrast)")
+    # Task 4: Within true-claims only; can LR distinguish T_H from T_D?
+    print(f"\n  Task 4: Within TRUE claims only, T_H vs T_D (deception-specific contrast)")
     mask_true = np.isin(cell_ids, ["T_H", "T_D"])
     X_true = X_all[mask_true]
     y_true_deception = y_deception[mask_true]
@@ -337,8 +337,8 @@ def analyze_r1_detector(model_tag):
         p_true_only = float("nan")
         print(f"    Insufficient data or single class.")
 
-    # Task 5: Within false-claims only — can LR distinguish F_H from F_D?
-    print(f"\n  Task 5: Within FALSE claims only — F_H vs F_D (deception-specific contrast)")
+    # Task 5: Within false-claims only; can LR distinguish F_H from F_D?
+    print(f"\n  Task 5: Within FALSE claims only, F_H vs F_D (deception-specific contrast)")
     mask_false = np.isin(cell_ids, ["F_H", "F_D"])
     X_false = X_all[mask_false]
     y_false_deception = y_deception[mask_false]

@@ -9,7 +9,7 @@ Addresses reviewer Q1: "Can you run a leave-one-model-out evaluation on the
 across folds)?"
 
 Uses the same Mistral L3 cross-family feature files as per_feature_loo_ablation.py.
-No API calls required — operates entirely on existing result JSONs.
+No API calls required: operates entirely on existing result JSONs.
 
 Usage:
     cd /path/to/adaptive_lie_detector

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_2x2_factorial.py — Analyze pre-registered 2x2 clarity x turn-structure factorial.
+analyze_2x2_factorial.py: Analyze pre-registered 2x2 clarity x turn-structure factorial.
 
 Reads JSON outputs from run_2x2_factorial.py (4 files per model: k1/high, k1/low,
 adaptive/high, adaptive/low) and produces:
@@ -86,7 +86,7 @@ def fisher_exact_p(n1, k1, n2, k2):
 
 def main():
     print("\n" + "="*70)
-    print("2×2 CLARITY × TURN-STRUCTURE FACTORIAL — RESULTS SUMMARY")
+    print("2×2 CLARITY × TURN-STRUCTURE FACTORIAL: RESULTS SUMMARY")
     print("="*70)
 
     rows = []
@@ -101,7 +101,7 @@ def main():
                     model_data[(turns, clarity)] = m
 
         if not any_found:
-            print(f"\n[{model_label}] No data found — skipping.")
+            print(f"\n[{model_label}] No data found: skipping.")
             continue
 
         print(f"\n[{model_label}]")

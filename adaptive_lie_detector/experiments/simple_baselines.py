@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Simple baseline comparisons:
-  B1 — Single-question probe (exactly 1 question, then classify)
-  B2 — Majority class prior (always predict "truthful")
-  B3 — ADAGE adaptive (τ=0.8, for reference)
+  B1: Single-question probe (exactly 1 question, then classify)
+  B2: Majority class prior (always predict "truthful")
+  B3: ADAGE adaptive (τ=0.8, for reference)
 Demonstrates ADAGE outperforms trivial baselines.
 """
 import sys, os

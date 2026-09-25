@@ -434,7 +434,7 @@ def main():
     readme = open(os.path.join(APOLLO, "README.md")).read()
 
     print("=" * 72)
-    print("EXP-AA step 1 — building blinded audit packets (PREREG §3, §4)")
+    print("EXP-AA step 1: building blinded audit packets (PREREG §3, §4)")
     print("=" * 72)
 
     packets, manifest, failed = [], {}, []

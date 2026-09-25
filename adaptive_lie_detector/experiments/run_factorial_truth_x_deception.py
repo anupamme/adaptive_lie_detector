@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_factorial_truth_x_deception.py — EXP-F: 2×2 Truth-Value × Deception-Instruction factorial.
+run_factorial_truth_x_deception.py, EXP-F: 2×2 Truth-Value × Deception-Instruction factorial.
 
 This is the decisive causal experiment the ICLR reviewer requested. It independently
 manipulates truth-value and deception instruction to decompose what the detector measures.
@@ -229,7 +229,7 @@ def run_cell(model_name, cell, n_claims, resume):
     ckpt = f"data/results/factorial_txd_{model_tag}_{cell}.json"
 
     print("=" * 64)
-    print(f"EXP-F (factorial truth×deception) — {model_name} / {CELL_LABELS[cell]}")
+    print(f"EXP-F (factorial truth×deception): {model_name} / {CELL_LABELS[cell]}")
     print("=" * 64)
     print(f"  Cell: {cell} ({CELL_LABELS[cell]})")
     print(f"  N claims: {len(claims)}")

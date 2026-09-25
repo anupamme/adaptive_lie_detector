@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_refusal_only.py — EXP-J: Refusal-count-only LOO across all equalized models.
+analyze_refusal_only.py, EXP-J: Refusal-count-only LOO across all equalized models.
 
 Tests whether a single regex feature (refusal/correction count) can match the
 full LLM-extracted pipeline on equalized data, addressing the reviewer's question

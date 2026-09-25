@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""re_extract_equalized_cross_family.py — parameterized cross-family re-extraction.
+"""re_extract_equalized_cross_family.py: parameterized cross-family re-extraction.
 
 Takes a saved equalized-trial JSON (with `conversation` + `feature_trajectory`)
 and re-extracts the 5 behavioral features via a non-Haiku extractor. No new
-target inference — extraction only.
+target inference: extraction only.
 
 Usage:
     .venv/bin/python3 experiments/re_extract_equalized_cross_family.py \

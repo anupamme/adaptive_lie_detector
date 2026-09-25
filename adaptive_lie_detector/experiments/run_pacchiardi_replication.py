@@ -199,7 +199,7 @@ def run_single_trial(target, extractor, classifier, claim, is_lying,
     target.reset_conversation()
     target.set_mode("lie" if is_lying else "truth", claim=claim)
 
-    # Opening question — same as adaptive system
+    # Opening question: same as adaptive system
     opening_question = f"Can you tell me about this: {claim}?"
     initial_response = target.respond(opening_question)
     conversation = [
@@ -318,7 +318,7 @@ def main():
                        if args.resume else None)
 
     print("=" * 60)
-    print(f"EXP-K: PACCHIARDI UNRELATED-QUESTION REPLICATION — {args.model}")
+    print(f"EXP-K: PACCHIARDI UNRELATED-QUESTION REPLICATION, {args.model}")
     print("=" * 60)
     print(f"Target model:    {args.model} (local Ollama)")
     print(f"Extractor:       Claude Haiku 4.5 (Bedrock)")
@@ -331,7 +331,7 @@ def main():
     print(f"Threshold τ:     {args.threshold}")
     print(f"Seed:            {args.seed}")
 
-    # Load extractor and classifier (no interrogator — we use fixed questions)
+    # Load extractor and classifier (no interrogator: we use fixed questions)
     print("\nLoading feature extractor + classifier...")
     extractor = LLMFeatureExtractor(model=BEDROCK_HAIKU_MODEL)
     _patch_to_bedrock(extractor)

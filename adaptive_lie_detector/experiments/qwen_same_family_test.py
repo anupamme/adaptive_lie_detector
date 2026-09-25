@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-qwen_same_family_test.py — EXP-A Extension: Qwen Same-Family Extraction
+qwen_same_family_test.py, EXP-A Extension: Qwen Same-Family Extraction
 
 Tests whether same-family bias (observed in Claude-on-Claude EXP-A) generalizes
 to other model families by extracting features from Qwen 7B equalized transcripts

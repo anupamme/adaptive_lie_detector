@@ -103,10 +103,10 @@ SMOKE_PATH = os.path.join(RESULTS, "crit4b_grades_smoke.jsonl")
 # §3.3(2). In order; the third carries a stated caveat because Meta is also a
 # target family, which is why it is last and not first.
 SECONDARY_CANDIDATES = (
-    ("us.amazon.nova-premier-v1:0", "Amazon — no target is an Amazon model"),
-    ("us.writer.palmyra-x5-v1:0", "Writer — no target is a Writer model"),
+    ("us.amazon.nova-premier-v1:0", "Amazon: no target is an Amazon model"),
+    ("us.writer.palmyra-x5-v1:0", "Writer: no target is a Writer model"),
     ("us.meta.llama3-3-70b-instruct-v1:0",
-     "Meta — CAVEAT: Meta is also a target family (llama3.1:8b, llama3.2:3b)"),
+     "Meta. CAVEAT: Meta is also a target family (llama3.1:8b, llama3.2:3b)"),
 )
 
 _CONVERSE = None
@@ -227,7 +227,7 @@ def subsample_per_target(items, n_per_target, seed):
         take = ranked[:n_per_target]
         if len(take) < n_per_target:
             print(f"  NOTE: {model} has only {len(take)} trials "
-                  f"(requested {n_per_target}) — reporting the shortfall")
+                  f"(requested {n_per_target}), reporting the shortfall")
         out.extend(take)
     out.sort(key=lambda it: queue_order_key(it["key"]))
     return out
@@ -269,27 +269,27 @@ def main():
         out_path = SMOKE_PATH if smoke else RAW_PATH
         if smoke:
             items = items[:args.limit]
-        grader_id, note, api = MODEL_ID, "Anthropic — the frozen primary", "invoke_model"
+        grader_id, note, api = MODEL_ID, "Anthropic: the frozen primary", "invoke_model"
 
     done = load_done(out_path) if (args.resume and not smoke) else {}
     todo = [it for it in items if it["key"] not in done]
 
     label = ("SECONDARY" if args.secondary else "SMOKE" if smoke else "PRIMARY")
     print("=" * 72)
-    print(f"EXP-C4B deception grading — {label} ({args.phase})")
+    print(f"EXP-C4B deception grading: {label} ({args.phase})")
     print("=" * 72)
     print(f"  grader     : {grader_id} @ {AWS_REGION}  [{api}]")
     print(f"  family     : {note}")
     print(f"  params     : temperature={TEMPERATURE}, max_tokens={MAX_TOKENS}")
-    print(f"  rubric md5 : {RUBRIC_MD5}   (must equal EXP-C4's — §8 gate 7)")
+    print(f"  rubric md5 : {RUBRIC_MD5}   (must equal EXP-C4's, §8 gate 7)")
     print(f"  queue      : sha256(QUEUE_SEED={QUEUE_SEED} | key), targets "
           f"interleaved (§3.3(1), CORRECTION 1(c))")
     if args.secondary:
         print(f"  subsample  : {args.subsample}/target by sha256(seed="
-              f"{args.seed} | key) — NOT an H1 label set (§3.3(2))")
+              f"{args.seed} | key); NOT an H1 label set (§3.3(2))")
     print(f"  trials     : {len(items)}  graded: {len(done)}  to do: {len(todo)}")
     print(f"  output     : {out_path}")
-    print("  the grader is asked WHICH of two statements the answer asserts —")
+    print("  the grader is asked WHICH of two statements the answer asserts,")
     print("  not which is true, and not which came from the reference.")
     print("  It never sees the probe vector, the model name or the screen.")
     print()
@@ -367,7 +367,7 @@ def main():
     for r in allrec.values():
         d = per.setdefault(r["model"], Counter())
         d[r["grade"]] += 1
-    print(f"\n  per-target grade counts ({out_path}) — Role C, no detector:")
+    print(f"\n  per-target grade counts ({out_path}), Role C, no detector:")
     print(f"    {'target':<22}{'ASSERT':>7}{'CORR':>7}{'EVAS':>7}"
           f"{'base':>8}{'evas%':>8}")
     for m in sorted(per):

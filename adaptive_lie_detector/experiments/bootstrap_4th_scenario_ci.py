@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""bootstrap_4th_scenario_ci.py — V18 R1: paired bootstrap CI on pooled Delta.
+"""bootstrap_4th_scenario_ci.py, V18 R1: paired bootstrap CI on pooled Delta.
 
 Pooled refusal-count LOO Delta = mean over {Llama 3B, Mistral 7B, Qwen 14B} of
 (high_clarity LOO - low_clarity LOO). Per-trial paired bootstrap with B=10_000

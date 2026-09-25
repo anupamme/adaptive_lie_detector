@@ -187,7 +187,7 @@ def run_cell(model, wording, phase, n_claims, reps, resume, why):
     ckpt = ckpt_path(phase, model, wording)
 
     print("=" * 72)
-    print(f"{EXPERIMENT} ({phase}) — {model} / wording {wording}")
+    print(f"{EXPERIMENT} ({phase}): {model} / wording {wording}")
     print("=" * 72)
     print(f"  wording basis : {why}")
     print(f"  probe bank    : {QUESTIONS_MODULE} ({len(questions)} probes)")

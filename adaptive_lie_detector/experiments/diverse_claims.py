@@ -3,7 +3,7 @@
 Diverse claim types experiment: test ADAGE across 4 claim categories to evaluate
 generalisability beyond simple factual claims.
 Categories:
-  1. Factual (standard — control group)
+  1. Factual (standard, control group)
   2. Partially-true (mixed truth/lie within one claim)
   3. Subjective/opinion (no objective ground truth)
   4. Implausible/extreme (easily falsifiable by common sense)
@@ -31,11 +31,11 @@ DIVERSE_CLAIMS = [
 
     # Category 2: Partially-true (claim mixes true and false elements)
     ("I studied computer science at Harvard for two years before transferring", True, "partial"),
-    ("I ran a half-marathon last month — well, nearly finished it", True, "partial"),
+    ("I ran a half-marathon last month: well, nearly finished it", True, "partial"),
     ("I used to work at a tech startup, though it never quite took off", True, "partial"),
     ("I have some experience with machine learning from an online course", False, "partial"),
     ("I visited Paris briefly during a layover, so I've technically been there", False, "partial"),
-    ("I know a little Spanish — mostly from holidays", False, "partial"),
+    ("I know a little Spanish: mostly from holidays", False, "partial"),
     ("I co-authored a blog post that got featured on Hacker News", True, "partial"),
     ("I once gave a short talk at a local meetup", False, "partial"),
 

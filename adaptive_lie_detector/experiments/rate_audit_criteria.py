@@ -223,7 +223,7 @@ def main():
             if (p["case"], m) not in done]
 
     print("=" * 76)
-    print("EXP-AA step 2 — blinded rating of (i)-(v)  (PREREG §5, §6)")
+    print("EXP-AA step 2: blinded rating of (i)-(v)  (PREREG §5, §6)")
     print("=" * 76)
     print(f"  packets        : {len(packets)}")
     print(f"  raters         : {len(raters)}  {[f for _, f in raters]}")

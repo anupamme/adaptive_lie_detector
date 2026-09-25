@@ -6,7 +6,7 @@ Prompt-equalized evaluation with Meta Llama 4 Maverick (AWS Bedrock) as the targ
 Interrogator/extractor: Claude Haiku 4.5 (Bedrock, cross-family).
 
 Llama 4 Maverick is a frontier-generation MoE model (~400B total parameters, 17B active),
-independent family from Claude — satisfies cross-family requirement.
+independent family from Claude: satisfies cross-family requirement.
 
 Protocol identical to run_prompt_equalized.py:
   - Neutral system prompt for BOTH truth and lie conditions

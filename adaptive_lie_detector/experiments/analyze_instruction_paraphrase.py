@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_instruction_paraphrase.py — Analyze EXP-P: instruction-paraphrase invariance.
+analyze_instruction_paraphrase.py, Analyze EXP-P: instruction-paraphrase invariance.
 
 Reads JSON outputs from run_instruction_paraphrase.py and computes:
   - Per-variant detection accuracy (refusal rule and R1-faithful LR)
@@ -118,7 +118,7 @@ def analyze_model(model_name):
     model_tag = model_name.replace(":", "_").replace(".", "_")
 
     print(f"\n{'='*60}")
-    print(f"INSTRUCTION-PARAPHRASE ANALYSIS — {model_name}")
+    print(f"INSTRUCTION-PARAPHRASE ANALYSIS: {model_name}")
     print(f"{'='*60}")
 
     # Load all deception variants

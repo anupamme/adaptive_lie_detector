@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-feature_correlation_analysis.py — Reviewer Q4
+feature_correlation_analysis.py: Reviewer Q4
 
 Compute Pearson and Spearman correlations between the 7 regex-based
 hedging features (from EXP-C) and the 5 LLM-extracted behavioral features.

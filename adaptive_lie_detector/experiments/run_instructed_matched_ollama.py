@@ -364,7 +364,7 @@ def main():
     _patch_to_bedrock(detector.feature_extractor)
     print("  Detector loaded (interrogator + feature extractor -> Claude Haiku via Bedrock)")
 
-    # Initialize target model (Ollama, instructed prompts — default behavior)
+    # Initialize target model (Ollama, instructed prompts: default behavior)
     print(f"Initializing target model ({args.model} via Ollama)...")
     target = OllamaTargetModel(model=args.model)
     print("Target model ready (INSTRUCTED PROMPT MODE with MATCHED CLAIMS).\n")

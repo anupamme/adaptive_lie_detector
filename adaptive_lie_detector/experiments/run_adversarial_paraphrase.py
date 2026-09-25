@@ -133,7 +133,7 @@ ADVERSARIAL_PROMPT = BASE_NEUTRAL + ADVERSARIAL_SUFFIX
 
 class AdversarialParaphraseOllamaModel(OllamaTargetModel):
     """
-    Target model with adversarial neutral prompt — no refusal/correction words.
+    Target model with adversarial neutral prompt: no refusal/correction words.
     Used for BOTH truth and deceptive conditions.
     """
 

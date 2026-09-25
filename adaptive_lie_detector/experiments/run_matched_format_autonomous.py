@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_matched_format_autonomous.py — EXP-I-matched: Matched-format autonomous deception.
+run_matched_format_autonomous.py, EXP-I-matched: Matched-format autonomous deception.
 
 Extends EXP-I to test whether behavioral detection transfers to autonomous deception
 in claim-defense contexts (matching the instructed/equalized format). Three designs:

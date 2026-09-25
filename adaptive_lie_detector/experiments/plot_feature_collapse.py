@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-plot_feature_collapse.py — Feature collapse figure for NeurIPS paper (W8).
+plot_feature_collapse.py: Feature collapse figure for NeurIPS paper (W8).
 
 Grouped bar chart showing |d| for each of the 5 features, with instructed (filled)
 vs equalized (hatched) bars, faceted by model. Visually demonstrates the collapse

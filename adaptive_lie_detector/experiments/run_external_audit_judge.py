@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_external_audit_judge.py — EXP-XJ: the corpus authors' own black-box judge, run on
+run_external_audit_judge.py, EXP-XJ: the corpus authors' own black-box judge, run on
 the two corpora that can express criterion 4.
 
 Spec: docs/PREREG_EXP_XJ.md, committed before this file existed. Nothing here may be
@@ -114,7 +114,7 @@ CORPORA = {
 # from the committed survey rather than chosen here.
 LB_CORPUS = "liars_bench"
 
-# (arm name, context rule, output-channel extractor) — PREREG §3/§4
+# (arm name, context rule, output-channel extractor): PREREG §3/§4
 ARMS = {
     "sandbagging": [
         ("visible", "drop_trailing_assistant", sandbag_visible),   # H1 primary
@@ -533,7 +533,7 @@ def main():
     args = ap.parse_args()
 
     os.makedirs(RESULTS, exist_ok=True)
-    print(f"EXP-XJ judge runner — spec docs/PREREG_EXP_XJ.md")
+    print(f"EXP-XJ judge runner: spec docs/PREREG_EXP_XJ.md")
     print(f"  detector : {PROMPT_FILE}")
     print(f"             md5={PROMPT_MD5}  ({len(BLACK_BOX_PROMPT)} chars, verbatim)")
     print(f"  judge    : {MODEL_ID} @ {AWS_REGION}, "

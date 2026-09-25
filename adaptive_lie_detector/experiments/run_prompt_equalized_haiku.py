@@ -11,12 +11,12 @@ persist even under neutral prompts. This experiment tests that claim.
 
 DESIGN:
 - Target: Claude Haiku 4.5 via AWS Bedrock (Anthropic Messages API)
-- Interrogator: Claude Haiku 4.5 via AWS Bedrock (same-family — acknowledged limitation)
+- Interrogator: Claude Haiku 4.5 via AWS Bedrock (same-family, acknowledged limitation)
 - Feature extractor: Claude Haiku 4.5 via AWS Bedrock (same-family)
 - BOTH conditions use IDENTICAL neutral system prompt
 - Truth condition: true factual claims
 - Deceptive condition: modified-false versions of same claims
-- Model is NEVER told to lie — behavioral differences arise from model's
+- Model is NEVER told to lie: behavioral differences arise from model's
   knowledge conflicting with false claims
 - Knowledge pre-check before each trial
 - Extra rate-limit delay since target and interrogator share Bedrock endpoint
@@ -131,7 +131,7 @@ class NeutralPromptBedrockHaiku:
     Claude Haiku 4.5 via Bedrock with NEUTRAL prompt for both conditions.
 
     Uses the Anthropic Messages API through AnthropicBedrock client.
-    Same-family as interrogator/extractor — acknowledged limitation.
+    Same-family as interrogator/extractor: acknowledged limitation.
     """
 
     def __init__(self, model_id=None, region=None):
@@ -175,11 +175,11 @@ class NeutralPromptBedrockHaiku:
                     "content": msg["content"]
                 })
 
-        # Call with retry — extra delay since target + interrogator share endpoint
+        # Call with retry: extra delay since target + interrogator share endpoint
         delays = [8, 20, 40, 80]
         for attempt, delay in enumerate(delays, 1):
             try:
-                time.sleep(4)  # Higher base delay — shared endpoint
+                time.sleep(4)  # Higher base delay: shared endpoint
                 response = self._bedrock.messages.create(
                     model=self.model_id,
                     system=self.system_prompt,
@@ -411,7 +411,7 @@ def main():
     print(f"Target model:      Claude Haiku 4.5 (Bedrock, {region})")
     print(f"Interrogator:      Claude Haiku 4.5 (Bedrock, SAME-FAMILY)")
     print(f"Feature extractor: Claude Haiku 4.5 (Bedrock, SAME-FAMILY)")
-    print(f"NOTE:              Same-family extraction — acknowledged limitation")
+    print(f"NOTE:              Same-family extraction, acknowledged limitation")
     print(f"DESIGN:            Neutral prompt for BOTH conditions")
     print(f"                   Truth uses true claims, deceptive uses false claims")
     print(f"Knowledge precheck: {'enabled' if not args.no_precheck else 'disabled'}")

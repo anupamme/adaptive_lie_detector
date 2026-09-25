@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-re_extract_haiku_sonnet_extractor.py — Claude Sonnet 4.5 as extractor on Haiku target.
+re_extract_haiku_sonnet_extractor.py: Claude Sonnet 4.5 as extractor on Haiku target.
 
 Re-extracts behavioral features from the Haiku equalized transcripts using
 Claude Sonnet 4.5 as the feature extractor (same Claude family, different model).
@@ -234,7 +234,7 @@ def main():
     rc_vals = [r["refusal_count"] for r in valid]
 
     print(f"\n{'='*60}")
-    print(f"SONNET EXTRACTOR — Haiku target ({len(valid)} trials)")
+    print(f"SONNET EXTRACTOR: Haiku target ({len(valid)} trials)")
     print(f"{'='*60}")
 
     # Refusal-count LOO at k=1

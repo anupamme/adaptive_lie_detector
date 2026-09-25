@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_70b_equalized.py — Analysis of Llama 70B prompt-equalized experiment.
+analyze_70b_equalized.py: Analysis of Llama 70B prompt-equalized experiment.
 
 Both conditions use neutral prompts (no "you are lying" instruction).
 Compare against equalized 3B (64% LOO) and 7B (71% LOO) baselines,
@@ -9,7 +9,7 @@ and against instructed 70B feature Cohen's d values.
 Computes:
   1. Feature Cohen's d (with comparison to instructed 70B values)
   2. LOO recalibration + 5-fold CV + bootstrap 95% CI
-  3. Hedging regex baseline (LOO) — compare pipeline vs regex
+  3. Hedging regex baseline (LOO): compare pipeline vs regex
   4. Fixed-K ablation (K=1..8)
   5. Permutation importance for defensiveness
   6. Knowledge precheck summary
@@ -247,7 +247,7 @@ def main():
     results = load_data()
     n = len(results)
     print("=" * 75)
-    print(f"  COMPREHENSIVE ANALYSIS — Llama 70B Prompt-Equalized  (n={n} trials)")
+    print(f"  COMPREHENSIVE ANALYSIS: Llama 70B Prompt-Equalized  (n={n} trials)")
     print("=" * 75)
 
     X, y = per_trial_feature_means(results)
@@ -395,7 +395,7 @@ def main():
     print("\n" + "=" * 75)
     print("  5. PERMUTATION IMPORTANCE FOR DEFENSIVENESS  (50 perms, LOO)")
     print("=" * 75)
-    print("     (computing — this may take a few minutes) ...", flush=True)
+    print("     (computing: this may take a few minutes) ...", flush=True)
 
     def_idx = FEATURES.index("defensiveness")
     def_drop = permutation_importance_loo(X, y, feature_idx=def_idx, n_perm=50)
@@ -513,10 +513,10 @@ def main():
                   f"std={np.std(right_confs):.3f}, min={min(right_confs):.3f}, max={max(right_confs):.3f}")
 
     # -----------------------------------------------------------------------
-    # 9. Summary — compare to equalized 3B/7B and instructed 70B
+    # 9. Summary: compare to equalized 3B/7B and instructed 70B
     # -----------------------------------------------------------------------
     print("\n" + "=" * 75)
-    print("  9. SUMMARY — EQUALIZED 70B vs SMALLER MODELS & INSTRUCTED 70B")
+    print("  9. SUMMARY: EQUALIZED 70B vs SMALLER MODELS & INSTRUCTED 70B")
     print("=" * 75)
 
     pipeline_acc = sum(1 for r in results if r["correct"]) / n

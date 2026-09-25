@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_instruction_paraphrase.py — EXP-P: Instruction-paraphrase invariance test.
+run_instruction_paraphrase.py, EXP-P: Instruction-paraphrase invariance test.
 
 Tests whether the detector is learning *deception behavior* (which should generalize
 across instruction wordings) or *instruction-specific artifacts* (which shouldn't).
@@ -320,7 +320,7 @@ def run_variant(model_name, variant_id, template, is_deception, n_claims, resume
     ckpt = f"data/results/paraphrase_{model_tag}_{variant_id}.json"
 
     kind = "DECEIVE" if is_deception else "HONEST"
-    print(f"\n  [{kind}] {variant_id} — {model_name}")
+    print(f"\n  [{kind}] {variant_id}: {model_name}")
     print(f"    N claims: {len(claims)}, checkpoint: {ckpt}")
 
     records = []
@@ -380,7 +380,7 @@ def main():
 
     for model in models:
         print(f"\n{'='*64}")
-        print(f"EXP-P (instruction paraphrase) — {model}")
+        print(f"EXP-P (instruction paraphrase): {model}")
         print(f"{'='*64}")
 
         # Deception variants

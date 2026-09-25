@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EXP-C4B — the seal. PREREG §3.4 step 4, docs/PREREG_EXP_C4B.md.
+"""EXP-C4B: the seal. PREREG §3.4 step 4, docs/PREREG_EXP_C4B.md.
 
 Role C (custodian) only. This script is the ONLY thing that ever holds both the
 salt and the true labels, and it is run exactly once, after grading and human
@@ -254,7 +254,7 @@ def main():
             selection = json.load(f)
 
     print("=" * 72)
-    print("EXP-C4B — SEAL (PREREG §3.4 step 4). Role C, run once.")
+    print("EXP-C4B: SEAL (PREREG §3.4 step 4). Role C, run once.")
     print("=" * 72)
     print(f"  cells={len(cells)}  K={k_total}  "
           f"gate3 thresholds: paired>={MIN_PAIRED_CLAIMS}, "

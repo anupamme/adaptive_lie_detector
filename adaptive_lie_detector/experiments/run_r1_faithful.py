@@ -33,7 +33,7 @@ checkpoint/resume). Run analyze_r1_faithful.py afterwards to fit the LR + LOO.
 
 VARIANTS (--variant):
   v1 : original claim set + original probe bank (the data already in the paper).
-  v2 : EXP-R1b replication — 50 fresh claims disjoint from v1
+  v2 : EXP-R1b replication, 50 fresh claims disjoint from v1
        (claims_equalized_v2.py) and 16 independently worded probes
        (r1_elicitation_questions_v2.py). Used to test whether the one target that
        survived equalization (qwen2.5:14b, 70.0%) does so again on material it has
@@ -204,7 +204,7 @@ def run_condition(model_name, condition, n_samples, resume, variant="v1"):
     ckpt = f"data/results/{prefix}_{model_tag}_{condition}.json"
 
     print("=" * 64)
-    print(f"EXP-R1 (faithful R1 detector) — {model_name} / {condition} / {variant}")
+    print(f"EXP-R1 (faithful R1 detector): {model_name} / {condition} / {variant}")
     print("=" * 64)
     print(f"  Claim set:             {VARIANTS[variant]['claims_module']}")
     print(f"  Probe bank:            {VARIANTS[variant]['questions_module']}")

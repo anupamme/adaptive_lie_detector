@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_external_audit.py — EXP-XA: criterion 4 on external deception benchmarks.
+run_external_audit.py, EXP-XA: criterion 4 on external deception benchmarks.
 
 Pre-registered in docs/PREREG_EXP_XA.md (committed before this file existed).
 
@@ -271,7 +271,7 @@ def main():
                     else EXPLORATORY_FILES)
 
     os.makedirs(RESULTS, exist_ok=True)
-    print(f"EXP-XA runner — arm={args.arm}")
+    print(f"EXP-XA runner: arm={args.arm}")
     print(f"  primary list    : L_doc (hedging_baseline.REFUSAL_PATTERNS)")
     print(f"  primary variant : visible (<step4> + <answer>; PREREG DEVIATION 1)")
 

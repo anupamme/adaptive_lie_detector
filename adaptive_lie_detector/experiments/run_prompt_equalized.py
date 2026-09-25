@@ -10,7 +10,7 @@ DESIGN:
 - Both truth and "deceptive" conditions use IDENTICAL neutral system prompt
 - Truth condition: true factual claims
 - Deceptive condition: modified-false versions of same claims
-- Model is NEVER told to lie — behavioral differences arise from model's knowledge
+- Model is NEVER told to lie: behavioral differences arise from model's knowledge
   conflicting with false claims
 
 This tests whether the classifier detects genuine behavioral signals (model struggling
@@ -225,7 +225,7 @@ def run_experiments(detector, target, test_claims, verbose=False, checkpoint_pat
         print(f"  [{i+1:02d}/{len(test_claims)}] {'DECEP' if is_lying else 'TRUTH':5s}  {claim[:55]}", end="", flush=True)
 
         target.reset_conversation()
-        # Both conditions use neutral prompt — mode is tracked but doesn't change prompt
+        # Both conditions use neutral prompt: mode is tracked but doesn't change prompt
         target.set_mode("lie" if is_lying else "truth", claim=claim)
         try:
             result = detector.interrogate(target, claim, verbose=verbose)
@@ -302,7 +302,7 @@ def main():
     checkpoint_path = f"data/results/ollama_checkpoint_{model_tag}_prompt_equalized.json" if args.resume else None
 
     print("=" * 60)
-    print(f"EXP-1: PROMPT-EQUALIZED CONTROL — {args.model}")
+    print(f"EXP-1: PROMPT-EQUALIZED CONTROL, {args.model}")
     print("=" * 60)
     if is_claude:
         sonnet_model_id = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"

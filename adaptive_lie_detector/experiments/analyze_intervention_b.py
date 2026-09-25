@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_intervention_b.py — EXP-IB: intervention (B), vary E with D pinned at 0.
+analyze_intervention_b.py, EXP-IB: intervention (B), vary E with D pinned at 0.
 
 Pre-registered in docs/PREREG_EXP_C_intervention_b.md (see DEVIATION 1).
 Reruns from committed JSON with no model calls.
@@ -110,11 +110,11 @@ def main():
     paths = sorted(p for p in glob.glob(os.path.join(DATA_DIR, "intervention_b_*.json"))
                    if "summary" not in p and "consistency" not in p)
     if not paths:
-        print("no intervention_b_*.json found — run run_intervention_b.py first")
+        print("no intervention_b_*.json found: run run_intervention_b.py first")
         return
 
     print("=" * 78)
-    print("  EXP-IB — intervention (B): vary E with D pinned at 0")
+    print("  EXP-IB, intervention (B): vary E with D pinned at 0")
     print("  Primary outcome: 14-pattern refusal/correction rule (k>=1), no extractor")
     print("=" * 78)
 
@@ -137,7 +137,7 @@ def main():
         for name, b, lab in (("beta_E^{D=1}  (C1-C0, REJECTED)", b1, "deception present"),
                              ("beta_E^{D=0}  (C3-C2, HELD)", b0, "deception absent")):
             if b is None:
-                print(f"  {name:<34} — no paired claims")
+                print(f"  {name:<34}(no paired claims)")
                 continue
             print(f"  {name:<34} {b['diff']:+.3f} markers "
                   f"({b['diff_sd_units']:+.3f} SD), p={b['p']:.4f}, "

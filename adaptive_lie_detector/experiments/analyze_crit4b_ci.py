@@ -205,7 +205,7 @@ def main():
     fams = args.family or ["R", "E"]
 
     print("=" * 72)
-    print("EXP-C4B — claim-clustered bootstrap CIs on H1 (descriptive, post-hoc)")
+    print("EXP-C4B: claim-clustered bootstrap CIs on H1 (descriptive, post-hoc)")
     print(f"  estimator: imported grouped_kfold_accuracy; draws={N_BOOT}; "
           f"seed={SEED}; unit: paired claim")
     print("=" * 72)
@@ -241,7 +241,7 @@ def main():
     print(f"\nwrote {OUT_PATH}")
 
     if bad:
-        print("\nREPRODUCTION FAILURE — published numbers do not recompute:")
+        print("\nREPRODUCTION FAILURE. Published numbers do not recompute:")
         for m, point, pub, n, npub in bad:
             print(f"  {m}: recomputed {point} vs published {pub}; "
                   f"n {n} vs {npub}")

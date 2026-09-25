@@ -136,7 +136,7 @@ def main():
         r = targets[tag]
         if not r.get("resident") and not r.get("deleted_after_record"):
             print(f"  {tag:<22}{fam.get(tag,'?'):>4}  "
-                  f"{'NOT RESIDENT — no digest':<24}{'':>7}")
+                  f"{'NOT RESIDENT, no digest':<24}{'':>7}")
             continue
         w = r.get("model_layer") or {}
         d = (w.get("digest") or "").replace("sha256:", "")

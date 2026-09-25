@@ -146,7 +146,7 @@ Output ONLY the JSON object, no other text.'''
         elif "mistral" in model.lower() or "llama" in model.lower() or "ollama" in model.lower():
             self.api_type = "ollama"
             self.ollama_model = model
-            # No client needed — we use HTTP directly
+            # No client needed: we use HTTP directly
 
         else:
             raise ValueError(f"Unsupported model: {model}. Use 'provider/model' for OpenRouter, 'claude-*' for Anthropic, or 'gpt-*' for OpenAI")

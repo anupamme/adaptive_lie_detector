@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""re_extract_llama8b_self.py — Llama 3.1 8B self-extraction (same-checkpoint control).
+"""re_extract_llama8b_self.py: Llama 3.1 8B self-extraction (same-checkpoint control).
 
 Re-extracts 5 behavioral features from Llama 3.1 8B equalized transcripts using
-Llama 3.1 8B (Ollama) as the extractor — a same-checkpoint same-family control.
+Llama 3.1 8B (Ollama) as the extractor: a same-checkpoint same-family control.
 
 Usage:
     cd /Users/mediratta/code/AI-Researcher/code/adaptive_lie_detector

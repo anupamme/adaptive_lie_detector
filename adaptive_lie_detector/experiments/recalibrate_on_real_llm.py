@@ -175,14 +175,14 @@ def print_full_comparison(kfold_5feat, loo_5feat, kfold_3feat, loo_3feat):
         fmt = ".1%" if "accuracy" in key else ".3f"
         print(f"  {label:<22} {bv:>13{fmt}} {p5[key]:>10{fmt}} {l5[key]:>11{fmt}} {p3[key]:>10{fmt}} {l3[key]:>11{fmt}}")
 
-    print(f"\n  5-fold CV (mean ± std) — 5-feature:")
+    print(f"\n  5-fold CV (mean ± std), 5-feature:")
     for key in ["overall_accuracy", "truthful_accuracy", "lying_accuracy", "f1"]:
         label = key.replace("_", " ").capitalize()
         mean = kfold_5feat[f"{key}_mean"]
         std = kfold_5feat[f"{key}_std"]
         print(f"    {label:<24} {mean:.1%} ± {std:.1%}")
 
-    print(f"\n  5-fold CV (mean ± std) — 3-feature:")
+    print(f"\n  5-fold CV (mean ± std), 3-feature:")
     for key in ["overall_accuracy", "truthful_accuracy", "lying_accuracy", "f1"]:
         label = key.replace("_", " ").capitalize()
         mean = kfold_3feat[f"{key}_mean"]
@@ -211,10 +211,10 @@ def main():
               f"lie={np.mean(lie_vals):.2f}±{np.std(lie_vals):.2f}  "
               f"|d|={d:.2f}  ({direction})")
 
-    print(f"\n5-fold stratified CV — 5-feature (seed=42):")
+    print(f"\n5-fold stratified CV, 5-feature (seed=42):")
     kfold_5feat = run_kfold_cv(X5, y, verbose=True)
 
-    print(f"\nLeave-one-out CV — 5-feature:")
+    print(f"\nLeave-one-out CV, 5-feature:")
     loo_5feat = run_loo(X5, y)
     print(f"  acc={loo_5feat['overall_accuracy']:.1%}  "
           f"truth={loo_5feat['truthful_accuracy']:.1%}  "
@@ -228,10 +228,10 @@ def main():
     print(f"(dropping confidence and elaboration, |d|≈0.2 on real LLM)")
     print(f"{'='*60}")
 
-    print(f"\n5-fold stratified CV — 3-feature (seed=42):")
+    print(f"\n5-fold stratified CV, 3-feature (seed=42):")
     kfold_3feat = run_kfold_cv(X3, y, verbose=True)
 
-    print(f"\nLeave-one-out CV — 3-feature:")
+    print(f"\nLeave-one-out CV, 3-feature:")
     loo_3feat = run_loo(X3, y)
     print(f"  acc={loo_3feat['overall_accuracy']:.1%}  "
           f"truth={loo_3feat['truthful_accuracy']:.1%}  "

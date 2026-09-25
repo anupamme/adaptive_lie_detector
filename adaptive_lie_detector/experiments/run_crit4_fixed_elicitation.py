@@ -282,7 +282,7 @@ def run_cell(model, wording, phase, n_claims, reps, resume):
     ckpt = ckpt_path(phase, model, wording)
 
     print("=" * 68)
-    print(f"EXP-C4 ({phase}) — {model} / wording {wording}")
+    print(f"EXP-C4 ({phase}): {model} / wording {wording}")
     print("=" * 68)
     print(f"  Probe bank:   {QUESTIONS_MODULE} ({len(questions)} probes)")
     print(f"  KNOWN claims: {len(pairs)}   reps: {reps}   "

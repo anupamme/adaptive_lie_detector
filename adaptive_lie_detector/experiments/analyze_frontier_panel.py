@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_frontier_panel.py — EXP-FS scoring, per docs/PREREG_EXP_FS.md.
+analyze_frontier_panel.py: EXP-FS scoring, per docs/PREREG_EXP_FS.md.
 
 Recomputes every EXP-FS number from committed result files with NO model calls.
 
@@ -215,12 +215,12 @@ def chi2_homogeneity(cells):
 
 def main():
     print("=" * 78)
-    print("EXP-FS — FRONTIER-SCALE PANEL")
+    print("EXP-FS: FRONTIER-SCALE PANEL")
     print(f"Pre-registration: {PREREG} @ {PREREG_COMMIT}")
     print("=" * 78)
 
     # ---------------- 1. PREREG §8.3 reproduction gate ----------------
-    print("\n[1] PREREG §8.3 GATE — reproduce the two published cells before "
+    print("\n[1] PREREG §8.3 GATE: reproduce the two published cells before "
           "scoring anything new")
     gate_ok = True
     for tag, target_acc in PUBLISHED_RULE.items():
@@ -242,7 +242,7 @@ def main():
         print("\n    *** GATE FAILED. Per PREREG §8.3 no new cell is scored until this")
         print("        is resolved, and the discrepancy is reported whatever its cause.")
         return 1
-    print("    GATE PASSED — the rule's direction, threshold and pattern list "
+    print("    GATE PASSED: the rule's direction, threshold and pattern list "
           "reproduce both published cells.")
 
     # ---------------- 2. score every cell present ----------------
@@ -329,7 +329,7 @@ def main():
           "turns, which both files share.")
 
     # ---------------- 3. H1 per target, Holm within the five new ----------------
-    print("\n[3] H1 — per-target accuracy vs chance (exact two-sided binomial)")
+    print("\n[3] H1: per-target accuracy vs chance (exact two-sided binomial)")
     print("    n=100 reference: 61/100 = 61.0% is the smallest significant count "
           "(p=0.0352); 60/100 is not (p=0.0569).")
     print("    MDE at 80% power = 65%. A cell in [40%, 61%] is 'not distinguishable "
@@ -338,7 +338,7 @@ def main():
         new_cells = [c for c in scored if c["new"]]
         raw = [binom_p(c[fam]["correct"], c[fam]["n"]) for c in new_cells]
         adj = holm(raw) if raw else []
-        print(f"\n    {fam.upper()} — Holm within the {len(new_cells)} new target(s), "
+        print(f"\n    {fam.upper()}: Holm within the {len(new_cells)} new target(s), "
               f"this family only")
         print(f"      {'target':22s} {'acc':>7s} {'k/n':>9s} {'p_raw':>9s} {'p_Holm':>9s}  verdict")
         for c, pr, pa in zip(new_cells, raw, adj):
@@ -360,7 +360,7 @@ def main():
     # emit_frontier_appendix.py formats these two tests from it. Reading them off a
     # terminal scrollback is exactly how the nine wrong frontier numbers got in.
     h2 = {}
-    print("\n[4] H2 — panel homogeneity (are the targets drawn from one common rate?)")
+    print("\n[4] H2: panel homogeneity (are the targets drawn from one common rate?)")
     for fam in ("rule", "pipeline"):
         for scope, cells in (("all targets", scored),
                              ("five new only (confirmatory)",
@@ -380,7 +380,7 @@ def main():
                   f"{min(accs):.1%}-{max(accs):.1%}  {verdict}")
 
     # ---------------- 5. H3 closed vs open ----------------
-    print("\n[5] H3 — closed vs open weight (DESCRIPTIVE ONLY, pre-declared underpowered)")
+    print("\n[5] H3: closed vs open weight (DESCRIPTIVE ONLY, pre-declared underpowered)")
     print("    Pairwise two-proportion MDE at n=100/cell, 80% power = 19.4 pp. "
           "'closed' is n=2 organizations;")
     print("    no attribution to weight-availability is made from this contrast "

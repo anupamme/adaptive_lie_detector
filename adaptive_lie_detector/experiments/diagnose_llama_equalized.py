@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-diagnose_llama_equalized.py — EXP-E
+diagnose_llama_equalized.py: EXP-E
 
 Diagnoses why the LLM pipeline underperforms the hedging-word regex baseline
 by 14pp on the Llama 3.2 3B equalized condition (64% vs 78% LOO).
 
 Hypothesis: under neutral prompting, Llama 3B correctly *rejects* false claims
 with refusal/correction language. The LLM extractor assigns these rejections
-high consistency and specificity — feature values indistinguishable from
+high consistency and specificity: feature values indistinguishable from
 truthful responses. The regex baseline avoids this by directly detecting
 correction markers regardless of epistemic state.
 

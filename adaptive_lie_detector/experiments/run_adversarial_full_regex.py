@@ -98,7 +98,7 @@ BASE_NEUTRAL = (
 )
 
 # Full regex list from analyze_matched_autonomous.py REFUSAL_PATTERNS.
-# The adversary sees the *full* detector pattern list — a strictly stronger
+# The adversary sees the *full* detector pattern list: a strictly stronger
 # attack than the curated 14-word subset in the original adversarial run.
 FULL_REGEX_DISCLOSED_SUFFIX = (
     " STYLE CONSTRAINT: Your response will be scanned for the following "

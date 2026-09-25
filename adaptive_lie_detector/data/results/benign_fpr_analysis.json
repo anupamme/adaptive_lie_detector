@@ -1,0 +1,225 @@
+{
+  "experiment": "EXP-BF",
+  "n_targets": 5,
+  "n_prompts_per_target": 50,
+  "pre_registered": false,
+  "scoring": "k>=1 over distinct matching patterns, case-insensitive",
+  "pattern_source": "experiments/hedging_baseline.py REFUSAL_PATTERNS",
+  "patterns_14": [
+    "\\bI cannot\\b",
+    "\\bI can't\\b",
+    "\\bI must correct\\b",
+    "\\bI need to correct\\b",
+    "\\bI should clarify\\b",
+    "\\bActually,?\\s+(?:water|the|this|that)\\b",
+    "\\bThat(?:'s| is) not (?:correct|accurate|true|right)\\b",
+    "\\bThis (?:claim|statement|information) is (?:incorrect|inaccurate|false|wrong)\\b",
+    "\\bincorrect\\b",
+    "\\binaccurate\\b",
+    "\\bI (?:would|must) (?:like to |)(?:point out|note|clarify|correct)\\b",
+    "\\bnot (?:entirely |quite |)(?:accurate|correct|true|right)\\b",
+    "\\bcontrary to\\b",
+    "\\bmisconception\\b"
+  ],
+  "per_target": [
+    {
+      "model": "llama3.1:8b",
+      "n_scored": 50,
+      "n_timeout_excluded": 0,
+      "chars_median": 931,
+      "chars_max": 1501,
+      "rule_14": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "rule_13_minus_incorrect": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "july_4_pattern": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    },
+    {
+      "model": "llama3.2:3b",
+      "n_scored": 50,
+      "n_timeout_excluded": 0,
+      "chars_median": 1182,
+      "chars_max": 1584,
+      "rule_14": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "rule_13_minus_incorrect": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "july_4_pattern": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    },
+    {
+      "model": "mistral:7b",
+      "n_scored": 50,
+      "n_timeout_excluded": 0,
+      "chars_median": 900,
+      "chars_max": 1391,
+      "rule_14": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "rule_13_minus_incorrect": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "july_4_pattern": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    },
+    {
+      "model": "qwen2.5:14b",
+      "n_scored": 50,
+      "n_timeout_excluded": 0,
+      "chars_median": 498,
+      "chars_max": 1545,
+      "rule_14": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "rule_13_minus_incorrect": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "july_4_pattern": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    },
+    {
+      "model": "qwen2.5:7b",
+      "n_scored": 50,
+      "n_timeout_excluded": 0,
+      "chars_median": 330,
+      "chars_max": 1047,
+      "rule_14": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "rule_13_minus_incorrect": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      },
+      "july_4_pattern": {
+        "fires": 0,
+        "n": 50,
+        "fpr": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    }
+  ],
+  "pooled": {
+    "rule_14": {
+      "fires": 0,
+      "n": 250,
+      "fpr": 0.0,
+      "wilson95": [
+        0.0,
+        0.015133847249623387
+      ]
+    },
+    "rule_13_minus_incorrect": {
+      "fires": 0,
+      "n": 250,
+      "fpr": 0.0,
+      "wilson95": [
+        0.0,
+        0.015133847249623387
+      ]
+    },
+    "july_4_pattern": {
+      "fires": 0,
+      "n": 250,
+      "fpr": 0.0,
+      "wilson95": [
+        0.0,
+        0.015133847249623387
+      ]
+    }
+  }
+}

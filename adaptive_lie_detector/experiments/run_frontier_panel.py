@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_frontier_panel.py — EXP-FS: prompt-equalized evaluation of one frontier target.
+run_frontier_panel.py, EXP-FS: prompt-equalized evaluation of one frontier target.
 
 Pre-registered in docs/PREREG_EXP_FS.md, frozen at commit 4338fe7 before any cell
 in this experiment existed. Every protocol element below is inherited unchanged
@@ -344,7 +344,7 @@ def main():
                        if args.resume and not args.dry_run else None)
 
     print("=" * 72)
-    print(f"EXP-FS FRONTIER PANEL — PROMPT-EQUALIZED CELL: {args.target}")
+    print(f"EXP-FS FRONTIER PANEL, PROMPT-EQUALIZED CELL: {args.target}")
     print("=" * 72)
     print(f"Pre-registration: {PREREG} @ {PREREG_COMMIT}")
     print(f"Target:       {org} / {weights} / {arch} ({model_id})")

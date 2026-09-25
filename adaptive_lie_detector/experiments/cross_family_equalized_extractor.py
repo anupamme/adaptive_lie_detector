@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-cross_family_equalized_extractor.py — EXP-B (Equalized)
+cross_family_equalized_extractor.py: EXP-B (Equalized)
 
 Re-extract behavioral features from saved equalized transcripts (3B, 7B, 70B)
 using Mistral Large 3 via AWS Bedrock as an alternative feature extractor

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-plot_scale_trend.py — Scale trend figure for NeurIPS paper (W8).
+plot_scale_trend.py: Scale trend figure for NeurIPS paper (W8).
 
 Bar chart of prompt-equalized LOO accuracy vs model scale, with bootstrap CIs
 as error bars. Includes hedging baseline as comparison. Horizontal line at 50%.

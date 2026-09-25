@@ -69,7 +69,7 @@ SHEET_TXT = os.path.join(RESULTS, "crit4b_human_coding_sheet.txt")
 CODES_TXT = os.path.join(RESULTS, "crit4b_human_codes.txt")
 OUT_PATH = os.path.join(RESULTS, "crit4b_grading_reliability.json")
 
-PREREG_THRESHOLD = 0.60        # §3.3(2), §3.3(3), §9 — both studies
+PREREG_THRESHOLD = 0.60        # §3.3(2), §3.3(3), §9: both studies
 EXPAND = {"A": "ASSERTED", "C": "CORRECTED", "E": "EVASIVE"}
 
 

@@ -15,9 +15,9 @@ MECHANISM (faithful to R1, unlike EXP-K):
     yes/no probes differently from one that has been telling the truth.
 
 These questions are modeled on R1's three published elicitation categories:
-    (1) lie-related   — probe the model's stance on lying/consistency
-    (2) factual       — simple world-knowledge yes/no questions
-    (3) ambiguous     — opinion/indeterminate yes/no questions
+    (1) lie-related: probe the model's stance on lying/consistency
+    (2) factual: simple world-knowledge yes/no questions
+    (3) ambiguous: opinion/indeterminate yes/no questions
 
 Each question is unrelated to any specific factual claim under test, is
 answerable yes/no, and is presented with an explicit "answer Yes or No"

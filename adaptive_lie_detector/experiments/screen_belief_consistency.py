@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-screen_belief_consistency.py — strengthen EXP-IB's D=0 construction.
+screen_belief_consistency.py: strengthen EXP-IB's D=0 construction.
 
 DEVIATION 2 (exploratory, added after the pre-registered screen, before any
 outcome analysis of the strict subset). See docs/PREREG_EXP_C_intervention_b.md.
@@ -96,7 +96,7 @@ def main():
     paths = sorted(p for p in glob.glob(os.path.join(DATA_DIR, "intervention_b_*.json"))
                    if "summary" not in p and "consistency" not in p)
     if not paths:
-        print("no intervention_b_*.json found — run run_intervention_b.py first")
+        print("no intervention_b_*.json found: run run_intervention_b.py first")
         return
 
     for path in paths:
@@ -104,7 +104,7 @@ def main():
         tag = d["model"]
         held = d.get("claims_held") or []
         target = OllamaTargetModel(model=tag)
-        print(f"\n{'=' * 74}\n  consistency screen — {tag} ({len(held)} HELD claims)\n{'=' * 74}")
+        print(f"\n{'=' * 74}\n  consistency screen: {tag} ({len(held)} HELD claims)\n{'=' * 74}")
 
         recs, inverted, inconsistent, unmapped = [], [], [], []
         for claim in held:

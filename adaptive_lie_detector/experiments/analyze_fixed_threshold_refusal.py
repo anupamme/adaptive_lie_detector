@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_fixed_threshold_refusal.py — EXP-J-cold: Fixed-threshold refusal baseline.
+analyze_fixed_threshold_refusal.py, EXP-J-cold: Fixed-threshold refusal baseline.
 
 Tests whether a fixed decision rule ("predict lying if refusal_count >= k") works
 without LOO calibration, addressing the reviewer's #1 priority:
@@ -101,7 +101,7 @@ def main():
     print("EXP-J-COLD: FIXED-THRESHOLD REFUSAL BASELINE (LABEL-FREE DEPLOYMENT)")
     print("=" * 80)
     print("\nTesting decision rule: 'Predict LYING if refusal_count >= k'")
-    print("No LOO calibration — pure cold-start deployment scenario.\n")
+    print("No LOO calibration: pure cold-start deployment scenario.\n")
 
     # Test thresholds k ∈ {0, 1, 2, 3}
     thresholds = [0, 1, 2, 3]

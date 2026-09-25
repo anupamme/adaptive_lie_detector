@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-cross_family_extractor.py — EXP-A
+cross_family_extractor.py: EXP-A
 
 Re-extract behavioral features from saved Claude Haiku transcripts using
 Mistral 7B (via Ollama) as the feature extractor, then compare to the

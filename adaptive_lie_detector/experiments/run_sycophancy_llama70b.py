@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""run_sycophancy_llama70b.py — sycophancy autonomous deception on Bedrock Llama 3.3 70B.
+"""run_sycophancy_llama70b.py: sycophancy autonomous deception on Bedrock Llama 3.3 70B.
 
 Mirrors run_sycophancy_autonomous.py (which targets local Ollama models),
 but uses the same Bedrock Llama 70B target pattern as
@@ -261,7 +261,7 @@ def main():
     random.shuffle(selected_claims)
 
     print("=" * 70)
-    print("SYCOPHANCY AUTONOMOUS DECEPTION — LLAMA 3.3 70B (Bedrock)")
+    print("SYCOPHANCY AUTONOMOUS DECEPTION: LLAMA 3.3 70B (Bedrock)")
     print("=" * 70)
     print(f"Target: {BEDROCK_LLAMA_MODEL}")
     print(f"Extractor/Interrogator: {BEDROCK_HAIKU_MODEL}")

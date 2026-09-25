@@ -5,7 +5,7 @@ extract_transcripts.py
 Generate example interrogation transcripts for the paper:
   1. Correctly classified truthful claim
   2. Correctly caught lie
-  3. Missed lie (prediction=truthful, gt=lying) — if one exists in mock data
+  3. Missed lie (prediction=truthful, gt=lying), if one exists in mock data
   4. Pilot misclassification (search for "Mount Everest" in stored interrogation files)
 
 Usage:
@@ -177,7 +177,7 @@ def main():
     ]:
         entry = results_by_type[key]
         if entry is None:
-            print(f"\n[{label}]  — Not found in 100-claim sweep")
+            print(f"\n[{label}]: Not found in 100-claim sweep")
             transcripts[key] = None
             continue
         claim, is_lying, r = entry

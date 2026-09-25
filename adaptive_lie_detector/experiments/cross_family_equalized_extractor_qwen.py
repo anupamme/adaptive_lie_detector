@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-cross_family_equalized_extractor_qwen.py — EXP-H (Third Extractor)
+cross_family_equalized_extractor_qwen.py: EXP-H (Third Extractor)
 
 Re-extract behavioral features from saved equalized transcripts (3B, 7B, 70B)
 using Qwen 2.5 14B via local Ollama as a third, structurally different feature
@@ -83,7 +83,7 @@ class OllamaQwenExtractor:
     """
     Feature extractor using Qwen 2.5 14B via local Ollama.
 
-    Open-weight model from Alibaba — structurally different from both
+    Open-weight model from Alibaba: structurally different from both
     Claude Haiku (Anthropic, closed-weight) and Mistral Large 3 (Mistral, closed-weight).
     """
 

@@ -97,7 +97,7 @@ def simulate_threshold(trials, tau, scalers_and_clfs, min_q=MIN_QUESTIONS):
                 break
 
         if pred is None:
-            # Exhausted questions — use final prediction
+            # Exhausted questions: use final prediction
             feat = turns[-1].reshape(1, -1)
             feat_s = scaler.transform(feat)
             pred = clf.predict(feat_s)[0]

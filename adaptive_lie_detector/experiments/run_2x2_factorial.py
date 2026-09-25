@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-run_2x2_factorial.py — Pre-registered 2×2 clarity × turn-structure factorial.
+run_2x2_factorial.py: Pre-registered 2×2 clarity × turn-structure factorial.
 
 Design:
   - Clarity: high (textbook-false claims) vs. low (near-miss claims)
   - Turn structure: K=1 (single-response refusal-count) vs. adaptive (full multi-turn ADAGE)
-  - Disposition source: sycophancy (fixed — same system prompt as run_exp_i_4th_scenario.py)
+  - Disposition source: sycophancy (fixed, same system prompt as run_exp_i_4th_scenario.py)
   - Models: Llama 3.2 3B, Qwen 2.5 14B, Mistral 7B (via Ollama)
   - n=50 per cell per model (~600 trials total)
 
@@ -92,7 +92,7 @@ from src.adaptive_system import create_adaptive_detector
 from src.utils import save_json, timestamp
 
 # ---------------------------------------------------------------------------
-# Sycophancy-aligned model — identical to run_exp_i_4th_scenario.py
+# Sycophancy-aligned model: identical to run_exp_i_4th_scenario.py
 # ---------------------------------------------------------------------------
 
 class SycophancyAlignedModel(OllamaTargetModel):
@@ -112,7 +112,7 @@ class SycophancyAlignedModel(OllamaTargetModel):
 
 
 # ---------------------------------------------------------------------------
-# Claim sets — reused verbatim from run_exp_i_4th_scenario.py
+# Claim sets: reused verbatim from run_exp_i_4th_scenario.py
 # ---------------------------------------------------------------------------
 
 CLAIM_TRIPLES = [

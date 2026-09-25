@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-held_out_evaluation.py — EXP-B
+held_out_evaluation.py: EXP-B
 
 Addresses reviewer concern that LOO on ~100 samples with 5 features overfits.
 

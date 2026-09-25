@@ -5,7 +5,7 @@ zero_shot_baseline.py
 Evaluates a zero-shot LLM-as-judge baseline on saved interrogation transcripts.
 For each trial, sends the claim + full conversation transcript to Claude Haiku
 and asks it to classify truthful vs. lying without any feature extraction or
-trained classifier — just direct judgment from the transcript.
+trained classifier: just direct judgment from the transcript.
 
 This answers: "does the structured feature extraction + logistic regression
 pipeline add value over simply asking an LLM to judge the transcript?"
@@ -185,7 +185,7 @@ def main():
     usable = [r for r in all_results if r.get("conversation") and r.get("status") != "error"]
     skipped = len(all_results) - len(usable)
     print(f"Trials with conversation: {len(usable)} / {len(all_results)}"
-          + (f" ({skipped} skipped — no conversation saved)" if skipped else ""))
+          + (f" ({skipped} skipped: no conversation saved)" if skipped else ""))
     if not usable:
         print("ERROR: No trials have 'conversation' field. "
               "Re-run with the updated run_ollama_experiments.py first.")

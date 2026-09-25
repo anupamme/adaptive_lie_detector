@@ -193,16 +193,16 @@ def main():
     import sys as _sys
     if "--validate-3b" in _sys.argv:
         spec = [
-            ("Llama 3.2 3B — Persona (validation)",
+            ("Llama 3.2 3B: Persona (validation)",
              RESULTS / "persona_autonomous_llama3.2_3b_n50_final.json"),
-            ("Llama 3.2 3B — False beliefs (validation)",
+            ("Llama 3.2 3B: False beliefs (validation)",
              RESULTS / "false_beliefs_autonomous_llama3.2_3b_n50_final.json"),
         ]
     else:
         spec = [
-            ("Qwen 2.5 14B — Persona maintenance",
+            ("Qwen 2.5 14B: Persona maintenance",
              RESULTS / "persona_autonomous_qwen2.5_14b_n50_final.json"),
-            ("Qwen 2.5 14B — False beliefs (ICL)",
+            ("Qwen 2.5 14B: False beliefs (ICL)",
              RESULTS / "false_beliefs_autonomous_qwen2.5_14b_n50_final.json"),
         ]
     out = []

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-emit_frontier_appendix.py — generate the EXP-FS appendix material from the analysis.
+emit_frontier_appendix.py: generate the EXP-FS appendix material from the analysis.
 
 Nine wrong frontier numbers reached the manuscript in earlier rounds because every
 one of them was typed by hand from a terminal scrollback. This script removes that

@@ -148,7 +148,7 @@ def main():
     print("KEY FINDING FOR PAPER")
     print("=" * 65)
     print("  Adaptive stopping matches K=8 accuracy while averaging ~2.6")
-    print("  questions — a 65-72% reduction in interrogation cost.")
+    print("  questions: a 65-72% reduction in interrogation cost.")
     print("  Fixed K=3 (≈ adaptive mean) achieves comparable accuracy,")
     print("  but adaptive uses fewer questions on easy cases.")
 

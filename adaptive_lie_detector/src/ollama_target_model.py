@@ -2,7 +2,7 @@
 OllamaTargetModel: Uses a locally-hosted Ollama model as the target for interrogation.
 
 Drop-in replacement for ClaudeTargetModel / MockTargetModel that calls a local
-Ollama server (http://localhost:11434) instead of cloud APIs — no rate limits,
+Ollama server (http://localhost:11434) instead of cloud APIs, no rate limits,
 no per-call cost, works entirely offline after model download.
 
 Setup (run once in terminal):
@@ -71,7 +71,7 @@ class OllamaTargetModel:
     """
     Target model backed by a local Ollama server.
 
-    The model acts as the 'subject' being interrogated — instructed to either
+    The model acts as the 'subject' being interrogated: instructed to either
     answer honestly (truth mode) or defend a false claim (lie mode).
 
     Args:

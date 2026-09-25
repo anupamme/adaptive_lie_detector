@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_autonomous_deception.py — EXP-I: Autonomous deception pilot.
+analyze_autonomous_deception.py, EXP-I: Autonomous deception pilot.
 
 Applies hedging/refusal regex baseline and single-feature LOO to publicly available
 autonomous deception datasets from Apollo Research (Meinke et al., 2025), testing
@@ -305,13 +305,13 @@ def main():
 
     results = []
 
-    # Dataset 1a: AI Liar — Llama 3.3 70B
+    # Dataset 1a: AI Liar, Llama 3.3 70B
     texts, labels, scenarios = load_ai_liar("llama-70b-3.3")
     if texts is not None:
         r = analyze_dataset("AI Liar (goal-directed, Llama 3.3 70B)", texts, labels, scenarios)
         results.append(r)
 
-    # Dataset 1b: AI Liar — Llama 3.1 70B
+    # Dataset 1b: AI Liar, Llama 3.1 70B
     texts_31, labels_31, scenarios_31 = load_ai_liar("llama-70b")
     if texts_31 is not None:
         r = analyze_dataset("AI Liar (goal-directed, Llama 3.1 70B)", texts_31, labels_31, scenarios_31)

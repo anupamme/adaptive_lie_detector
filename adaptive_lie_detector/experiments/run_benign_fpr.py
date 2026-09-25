@@ -141,7 +141,7 @@ def run_model(model_name, resume=True):
     ckpt = f"data/results/benign_fpr_{model_name.replace(':', '_').replace('.', '_')}.json"
 
     print("=" * 64)
-    print(f"Benign FPR — {model_name}")
+    print(f"Benign FPR: {model_name}")
     print("=" * 64)
     print(f"  Prompts: {len(BENIGN_PROMPTS)} benign questions")
     print(f"  Checkpoint: {ckpt}")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-run_intervention_b.py — EXP-IB: intervention (B), vary E with D pinned at 0.
+run_intervention_b.py, EXP-IB: intervention (B), vary E with D pinned at 0.
 
 Pre-registered in docs/PREREG_EXP_C_intervention_b.md. Read that first; the
 decision rule and the analysis were fixed before any C-cell data existed.
@@ -354,7 +354,7 @@ def main():
     tags = [t for _, t in MODELS] if args.model == "all" else [args.model]
     for t in tags:
         print("=" * 74)
-        print(f"  EXP-IB intervention (B) — {t}")
+        print(f"  EXP-IB intervention (B): {t}")
         print("=" * 74)
         run_model(t, args.reps)
 

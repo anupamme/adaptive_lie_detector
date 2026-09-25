@@ -35,7 +35,7 @@ EXTRACTOR_CONFIGS = {
         "provider": "bedrock_llama",
     },
     "gpt-4o": {
-        # OpenRouter routing (not used — account out of credit). Left here
+        # OpenRouter routing (not used, account out of credit). Left here
         # for reference; falls back to BedrockLlamaExtractor via llama-3.3-70b.
         "model": "openai/gpt-4o",
         "output_suffix": "gpt4o_extractor",

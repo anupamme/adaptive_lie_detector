@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""EXP-C4B — the blinded ten-target replication of the criterion-4 contrast.
+"""EXP-C4B: the blinded ten-target replication of the criterion-4 contrast.
 
 PRE-REGISTRATION: docs/PREREG_EXP_C4B.md. This file is the FROZEN ANALYSIS.
 
@@ -639,7 +639,7 @@ def phase_topup_check():
     cells = load_cells("confirm")
 
     print("=" * 72)
-    print("EXP-C4B — top-up check (PREREG §7b). Role C: counts only.")
+    print("EXP-C4B: top-up check (PREREG §7b). Role C: counts only.")
     print("=" * 72)
     print(f"  top up in blocks of {TOPUP_BLOCK_CLAIMS} claims while ANY of: "
           f"paired<{TOPUP_MIN_PAIRED}, minority-D<{TOPUP_MIN_MINORITY}, "
@@ -865,7 +865,7 @@ def phase_blind(jobs):
             work.append((p, k, path))
 
     print("=" * 72)
-    print("EXP-C4B — BLIND analysis (PREREG §3.4 step 5). Role A.")
+    print("EXP-C4B: BLIND analysis (PREREG §3.4 step 5). Role A.")
     print("=" * 72)
     print(f"  {len(pseudos)} pseudonymous targets x {k_total} candidate label "
           f"sets = {len(work)} blocks")
@@ -947,7 +947,7 @@ def phase_unseal(salt_file):
     salt = bytes.fromhex(salt_hex)
 
     print("=" * 72)
-    print("EXP-C4B — UNSEAL (PREREG §3.4 step 6, §8 gate 6)")
+    print("EXP-C4B: UNSEAL (PREREG §3.4 step 6, §8 gate 6)")
     print("=" * 72)
 
     # ---- gate 6: blinding integrity. Any failure voids the blind, and §10(f)
@@ -1186,7 +1186,7 @@ def phase_unseal(salt_file):
               f"{_f(h1.get('p_two_sided'), 9, 4)}{_f(e.get('p_holm'), 9, 4)}"
               f"{_f(h1.get('mde_probe_delta'), 6, 2)}  {e['verdict']}")
     print()
-    print(f"  FAMILY R: {summary_R} — {why_R}")
+    print(f"  FAMILY R: {summary_R}, {why_R}")
     print(f"  FAMILY E: {len(posE)}/{len(eligE)} eligible extension targets "
           f"positive, exact 95% "
           + (f"[{ciE[0]:.3f}, {ciE[1]:.3f}]" if ciE[0] is not None else "[--]"))
@@ -1202,7 +1202,7 @@ def phase_unseal(salt_file):
 # ========================================================== phase: transfer
 
 def phase_transfer():
-    """H5 (§5), CONFIRMATORY but NOT BLINDED — CORRECTION 1(b) in PREREG §12.
+    """H5 (§5), CONFIRMATORY but NOT BLINDED: CORRECTION 1(b) in PREREG §12.
 
     Why it cannot be label-blinded, stated as the reason it is separated rather
     than as an excuse: H5 fits one model on the pooled rows of nine targets and
@@ -1257,13 +1257,13 @@ def phase_transfer():
 
     report = {
         "experiment": "EXP-C4B", "phase": "transfer", "prereg": PREREG,
-        "hypothesis": "H5 — leave-one-target-out transfer, CONFIRMATORY",
+        "hypothesis": "H5: leave-one-target-out transfer, CONFIRMATORY",
         "blinded": False,
         "blinded_false_reason": "H5 couples all ten label sets, so it cannot be "
                                 "committed over 20^10 candidate combinations; "
                                 "it is pre-registered at the frozen commit and "
                                 "run post-unseal (CORRECTION 1(b))",
-        "criterion": "5 (cross-model transfer) — robustness, not construct "
+        "criterion": "5 (cross-model transfer): robustness, not construct "
                      "validity; nothing here can change a criterion-4 verdict",
         "seed": SEED, "n_perm": N_PERM, "alpha": ALPHA,
         "eligible_targets": sorted(per),
@@ -1274,7 +1274,7 @@ def phase_transfer():
     }
 
     print("=" * 72)
-    print("EXP-C4B — H5 leave-one-target-out transfer (confirmatory, NOT "
+    print("EXP-C4B: H5 leave-one-target-out transfer (confirmatory, NOT "
           "blinded)")
     print("=" * 72)
     print(f"  eligible targets: {len(per)}")
@@ -1322,7 +1322,7 @@ def phase_transfer():
                           "note": "degenerate label set"})
             report.setdefault("targets", {})[held] = entry
             raw[held] = None
-            print(f"  {held:<22} degenerate label set — skipped")
+            print(f"  {held:<22} degenerate label set, skipped")
             continue
 
         clf = LogisticRegression(max_iter=1000, C=1.0).fit(Xtr, ytr)

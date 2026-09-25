@@ -44,7 +44,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from analyze_crit4b import holm  # noqa: E402  — one Holm, shared by both
+from analyze_crit4b import holm  # noqa: E402; one Holm, shared by both
 
 RESULTS = "data/results"
 IN_PATH = os.path.join(RESULTS, "crit4_analysis.json")

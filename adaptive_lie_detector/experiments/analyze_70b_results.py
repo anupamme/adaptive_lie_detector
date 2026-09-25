@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_70b_results.py — Comprehensive analysis of Llama 70B experiment results.
+analyze_70b_results.py: Comprehensive analysis of Llama 70B experiment results.
 
 Computes:
   1. Feature Cohen's d (truthful vs lying)
@@ -170,7 +170,7 @@ def main():
     results = load_data()
     n = len(results)
     print("=" * 75)
-    print(f"  COMPREHENSIVE ANALYSIS — Llama 70B  (n={n} trials)")
+    print(f"  COMPREHENSIVE ANALYSIS: Llama 70B  (n={n} trials)")
     print("=" * 75)
 
     X, y = per_trial_feature_means(results)

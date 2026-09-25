@@ -115,7 +115,7 @@ def fire_rates(byp):
 def main():
     rng = np.random.RandomState(SEED)
     print("=" * 78)
-    print("  T/D vs F/D — within one instructed-deception condition (same label; D unobserved)")
+    print("  T/D vs F/D: within one instructed-deception condition (same label; D unobserved)")
     print("  Paired by matched claim pair; permutation flips assignment within pair.")
     print("=" * 78)
 

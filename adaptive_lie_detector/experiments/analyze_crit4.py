@@ -442,7 +442,7 @@ def phase_confirm():
               "seed": SEED, "n_perm": N_PERM, "targets": {}}
 
     print("=" * 72)
-    print("EXP-C4 — criterion-4 contrast on materials we built")
+    print("EXP-C4: criterion-4 contrast on materials we built")
     print("=" * 72)
     print(f"  seed={SEED}  n_perm={N_PERM}  cells={len(cells)}")
     print(f"  detector: prior work's 16-probe battery, grouped 5-fold LR")
@@ -506,7 +506,7 @@ def phase_confirm():
             entry["verdict"] = "UNDERPOWERED"
             entry["reason"] = ("gate 3 failed: the same scenario is not "
                               "realized under both outcomes at MIN_CELL")
-            print(f"  VERDICT: UNDERPOWERED (gate 3) — reported as ineligible "
+            print(f"  VERDICT: UNDERPOWERED (gate 3), reported as ineligible "
                   f"with its counts, not analysed")
             report["targets"][model] = entry
             print()
@@ -662,7 +662,7 @@ def phase_transfer():
     }
 
     print("=" * 72)
-    print("EXP-C4 — criterion-5 transfer (EXPLORATORY, not pre-registered)")
+    print("EXP-C4: criterion-5 transfer (EXPLORATORY, not pre-registered)")
     print("=" * 72)
     print(f"  seed={SEED}  n_perm={N_PERM}  targets={len(models)}")
     print(f"  leave-one-TARGET-out; claim sets identical across cells: "
@@ -699,7 +699,7 @@ def phase_transfer():
             entry.update({"accuracy": None, "p_higher": None,
                           "note": "degenerate label set"})
             report["targets"][held] = entry
-            print(f"  {held:<14} degenerate label set — skipped")
+            print(f"  {held:<14} degenerate label set, skipped")
             continue
 
         clf = LogisticRegression(max_iter=1000, C=1.0).fit(Xtr, ytr)

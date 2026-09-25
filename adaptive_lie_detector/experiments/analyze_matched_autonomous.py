@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_matched_autonomous.py — Analysis for matched-format autonomous deception (EXP-I-matched).
+analyze_matched_autonomous.py: Analysis for matched-format autonomous deception (EXP-I-matched).
 
 Analyzes results from run_matched_format_autonomous.py across three designs:
 1. Jailbroken persona maintenance

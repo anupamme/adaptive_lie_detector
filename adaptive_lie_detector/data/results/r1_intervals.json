@@ -1,0 +1,728 @@
+{
+  "experiment": "EXP-R1 / EXP-R1c",
+  "arm": "accuracy_intervals",
+  "status": "DESCRIPTIVE, POST-HOC",
+  "estimand": "the same stratified 5-fold accuracy tab:r1_faithful and tab:r1c_v2 report",
+  "not_a_test": "The pre-registered inference is the label-permutation test already printed in both tables. No accuracy, p-value or change-in-pp depends on anything in this file.",
+  "wilson": "95% Wilson on the count of correct out-of-fold predictions; treats the n trials as exchangeable Bernoulli draws",
+  "claim_clustered": "95% percentile bootstrap resampling the 25 matched claim pairs per cell with replacement, each drawn copy given a fresh group id and scored under GroupKFold; an interval on the panel's grp-5f column, not on the primary. The pair is the honest unit because each contributes two rows, but the grouped estimator is the only one a cluster bootstrap can be run on here: under the primary stratified estimator the duplicated rows straddle folds and leak.",
+  "pooled_row_order_sensitivity": "The four pooled cells reproduce only when the six targets are stacked in load_checkpoints' insertion order, the order the publishing script used; StratifiedKFold(shuffle=True, random_state=0) assigns folds by row position, so table-print order gives a different digit from the same rows. Per cell under variants[v].POOLED[cond].row_order_sensitivity. All 24 per-target cells are unaffected.",
+  "roster_pinned_because": "load_checkpoints globs r1b_fresh_*.json, which now also matches the EXP-R1d target ministral-3:8b, collected after the EXP-R1c panel was published",
+  "seed": 42,
+  "n_boot": 2000,
+  "ci_pct": [
+    2.5,
+    97.5
+  ],
+  "variants": {
+    "v1": {
+      "llama3.2:3b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 0.96,
+          "recomputed_accuracy": 0.96,
+          "reproduces_published": true,
+          "correct": 48,
+          "wilson_lo": 0.8653966212204532,
+          "wilson_hi": 0.9889613473391734,
+          "grouped_kfold_accuracy": 0.96,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.8800000000000001,
+            "ci_hi": 1.0,
+            "median": 0.96,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.48,
+          "recomputed_accuracy": 0.47999999999999987,
+          "reproduces_published": true,
+          "correct": 24,
+          "wilson_lo": 0.347969123955057,
+          "wilson_hi": 0.6148848774119157,
+          "grouped_kfold_accuracy": 0.58,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.4600000000000001,
+            "ci_hi": 0.82,
+            "median": 0.6599999999999999,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "mistral:7b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 0.98,
+          "recomputed_accuracy": 0.9800000000000001,
+          "reproduces_published": true,
+          "correct": 49,
+          "wilson_lo": 0.8950431352816304,
+          "wilson_hi": 0.9964608319110234,
+          "grouped_kfold_accuracy": 0.9800000000000001,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.96,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.52,
+          "recomputed_accuracy": 0.52,
+          "reproduces_published": true,
+          "correct": 26,
+          "wilson_lo": 0.38511512258808434,
+          "wilson_hi": 0.6520308760449429,
+          "grouped_kfold_accuracy": 0.6,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.44000000000000006,
+            "ci_hi": 0.8,
+            "median": 0.6200000000000001,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "qwen2.5:7b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 0.54,
+          "recomputed_accuracy": 0.54,
+          "reproduces_published": true,
+          "correct": 27,
+          "wilson_lo": 0.40398634328388083,
+          "wilson_hi": 0.6703056539821737,
+          "grouped_kfold_accuracy": 0.54,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.5,
+            "ci_hi": 0.6200000000000001,
+            "median": 0.54,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.5,
+          "recomputed_accuracy": 0.5,
+          "reproduces_published": true,
+          "correct": 25,
+          "wilson_lo": 0.36644286412332855,
+          "wilson_hi": 0.6335571358766715,
+          "grouped_kfold_accuracy": 0.5,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.5,
+            "ci_hi": 0.5,
+            "median": 0.5,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "llama3.1:8b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 0.7,
+          "recomputed_accuracy": 0.7000000000000001,
+          "reproduces_published": true,
+          "correct": 35,
+          "wilson_lo": 0.562493877226366,
+          "wilson_hi": 0.8089661091039063,
+          "grouped_kfold_accuracy": 0.7200000000000001,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.6199999999999999,
+            "ci_hi": 0.8400000000000001,
+            "median": 0.74,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.5,
+          "recomputed_accuracy": 0.5,
+          "reproduces_published": true,
+          "correct": 25,
+          "wilson_lo": 0.36644286412332855,
+          "wilson_hi": 0.6335571358766715,
+          "grouped_kfold_accuracy": 0.54,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.45999999999999996,
+            "ci_hi": 0.7,
+            "median": 0.5799999999999998,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "qwen2.5:14b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 0.94,
+          "recomputed_accuracy": 0.9400000000000001,
+          "reproduces_published": true,
+          "correct": 47,
+          "wilson_lo": 0.8378265662912299,
+          "wilson_hi": 0.9793854036353695,
+          "grouped_kfold_accuracy": 0.9400000000000001,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.9,
+            "ci_hi": 1.0,
+            "median": 0.96,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.7,
+          "recomputed_accuracy": 0.7,
+          "reproduces_published": true,
+          "correct": 35,
+          "wilson_lo": 0.562493877226366,
+          "wilson_hi": 0.8089661091039063,
+          "grouped_kfold_accuracy": 0.68,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.6,
+            "ci_hi": 0.8,
+            "median": 0.7,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "qwen2.5:32b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 1.0,
+          "recomputed_accuracy": 1.0,
+          "reproduces_published": true,
+          "correct": 50,
+          "wilson_lo": 0.9286499658256813,
+          "wilson_hi": 1.0,
+          "grouped_kfold_accuracy": 1.0,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.96,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.52,
+          "recomputed_accuracy": 0.52,
+          "reproduces_published": true,
+          "correct": 26,
+          "wilson_lo": 0.38511512258808434,
+          "wilson_hi": 0.6520308760449429,
+          "grouped_kfold_accuracy": 0.5,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.5,
+            "ci_hi": 0.6,
+            "median": 0.52,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "POOLED": {
+        "instructed": {
+          "n": 300,
+          "published_accuracy": 0.817,
+          "recomputed_accuracy": 0.8166666666666667,
+          "reproduces_published": true,
+          "correct": 245,
+          "wilson_lo": 0.7689704376794907,
+          "wilson_hi": 0.85635538998861,
+          "grouped_kfold_accuracy": 0.8166666666666668,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.78,
+            "ci_hi": 0.85,
+            "median": 0.8233333333333333,
+            "covers_grouped_point": true
+          },
+          "row_order_sensitivity": {
+            "publishing_order": [
+              "llama3.1:8b",
+              "llama3.2:3b",
+              "mistral:7b",
+              "qwen2.5:14b",
+              "qwen2.5:32b",
+              "qwen2.5:7b"
+            ],
+            "table_print_order": [
+              "llama3.2:3b",
+              "mistral:7b",
+              "qwen2.5:7b",
+              "llama3.1:8b",
+              "qwen2.5:14b",
+              "qwen2.5:32b"
+            ],
+            "accuracy_table_print_order": 0.8033333333333333,
+            "accuracy_publishing_order": 0.8166666666666667,
+            "swing_pp": 1.3333333333333308,
+            "swing_inside_wilson": true
+          }
+        },
+        "equalized": {
+          "n": 300,
+          "published_accuracy": 0.537,
+          "recomputed_accuracy": 0.5366666666666666,
+          "reproduces_published": true,
+          "correct": 161,
+          "wilson_lo": 0.4801310310375517,
+          "wilson_hi": 0.592275117429281,
+          "grouped_kfold_accuracy": 0.53,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.5166666666666667,
+            "ci_hi": 0.6133333333333334,
+            "median": 0.5666666666666667,
+            "covers_grouped_point": true
+          },
+          "row_order_sensitivity": {
+            "publishing_order": [
+              "llama3.1:8b",
+              "llama3.2:3b",
+              "mistral:7b",
+              "qwen2.5:14b",
+              "qwen2.5:32b",
+              "qwen2.5:7b"
+            ],
+            "table_print_order": [
+              "llama3.2:3b",
+              "mistral:7b",
+              "qwen2.5:7b",
+              "llama3.1:8b",
+              "qwen2.5:14b",
+              "qwen2.5:32b"
+            ],
+            "accuracy_table_print_order": 0.49333333333333335,
+            "accuracy_publishing_order": 0.5366666666666666,
+            "swing_pp": 4.333333333333328,
+            "swing_inside_wilson": true
+          }
+        }
+      }
+    },
+    "v2": {
+      "llama3.2:3b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 1.0,
+          "recomputed_accuracy": 1.0,
+          "reproduces_published": true,
+          "correct": 50,
+          "wilson_lo": 0.9286499658256813,
+          "wilson_hi": 1.0,
+          "grouped_kfold_accuracy": 1.0,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 1.0,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.24,
+          "recomputed_accuracy": 0.24,
+          "reproduces_published": true,
+          "correct": 12,
+          "wilson_lo": 0.14297252401872207,
+          "wilson_hi": 0.37412949375192367,
+          "grouped_kfold_accuracy": 0.36,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.34,
+            "ci_hi": 0.7004999999999973,
+            "median": 0.54,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "llama3.1:8b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 0.86,
+          "recomputed_accuracy": 0.8600000000000001,
+          "reproduces_published": true,
+          "correct": 43,
+          "wilson_lo": 0.7381354280147191,
+          "wilson_hi": 0.9304925473797714,
+          "grouped_kfold_accuracy": 0.8600000000000001,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.76,
+            "ci_hi": 0.9400000000000001,
+            "median": 0.86,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.42,
+          "recomputed_accuracy": 0.42000000000000004,
+          "reproduces_published": true,
+          "correct": 21,
+          "wilson_lo": 0.2937479723456693,
+          "wilson_hi": 0.5576680331222217,
+          "grouped_kfold_accuracy": 0.42000000000000004,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.42000000000000004,
+            "ci_hi": 0.5800000000000001,
+            "median": 0.5,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "mistral:7b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 1.0,
+          "recomputed_accuracy": 1.0,
+          "reproduces_published": true,
+          "correct": 50,
+          "wilson_lo": 0.9286499658256813,
+          "wilson_hi": 1.0,
+          "grouped_kfold_accuracy": 1.0,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 1.0,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.58,
+          "recomputed_accuracy": 0.5800000000000001,
+          "reproduces_published": true,
+          "correct": 29,
+          "wilson_lo": 0.4423319668777783,
+          "wilson_hi": 0.7062520276543306,
+          "grouped_kfold_accuracy": 0.58,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.42000000000000004,
+            "ci_hi": 0.76,
+            "median": 0.6199999999999999,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "qwen2.5:7b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 1.0,
+          "recomputed_accuracy": 1.0,
+          "reproduces_published": true,
+          "correct": 50,
+          "wilson_lo": 0.9286499658256813,
+          "wilson_hi": 1.0,
+          "grouped_kfold_accuracy": 1.0,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 1.0,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.5,
+          "recomputed_accuracy": 0.5,
+          "reproduces_published": true,
+          "correct": 25,
+          "wilson_lo": 0.36644286412332855,
+          "wilson_hi": 0.6335571358766715,
+          "grouped_kfold_accuracy": 0.5,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.5,
+            "ci_hi": 0.5,
+            "median": 0.5,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "qwen2.5:14b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 1.0,
+          "recomputed_accuracy": 1.0,
+          "reproduces_published": true,
+          "correct": 50,
+          "wilson_lo": 0.9286499658256813,
+          "wilson_hi": 1.0,
+          "grouped_kfold_accuracy": 1.0,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 1.0,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.46,
+          "recomputed_accuracy": 0.45999999999999996,
+          "reproduces_published": true,
+          "correct": 23,
+          "wilson_lo": 0.3296943460178264,
+          "wilson_hi": 0.5960136567161192,
+          "grouped_kfold_accuracy": 0.45999999999999996,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.42000000000000004,
+            "ci_hi": 0.56,
+            "median": 0.5,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "qwen2.5:32b": {
+        "instructed": {
+          "n": 50,
+          "published_accuracy": 1.0,
+          "recomputed_accuracy": 1.0,
+          "reproduces_published": true,
+          "correct": 50,
+          "wilson_lo": 0.9286499658256813,
+          "wilson_hi": 1.0,
+          "grouped_kfold_accuracy": 1.0,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 1.0,
+            "ci_hi": 1.0,
+            "median": 1.0,
+            "covers_grouped_point": true
+          }
+        },
+        "equalized": {
+          "n": 50,
+          "published_accuracy": 0.42,
+          "recomputed_accuracy": 0.42000000000000004,
+          "reproduces_published": true,
+          "correct": 21,
+          "wilson_lo": 0.2937479723456693,
+          "wilson_hi": 0.5576680331222217,
+          "grouped_kfold_accuracy": 0.45999999999999996,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.38,
+            "ci_hi": 0.6399999999999999,
+            "median": 0.5,
+            "covers_grouped_point": true
+          }
+        }
+      },
+      "POOLED": {
+        "instructed": {
+          "n": 300,
+          "published_accuracy": 0.97,
+          "recomputed_accuracy": 0.97,
+          "reproduces_published": true,
+          "correct": 291,
+          "wilson_lo": 0.9439768490080931,
+          "wilson_hi": 0.9841383267940353,
+          "grouped_kfold_accuracy": 0.9666666666666666,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.9566666666666667,
+            "ci_hi": 0.9866666666666667,
+            "median": 0.9700000000000001,
+            "covers_grouped_point": true
+          },
+          "row_order_sensitivity": {
+            "publishing_order": [
+              "llama3.1:8b",
+              "llama3.2:3b",
+              "mistral:7b",
+              "qwen2.5:14b",
+              "qwen2.5:32b",
+              "qwen2.5:7b"
+            ],
+            "table_print_order": [
+              "llama3.2:3b",
+              "llama3.1:8b",
+              "mistral:7b",
+              "qwen2.5:7b",
+              "qwen2.5:14b",
+              "qwen2.5:32b"
+            ],
+            "accuracy_table_print_order": 0.9666666666666666,
+            "accuracy_publishing_order": 0.97,
+            "swing_pp": 0.33333333333334103,
+            "swing_inside_wilson": true
+          }
+        },
+        "equalized": {
+          "n": 300,
+          "published_accuracy": 0.433,
+          "recomputed_accuracy": 0.4333333333333334,
+          "reproduces_published": true,
+          "correct": 130,
+          "wilson_lo": 0.37845033746893636,
+          "wilson_hi": 0.4899021198640951,
+          "grouped_kfold_accuracy": 0.4833333333333334,
+          "claim_clustered": {
+            "estimator": "grouped 5-fold (GroupKFold on drawn-copy id)",
+            "n_clusters": 25,
+            "n_draws": 2000,
+            "n_draws_estimable": 2000,
+            "n_draws_skipped_degenerate": 0,
+            "ci_lo": 0.47000000000000003,
+            "ci_hi": 0.5633333333333332,
+            "median": 0.5166666666666666,
+            "covers_grouped_point": true
+          },
+          "row_order_sensitivity": {
+            "publishing_order": [
+              "llama3.1:8b",
+              "llama3.2:3b",
+              "mistral:7b",
+              "qwen2.5:14b",
+              "qwen2.5:32b",
+              "qwen2.5:7b"
+            ],
+            "table_print_order": [
+              "llama3.2:3b",
+              "llama3.1:8b",
+              "mistral:7b",
+              "qwen2.5:7b",
+              "qwen2.5:14b",
+              "qwen2.5:32b"
+            ],
+            "accuracy_table_print_order": 0.44333333333333336,
+            "accuracy_publishing_order": 0.4333333333333334,
+            "swing_pp": 0.9999999999999953,
+            "swing_inside_wilson": true
+          }
+        }
+      }
+    }
+  },
+  "all_cells_reproduce_published_accuracy": true
+}

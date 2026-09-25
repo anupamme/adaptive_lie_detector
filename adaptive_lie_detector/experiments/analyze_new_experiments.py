@@ -217,7 +217,7 @@ def main():
     path_8b = os.path.join(DATA_DIR, "bedrock_eval_llama8b_prompt_equalized_latest.json")
     if os.path.exists(path_8b):
         acc_8b, ci_lo_8b, ci_hi_8b, h_acc_8b = analyze_dataset(
-            "Llama 3.1 8B — Prompt-Equalized", path_8b)
+            "Llama 3.1 8B: Prompt-Equalized", path_8b)
     else:
         print("8B equalized data not found!")
         acc_8b = None
@@ -226,7 +226,7 @@ def main():
     path_im = os.path.join(DATA_DIR, "bedrock_eval_llama70b_instructed_matched_latest.json")
     if os.path.exists(path_im):
         acc_im, ci_lo_im, ci_hi_im, h_acc_im = analyze_dataset(
-            "Llama 3.3 70B — Instructed-Matched", path_im)
+            "Llama 3.3 70B: Instructed-Matched", path_im)
     else:
         print("Instructed-matched data not found!")
         acc_im = None

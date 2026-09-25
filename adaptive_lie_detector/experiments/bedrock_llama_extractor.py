@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""bedrock_llama_extractor.py — Llama 3.3 70B cross-family feature extractor.
+"""bedrock_llama_extractor.py: Llama 3.3 70B cross-family feature extractor.
 
 Mirrors the BedrockMistralExtractor prompt/response contract so it can be
 swapped in interchangeably by re_extract_equalized_cross_family.py.

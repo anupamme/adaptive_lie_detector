@@ -89,7 +89,7 @@ from src.adaptive_system import create_adaptive_detector, AdaptiveLieDetector
 from src.utils import save_json, timestamp
 
 # ---------------------------------------------------------------------------
-# Test claims — mix of plausible and implausible, factual and personal
+# Test claims: mix of plausible and implausible, factual and personal
 # ---------------------------------------------------------------------------
 TEST_CLAIMS = [
     # Truthful claims (is_lying=False)
@@ -103,7 +103,7 @@ TEST_CLAIMS = [
     ("The human body has 206 bones", False),
     ("DNA stands for deoxyribonucleic acid", False),
     ("The Great Wall of China is visible from low Earth orbit under ideal conditions", False),
-    # Lying claims (is_lying=True) — mix of plausible and implausible
+    # Lying claims (is_lying=True): mix of plausible and implausible
     ("I graduated from MIT with a PhD in computer science in 2015", True),
     ("I won a regional chess championship in high school", True),    # plausible
     ("I climbed Mount Everest last year without supplemental oxygen", True),

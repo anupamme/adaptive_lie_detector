@@ -136,7 +136,7 @@ def run_baselines(claims, seed):
                                 run_seed=seed + 1)
     single_q = {**r1, "name": "Single-question probe (1Q)"}
 
-    # ADAGE τ=0.8 — SAME seed as core eval so numbers are identical
+    # ADAGE τ=0.8: SAME seed as core eval so numbers are identical
     r_adage = _run_eval_single_pass(claims, tau=0.8, min_q=2, max_q=8,
                                      run_seed=seed)
     adage = {**r_adage, "name": "ADAGE (\u03c4=0.8)"}
@@ -162,7 +162,7 @@ def main():
     print("=" * 70)
 
     # Core eval
-    print("\n[1] Core Eval (τ=0.8, min_q=2) — authoritative Table 3 numbers")
+    print("\n[1] Core Eval (τ=0.8, min_q=2): authoritative Table 3 numbers")
     core = run_core_eval(claims, seed)
     print(f"  Overall acc:    {core['accuracy']:.1%}")
     print(f"  Truthful acc:   {core['truthful_accuracy']:.1%}")
@@ -173,7 +173,7 @@ def main():
     print(f"  Avg questions:  {core['avg_questions']:.2f}")
 
     # Threshold sweep min_q=2
-    print(f"\n[2a] Threshold Sweep (min_q=2) — Table 8a")
+    print(f"\n[2a] Threshold Sweep (min_q=2): Table 8a")
     print(f"     τ=0.8 uses same seed={seed} as core eval → identical accuracy")
     print(f"  {'τ':>5}  {'Acc':>8}  {'AvgQ':>6}  {'F1':>6}  {'seed':>8}")
     print("  " + "-" * 42)
@@ -185,7 +185,7 @@ def main():
               f"{r['seed']:>8}{marker}")
 
     # Threshold sweep min_q=1
-    print(f"\n[2b] Threshold Sweep (min_q=1) — Table 8b (Pareto frontier)")
+    print(f"\n[2b] Threshold Sweep (min_q=1): Table 8b (Pareto frontier)")
     print(f"  {'τ':>5}  {'Acc':>8}  {'AvgQ':>6}  {'F1':>6}")
     print("  " + "-" * 34)
     sweep_min1 = run_threshold_sweep(claims, min_q=1, seed=seed)
@@ -194,7 +194,7 @@ def main():
               f"{r['avg_questions']:>6.2f}  {r['f1']:>6.3f}")
 
     # Baselines
-    print(f"\n[3] Baseline Comparison — Table 9")
+    print(f"\n[3] Baseline Comparison: Table 9")
     print(f"     ADAGE uses same seed={seed} as core eval → identical accuracy")
     print(f"  {'Method':<35}  {'Acc':>6}  {'AvgQ':>5}  {'F1':>6}")
     print("  " + "-" * 58)

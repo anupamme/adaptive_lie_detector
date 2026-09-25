@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-test_matched_autonomous_infrastructure.py — Test infrastructure for matched autonomous experiments.
+test_matched_autonomous_infrastructure.py: Test infrastructure for matched autonomous experiments.
 
 Creates mock data to verify analyze_matched_autonomous.py works correctly.
 """

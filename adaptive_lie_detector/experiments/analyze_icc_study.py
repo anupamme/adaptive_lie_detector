@@ -108,7 +108,7 @@ def krippendorff_alpha_ordinal(ratings_matrix: np.ndarray) -> float:
 
 
 # ---------------------------------------------------------------------------
-# ICC(2,1) — two-way random effects, single measures
+# ICC(2,1): two-way random effects, single measures
 # ---------------------------------------------------------------------------
 
 def icc_2_1(ratings_matrix: np.ndarray) -> float:
@@ -209,7 +209,7 @@ def check_annotator_attention(completed: dict, attn_checks: list) -> tuple[int, 
 
 def main():
     print("=" * 60)
-    print("ICC STUDY ANALYSIS — Human Annotators, n=100, 5 Features")
+    print("ICC STUDY ANALYSIS: Human Annotators, n=100, 5 Features")
     print("=" * 60)
 
     # Load attention checks
@@ -227,7 +227,7 @@ def main():
     for ann_num in [1, 2, 3]:
         path = DATA / f"annotator_{ann_num}_completed.csv"
         if not path.exists():
-            print(f"  WARNING: {path} not found — cannot proceed")
+            print(f"  WARNING: {path} not found, cannot proceed")
             return
         ann_data = load_completed_csv(path)
         n_failures, failed_ids = check_annotator_attention(ann_data, attn_checks)
@@ -242,7 +242,7 @@ def main():
         annotators[ann_num] = ann_data
 
     if len(annotators) < 3:
-        print("\nFewer than 3 valid annotators — cannot compute ICC. Replace failed annotator(s).")
+        print("\nFewer than 3 valid annotators: cannot compute ICC. Replace failed annotator(s).")
         return
 
     # Get shared trial IDs (exclude attention checks)
@@ -291,9 +291,9 @@ def main():
     if math.isnan(cmd_alpha):
         verdict = "INDETERMINATE (missing data)"
     elif cmd_alpha >= 0.4:
-        verdict = "VALIDATED — level-dependent claims confirmed; remove PROVISIONAL caveats."
+        verdict = "VALIDATED: level-dependent claims confirmed; remove PROVISIONAL caveats."
     else:
-        verdict = ("NOT VALIDATED — α < 0.4; demote level-dependent claims to "
+        verdict = ("NOT VALIDATED: α < 0.4; demote level-dependent claims to "
                    "'preliminary, unvalidated' in §5.1 and §5.7(g).")
     print(f"\nVERDICT: {verdict}")
 

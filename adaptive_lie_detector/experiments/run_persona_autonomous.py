@@ -9,7 +9,7 @@ DESIGN:
 - Both TRUE and FALSE conditions use IDENTICAL persona prompt
 - TRUE claims: consistent with persona (Johns Hopkins, Mass General)
 - FALSE claims: inconsistent with persona (Stanford, 25 years experience)
-- Model is NEVER told to lie — behavioral differences arise from persona
+- Model is NEVER told to lie: behavioral differences arise from persona
   maintenance vs. knowledge correction
 
 Usage:
@@ -214,7 +214,7 @@ def run_experiments(detector, target, test_claims, verbose=False, checkpoint_pat
         print(f"  [{i+1:02d}/{len(test_claims)}] {'DECEP' if is_lying else 'TRUTH':5s}  {claim[:55]}", end="", flush=True)
 
         target.reset_conversation()
-        # Both conditions use persona prompt — mode is tracked but doesn't change prompt
+        # Both conditions use persona prompt: mode is tracked but doesn't change prompt
         target.set_mode("lie" if is_lying else "truth", claim=claim)
         try:
             result = detector.interrogate(target, claim, verbose=verbose)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_external_audit_judge.py — EXP-XJ analysis. Spec: docs/PREREG_EXP_XJ.md.
+analyze_external_audit_judge.py, EXP-XJ analysis. Spec: docs/PREREG_EXP_XJ.md.
 
 Recomputes every reported number from data/results/external_audit_judge_raw.jsonl,
 which the runner committed. NO model calls, no network, no fitting.
@@ -305,7 +305,7 @@ def main():
            }
 
     print("=" * 92)
-    print("  EXP-XJ — criterion 4 with the corpus authors' own black-box judge")
+    print("  EXP-XJ: criterion 4 with the corpus authors' own black-box judge")
     print(f"  judge: {out['judge']['model']}  T={out['judge']['temperature']}  "
           f"prompt md5={out['judge']['prompt_md5']}")
     print(f"  detector definition: data/black_box_baseline/prompt.txt (verbatim, "
@@ -439,7 +439,7 @@ def main():
         gates_ok = (prim.get("verdict") in ("CRITERION4_POSITIVE", "CRITERION4_NULL")
                     and blk["parse"]["status"] == "OK")
         if not gates_ok:
-            branch, claim = "D", "INAPPLICABLE — a pre-registered gate failed; no claim."
+            branch, claim = "D", "INAPPLICABLE: a pre-registered gate failed; no claim."
         elif prim.get("verdict") == "CRITERION4_POSITIVE" and ratios and min(
                 ratios.values()) >= 0.5:
             branch = "A"
@@ -543,7 +543,7 @@ def main():
         for k in sorted(k for k in sb[arm] if k.startswith(("H1_", "H4_"))):
             show(k, sb[arm][k])
         if "H6_label_at_fixed_grade" in sb[arm]:
-            print("    [DESCRIPTIVE, tau_E — NOT criterion 4]")
+            print("    [DESCRIPTIVE, tau_E; NOT criterion 4]")
             for k, v in sb[arm]["H6_label_at_fixed_grade"].items():
                 show("H6_" + k, v)
         if "topic_stratified" in sb[arm]:
@@ -580,7 +580,7 @@ def main():
                   f"mean delta {q['mean_delta']:+.3f}, mean |delta| "
                   f"{q['mean_abs_delta']:.3f}, Spearman {q['spearman']:.3f}, "
                   f">=4 flag flips {q['binarised_flip_rate']*100:.1f}%")
-        print(f"    PREREG AMENDMENT 1 BRANCH: {blk['branch']} — {blk['may_claim']}")
+        print(f"    PREREG AMENDMENT 1 BRANCH: {blk['branch']}, {blk['may_claim']}")
 
     for arm in ("visible", "visible_fullctx", "full"):
         if arm not in it:

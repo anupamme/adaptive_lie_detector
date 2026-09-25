@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_exp_i_4th_scenario.py — Refusal-count LOO on the 4th scenario conversations.
+analyze_exp_i_4th_scenario.py: Refusal-count LOO on the 4th scenario conversations.
 
 Reads the `_latest.json` for one or more models and reports refusal-count LOO
 (single-feature LR with scaling, same pipeline as Table 9) per condition per model,
@@ -121,7 +121,7 @@ def main():
         summary.append(r)
 
     print("\n" + "=" * 78)
-    print("PRE-REGISTERED 4TH SCENARIO — REFUSAL-COUNT LOO")
+    print("PRE-REGISTERED 4TH SCENARIO: REFUSAL-COUNT LOO")
     print("=" * 78)
     print(f"{'Target':<14} {'High':>28}  {'Low':>28}  {'Delta':>8}")
     print(f"{'':<14} {'LOO  [CI]  (d)':>28}  {'LOO  [CI]  (d)':>28}  {'(pp)':>8}")

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-analyze_external_audit.py — EXP-XA analysis. Recomputes every reported number
+analyze_external_audit.py: EXP-XA analysis. Recomputes every reported number
 from the committed JSON written by run_external_audit.py. No model calls, no
 network, no fitting.
 
@@ -311,7 +311,7 @@ def main():
         raise SystemExit(f"no results for arm={args.arm}; run the runner first")
 
     print("=" * 92)
-    print(f"  EXP-XA — criterion 4 (intervention A) on external benchmarks "
+    print(f"  EXP-XA: criterion 4 (intervention A) on external benchmarks "
           f"[{args.arm.upper()}]")
     print(f"  primary: L_doc patterns, user-visible channel; "
           f"perm={N_PERM}, seed={SEED}, one-sided")

@@ -283,7 +283,7 @@ def main():
     todo = [it for it in items if it["key"] not in done]
 
     print("=" * 68)
-    print(f"EXP-C4 deception grading — {'SMOKE' if smoke else 'FULL'} "
+    print(f"EXP-C4 deception grading: {'SMOKE' if smoke else 'FULL'} "
           f"({args.phase})")
     print("=" * 68)
     print(f"  grader     : {MODEL_ID} @ {AWS_REGION}")

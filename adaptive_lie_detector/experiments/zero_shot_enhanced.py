@@ -395,7 +395,7 @@ def main():
     skipped = len(all_results) - len(usable)
 
     print(f"Trials with conversation: {len(usable)} / {len(all_results)}"
-          + (f" ({skipped} skipped — no conversation saved)" if skipped else ""))
+          + (f" ({skipped} skipped: no conversation saved)" if skipped else ""))
 
     if not usable:
         print("ERROR: No trials have 'conversation' field.")

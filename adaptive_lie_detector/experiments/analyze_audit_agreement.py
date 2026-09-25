@@ -181,12 +181,12 @@ def main():
     raters = sorted({r["rater_family"] for r in rows})
 
     print("=" * 96)
-    print("EXP-AA step 3 — agreement on requirements (i)-(v)  (PREREG §7-§9)")
+    print("EXP-AA step 3: agreement on requirements (i)-(v)  (PREREG §7-§9)")
     print("=" * 96)
     print(f"  cases {len(cases)}   raters {len(raters)} {raters}   "
           f"ratings {len(rows)} of {len(cases) * len(raters)}")
     if len(rows) != len(cases) * len(raters):
-        print("  INCOMPLETE PANEL — PREREG §5 requires all three raters on every case.")
+        print("  INCOMPLETE PANEL: PREREG §5 requires all three raters on every case.")
 
     apollo = sorted({r["case"] for r in rows if r["release"] == "apollo"})
     lbcase = sorted({r["case"] for r in rows if r["release"] == "liars_bench"})
@@ -208,9 +208,9 @@ def main():
         elif a >= PREREG_THRESHOLD:
             verdict = "decidable from release text"
         elif a >= PARTLY_THRESHOLD:
-            verdict = "PARTLY decidable — verdict carries rater judgment"
+            verdict = "PARTLY decidable: verdict carries rater judgment"
         else:
-            verdict = "NOT decidable from the release alone — §9 narrows claim (2)"
+            verdict = "NOT decidable from the release alone: §9 narrows claim (2)"
         shown = "n/a" if isinstance(a, str) else f"{a:.3f}"
         print(f"  ({req:3s} {shown:>8s} {pa:9.1%} {un:7.1%} {n:6d} "
               f"{und:7.1%} {unp:8.1%}  {verdict}")
@@ -236,7 +236,7 @@ def main():
         pooled_units += [u for u in by_case.values() if len(u) >= 2]
     pooled = krippendorff_nominal(pooled_units)
     print(f"  pooled over all five requirements: alpha = {pooled:.3f} "
-          f"({len(pooled_units)} units) — context only; PREREG §9 says "
+          f"({len(pooled_units)} units): context only; PREREG §9 says "
           f"per-requirement coefficients govern")
 
     # ------------------------------------- release-stratified (PREREG §4a)
@@ -290,7 +290,7 @@ def main():
             print(f"  ({req:3s} {hits:2d}/{tot:2d} = {hits / tot:5.1%}"
                   f"{'  (majority concordance: H-AA2 holds)' if hits * 2 > tot else '  (H-AA2 FAILS)'}")
         else:
-            print(f"  ({req:3s}  no recorded referent exists — alpha only (PREREG §8)")
+            print(f"  ({req:3s}  no recorded referent exists, alpha only (PREREG §8)")
     total_c = sum(v["concordant"] for v in conc.values())
     total_n = sum(v["n"] for v in conc.values())
     print(f"  all requirements with a referent: {total_c}/{total_n} = "

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-reproduce_tables.py — Reproduce headline tables from the supplementary CSV data.
+reproduce_tables.py: Reproduce headline tables from the supplementary CSV data.
 
 Requirements: Python 3.8+ (no external dependencies).
 
@@ -30,7 +30,7 @@ def load_results(path="headline_results.csv"):
 def print_table_detection_accuracy(rows):
     """Print Table: Per-Model Detection Accuracy (Prompt-Equalized Condition)."""
     print("=" * 90)
-    print("TABLE: Per-Model Detection Accuracy — Prompt-Equalized Condition")
+    print("TABLE: Per-Model Detection Accuracy, Prompt-Equalized Condition")
     print("=" * 90)
     print(f"{'Model':<20} {'N':>5} {'LOO Acc%':>10} {'Refusal k=1%':>13} "
           f"{'Truth Acc%':>11} {'Lie Acc%':>9} {'Avg Q':>7}")
@@ -39,11 +39,11 @@ def print_table_detection_accuracy(rows):
     valid_rows = [r for r in rows if r["n_samples"] and r["n_samples"] >= 10]
 
     for r in valid_rows:
-        loo = f"{r['loo_accuracy_pct']:.1f}" if r["loo_accuracy_pct"] else "—"
-        ref = f"{r['refusal_k1_accuracy_pct']:.1f}" if r["refusal_k1_accuracy_pct"] else "—"
-        truth = f"{r['truthful_acc_pct']:.1f}" if r["truthful_acc_pct"] else "—"
-        lie = f"{r['lying_acc_pct']:.1f}" if r["lying_acc_pct"] else "—"
-        avgq = f"{r['avg_questions']:.1f}" if r["avg_questions"] else "—"
+        loo = f"{r['loo_accuracy_pct']:.1f}" if r["loo_accuracy_pct"] else "-"
+        ref = f"{r['refusal_k1_accuracy_pct']:.1f}" if r["refusal_k1_accuracy_pct"] else "-"
+        truth = f"{r['truthful_acc_pct']:.1f}" if r["truthful_acc_pct"] else "-"
+        lie = f"{r['lying_acc_pct']:.1f}" if r["lying_acc_pct"] else "-"
+        avgq = f"{r['avg_questions']:.1f}" if r["avg_questions"] else "-"
         n = int(r["n_samples"])
         print(f"{r['model']:<20} {n:>5} {loo:>10} {ref:>13} {truth:>11} {lie:>9} {avgq:>7}")
 

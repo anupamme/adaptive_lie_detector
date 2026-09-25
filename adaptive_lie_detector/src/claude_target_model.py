@@ -52,7 +52,7 @@ class ClaudeTargetModel:
     """
     Target model backed by Claude Haiku via AWS Bedrock.
 
-    Claude acts as the 'subject' being interrogated — instructed to either
+    Claude acts as the 'subject' being interrogated: instructed to either
     answer honestly (truth mode) or defend a false claim (lie mode).
     """
 

@@ -128,7 +128,7 @@ def loo_accuracy(X, y):
 
 
 def kfold_accuracy(X, y, k=5):
-    """Stratified k-fold — unbiased at chance for uninformative features."""
+    """Stratified k-fold: unbiased at chance for uninformative features."""
     if len(np.unique(y)) < 2 or len(y) < 2 * k:
         return float("nan")
     cv = StratifiedKFold(n_splits=k, shuffle=True, random_state=0)
@@ -137,7 +137,7 @@ def kfold_accuracy(X, y, k=5):
 
 
 def grouped_kfold_accuracy(X, y, groups, k=5):
-    """Grouped k-fold — keeps matched claim pairs in the same fold."""
+    """Grouped k-fold: keeps matched claim pairs in the same fold."""
     if len(np.unique(y)) < 2 or len(y) < 2 * k:
         return float("nan")
     cv = GroupKFold(n_splits=k)
@@ -275,7 +275,7 @@ def main():
             dim_rows = per_dimension_report(d["X"], d["y"], d["groups"], d["questions"])
             per_dim[f"{m}|{cond}"] = dim_rows
             print("-" * 100)
-            print(f"PER-DIMENSION — {m} / {cond}  (grouped-5-fold on one probe at a time)")
+            print(f"PER-DIMENSION: {m} / {cond}  (grouped-5-fold on one probe at a time)")
             print(f"  {'dim':>4}{'grp-5f':>9}{'P(yes|lie)-P(yes|true)':>24}{'LR coef':>10}  question")
             for r in sorted(dim_rows, key=lambda r: (-(r['acc'] if r['acc'] == r['acc'] else 0))):
                 a = f"{r['acc']:.1%}" if r["acc"] == r["acc"] else "const"

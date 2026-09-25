@@ -1,0 +1,743 @@
+{
+  "experiment": "EXP-F (truth-value x deception factorial)",
+  "purpose": "blind hand-coding of D; see factorial_txd_CODEBOOK.md",
+  "seed": 42,
+  "per_cell": 12,
+  "n_items": 144,
+  "cells": [
+    "T_H",
+    "F_H",
+    "T_D",
+    "F_D"
+  ],
+  "models": [
+    "llama3.2:3b",
+    "mistral:7b",
+    "qwen2.5:14b"
+  ],
+  "coded": false,
+  "coded_by": null,
+  "note": "The `code` column of the sheet is emitted EMPTY and no script in this repository may fill it. A machine grade here would be the construct recovery the paper names as a failure mode.",
+  "items": {
+    "F001": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 4
+    },
+    "F002": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 31
+    },
+    "F003": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 3
+    },
+    "F004": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 8
+    },
+    "F005": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 16
+    },
+    "F006": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 10
+    },
+    "F007": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 21
+    },
+    "F008": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 13
+    },
+    "F009": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 38
+    },
+    "F010": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 1
+    },
+    "F011": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 10
+    },
+    "F012": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 7
+    },
+    "F013": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 29
+    },
+    "F014": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 10
+    },
+    "F015": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 48
+    },
+    "F016": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 37
+    },
+    "F017": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 46
+    },
+    "F018": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 10
+    },
+    "F019": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 30
+    },
+    "F020": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 19
+    },
+    "F021": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 15
+    },
+    "F022": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 9
+    },
+    "F023": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 3
+    },
+    "F024": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 30
+    },
+    "F025": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 32
+    },
+    "F026": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 6
+    },
+    "F027": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 16
+    },
+    "F028": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 25
+    },
+    "F029": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 40
+    },
+    "F030": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 47
+    },
+    "F031": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 5
+    },
+    "F032": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 47
+    },
+    "F033": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 46
+    },
+    "F034": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 27
+    },
+    "F035": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 35
+    },
+    "F036": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 41
+    },
+    "F037": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 34
+    },
+    "F038": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 5
+    },
+    "F039": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 26
+    },
+    "F040": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 28
+    },
+    "F041": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 48
+    },
+    "F042": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 18
+    },
+    "F043": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 20
+    },
+    "F044": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 0
+    },
+    "F045": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 2
+    },
+    "F046": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 48
+    },
+    "F047": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 3
+    },
+    "F048": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 9
+    },
+    "F049": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 22
+    },
+    "F050": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 13
+    },
+    "F051": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 43
+    },
+    "F052": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 32
+    },
+    "F053": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 47
+    },
+    "F054": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 37
+    },
+    "F055": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 43
+    },
+    "F056": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 32
+    },
+    "F057": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 36
+    },
+    "F058": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 26
+    },
+    "F059": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 9
+    },
+    "F060": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 16
+    },
+    "F061": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 36
+    },
+    "F062": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 48
+    },
+    "F063": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 6
+    },
+    "F064": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 44
+    },
+    "F065": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 5
+    },
+    "F066": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 7
+    },
+    "F067": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 33
+    },
+    "F068": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 8
+    },
+    "F069": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 19
+    },
+    "F070": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 17
+    },
+    "F071": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 28
+    },
+    "F072": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 10
+    },
+    "F073": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 36
+    },
+    "F074": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 34
+    },
+    "F075": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 16
+    },
+    "F076": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 44
+    },
+    "F077": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 30
+    },
+    "F078": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 21
+    },
+    "F079": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 21
+    },
+    "F080": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 30
+    },
+    "F081": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 1
+    },
+    "F082": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 4
+    },
+    "F083": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 27
+    },
+    "F084": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 2
+    },
+    "F085": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 6
+    },
+    "F086": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 30
+    },
+    "F087": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 23
+    },
+    "F088": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 17
+    },
+    "F089": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 12
+    },
+    "F090": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 7
+    },
+    "F091": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 0
+    },
+    "F092": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 18
+    },
+    "F093": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 45
+    },
+    "F094": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 18
+    },
+    "F095": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 17
+    },
+    "F096": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 42
+    },
+    "F097": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 19
+    },
+    "F098": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 31
+    },
+    "F099": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 11
+    },
+    "F100": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 12
+    },
+    "F101": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 41
+    },
+    "F102": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 14
+    },
+    "F103": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 31
+    },
+    "F104": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 19
+    },
+    "F105": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 14
+    },
+    "F106": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 30
+    },
+    "F107": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 44
+    },
+    "F108": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 39
+    },
+    "F109": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 23
+    },
+    "F110": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 42
+    },
+    "F111": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 15
+    },
+    "F112": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 4
+    },
+    "F113": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 35
+    },
+    "F114": {
+      "model": "qwen2.5:14b",
+      "cell": "T_D",
+      "source_index": 49
+    },
+    "F115": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 45
+    },
+    "F116": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 7
+    },
+    "F117": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 30
+    },
+    "F118": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 5
+    },
+    "F119": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 28
+    },
+    "F120": {
+      "model": "qwen2.5:14b",
+      "cell": "F_H",
+      "source_index": 20
+    },
+    "F121": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 26
+    },
+    "F122": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 4
+    },
+    "F123": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 17
+    },
+    "F124": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 19
+    },
+    "F125": {
+      "model": "mistral:7b",
+      "cell": "T_H",
+      "source_index": 15
+    },
+    "F126": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 10
+    },
+    "F127": {
+      "model": "qwen2.5:14b",
+      "cell": "T_H",
+      "source_index": 4
+    },
+    "F128": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 22
+    },
+    "F129": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 12
+    },
+    "F130": {
+      "model": "llama3.2:3b",
+      "cell": "F_D",
+      "source_index": 27
+    },
+    "F131": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 44
+    },
+    "F132": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 26
+    },
+    "F133": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 40
+    },
+    "F134": {
+      "model": "qwen2.5:14b",
+      "cell": "F_D",
+      "source_index": 49
+    },
+    "F135": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 25
+    },
+    "F136": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 4
+    },
+    "F137": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 35
+    },
+    "F138": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 32
+    },
+    "F139": {
+      "model": "llama3.2:3b",
+      "cell": "T_H",
+      "source_index": 4
+    },
+    "F140": {
+      "model": "llama3.2:3b",
+      "cell": "T_D",
+      "source_index": 27
+    },
+    "F141": {
+      "model": "mistral:7b",
+      "cell": "F_H",
+      "source_index": 1
+    },
+    "F142": {
+      "model": "llama3.2:3b",
+      "cell": "F_H",
+      "source_index": 31
+    },
+    "F143": {
+      "model": "mistral:7b",
+      "cell": "F_D",
+      "source_index": 14
+    },
+    "F144": {
+      "model": "mistral:7b",
+      "cell": "T_D",
+      "source_index": 39
+    }
+  }
+}

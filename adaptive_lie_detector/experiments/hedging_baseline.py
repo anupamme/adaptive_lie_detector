@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-hedging_baseline.py — EXP-C
+hedging_baseline.py: EXP-C
 
 Simple bag-of-words hedging/refusal baseline classifier.
-No LLM feature extraction — only regex counts on response text.
+No LLM feature extraction: only regex counts on response text.
 
 Addresses reviewer Q3: "What is the performance of a simple
 bag-of-words hedging-word classifier on the real LLM transcripts?"
@@ -61,7 +61,7 @@ REFUSAL_PATTERNS = [
 
 
 def extract_text_features(conversation):
-    """Extract simple text features from conversation — no LLM needed."""
+    """Extract simple text features from conversation: no LLM needed."""
     assistant_texts = [msg["content"] for msg in conversation
                        if msg.get("role") == "assistant"]
     if not assistant_texts:
